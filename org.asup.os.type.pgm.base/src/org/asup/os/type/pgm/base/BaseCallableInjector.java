@@ -13,6 +13,7 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.WildcardType;
@@ -36,6 +37,7 @@ import org.asup.il.data.QDataManager;
 import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.data.QList;
+import org.asup.il.data.QString;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Program;
 import org.asup.il.isam.AccessMode;
@@ -47,11 +49,7 @@ import org.asup.il.isam.QRecord;
 import org.asup.il.isam.QSMDataSet;
 import org.asup.il.isam.annotation.FileDef;
 import org.asup.os.core.OperatingSystemRuntimeException;
-import org.asup.os.core.Scope;
 import org.asup.os.core.jobs.QJob;
-import org.asup.os.core.resources.QResourceReader;
-import org.asup.os.type.file.QFile;
-import org.asup.os.type.file.QFileManager;
 import org.asup.os.type.pgm.QActivationGroup;
 
 public class BaseCallableInjector {
@@ -61,16 +59,7 @@ public class BaseCallableInjector {
 	@Inject
 	private QIsamManager isamManager;
 	@Inject
-	private QFileManager fileManager;
-	@Inject
 	private QJob job;
-
-	private QResourceReader<QFile> fileReader;
-
-	@PostConstruct
-	public void init() {
-		this.fileReader = fileManager.getResourceReader(job, Scope.LIBRARY_LIST);
-	}
 
 	private QDataWriter dataWriter = QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter();
 
@@ -183,13 +172,18 @@ public class BaseCallableInjector {
 
 		for (Field field : klass.getDeclaredFields()) {
 
-			field.setAccessible(true);
-
-			// System.out.println(field);
-
 			// TODO
 			if (field.getName().startsWith("$SWITCH_TABLE"))
 				continue;
+
+			if(Modifier.isStatic(field.getModifiers())) {
+				if(field.get(callable) != null)
+					continue;
+			}
+			
+			field.setAccessible(true);
+
+			// System.out.println(field);
 
 			Type type = field.getGenericType();
 
@@ -239,8 +233,22 @@ public class BaseCallableInjector {
 							i++;
 						}
 					} else {
-						if (!dataDef.value().isEmpty())
-							data.accept(dataWriter.set(dataDef.value()));
+						if (!dataDef.value().isEmpty()) {
+							if(data instanceof QString) {
+								
+								String value = dataDef.value();
+								if(value.startsWith("'") && value.endsWith("'")) {
+									value = value.substring(1).substring(0, value.lastIndexOf("'")-1);
+									
+									data.accept(dataWriter.set(value));
+								}
+								else							
+									data.accept(dataWriter.set(value));
+							}
+							else {
+								data.accept(dataWriter.set(dataDef.value()));
+							}
+						}
 					}
 
 				}
@@ -293,24 +301,12 @@ public class BaseCallableInjector {
 
 			QDataSet<QRecord> dataSet = null;
 
-			QFile file = fileManager.getOverriddenFile(job, fileDef.name());
-			if (file == null)
-				file = fileReader.lookup(fileDef.name());
-
-			if (file == null)
-				file = fileReader.lookup(recordKlass.getSimpleName());
-
-			if (file == null) {
-				System.err.println("File not found: " + fileDef.name());
-				return;
-			}
-
 			if (QKSDataSet.class.isAssignableFrom(fieldKlass)) {
-				dataSet = isamFactory.createKeySequencedDataSet(file.getLibrary(), recordKlass, AccessMode.UPDATE, fileDef.userOpen());
+				dataSet = isamFactory.createKeySequencedDataSet(recordKlass, AccessMode.UPDATE, fileDef.userOpen());
 			} else if (QSMDataSet.class.isAssignableFrom(fieldKlass)) {
-				dataSet = isamFactory.createRelativeRecordDataSet(file.getLibrary(), recordKlass, AccessMode.UPDATE, fileDef.userOpen());
+				dataSet = null;
 			} else {
-				dataSet = isamFactory.createRelativeRecordDataSet(file.getLibrary(), recordKlass, AccessMode.UPDATE, fileDef.userOpen());
+				dataSet = isamFactory.createRelativeRecordDataSet(recordKlass, AccessMode.UPDATE, fileDef.userOpen());
 			}
 
 			field.set(callable, dataSet);

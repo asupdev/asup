@@ -35,6 +35,8 @@ import org.asup.dk.compiler.rpj.writer.JDTProgramWriter;
 import org.asup.dk.compiler.rpj.writer.JDTStubWriter;
 import org.asup.dk.source.QSourceEntry;
 import org.asup.dk.source.QSourceManager;
+import org.asup.il.data.QDataFactory;
+import org.asup.il.data.QDataManager;
 import org.asup.il.expr.QExpressionParser;
 import org.asup.il.expr.QExpressionParserRegistry;
 import org.asup.il.flow.QCallableUnit;
@@ -73,6 +75,8 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 	private QModuleManager moduleManager;
 	@Inject
 	private QSourceManager sourceManager;
+	@Inject
+	private QDataManager dataManager;
 
 	private ResourceSet resourceSet = new ResourceSetImpl();
 	private Map<String, QCompilationUnit> globalContexts = new HashMap<>();
@@ -102,8 +106,10 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 
 		RPJCompilationUnitImpl compilationUnit = new RPJCompilationUnitImpl(job.getContext().createChildContext(module.getName()), module, moduleContexts, caseSensitive);
 
+		// compilationUnit
 		compilationUnit.getContext().set(QCompilationUnit.class, compilationUnit);
 
+		// expression parser
 		if (module.getSetupSection() != null) {
 			String expressionType = module.getSetupSection().getExpressionType();
 			if (expressionType != null) {
@@ -112,6 +118,11 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 			}
 		}
 
+		// dataFactory
+		QDataFactory dataFactory = dataManager.createFactory(compilationUnit);
+		compilationUnit.getContext().set(QDataFactory.class, dataFactory);
+		
+		// module
 		compilationUnit.getContext().set(QModule.class, module);
 
 		return compilationUnit;
@@ -141,8 +152,10 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 
 		RPJCompilationUnitImpl compilationUnit = new RPJCompilationUnitImpl(job.getContext().createChildContext(program.getName()), program, moduleContexts, caseSensitive);
 
+		// compilation unit
 		compilationUnit.getContext().set(QCompilationUnit.class, compilationUnit);
 
+		// expression parser
 		if (program.getSetupSection() != null) {
 			String expressionType = program.getSetupSection().getExpressionType();
 			if (expressionType != null) {
@@ -151,6 +164,10 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 				compilationUnit.getContext().set(QExpressionParser.class, expressionParser);
 			}
 		}
+
+		// dataFactory
+		QDataFactory dataFactory = dataManager.createFactory(compilationUnit);
+		compilationUnit.getContext().set(QDataFactory.class, dataFactory);
 
 		compilationUnit.getContext().set(QProgram.class, program);
 

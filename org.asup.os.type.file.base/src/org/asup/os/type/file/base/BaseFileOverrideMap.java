@@ -16,11 +16,11 @@ import java.util.Map;
 
 import org.asup.os.type.file.QFile;
 
-public class BaseOverridedFileMap {
+public class BaseFileOverrideMap {
 
 	private Map<String, QFile> files = null;
 	
-	public BaseOverridedFileMap() {
+	public BaseFileOverrideMap() {
 		this.files = new HashMap<String, QFile>(); 
 	}
 	

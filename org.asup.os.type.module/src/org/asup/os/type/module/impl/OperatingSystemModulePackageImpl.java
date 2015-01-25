@@ -8,13 +8,16 @@
 package org.asup.os.type.module.impl;
 
 import org.asup.fw.java.QFrameworkJavaPackage;
+import org.asup.il.data.QIntegratedLanguageDataPackage;
 import org.asup.os.omac.QOperatingSystemOmacPackage;
 import org.asup.os.type.QOperatingSystemTypePackage;
 import org.asup.os.type.module.QModule;
+import org.asup.os.type.module.QModuleContainer;
 import org.asup.os.type.module.QModuleManager;
 import org.asup.os.type.module.QModuleSource;
 import org.asup.os.type.module.QOperatingSystemModuleFactory;
 import org.asup.os.type.module.QOperatingSystemModulePackage;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
@@ -49,6 +52,13 @@ public class OperatingSystemModulePackageImpl extends EPackageImpl implements QO
 	 * @generated
 	 */
 	private EClass moduleSourceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass moduleContainerEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -128,8 +138,17 @@ public class OperatingSystemModulePackageImpl extends EPackageImpl implements QO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getModule_Address() {
+		return (EAttribute)moduleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getModule_Source() {
-		return (EReference)moduleEClass.getEStructuralFeatures().get(0);
+		return (EReference)moduleEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -173,6 +192,33 @@ public class OperatingSystemModulePackageImpl extends EPackageImpl implements QO
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getModuleContainer() {
+		return moduleContainerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getModuleContainer_BasePackage() {
+		return (EAttribute)moduleContainerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getModuleContainer_ScanPackage() {
+		return (EAttribute)moduleContainerEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QOperatingSystemModuleFactory getOperatingSystemModuleFactory() {
 		return (QOperatingSystemModuleFactory)getEFactoryInstance();
 	}
@@ -197,6 +243,7 @@ public class OperatingSystemModulePackageImpl extends EPackageImpl implements QO
 
 		// Create classes and their features
 		moduleEClass = createEClass(MODULE);
+		createEAttribute(moduleEClass, MODULE__ADDRESS);
 		createEReference(moduleEClass, MODULE__SOURCE);
 
 		moduleManagerEClass = createEClass(MODULE_MANAGER);
@@ -204,6 +251,10 @@ public class OperatingSystemModulePackageImpl extends EPackageImpl implements QO
 		moduleSourceEClass = createEClass(MODULE_SOURCE);
 		createEAttribute(moduleSourceEClass, MODULE_SOURCE__TYPE);
 		createEAttribute(moduleSourceEClass, MODULE_SOURCE__CONTENT);
+
+		moduleContainerEClass = createEClass(MODULE_CONTAINER);
+		createEAttribute(moduleContainerEClass, MODULE_CONTAINER__BASE_PACKAGE);
+		createEAttribute(moduleContainerEClass, MODULE_CONTAINER__SCAN_PACKAGE);
 	}
 
 	/**
@@ -245,9 +296,14 @@ public class OperatingSystemModulePackageImpl extends EPackageImpl implements QO
 		g1.getETypeArguments().add(g2);
 		moduleManagerEClass.getEGenericSuperTypes().add(g1);
 		moduleSourceEClass.getESuperTypes().add(theOperatingSystemOmacPackage.getObject());
+		g1 = createEGenericType(theOperatingSystemTypePackage.getTypedContainer());
+		g2 = createEGenericType(this.getModule());
+		g1.getETypeArguments().add(g2);
+		moduleContainerEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(moduleEClass, QModule.class, "Module", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getModule_Address(), ecorePackage.getEString(), "address", null, 0, 1, QModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModule_Source(), this.getModuleSource(), null, "source", null, 0, 1, QModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(moduleEClass, theFrameworkJavaPackage.getJavaURI(), "getClassURI", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -260,8 +316,35 @@ public class OperatingSystemModulePackageImpl extends EPackageImpl implements QO
 		initEAttribute(getModuleSource_Type(), ecorePackage.getEString(), "type", "ASUP", 0, 1, QModuleSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getModuleSource_Content(), ecorePackage.getEString(), "content", null, 0, 1, QModuleSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(moduleContainerEClass, QModuleContainer.class, "ModuleContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getModuleContainer_BasePackage(), ecorePackage.getEString(), "basePackage", null, 0, 1, QModuleContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getModuleContainer_ScanPackage(), ecorePackage.getEBoolean(), "scanPackage", null, 1, 1, QModuleContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// il-data
+		createIldataAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>il-data</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createIldataAnnotations() {
+		String source = "il-data";	
+		addAnnotation
+		  (getModule_Address(), 
+		   source, 
+		   new String[] {
+			 "length", "128"
+		   },
+		   new URI[] {
+			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
+		   });
 	}
 
 } //OperatingSystemModulePackageImpl

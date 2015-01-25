@@ -18,6 +18,7 @@ import org.asup.os.type.QTypedObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.asup.os.type.module.QModule#getAddress <em>Address</em>}</li>
  *   <li>{@link org.asup.os.type.module.QModule#getSource <em>Source</em>}</li>
  * </ul>
  * </p>
@@ -27,6 +28,32 @@ import org.asup.os.type.QTypedObject;
  * @generated
  */
 public interface QModule extends QTypedObject {
+
+	/**
+	 * Returns the value of the '<em><b>Address</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Address</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Address</em>' attribute.
+	 * @see #setAddress(String)
+	 * @see org.asup.os.type.module.QOperatingSystemModulePackage#getModule_Address()
+	 * @model annotation="il-data length='128'"
+	 * @generated
+	 */
+	String getAddress();
+
+	/**
+	 * Sets the value of the '{@link org.asup.os.type.module.QModule#getAddress <em>Address</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Address</em>' attribute.
+	 * @see #getAddress()
+	 * @generated
+	 */
+	void setAddress(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' containment reference.

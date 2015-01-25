@@ -27,6 +27,7 @@ public @interface DataDef {
 	
 	// common	
 	String value() default "";
+	String target() default "";
 	String[] formulas() default {};
 	
 	// compound

@@ -38,7 +38,7 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 	
 	@Override
 	public String asString() {
-		return readNumber().toString();
+		return new String(asBytes());
 	}
 
 	public abstract int compareNumber(Number value);

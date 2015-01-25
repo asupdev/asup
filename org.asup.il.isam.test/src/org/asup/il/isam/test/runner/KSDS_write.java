@@ -30,7 +30,7 @@ public class KSDS_write {
 
 	private void testMUTEST() {
 
-		QKSDataSet<MUTEST0F> mutest0f = isamFactory.createKeySequencedDataSet(null, MUTEST0F.class, AccessMode.UPDATE);
+		QKSDataSet<MUTEST0F> mutest0f = isamFactory.createKeySequencedDataSet(MUTEST0F.class, AccessMode.UPDATE);
 
 		mutest0f.open();
 		testAsserter.resetTime();

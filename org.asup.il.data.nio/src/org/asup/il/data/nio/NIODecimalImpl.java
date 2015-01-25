@@ -83,7 +83,15 @@ public class NIODecimalImpl extends NIONumericImpl implements QDecimal {
 		AS400ZonedDecimal zoned = new AS400ZonedDecimal(getPrecision(), getScale());
 		zoned.setUseDouble(true);
 
-		return zoned.toDouble(asBytes());
+		double result = 0;		
+		try {
+			result = zoned.toDouble(asBytes());
+		}
+		catch(Exception e) {
+			System.err.println("Unexpected condition vv6666eqw5rqvcrqv: "+e);
+		}
+		
+		return result;
 	}
 
 	@Override

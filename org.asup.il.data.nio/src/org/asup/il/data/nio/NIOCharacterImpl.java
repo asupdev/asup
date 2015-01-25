@@ -133,115 +133,115 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 		return trimR(asString());
 	}
 
+
+	/* cat */
+	@Override
+	public void cat(QString factor1) {
+		eval(trimR()+factor1.asString());			
+	}
+	
+	@Override
+	public void cat(String factor1) {
+		eval(trimR()+factor1);
+	}
+
+	@Override
+	public void cat(String factor1, QString factor2) {
+		eval(factor1+factor2.asString());
+	}
+
+	@Override
+	public void cat(QString factor1, QString factor2) {
+		eval(factor1.trimR()+factor2.asString());
+	}
+
+	@Override
+	public void cat(QString factor1, String factor2) {
+		eval(factor1.asString()+factor2);
+	}
+
+	@Override
+	public void cat(String factor1, String factor2) {
+		eval(factor1+factor2);
+	}
+
+	
 	@Override
 	public void cat(QString factor1, Number space) {
 		// TODO Auto-generated method stub
-		
+		factor1.toString();
 	}
 
 	@Override
 	public void cat(String factor1, Number space) {
 		// TODO Auto-generated method stub
-		
+		factor1.toString();		
 	}
 
 	@Override
 	public void cat(QString factor1, QNumeric space) {
 		// TODO Auto-generated method stub
-		
+		factor1.toString();
 	}
 
 	@Override
 	public void cat(String factor1, QNumeric space) {
 		// TODO Auto-generated method stub
-		
+		factor1.toString();
 	}
 
 	@Override
 	public void cat(String factor1, String factor2, int space) {
 		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void cat(String factor1, String factor2) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	@Override
-	public void cat(String factor1) {
-		// TODO Auto-generated method stub
-		
+		factor1.toString();
 	}
 	
 	@Override
 	public void cat(String factor1, String factor2, QNumeric space) {
 		// TODO Auto-generated method stub
-		
+		factor1.toString();
 	}
 
 	@Override
 	public void cat(String factor1, QString factor2, int space) {
 		// TODO Auto-generated method stub
-		
+		factor1.toString();
 	}
 
 	@Override
 	public void cat(String factor1, QString factor2, QNumeric space) {
 		// TODO Auto-generated method stub
-		
+		factor1.toString();
 	}
 
 	@Override
 	public void cat(QString factor1, QString factor2, int space) {
 		// TODO Auto-generated method stub
-		
+		factor1.toString();
 	}
 
 	@Override
 	public void cat(QString factor1, QString factor2, QNumeric space) {
 		// TODO Auto-generated method stub
-		
+		factor1.toString();
 	}
 
 	@Override
 	public void cat(QString factor1, String factor2, int space) {
 		// TODO Auto-generated method stub
-		
+		factor1.toString();
 	}
 
 	@Override
 	public void cat(QString factor1, QString factor2, Number space) {
 		// TODO Auto-generated method stub
-		
+		factor1.toString();
 	}
 
 	@Override
 	public void cat(QString factor1, String factor2, Number space) {
 		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void cat(String factor1, QString factor2) {
-		eval(factor1+factor2.trimR());
-	}
-
-	@Override
-	public void cat(QString factor1, QString factor2) {
-		eval(factor1.trimR()+factor2.trimR());
-	}
-
-	@Override
-	public void cat(QString factor1, String factor2) {
-		eval(factor1.trimR()+factor2);
-	}
-
-	@Override
-	public void cat(QString factor1) {
-		// TODO Auto-generated method stub
-		
+		factor1.toString();
 	}
 
 	@Override

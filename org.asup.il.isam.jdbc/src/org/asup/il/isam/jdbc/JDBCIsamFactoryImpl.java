@@ -77,17 +77,17 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 	}
 
 	@Override
-	public <R extends QRecord> QKSDataSet<R> createKeySequencedDataSet(String container, Class<R> wrapper) {
-		return createKeySequencedDataSet(container, wrapper, AccessMode.INPUT);
+	public <R extends QRecord> QKSDataSet<R> createKeySequencedDataSet(Class<R> wrapper) {
+		return createKeySequencedDataSet(wrapper, AccessMode.INPUT);
 	}
 	@Override
-	public <R extends QRecord> QKSDataSet<R> createKeySequencedDataSet(String container, Class<R> wrapper, AccessMode accessMode) {
-		return createKeySequencedDataSet(container, wrapper, accessMode, true);
+	public <R extends QRecord> QKSDataSet<R> createKeySequencedDataSet(Class<R> wrapper, AccessMode accessMode) {
+		return createKeySequencedDataSet(wrapper, accessMode, true);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public <R extends QRecord> QKSDataSet<R> createKeySequencedDataSet(String container, Class<R> wrapper, AccessMode accessMode, boolean userOpen) {
+	public <R extends QRecord> QKSDataSet<R> createKeySequencedDataSet(Class<R> wrapper, AccessMode accessMode, boolean userOpen) {
 		try {
 
 			R record = null;
@@ -109,19 +109,19 @@ public class JDBCIsamFactoryImpl implements QIsamFactory {
 	}
 
 	@Override
-	public <R extends QRecord> QRRDataSet<R> createRelativeRecordDataSet(String container, Class<R> wrapper) {
+	public <R extends QRecord> QRRDataSet<R> createRelativeRecordDataSet(Class<R> wrapper) {
 
-		return createRelativeRecordDataSet(container, wrapper, AccessMode.INPUT);
+		return createRelativeRecordDataSet(wrapper, AccessMode.INPUT);
 	}
 
 	@Override
-	public <R extends QRecord> QRRDataSet<R> createRelativeRecordDataSet(String container, Class<R> wrapper, AccessMode accessMode) {
-		return createRelativeRecordDataSet(container, wrapper, accessMode, true);
+	public <R extends QRecord> QRRDataSet<R> createRelativeRecordDataSet(Class<R> wrapper, AccessMode accessMode) {
+		return createRelativeRecordDataSet(wrapper, accessMode, true);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public <R extends QRecord> QRRDataSet<R> createRelativeRecordDataSet(String container, Class<R> wrapper, AccessMode accessMode, boolean userOpen) {
+	public <R extends QRecord> QRRDataSet<R> createRelativeRecordDataSet(Class<R> wrapper, AccessMode accessMode, boolean userOpen) {
 
 		try {
 			R record = null;

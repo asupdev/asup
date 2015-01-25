@@ -1150,7 +1150,6 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		ETypeParameter t1 = addETypeParameter(op, "R");
 		g1 = createEGenericType(this.getRecord());
 		t1.getEBounds().add(g1);
-		addEParameter(op, ecorePackage.getEString(), "container", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEJavaClass());
 		g2 = createEGenericType(t1);
 		g1.getETypeArguments().add(g2);
@@ -1164,7 +1163,6 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		t1 = addETypeParameter(op, "R");
 		g1 = createEGenericType(this.getRecord());
 		t1.getEBounds().add(g1);
-		addEParameter(op, ecorePackage.getEString(), "container", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEJavaClass());
 		g2 = createEGenericType(t1);
 		g1.getETypeArguments().add(g2);
@@ -1179,7 +1177,6 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		t1 = addETypeParameter(op, "R");
 		g1 = createEGenericType(this.getRecord());
 		t1.getEBounds().add(g1);
-		addEParameter(op, ecorePackage.getEString(), "container", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEJavaClass());
 		g2 = createEGenericType(t1);
 		g1.getETypeArguments().add(g2);
@@ -1195,7 +1192,6 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		t1 = addETypeParameter(op, "R");
 		g1 = createEGenericType(this.getRecord());
 		t1.getEBounds().add(g1);
-		addEParameter(op, ecorePackage.getEString(), "container", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEJavaClass());
 		g2 = createEGenericType(t1);
 		g1.getETypeArguments().add(g2);
@@ -1209,7 +1205,6 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		t1 = addETypeParameter(op, "R");
 		g1 = createEGenericType(this.getRecord());
 		t1.getEBounds().add(g1);
-		addEParameter(op, ecorePackage.getEString(), "container", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEJavaClass());
 		g2 = createEGenericType(t1);
 		g1.getETypeArguments().add(g2);
@@ -1224,7 +1219,6 @@ public class IntegratedLanguageIsamPackageImpl extends EPackageImpl implements Q
 		t1 = addETypeParameter(op, "R");
 		g1 = createEGenericType(this.getRecord());
 		t1.getEBounds().add(g1);
-		addEParameter(op, ecorePackage.getEString(), "container", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEJavaClass());
 		g2 = createEGenericType(t1);
 		g1.getETypeArguments().add(g2);

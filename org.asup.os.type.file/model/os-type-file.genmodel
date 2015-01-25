@@ -45,14 +45,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-file.ecore#//FileFormatKey/descend"/>
     </genClasses>
     <genClasses image="false" ecoreClass="os-type-file.ecore#//FileManager">
-      <genOperations ecoreOperation="os-type-file.ecore#//FileManager/getOverriddenFile">
-        <genParameters ecoreParameter="os-type-file.ecore#//FileManager/getOverriddenFile/job"/>
-        <genParameters ecoreParameter="os-type-file.ecore#//FileManager/getOverriddenFile/fileName"/>
+      <genOperations ecoreOperation="os-type-file.ecore#//FileManager/getFileOverride">
+        <genParameters ecoreParameter="os-type-file.ecore#//FileManager/getFileOverride/job"/>
+        <genParameters ecoreParameter="os-type-file.ecore#//FileManager/getFileOverride/fileName"/>
       </genOperations>
-      <genOperations ecoreOperation="os-type-file.ecore#//FileManager/overrideFile">
-        <genParameters ecoreParameter="os-type-file.ecore#//FileManager/overrideFile/job"/>
-        <genParameters ecoreParameter="os-type-file.ecore#//FileManager/overrideFile/fileFrom"/>
-        <genParameters ecoreParameter="os-type-file.ecore#//FileManager/overrideFile/fileTo"/>
+      <genOperations ecoreOperation="os-type-file.ecore#//FileManager/setFileOverride">
+        <genParameters ecoreParameter="os-type-file.ecore#//FileManager/setFileOverride/job"/>
+        <genParameters ecoreParameter="os-type-file.ecore#//FileManager/setFileOverride/fileFrom"/>
+        <genParameters ecoreParameter="os-type-file.ecore#//FileManager/setFileOverride/fileTo"/>
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="os-type-file.ecore#//FileMember">
@@ -83,14 +83,6 @@
     </genClasses>
     <genClasses image="false" ecoreClass="os-type-file.ecore#//FileMembered">
       <genOperations ecoreOperation="os-type-file.ecore#//FileMembered/getName"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="os-type-file.ecore#//FileMultiFormat">
-      <genTypeParameters ecoreTypeParameter="os-type-file.ecore#//FileMultiFormat/FF"/>
-      <genOperations ecoreOperation="os-type-file.ecore#//FileMultiFormat/getFileFormats"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="os-type-file.ecore#//FileSingleFormat">
-      <genTypeParameters ecoreTypeParameter="os-type-file.ecore#//FileSingleFormat/FF"/>
-      <genOperations ecoreOperation="os-type-file.ecore#//FileSingleFormat/getFileFormat"/>
     </genClasses>
     <genClasses ecoreClass="os-type-file.ecore#//LogicalFile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-file.ecore#//LogicalFile/creationStatement"/>

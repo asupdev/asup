@@ -4,7 +4,7 @@
     modelDirectory="/org.asup.os.type.module/src" modelPluginID="org.asup.os.type.module"
     modelName="As.UP Operating System Module" rootExtendsInterface="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     rootImplementsInterface="" suppressEMFTypes="true" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="7.0" copyrightFields="false" language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.os.omac/model/os-omac.genmodel#//omac ../../org.asup.os.type/model/os-type.genmodel#//type ../../org.asup.il.data/model/il-data.genmodel#//data ../../org.asup.os.core/model/os-core.genmodel#//core ../../org.asup.il.core/model/il-core.genmodel#//core"
+    complianceLevel="7.0" copyrightFields="false" language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.os.omac/model/os-omac.genmodel#//omac ../../org.asup.os.type/model/os-type.genmodel#//type ../../org.asup.il.data/model/il-data.genmodel#//data ../../org.asup.os.core/model/os-core.genmodel#//core ../../org.asup.il.core/model/il-core.genmodel#//core ../../org.asup.il.expr/model/il-expr.genmodel#//expr"
     interfaceNamePattern="Q{0}" importOrganizing="true">
   <foreignModel>os-type-module.ecore</foreignModel>
   <genPackages prefix="OperatingSystemModule" basePackage="org.asup.os.type" disposableProviderFactory="true"
@@ -18,6 +18,10 @@
     <genClasses ecoreClass="os-type-module.ecore#//ModuleSource">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-module.ecore#//ModuleSource/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-module.ecore#//ModuleSource/content"/>
+    </genClasses>
+    <genClasses ecoreClass="os-type-module.ecore#//ModuleContainer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-module.ecore#//ModuleContainer/basePackage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-module.ecore#//ModuleContainer/scanPackage"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

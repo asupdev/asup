@@ -32,7 +32,7 @@ public class RRDS_read {
 
 	private void testBRARTI() {
 
-		QRRDataSet<BRARTI0F> brarti0f = isamFactory.createRelativeRecordDataSet(null, BRARTI0F.class);
+		QRRDataSet<BRARTI0F> brarti0f = isamFactory.createRelativeRecordDataSet(BRARTI0F.class);
 
 		brarti0f.open();
 
@@ -47,7 +47,7 @@ public class RRDS_read {
 	
 	private void testBRENTI() {
 
-		QRRDataSet<BRENTI0F> brenti0f = isamFactory.createRelativeRecordDataSet(null, BRENTI0F.class);
+		QRRDataSet<BRENTI0F> brenti0f = isamFactory.createRelativeRecordDataSet(BRENTI0F.class);
 
 		brenti0f.open();
 

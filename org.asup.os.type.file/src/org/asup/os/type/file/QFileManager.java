@@ -29,7 +29,7 @@ public interface QFileManager extends QTypedManager<QFile> {
 	 * @model required="true" exceptions="org.asup.os.core.OperatingSystemRuntimeException" jobRequired="true" fileNameRequired="true"
 	 * @generated
 	 */
-	QFile getOverriddenFile(QJob job, String fileName) throws OperatingSystemRuntimeException;
+	QFile getFileOverride(QJob job, String fileName) throws OperatingSystemRuntimeException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -37,5 +37,5 @@ public interface QFileManager extends QTypedManager<QFile> {
 	 * @model exceptions="org.asup.os.core.OperatingSystemRuntimeException" jobRequired="true" fileFromRequired="true" fileToRequired="true"
 	 * @generated
 	 */
-	void overrideFile(QJob job, String fileFrom, QFile fileTo) throws OperatingSystemRuntimeException;
+	void setFileOverride(QJob job, String fileFrom, QFile fileTo) throws OperatingSystemRuntimeException;
 } // QFileManager

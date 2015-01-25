@@ -63,6 +63,7 @@ public class OperatingSystemModuleFactoryImpl extends EFactoryImpl implements QO
 		switch (eClass.getClassifierID()) {
 			case QOperatingSystemModulePackage.MODULE: return (EObject)createModule();
 			case QOperatingSystemModulePackage.MODULE_SOURCE: return (EObject)createModuleSource();
+			case QOperatingSystemModulePackage.MODULE_CONTAINER: return (EObject)createModuleContainer();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -86,6 +87,16 @@ public class OperatingSystemModuleFactoryImpl extends EFactoryImpl implements QO
 	public QModuleSource createModuleSource() {
 		ModuleSourceImpl moduleSource = new ModuleSourceImpl();
 		return moduleSource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QModuleContainer createModuleContainer() {
+		ModuleContainerImpl moduleContainer = new ModuleContainerImpl();
+		return moduleContainer;
 	}
 
 	/**

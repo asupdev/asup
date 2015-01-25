@@ -46,6 +46,7 @@ import org.asup.il.data.QMultipleAtomicDataDef;
 import org.asup.il.data.QMultipleCompoundDataDef;
 import org.asup.il.data.QMultipleCompoundDataTerm;
 import org.asup.il.data.QMultipleDataTerm;
+import org.asup.il.data.QPointer;
 import org.asup.il.data.QPointerDef;
 import org.asup.il.data.QScrollerDef;
 import org.asup.il.data.QStrollerDef;
@@ -135,16 +136,19 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 		if (dataTerm.getFacet(QOverlay.class) != null) {
 			QOverlay overlay = dataTerm.getFacet(QOverlay.class);
 
+			// struct member
 			if (dataTerm.getParent() instanceof QCompoundDataTerm) {
 				QCompoundDataTerm<?> compoundTerm = (QCompoundDataTerm<?>) dataTerm.getParent();
-				if (!getCompilationUnit().equalsTermName(compoundTerm.getName(), overlay.getName()))
+
+				if (overlay.getName() != null && !getCompilationUnit().equalsTermName(compoundTerm.getName(), overlay.getName()))
 					writeAnnotation(field, Overlay.class, "name", overlay.getName());
 
 				if (overlay.getPosition() != null && !overlay.getPosition().equals(Overlay.NEXT))
 					writeAnnotation(field, Overlay.class, "position", overlay.getPosition());
 
 			} else {
-				writeAnnotation(field, Overlay.class, "name", overlay.getName());
+				if (overlay.getName() != null)
+					writeAnnotation(field, Overlay.class, "name", overlay.getName());
 
 				if (overlay.getPosition() != null)
 					if (overlay.getPosition().equals(Overlay.NEXT))
@@ -196,7 +200,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 				dataStructureWriter.writeDataStructure(unaryCompoundDataTerm.getDefinition());
 			} else {
 
-				if (isOverridden(unaryCompoundDataTerm)) {
+				if (checkFileOverride(unaryCompoundDataTerm)) {
 					Class<QDataStruct> linkedClass = (Class<QDataStruct>) compilerLinker.getLinkedClass();
 					QCompilationSetup compilationSetup = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilationSetup();
 
@@ -231,7 +235,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 						.normalizeTypeName(multipleCompoundDataTerm), QDataStructWrapper.class, true);
 				dataStructureWriter.writeDataStructure(multipleCompoundDataTerm.getDefinition());
 			} else {
-				if (isOverridden(multipleCompoundDataTerm)) {
+				if (checkFileOverride(multipleCompoundDataTerm)) {
 					Class<QDataStruct> linkedClass = (Class<QDataStruct>) compilerLinker.getLinkedClass();
 					QCompilationSetup compilationSetup = QDevelopmentKitCompilerFactory.eINSTANCE.createCompilationSetup();
 
@@ -402,7 +406,9 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 			indicatorDef.toString();
 		} else if (QPointerDef.class.isAssignableFrom(klassDef)) {
 			QPointerDef pointerDef = (QPointerDef) dataDef;
-			pointerDef.toString();
+			writeImport(QPointer.class);
+			if(pointerDef.getTarget() != null)
+				writeAnnotation(node, DataDef.class, "target", pointerDef.getTarget());
 		} else if (QDatetimeDef.class.isAssignableFrom(klassDef)) {
 			QDatetimeDef datetimeDef = (QDatetimeDef) dataDef;
 			writeImport(DatetimeType.class);
@@ -575,7 +581,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 
 				Class<QDataStruct> linkedClass = (Class<QDataStruct>) compilerLinker.getLinkedClass();
 
-				if (isOverridden(multipleCompoundDataTerm)) {
+				if (checkFileOverride(multipleCompoundDataTerm)) {
 					String qualifiedName = getCompilationUnit().getQualifiedName(dataTerm);
 					// TODO setup
 					type = getAST().newSimpleType(getAST().newName(getCompilationUnit().normalizeTypeName(qualifiedName).split("\\.")));
@@ -604,7 +610,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 
 				Class<?> linkedClass = compilerLinker.getLinkedClass();
 
-				if (isOverridden(unaryCompoundDataTerm)) {
+				if (checkFileOverride(unaryCompoundDataTerm)) {
 					String qualifiedName = getCompilationUnit().getQualifiedName(dataTerm);
 					// TODO setup
 					type = getAST().newSimpleType(getAST().newName(getCompilationUnit().normalizeTypeName(qualifiedName).split("\\.")));
@@ -636,7 +642,7 @@ public class JDTNamedNodeWriter extends JDTNodeWriter {
 		return type;
 	}
 
-	public boolean isOverridden(QCompoundDataTerm<?> compoundDataTerm) {
+	public boolean checkFileOverride(QCompoundDataTerm<?> compoundDataTerm) {
 
 		for (QDataTerm<?> element : compoundDataTerm.getDefinition().getElements())
 			if (element.getFacet(QDerived.class) == null)

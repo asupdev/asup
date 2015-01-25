@@ -23,49 +23,49 @@ public interface QIsamFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" containerRequired="true" wrapperRequired="true"
+	 * @model required="true" wrapperRequired="true"
 	 * @generated
 	 */
-	<R extends QRecord> QKSDataSet<R> createKeySequencedDataSet(String container, Class<R> wrapper);
+	<R extends QRecord> QKSDataSet<R> createKeySequencedDataSet(Class<R> wrapper);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" containerRequired="true" wrapperRequired="true"
+	 * @model required="true" wrapperRequired="true"
 	 * @generated
 	 */
-	<R extends QRecord> QKSDataSet<R> createKeySequencedDataSet(String container, Class<R> wrapper, AccessMode accessMode);
+	<R extends QRecord> QKSDataSet<R> createKeySequencedDataSet(Class<R> wrapper, AccessMode accessMode);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" containerRequired="true" wrapperRequired="true"
+	 * @model required="true" wrapperRequired="true"
 	 * @generated
 	 */
-	<R extends QRecord> QKSDataSet<R> createKeySequencedDataSet(String container, Class<R> wrapper, AccessMode accessMode, boolean userOpen);
+	<R extends QRecord> QKSDataSet<R> createKeySequencedDataSet(Class<R> wrapper, AccessMode accessMode, boolean userOpen);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" containerRequired="true" wrapperRequired="true"
+	 * @model required="true" wrapperRequired="true"
 	 * @generated
 	 */
-	<R extends QRecord> QRRDataSet<R> createRelativeRecordDataSet(String container, Class<R> wrapper);
+	<R extends QRecord> QRRDataSet<R> createRelativeRecordDataSet(Class<R> wrapper);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" containerRequired="true" wrapperRequired="true"
+	 * @model required="true" wrapperRequired="true"
 	 * @generated
 	 */
-	<R extends QRecord> QRRDataSet<R> createRelativeRecordDataSet(String container, Class<R> wrapper, AccessMode accessMode);
+	<R extends QRecord> QRRDataSet<R> createRelativeRecordDataSet(Class<R> wrapper, AccessMode accessMode);
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model required="true" containerRequired="true" wrapperRequired="true"
+	 * @model required="true" wrapperRequired="true"
 	 * @generated
 	 */
-	<R extends QRecord> QRRDataSet<R> createRelativeRecordDataSet(String container, Class<R> wrapper, AccessMode accessMode, boolean userOpen);
+	<R extends QRecord> QRRDataSet<R> createRelativeRecordDataSet(Class<R> wrapper, AccessMode accessMode, boolean userOpen);
 
 } // QIsamFactory

@@ -7,6 +7,9 @@
  */
 package org.asup.il.data;
 
+import java.lang.Enum;
+import java.lang.String;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -27,4 +30,44 @@ public interface QBufferedList<D extends QBufferedData> extends QList<D>, QBuffe
 	 * @generated
 	 */
 	void sorta();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void movea(QBufferedData value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model clearRequired="true"
+	 * @generated
+	 */
+	void movea(QBufferedData value, boolean clear);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void movea(QDataWriter value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void movea(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model EBounds="org.asup.fw.java.JavaEnum"
+	 * @generated
+	 */
+	<E extends Enum<E>> void movea(E value);
 } // QBufferedList

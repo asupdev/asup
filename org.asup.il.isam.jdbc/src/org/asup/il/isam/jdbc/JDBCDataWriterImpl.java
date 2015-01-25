@@ -7,9 +7,9 @@ import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QDecimal;
 import org.asup.il.data.QString;
-import org.asup.il.data.impl.DataReaderImpl;
+import org.asup.il.data.impl.DataWriterImpl;
 
-public class JDBCDataWriterImpl extends DataReaderImpl {
+public class JDBCDataWriterImpl extends DataWriterImpl {
 	
 	public JDBCDataWriterImpl set(ResultSet resultSet) {
 		
@@ -17,7 +17,6 @@ public class JDBCDataWriterImpl extends DataReaderImpl {
 		
 		return this;		
 	}
-
 
 	@Override
 	public boolean visit(QDataStruct data) {

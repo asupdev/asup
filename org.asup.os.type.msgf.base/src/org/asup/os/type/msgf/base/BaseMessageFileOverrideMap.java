@@ -16,11 +16,11 @@ import java.util.Map;
 
 import org.asup.os.type.msgf.QMessageFile;
 
-public class BaseOverridedMessageFileMap {
+public class BaseMessageFileOverrideMap {
 
 	private Map<String, QMessageFile> files = null;
 	
-	public BaseOverridedMessageFileMap() {
+	public BaseMessageFileOverrideMap() {
 		this.files = new HashMap<String, QMessageFile>(); 
 	}
 	

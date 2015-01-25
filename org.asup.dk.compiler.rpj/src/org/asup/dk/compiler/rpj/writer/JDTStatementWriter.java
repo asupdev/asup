@@ -138,7 +138,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 	public void endVisit(QWhile statement) {
 
 		blocks.pop();
-		
+
 		super.endVisit(statement);
 	}
 
@@ -484,11 +484,10 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 
 					methodInvocation.arguments().add(typeLiteral);
 
-				} 
-				else {
+				} else {
 					methodInvocation.setExpression(buildExpression(ast, expressionParser.parseExpression(statement.getObject()), null));
 				}
-				
+
 				if (statement.getParameters() != null) {
 					for (String parameter : statement.getParameters()) {
 
@@ -501,14 +500,12 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 				ExpressionStatement expressionStatement = ast.newExpressionStatement(methodInvocation);
 				block.statements().add(expressionStatement);
 
-			} 
-			else {
+			} else {
 				QProcedureExec procedureExec = QIntegratedLanguageFlowFactory.eINSTANCE.createProcedureExec();
 				procedureExec.setProcedure(statement.getMethod());
 				procedureExec.getParameters().addAll(statement.getParameters());
 				visit(procedureExec);
 			}
-			
 
 			return false;
 		} catch (Exception e) {
@@ -723,15 +720,16 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 	public boolean visit(QReset statement) {
 
 		QTermExpression termExpression = expressionParser.parseTerm(statement.getObject());
-		if(termExpression == null)
+		if (termExpression == null)
 			throw new IntegratedLanguageExpressionRuntimeException("Invalid statement: " + statement);
-		
+
 		QDataTerm<?> dataTerm = compilationUnit.getDataTerm(termExpression.getValue(), true);
 		if (dataTerm == null)
 			throw new IntegratedLanguageExpressionRuntimeException("Invalid statement: " + statement);
 
-//		if (dataTerm.getDataTermType().isMultiple())
-//			throw new FrameworkCoreUnexpectedConditionException("cbe7xcb59vbnfg4535");
+		// if (dataTerm.getDataTermType().isMultiple())
+		// throw new
+		// FrameworkCoreUnexpectedConditionException("cbe7xcb59vbnfg4535");
 
 		switch (dataTerm.getDataTermType()) {
 		case MULTIPLE_ATOMIC:
@@ -742,7 +740,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 				methodExec.setObject(statement.getObject());
 				methodExec.setMethod("clear");
 				methodExec.accept(this);
-				
+
 				break;
 			}
 
@@ -754,7 +752,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 			eval.accept(this);
 
 			break;
-			
+
 		case MULTIPLE_COMPOUND:
 			throw new FrameworkCoreUnexpectedConditionException("cbe7xcb59vbnfg4533");
 
@@ -766,7 +764,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 				methodExec.setObject(statement.getObject());
 				methodExec.setMethod("clear");
 				methodExec.accept(this);
-				
+
 				break;
 
 			}
@@ -787,7 +785,7 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 				methodExec.setObject(statement.getObject());
 				methodExec.setMethod("clear");
 				methodExec.accept(this);
-				
+
 				break;
 
 			}
@@ -854,9 +852,18 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 			// p++;
 			break;
 		}
+/*
+		if (assignmentExpression.getLeftOperand().getExpressionType() != ExpressionType.COMPOUND
+				&& this.compilationUnit.getDataTerm(assignmentExpression.getLeftOperand().getValue(), true) instanceof QMultipleDataTerm<?>) {
+			if (!CompilationContextHelper.isSpecial(compilationUnit, assignmentExpression.getRightOperand()))
+				expression = buildExpression(ast, assignmentExpression.getRightOperand(), null);
+			else
+				expression = buildExpression(ast, assignmentExpression.getRightOperand(), null);
+		} else
+			expression = buildExpression(ast, assignmentExpression.getRightOperand(), null);*/
 
 		expression = buildExpression(ast, assignmentExpression.getRightOperand(), null);
-
+		
 		methodInvocation.arguments().add(p, expression);
 
 		return methodInvocation;

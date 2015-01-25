@@ -17,6 +17,7 @@ import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QBufferedList;
 import org.asup.il.data.QDataVisitor;
+import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QList;
 import org.asup.il.data.QNumeric;
 
@@ -111,37 +112,6 @@ public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBu
 			element.move(value, clear);
 		}
 	}
-
-	@Override
-	public void movea(QArray<?> value) {
-		movea(value, false);
-	}
-
-
-	@Override
-	public void movea(QArray<?> value, boolean clear) {
-		if(getSize() == value.getSize())
-			NIOBufferHelper.movel(getBuffer(), getPosition(), value.getSize(), value.asBytes(), false, (byte) 32);
-		else {
-
-			int i = 1;
-			for(QBufferedData elementTarget: this) {
-				
-				if(value.capacity()>=i)					
-					elementTarget.eval(value.get(i));
-				else
-					elementTarget.clear();
-				i++;
-			}
-		}
-
-	}
-
-	@Override
-	public void movel(int value) {
-		movel(value, false);
-	}
-
 	@Override
 	public void movel(int value, boolean clear) {
 		for (QBufferedData element : this) {
@@ -231,6 +201,61 @@ public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBu
 	public void sorta() {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void movea(QArray<?> value) {
+		movea(value, false);
+	}
+
+
+	@Override
+	public void movea(QArray<?> value, boolean clear) {
+		if(getSize() == value.getSize())
+			NIOBufferHelper.movel(getBuffer(), getPosition(), value.getSize(), value.asBytes(), false, (byte) 32);
+		else {
+
+			int i = 1;
+			for(QBufferedData elementTarget: this) {
+				
+				if(value.capacity()>=i)					
+					elementTarget.eval(value.get(i));
+				else
+					if(clear)
+						elementTarget.clear();
+				i++;
+			}
+		}
+
+	}
+
+	@Override
+	public void movea(QBufferedData value) {	
+		movea(value, false);
+	}
+
+	@Override
+	public void movea(QBufferedData value, boolean clear) {
+		NIOBufferHelper.movel(getBuffer(), getPosition(), value.getSize(), value.asBytes(), clear, (byte) 32);		
+	}
+	
+	@Override
+	public void movea(QDataWriter value) {
+		this.accept(value);
+	}
+
+	@Override
+	public void movea(String value) {
+		for(QBufferedData elementTarget: this) {
+			elementTarget.movel(value, true);
+		}						
+	}
+
+	@Override
+	public <E extends Enum<E>> void movea(E value) {
+		for(QBufferedData elementTarget: this) {
+			elementTarget.eval(value);
+		}								
 	}
 
 }

@@ -12,11 +12,10 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@javax.inject.Qualifier
-@DataType
-@Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface ModuleDef {
+@Target({ElementType.TYPE})
+public @interface Module {
 	
 	String name();
+	String text() default "";
 }

@@ -4,6 +4,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="Module" eSuperTypes="../../org.asup.os.type/model/os-type.ecore#//TypedObject">
     <eOperations name="getClassURI" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaURI"/>
     <eOperations name="getPackageInfoURI" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaURI"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">
+        <details key="length" value="128"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//ModuleSource"
         containment="true" resolveProxies="false"/>
   </eClassifiers>
@@ -16,5 +21,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="ASUP"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModuleContainer">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="basePackage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="scanPackage" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.os.type/model/os-type.ecore#//TypedContainer">
+      <eTypeArguments eClassifier="#//Module"/>
+    </eGenericSuperTypes>
   </eClassifiers>
 </ecore:EPackage>

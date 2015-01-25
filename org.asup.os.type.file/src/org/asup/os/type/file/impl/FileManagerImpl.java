@@ -50,7 +50,7 @@ public abstract class FileManagerImpl extends TypedManagerImpl<QFile> implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QFile getOverriddenFile(QJob job, String fileName) throws OperatingSystemRuntimeException {
+	public QFile getFileOverride(QJob job, String fileName) throws OperatingSystemRuntimeException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -62,7 +62,7 @@ public abstract class FileManagerImpl extends TypedManagerImpl<QFile> implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void overrideFile(QJob job, String fileFrom, QFile fileTo) throws OperatingSystemRuntimeException {
+	public void setFileOverride(QJob job, String fileFrom, QFile fileTo) throws OperatingSystemRuntimeException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

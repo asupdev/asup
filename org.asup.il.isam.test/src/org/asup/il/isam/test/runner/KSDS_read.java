@@ -29,7 +29,7 @@ public class KSDS_read {
 
 	private void testBRARTI() {
 
-		QKSDataSet<BRARTI2L> brarti2l = isamFactory.createKeySequencedDataSet(null, BRARTI2L.class);
+		QKSDataSet<BRARTI2L> brarti2l = isamFactory.createKeySequencedDataSet(BRARTI2L.class);
 
 		brarti2l.open();
 		testAsserter.resetTime();

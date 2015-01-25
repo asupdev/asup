@@ -420,7 +420,7 @@ public class NIODataFactoryImpl implements QDataFactory {
 				position = overlay.getPosition();
 
 			if (position != null) {
-				if (position.equals("*NEXT")) {
+				if (position.equalsIgnoreCase("*NEXT")) {
 
 				} else {
 					p = Integer.parseInt(position);
@@ -458,7 +458,7 @@ public class NIODataFactoryImpl implements QDataFactory {
 				position = overlay.getPosition();
 
 			if (position != null) {
-				if (position.equals("*NEXT")) {
+				if (position.equalsIgnoreCase("*NEXT")) {
 
 				} else {
 					p = Integer.parseInt(position);

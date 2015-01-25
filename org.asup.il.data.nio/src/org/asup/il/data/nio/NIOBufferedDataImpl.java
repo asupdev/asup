@@ -23,6 +23,7 @@ import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QDataVisitor;
+import org.asup.il.data.impl.DataWriterImpl;
 
 public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBufferedData {
 
@@ -249,8 +250,14 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 
 	@Override
 	public void movea(QArray<?> value, boolean clear) {
+
+		if (clear)
+			clear();
+
+		int position = getPosition();
 		for (int i = 1; i <= value.capacity(); i++) {
-			movel(value.get(i), clear);
+			NIOBufferHelper.movel(getBuffer(), position, value.getLength(), value.asBytes(), false, getFiller());
+			position = value.getLength();
 		}
 	}
 
@@ -296,19 +303,27 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 
 	@Override
 	public String asString() {
-		return toString();
+		return new String(asBytes());
 	}
 
 	@Override
 	public boolean eq(QDataWriter value) {
-		// TODO Auto-generated method stub
-		return false;
+
+		if (value instanceof DataWriterImpl) {
+			DataWriterImpl dataWriterImpl = (DataWriterImpl) value;
+
+			if (dataWriterImpl.object instanceof QBufferedData)
+				return asString().equals(((QBufferedData) dataWriterImpl.object).asString());
+			else
+				return asString().equals(dataWriterImpl.object.toString());
+		} else
+			return false;
 	}
 
 	@Override
 	public void eval(QDataWriter value) {
 		// TODO Auto-generated method stub
-
+		value.toString();
 	}
 
 	@Override
@@ -344,29 +359,29 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 	@Override
 	public void move(QDataWriter value) {
 		// TODO Auto-generated method stub
-
+		value.toString();
 	}
 
 	@Override
 	public void move(QDataWriter value, boolean clear) {
 		// TODO Auto-generated method stub
-
+		value.toString();
 	}
 
 	@Override
 	public void movel(QDataWriter value) {
-		// TODO Auto-generated method stub
-
+		accept(value);
 	}
 
 	@Override
 	public void movel(QDataWriter value, boolean clear) {
 		// TODO Auto-generated method stub
-
+		value.toString();
 	}
 
 	@Override
 	public String s() {
 		return asString();
 	}
+
 }

@@ -44,10 +44,10 @@ public class BaseFileManagerImpl extends FileManagerImpl {
 	}
 
 	@Override
-	public void overrideFile(QJob job, String fileFrom, QFile fileTo) throws OperatingSystemRuntimeException {
+	public void setFileOverride(QJob job, String fileFrom, QFile fileTo) throws OperatingSystemRuntimeException {
 
 		try {			
-			BaseOverridedFileMap overrideFileMap = getOverridedFile(job);
+			BaseFileOverrideMap overrideFileMap = getFileMapOverride(job);
 			overrideFileMap.registerFile(fileFrom, fileTo);
 			
 		} catch (FrameworkCoreException e) {
@@ -56,11 +56,11 @@ public class BaseFileManagerImpl extends FileManagerImpl {
 	}
 
 	@Override
-	public QFile getOverriddenFile(QJob job, String fileName) throws OperatingSystemRuntimeException {
+	public QFile getFileOverride(QJob job, String fileName) throws OperatingSystemRuntimeException {
 		
 		try {
 			
-			BaseOverridedFileMap overrideFileMap = getOverridedFile(job);
+			BaseFileOverrideMap overrideFileMap = getFileMapOverride(job);
 			
 			QFile qFile = overrideFileMap.getFile(fileName);
 
@@ -83,11 +83,11 @@ public class BaseFileManagerImpl extends FileManagerImpl {
 		
 	}
 
-	private BaseOverridedFileMap getOverridedFile(QJob job) throws FrameworkCoreException {
-		BaseOverridedFileMap overrideFileMap = job.getContext().get(BaseOverridedFileMap.class);
+	private BaseFileOverrideMap getFileMapOverride(QJob job) throws FrameworkCoreException {
+		BaseFileOverrideMap overrideFileMap = job.getContext().get(BaseFileOverrideMap.class);
 		if(overrideFileMap == null) {
-			overrideFileMap = new BaseOverridedFileMap();
-			job.getContext().set(BaseOverridedFileMap.class, overrideFileMap);
+			overrideFileMap = new BaseFileOverrideMap();
+			job.getContext().set(BaseFileOverrideMap.class, overrideFileMap);
 		}
 		return overrideFileMap;
 	}

@@ -24,7 +24,9 @@ import org.asup.il.expr.QBlockExpression;
 import org.asup.il.expr.QBooleanExpression;
 import org.asup.il.expr.QCompoundTermExpression;
 import org.asup.il.expr.QExpression;
+import org.asup.il.expr.QExpressionParser;
 import org.asup.il.flow.QPrototype;
+import org.asup.il.isam.QKeyListTerm;
 
 public class CompilationContextHelper {
 
@@ -44,9 +46,10 @@ public class CompilationContextHelper {
 			case FLOATING:
 			case HEXADECIMAL:
 			case INTEGER:
-			case SPECIAL:
 			case STRING:
 				return true;
+			case SPECIAL:
+				return false;
 			case INDICATOR:
 			case NAME:
 
@@ -79,6 +82,41 @@ public class CompilationContextHelper {
 			QBooleanExpression booleanExpression = (QBooleanExpression) expression;
 
 			return isPrimitive(compilationUnit, booleanExpression.getOperand());
+		}
+
+		return false;
+	}
+
+	public static boolean isSpecial(QCompilationUnit compilationUnit, QExpression expression) {
+
+		switch (expression.getExpressionType()) {
+		case ARITHMETIC:
+		case ASSIGNMENT:
+		case COMPOUND:
+		case LOGICAL:
+		case RELATIONAL:
+		case BOOLEAN:
+			return false;
+		case ATOMIC:
+			QAtomicTermExpression atomicTermExpression = (QAtomicTermExpression) expression;
+
+			switch (atomicTermExpression.getType()) {
+			case BOOLEAN:
+			case DATETIME:
+			case FLOATING:
+			case HEXADECIMAL:
+			case INTEGER:
+			case STRING:
+			case INDICATOR:
+			case NAME:
+				return false;
+			case SPECIAL:
+				return true;
+			}
+			break;
+		case BLOCK:
+			QBlockExpression blockExpression = (QBlockExpression) expression;
+			return isSpecial(compilationUnit, blockExpression.getExpression());
 		}
 
 		return false;
@@ -215,5 +253,22 @@ public class CompilationContextHelper {
 			return null;
 
 		return dataTerm;
+	}
+	
+
+	public static boolean containsArray(QExpressionParser expressionParser, QKeyListTerm keyList) {
+		
+		boolean result = false;
+
+		for (String keyField : keyList.getKeyFields()) {
+
+			QExpression expression = expressionParser.parseExpression(keyField);
+			if(expression instanceof QCompoundTermExpression) {
+				result = true;
+				break;
+			}
+		}
+
+		return result;
 	}
 }

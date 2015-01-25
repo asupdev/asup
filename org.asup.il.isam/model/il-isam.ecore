@@ -451,7 +451,6 @@
       <eTypeParameters name="R">
         <eBounds eClassifier="#//Record"/>
       </eTypeParameters>
-      <eParameters name="container" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="wrapper" lowerBound="1">
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
           <eTypeArguments eTypeParameter="#//IsamFactory/createKeySequencedDataSet/R"/>
@@ -465,7 +464,6 @@
       <eTypeParameters name="R">
         <eBounds eClassifier="#//Record"/>
       </eTypeParameters>
-      <eParameters name="container" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="wrapper" lowerBound="1">
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
           <eTypeArguments eTypeParameter="#//IsamFactory/createKeySequencedDataSet.1/R"/>
@@ -480,7 +478,6 @@
       <eTypeParameters name="R">
         <eBounds eClassifier="#//Record"/>
       </eTypeParameters>
-      <eParameters name="container" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="wrapper" lowerBound="1">
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
           <eTypeArguments eTypeParameter="#//IsamFactory/createKeySequencedDataSet.2/R"/>
@@ -496,7 +493,6 @@
       <eTypeParameters name="R">
         <eBounds eClassifier="#//Record"/>
       </eTypeParameters>
-      <eParameters name="container" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="wrapper" lowerBound="1">
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
           <eTypeArguments eTypeParameter="#//IsamFactory/createRelativeRecordDataSet/R"/>
@@ -510,7 +506,6 @@
       <eTypeParameters name="R">
         <eBounds eClassifier="#//Record"/>
       </eTypeParameters>
-      <eParameters name="container" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="wrapper" lowerBound="1">
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
           <eTypeArguments eTypeParameter="#//IsamFactory/createRelativeRecordDataSet.1/R"/>
@@ -525,7 +520,6 @@
       <eTypeParameters name="R">
         <eBounds eClassifier="#//Record"/>
       </eTypeParameters>
-      <eParameters name="container" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eParameters name="wrapper" lowerBound="1">
         <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaClass">
           <eTypeArguments eTypeParameter="#//IsamFactory/createRelativeRecordDataSet.2/R"/>

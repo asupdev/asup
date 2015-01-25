@@ -28,6 +28,7 @@ import org.asup.il.core.QIntegratedLanguageCoreFactory;
 import org.asup.il.core.QRemap;
 import org.asup.il.core.QTerm;
 import org.asup.il.data.QCompoundDataTerm;
+import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.expr.QExpressionParser;
@@ -78,7 +79,9 @@ public class RPJCallableUnitLinker {
 	private QLibraryManager libraryManager;
 	@Inject
 	private QExpressionParser expressionParser;
-
+	@Inject
+	private QDataFactory dataFactory;
+	
 	private QResourceReader<QFile> fileReader;
 	private QResourceReader<QModule> moduleReader;
 	private QResourceReader<QLibrary> libraryReader;
@@ -149,7 +152,7 @@ public class RPJCallableUnitLinker {
 
 		List<QDataTerm<?>> dataTerms = new ArrayList<QDataTerm<?>>(dataSection.getDatas());
 
-		RPJDataFormulasResolver dataFormulasResolver = new RPJDataFormulasResolver(compilationUnit, expressionParser);
+		RPJDataFormulasResolver dataFormulasResolver = new RPJDataFormulasResolver(compilationUnit, expressionParser, dataFactory);
 		for (QDataTerm<?> dataTerm : dataTerms) {
 			dataFormulasResolver.reset();
 
@@ -426,7 +429,7 @@ public class RPJCallableUnitLinker {
 
 	private QFile getFile(String name) {
 
-		QFile file = fileManager.getOverriddenFile(job, name);
+		QFile file = fileManager.getFileOverride(job, name);
 		if (file == null)
 			file = fileReader.lookup(name);
 

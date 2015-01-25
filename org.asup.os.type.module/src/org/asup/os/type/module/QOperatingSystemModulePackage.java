@@ -128,13 +128,22 @@ public interface QOperatingSystemModulePackage extends EPackage {
 	int MODULE__MEMORY_INFO = QOperatingSystemTypePackage.TYPED_OBJECT__MEMORY_INFO;
 
 	/**
+	 * The feature id for the '<em><b>Address</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE__ADDRESS = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODULE__SOURCE = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 0;
+	int MODULE__SOURCE = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Module</em>' class.
@@ -143,7 +152,7 @@ public interface QOperatingSystemModulePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODULE_FEATURE_COUNT = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 1;
+	int MODULE_FEATURE_COUNT = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.type.module.impl.ModuleManagerImpl <em>Module Manager</em>}' class.
@@ -249,6 +258,89 @@ public interface QOperatingSystemModulePackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.asup.os.type.module.impl.ModuleContainerImpl <em>Module Container</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.os.type.module.impl.ModuleContainerImpl
+	 * @see org.asup.os.type.module.impl.OperatingSystemModulePackageImpl#getModuleContainer()
+	 * @generated
+	 */
+	int MODULE_CONTAINER = 3;
+
+	/**
+	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE_CONTAINER__CONTENTS = QOperatingSystemTypePackage.TYPED_CONTAINER__CONTENTS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE_CONTAINER__NAME = QOperatingSystemTypePackage.TYPED_CONTAINER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE_CONTAINER__TEXT = QOperatingSystemTypePackage.TYPED_CONTAINER__TEXT;
+
+	/**
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE_CONTAINER__VERSION = QOperatingSystemTypePackage.TYPED_CONTAINER__VERSION;
+
+	/**
+	 * The feature id for the '<em><b>Vendor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE_CONTAINER__VENDOR = QOperatingSystemTypePackage.TYPED_CONTAINER__VENDOR;
+
+	/**
+	 * The feature id for the '<em><b>Base Package</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE_CONTAINER__BASE_PACKAGE = QOperatingSystemTypePackage.TYPED_CONTAINER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Scan Package</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE_CONTAINER__SCAN_PACKAGE = QOperatingSystemTypePackage.TYPED_CONTAINER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Module Container</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULE_CONTAINER_FEATURE_COUNT = QOperatingSystemTypePackage.TYPED_CONTAINER_FEATURE_COUNT + 2;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.os.type.module.QModule <em>Module</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -257,6 +349,17 @@ public interface QOperatingSystemModulePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getModule();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.os.type.module.QModule#getAddress <em>Address</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Address</em>'.
+	 * @see org.asup.os.type.module.QModule#getAddress()
+	 * @see #getModule()
+	 * @generated
+	 */
+	EAttribute getModule_Address();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link org.asup.os.type.module.QModule#getSource <em>Source</em>}'.
@@ -312,6 +415,38 @@ public interface QOperatingSystemModulePackage extends EPackage {
 	EAttribute getModuleSource_Content();
 
 	/**
+	 * Returns the meta object for class '{@link org.asup.os.type.module.QModuleContainer <em>Module Container</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Module Container</em>'.
+	 * @see org.asup.os.type.module.QModuleContainer
+	 * @generated
+	 */
+	EClass getModuleContainer();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.os.type.module.QModuleContainer#getBasePackage <em>Base Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Base Package</em>'.
+	 * @see org.asup.os.type.module.QModuleContainer#getBasePackage()
+	 * @see #getModuleContainer()
+	 * @generated
+	 */
+	EAttribute getModuleContainer_BasePackage();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.os.type.module.QModuleContainer#isScanPackage <em>Scan Package</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Scan Package</em>'.
+	 * @see org.asup.os.type.module.QModuleContainer#isScanPackage()
+	 * @see #getModuleContainer()
+	 * @generated
+	 */
+	EAttribute getModuleContainer_ScanPackage();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -342,6 +477,14 @@ public interface QOperatingSystemModulePackage extends EPackage {
 		 * @generated
 		 */
 		EClass MODULE = eINSTANCE.getModule();
+
+		/**
+		 * The meta object literal for the '<em><b>Address</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODULE__ADDRESS = eINSTANCE.getModule_Address();
 
 		/**
 		 * The meta object literal for the '<em><b>Source</b></em>' containment reference feature.
@@ -386,6 +529,32 @@ public interface QOperatingSystemModulePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MODULE_SOURCE__CONTENT = eINSTANCE.getModuleSource_Content();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.os.type.module.impl.ModuleContainerImpl <em>Module Container</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.os.type.module.impl.ModuleContainerImpl
+		 * @see org.asup.os.type.module.impl.OperatingSystemModulePackageImpl#getModuleContainer()
+		 * @generated
+		 */
+		EClass MODULE_CONTAINER = eINSTANCE.getModuleContainer();
+
+		/**
+		 * The meta object literal for the '<em><b>Base Package</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODULE_CONTAINER__BASE_PACKAGE = eINSTANCE.getModuleContainer_BasePackage();
+
+		/**
+		 * The meta object literal for the '<em><b>Scan Package</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODULE_CONTAINER__SCAN_PACKAGE = eINSTANCE.getModuleContainer_ScanPackage();
 
 	}
 

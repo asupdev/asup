@@ -19,6 +19,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.asup.fw.core.QContextID;
+import org.asup.il.data.annotation.Module;
 import org.asup.il.data.annotation.Program;
 import org.asup.os.core.OperatingSystemException;
 import org.asup.os.core.OperatingSystemRuntimeException;
@@ -34,6 +35,9 @@ import org.asup.os.omac.impl.BundleManagerImpl;
 import org.asup.os.type.cmd.CommandStatus;
 import org.asup.os.type.cmd.QCommand;
 import org.asup.os.type.cmd.QCommandContainer;
+import org.asup.os.type.module.QModule;
+import org.asup.os.type.module.QModuleContainer;
+import org.asup.os.type.module.QOperatingSystemModuleFactory;
 import org.asup.os.type.pgm.QCallableProgram;
 import org.asup.os.type.pgm.QOperatingSystemProgramFactory;
 import org.asup.os.type.pgm.QProgram;
@@ -162,6 +166,39 @@ public class E4BundleManagerImpl extends BundleManagerImpl {
 					}					
 				}
 			}
+			else if(eObject instanceof QModuleContainer) {
+				QResourceWriter<QModule> moduleWriter = resourceFactory.getResourceWriter(job, QModule.class, systemManager.getSystem().getSystemLibrary());
+				QModuleContainer moduleContainer = (QModuleContainer)eObject;
+
+				// package introspection
+				if(moduleContainer.isScanPackage()) {
+					List<QModule> modules = loadModules(bundle, moduleContainer.getBasePackage());
+					for(QModule module: modules) {						
+						try {
+							moduleWriter.save(module, true);
+						} catch (OperatingSystemException e) {
+							System.err.println("Unexpected error: "+e.getMessage());
+						}					
+					}
+				}
+				
+				// container read
+				List<QModule > modules = new ArrayList<>(moduleContainer.getContents());
+				for(QModule module: modules) {
+					
+					try {
+						// set address
+						if(module.getAddress() == null) {
+							URI uriAddress = URI.createPlatformPluginURI(bundle.getSymbolicName(), true);
+							uriAddress = uriAddress.appendSegment(moduleContainer.getBasePackage()+"."+module.getName());
+							module.setAddress(uriAddress.toString());
+						}
+						moduleWriter.save(module, true);
+					} catch (OperatingSystemException e) {
+						System.err.println("Unexpected error: "+e.getMessage());
+					}					
+				}
+			}
 			else if(eObject instanceof QCommandContainer) {
 				QResourceWriter<QCommand> commandWriter = resourceFactory.getResourceWriter(job, QCommand.class, systemManager.getSystem().getSystemLibrary());				
 				QCommandContainer commandContainer = (QCommandContainer)eObject;
@@ -249,6 +286,40 @@ public class E4BundleManagerImpl extends BundleManagerImpl {
 					}					
 				}
 			}
+			else if(eObject instanceof QModuleContainer) {
+				QResourceWriter<QModule> moduleWriter = resourceFactory.getResourceWriter(job, QModule.class, systemManager.getSystem().getSystemLibrary());
+				QModuleContainer moduleContainer = (QModuleContainer)eObject;
+				
+
+				// package introspection
+				if(moduleContainer.isScanPackage()) {
+					List<QModule> modules = loadModules(bundle, moduleContainer.getBasePackage());
+					for(QModule module: modules) {
+						QModule previousModule = moduleWriter.lookup(module.getName());
+						if(previousModule != null) {
+							try {
+								moduleWriter.delete(previousModule);
+							}
+							catch(OperatingSystemException e) {
+								System.err.println("Unexpected error: "+e.getMessage());
+							}						
+						}					
+					}
+				}
+				
+				List<QModule> modules = new ArrayList<>(moduleContainer.getContents());
+				for(QModule module: modules) {
+					QModule previousModule = moduleWriter.lookup(module.getName());
+					if(previousModule != null) {
+						try {
+							moduleWriter.delete(previousModule);
+						}
+						catch(OperatingSystemException e) {
+							System.err.println("Unexpected error: "+e.getMessage());
+						}						
+					}					
+				}
+			}
 			else if(eObject instanceof QCommandContainer) {
 				QResourceWriter<QCommand> commandWriter = resourceFactory.getResourceWriter(job, QCommand.class, systemManager.getSystem().getSystemLibrary());				
 				QCommandContainer commandContainer = (QCommandContainer)eObject;
@@ -312,6 +383,50 @@ public class E4BundleManagerImpl extends BundleManagerImpl {
 			qProgram.setName(klass.getSimpleName());
 		
 		return qProgram;
+	}
+
+	@SuppressWarnings("unchecked")
+	private List<QModule> loadModules(Bundle bundle, String basePackage) {
+		
+		List<QModule> modules = new ArrayList<>();
+		
+		BundleWiring bundleWiring = bundle.adapt(BundleWiring.class);
+		for(String resource: bundleWiring.listResources(basePackage.replace('.', '/'), null, BundleWiring.LISTRESOURCES_LOCAL)) {
+			Class<?> klass = null;
+			try {
+				klass = bundle.loadClass(resource.replace(".class", "").replace('/', '.'));
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				continue;
+			}
+			if(QCallableProgram.class.isAssignableFrom(klass) || klass.getAnnotation(Module.class) != null)
+				modules.add(buildModule(bundle, (Class<QCallableProgram>)klass));
+		}
+		
+		return modules;
+	}
+	
+	private QModule buildModule(Bundle bundle, Class<?> klass) {
+		
+		QModule qModule = QOperatingSystemModuleFactory.eINSTANCE.createModule();
+
+		// address
+		URI uriAddress = URI.createURI("asup:/omac");
+		uriAddress = uriAddress.appendSegment(bundle.getSymbolicName());
+		uriAddress = uriAddress.appendSegment(klass.getName());
+		qModule.setAddress(uriAddress.toString());
+		
+		// annotation
+		Module moduleAnnotation = klass.getAnnotation(Module.class);
+		if(moduleAnnotation != null) {
+			qModule.setName(moduleAnnotation.name());			
+			if(!moduleAnnotation.text().isEmpty()) 
+				qModule.setText(moduleAnnotation.text());
+		}
+		else
+			qModule.setName(klass.getSimpleName());
+		
+		return qModule;
 	}
 
 	@Override

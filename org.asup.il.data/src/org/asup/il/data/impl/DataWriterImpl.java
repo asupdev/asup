@@ -45,11 +45,10 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 	 * 
 	 * @generated NOT
 	 */
-	protected Object object = null;
+	public Object object = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected DataWriterImpl() {
@@ -58,7 +57,6 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -68,13 +66,11 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public QDataWriter set(int value) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		this.object = new Integer(value);
+		return this;
 	}
 
 	/**

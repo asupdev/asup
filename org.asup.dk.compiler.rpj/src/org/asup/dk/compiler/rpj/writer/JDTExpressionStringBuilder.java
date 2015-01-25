@@ -18,14 +18,17 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.asup.dk.compiler.QCompilationUnit;
+import org.asup.fw.core.FrameworkCoreUnexpectedConditionException;
 import org.asup.fw.util.QStringUtil;
 import org.asup.il.core.QNamedNode;
 import org.asup.il.core.QTerm;
 import org.asup.il.data.QArray;
+import org.asup.il.data.QCompoundDataTerm;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QDatetime;
 import org.asup.il.data.QHexadecimal;
+import org.asup.il.data.QIndicator;
 import org.asup.il.data.QMultipleAtomicDataTerm;
 import org.asup.il.data.QMultipleDataTerm;
 import org.asup.il.data.QUnaryAtomicDataTerm;
@@ -41,6 +44,7 @@ import org.asup.il.expr.QBlockExpression;
 import org.asup.il.expr.QBooleanExpression;
 import org.asup.il.expr.QCompoundTermExpression;
 import org.asup.il.expr.QExpression;
+import org.asup.il.expr.QExpressionParser;
 import org.asup.il.expr.QLogicalExpression;
 import org.asup.il.expr.QRelationalExpression;
 import org.asup.il.expr.RelationalOperator;
@@ -50,6 +54,7 @@ import org.asup.il.flow.QPrototype;
 import org.asup.il.isam.QDataSetTerm;
 import org.asup.il.isam.QDisplayTerm;
 import org.asup.il.isam.QFileTerm;
+import org.asup.il.isam.QKeyListTerm;
 import org.asup.il.isam.QPrint;
 
 public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
@@ -58,6 +63,8 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 	private QCompilationUnit compilationUnit;
 	@Inject
 	private QStringUtil stringUtil;
+	@Inject
+	private QExpressionParser expressionParser;
 
 	private StringBuffer buffer = new StringBuffer();
 	private Class<?> target;
@@ -127,7 +134,28 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			break;
 		case INDICATOR:
 		case NAME:
-			QNamedNode namedNode = compilationUnit.getNamedNode(expression.getValue(), true);
+
+			QNamedNode namedNode = null;
+			String nodeName = null;
+			String indicatorIndex = null;
+
+			String expressionValue = expression.getValue();
+			if (expressionValue.toUpperCase().startsWith("*IN")) {
+				if (!(compilationUnit.getDataTerm(expressionValue, true).getParent() instanceof QCompoundDataTerm<?>))
+					nodeName = expressionValue;
+				else {
+					int i = expressionValue.indexOf("(");
+					if (i > 0)
+						throw new FrameworkCoreUnexpectedConditionException("wstt9rewtb043b5t9072349");
+
+					nodeName = expressionValue.substring(0, 3);
+					indicatorIndex = expressionValue.substring(3, 5);
+				}
+
+			} else
+				nodeName = expressionValue;
+
+			namedNode = compilationUnit.getNamedNode(nodeName, true);
 			if (namedNode == null)
 				throw new IntegratedLanguageExpressionRuntimeException("Invalid term: " + expression.getValue());
 
@@ -144,9 +172,36 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 				} else
 					source = multipleAtomicDataTerm.getDefinition().getDataClass();
 
+				if (indicatorIndex != null) {
+					try {
+						value = value + ".get(" + Integer.parseInt(indicatorIndex) + ")";
+					} catch (NumberFormatException e) {
+						value = value + ".get(" + indicatorIndex + ")";
+					}
+				}
+
+			} else if (indicatorIndex != null) {
+
+				source = QIndicator.class;
+
+				if (indicatorIndex != null) {
+					try {
+						value = value + ".get(" + Integer.parseInt(indicatorIndex) + ")";
+					} catch (NumberFormatException e) {
+						value = value + ".get(" + indicatorIndex + ")";
+					}
+				}
+
 			} else if (namedNode instanceof QDataTerm) {
 				QDataTerm<?> dataTerm = (QDataTerm<?>) namedNode;
 				source = dataTerm.getDefinition().getDataClass();
+			} else if (namedNode instanceof QKeyListTerm) {
+				QKeyListTerm keyListTerm = (QKeyListTerm) namedNode;
+
+				if (CompilationContextHelper.containsArray(expressionParser, keyListTerm)) {
+					this.buffer.append(buildExpression(keyListTerm));
+					return false;
+				} 
 			}
 
 			break;
@@ -170,7 +225,41 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			if (this.target != null)
 				System.out.println(namedNode);
 
-			this.buffer.append(compilationUnit.getQualifiedName(namedNode));
+			// TODO remove
+			if (namedNode.getName().toString().equalsIgnoreCase("*IN")) {
+
+				StringBuffer value = new StringBuffer();
+				value.append(compilationUnit.getQualifiedName(namedNode));
+				value.append(".get");
+				value.append("(");
+
+				JDTExpressionStringBuilder indexBuilder = compilationUnit.getContext().make(JDTExpressionStringBuilder.class);
+				indexBuilder.setTarget(null);
+				for (QExpression element : expression.getElements()) {
+					element.accept(indexBuilder);
+				}
+				value.append(indexBuilder.getResult());
+
+				value.append(")");
+
+				QDataTerm<?> dataTerm = (QDataTerm<?>) namedNode;
+
+				if (this.target == null)
+					writeValue(dataTerm.getDefinition().getDataClass(), null, value.toString());
+				else if (this.target != null && Integer.class.isAssignableFrom(this.target))
+					writeValue(dataTerm.getDefinition().getDataClass(), this.target, value.toString());
+				else if (this.target != null && String.class.isAssignableFrom(this.target))
+					writeValue(dataTerm.getDefinition().getDataClass(), this.target, value.toString());
+				else if (this.target != null && Boolean.class.isAssignableFrom(this.target))
+					writeValue(dataTerm.getDefinition().getDataClass(), this.target, value.toString());
+				else
+					writeValue(dataTerm.getDefinition().getDataClass(), null, value.toString());
+
+				return false;
+			} else {
+				this.buffer.append(compilationUnit.getQualifiedName(namedNode));
+				return true;
+			}
 		}
 		// array
 		else if (namedNode instanceof QMultipleDataTerm) {
@@ -712,5 +801,35 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			buffer.append("qRPJ.qBox(" + value + ")");
 		} else
 			throw new IntegratedLanguageExpressionRuntimeException("Invalid unboxing: " + value);
+	}
+
+	public String buildExpression(QKeyListTerm keyList) {
+
+		StringBuffer stringBuffer = new StringBuffer();
+
+		stringBuffer.append("new QBufferedData[] {");
+		
+		JDTExpressionStringBuilder fieldBuilder = this.compilationUnit.getContext().make(JDTExpressionStringBuilder.class);
+
+		int i = 0;
+		for (String keyField : keyList.getKeyFields()) {
+
+			QExpression fieldExpression = expressionParser.parseExpression(keyField);
+
+			fieldBuilder.clear();
+			fieldBuilder.setTarget(null);
+			fieldExpression.accept(fieldBuilder);
+
+			if (i > 0)
+				stringBuffer.append(", ");
+
+			stringBuffer.append(fieldBuilder.getResult());
+
+			i++;
+		}
+
+		stringBuffer.append("}");
+		
+		return stringBuffer.toString();
 	}
 }

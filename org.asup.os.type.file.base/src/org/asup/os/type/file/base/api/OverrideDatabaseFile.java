@@ -46,7 +46,7 @@ public class OverrideDatabaseFile {
 		if (qFile == null)
 			throw new OperatingSystemRuntimeException("File not found: " + fileTo);
 
-		fileManager.overrideFile(job, file.trimR(), qFile);
+		fileManager.setFileOverride(job, file.trimR(), qFile);
 
 	}
 

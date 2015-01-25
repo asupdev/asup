@@ -56,7 +56,6 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 	protected Object[] currentKeySet;
 	private OperationRead currentOpRead;
 
-
 	private QStatement statement;
 	private ResultSet resultSet;
 
@@ -70,7 +69,7 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 		this.userOpen = userOpen;
 
 		this.tableProvider = tableProvider;
-		
+
 		this.jdbcAccessHelper = new JDBCAccessHelper();
 		this.dataReader = new JDBCDataReaderImpl();
 		this.dataWriter = new JDBCDataWriterImpl();
@@ -85,14 +84,14 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 
 		Object[] keySet = new Object[index.getColumns().size()];
 		int i = 0;
-		for (QIndexColumn indexColumn: index.getColumns()) {
-	
+		for (QIndexColumn indexColumn : index.getColumns()) {
+
 			// virtual element
 			if (indexColumn.getName().equals(QDatabaseManager.TABLE_COLUMN_RELATIVE_RECORD_NUMBER_NAME))
 				keySet[i] = rrn;
 			else
 				keySet[i] = record.getElement(indexColumn.getName());
-			
+
 			i++;
 		}
 
@@ -115,7 +114,7 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 		init();
 
 		try {
-			if(this.statement != null)
+			if (this.statement != null)
 				this.statement.close();
 		} catch (SQLException e) {
 			handleSQLException(e);
@@ -129,10 +128,10 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 
 	@Override
 	public void delete(QIndicator error) {
-		
+
 		// TODO
 
-		if(error != null)
+		if (error != null)
 			error.eval(onError());
 	}
 
@@ -144,7 +143,7 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 	protected void handleSQLException(SQLException e) {
 
 		this.error = true;
-		this.found = false;		
+		this.found = false;
 		this.equal = false;
 		this.endOfData = true;
 		this.rrn = 0;
@@ -161,7 +160,7 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 		this.rrn = 0;
 
 		this.currentTable = null;
-		
+
 		this.currentOpSet = null;
 		this.currentKeySet = null;
 
@@ -170,13 +169,13 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 	}
 
 	protected boolean isBeforeFirst() throws SQLException {
-		
-		if(this.resultSet == null)
+
+		if (this.resultSet == null)
 			return true;
 
-		if(this.resultSet.isClosed())
+		if (this.resultSet.isClosed())
 			return true;
-		
+
 		return this.resultSet.isBeforeFirst();
 	}
 
@@ -194,7 +193,7 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 
 	@Override
 	public boolean isFound() {
-		
+
 		return this.found;
 	}
 
@@ -205,7 +204,7 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 
 	@Override
 	public boolean onError() {
-		
+
 		return this.error;
 	}
 
@@ -220,13 +219,13 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 		init();
 
 		try {
-			if(this.accessMode == AccessMode.INPUT)
+			if (this.accessMode == AccessMode.INPUT)
 				statement = databaseConnection.createStatement(true);
 			else
 				statement = databaseConnection.createStatement(true, true);
-			
+
 			this.currentTable = this.tableProvider.getTable(null, this.record.getClass().getSimpleName());
-			
+
 			this.open = true;
 		} catch (SQLException e) {
 			handleSQLException(e);
@@ -242,7 +241,7 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 
 		if (this.resultSet != null)
 			this.resultSet.close();
-		
+
 		String querySelect = jdbcAccessHelper.buildSelect(this.currentTable, index, opSet, keySet, opRead, keyRead);
 
 		this.resultSet = this.statement.executeQuery(querySelect);
@@ -270,11 +269,11 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 
 		try {
 			if (rebuildNeeded(OperationDirection.FORWARD)) {
-				
-				if(this.currentKeySet == null)
+
+				if (this.currentKeySet == null)
 					prepareAccess(OperationSet.SET_GREATER_THAN, buildKeySet(), OperationRead.READ, null);
 				else
-					prepareAccess(OperationSet.SET_GREATER_THAN, this.currentKeySet, OperationRead.READ, null);				
+					prepareAccess(OperationSet.SET_GREATER_THAN, this.currentKeySet, OperationRead.READ, null);
 			}
 
 			return readNext();
@@ -283,12 +282,12 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 			handleSQLException(e);
 		}
 
-		if(endOfData != null)
+		if (endOfData != null)
 			endOfData.eval(isEndOfData());
-		
-		if(error != null)
+
+		if (error != null)
 			error.eval(onError());
-		
+
 		return isFound();
 	}
 
@@ -296,29 +295,28 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 
 		this.error = false;
 		this.equal = false;
-		
+
 		if (!this.resultSet.next()) {
 
 			// TODO verify if not necessary
 			this.record.clear();
 			this.rrn = 0;
-			
-			this.found = false;
-			this.endOfData = true;			
 
-			return false;			
+			this.found = false;
+			this.endOfData = true;
+
+			return false;
 		}
-			
+
 		try {
 			this.record.accept(this.dataReader);
-			this.rrn = this.resultSet.getInt(record.getElements().size()+1);
-			
+			this.rrn = this.resultSet.getInt(record.getElements().size() + 1);
+
 			this.found = true;
 			this.endOfData = false;
-			
+
 			return true;
-		}
-		catch(SQLException e) {
+		} catch (SQLException e) {
 			handleSQLException(e);
 			return false;
 		}
@@ -345,11 +343,11 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 
 		try {
 			if (rebuildNeeded(OperationDirection.BACKWARD)) {
-				
-				if(this.currentKeySet == null)
+
+				if (this.currentKeySet == null)
 					prepareAccess(OperationSet.SET_LOWER_LIMIT, buildKeySet(), OperationRead.READ_PRIOR, null);
 				else
-					prepareAccess(OperationSet.SET_LOWER_LIMIT, this.currentKeySet, OperationRead.READ_PRIOR, null);				
+					prepareAccess(OperationSet.SET_LOWER_LIMIT, this.currentKeySet, OperationRead.READ_PRIOR, null);
 			}
 			return readNext();
 
@@ -357,20 +355,20 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 			handleSQLException(e);
 		}
 
-		if(beginningOfData != null)
+		if (beginningOfData != null)
 			beginningOfData.eval(isEndOfData());
-		
-		if(error != null)
+
+		if (error != null)
 			error.eval(onError());
 
 		return isFound();
 	}
 
 	protected boolean rebuildNeeded(OperationDirection opDirection) {
-				
-		if(this.currentOpRead == null)
+
+		if (this.currentOpRead == null)
 			return true;
-		
+
 		boolean result = false;
 
 		switch (opDirection) {
@@ -412,10 +410,10 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 
 	@Override
 	public void unlock(QIndicator error) {
-		
+
 		// TODO
 
-		if(error != null)
+		if (error != null)
 			error.eval(onError());
 	}
 
@@ -426,10 +424,10 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 
 	@Override
 	public void update(QIndicator error) {
-		
+
 		// TODO
 
-		if(error != null)
+		if (error != null)
 			error.eval(onError());
 	}
 
@@ -437,41 +435,42 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 	public void write() {
 		write(null);
 	}
-	
+
 	@Override
 	public void write(QIndicator error) {
 
 		this.error = false;
 		this.equal = false;
-		
+
 		try {
-			if(this.resultSet == null) {
-				String querySelect = "SELECT "+jdbcAccessHelper.getSQLObjectNameHelper().getQualifiedNameInSQLFormat(this.currentTable) + ".*, digits(QASRRN) FROM "+jdbcAccessHelper.getSQLObjectNameHelper().getQualifiedNameInSQLFormat(this.currentTable) +" ORDER BY QASRRN";
+			if (this.resultSet == null) {
+				String querySelect = "SELECT " + jdbcAccessHelper.getSQLObjectNameHelper().getQualifiedNameInSQLFormat(this.currentTable) + ".*, digits(QASRRN) FROM "
+						+ jdbcAccessHelper.getSQLObjectNameHelper().getQualifiedNameInSQLFormat(this.currentTable) + " ORDER BY QASRRN";
 				this.resultSet = this.statement.executeQuery(querySelect);
-				
+
 				this.dataReader.set(this.resultSet);
 				this.dataWriter.set(this.resultSet);
 
-			}			
-			
-			this.resultSet.moveToInsertRow();			
+			}
+
+			this.resultSet.moveToInsertRow();
 			this.record.accept(this.dataWriter);
 			this.resultSet.insertRow();
 
 			this.resultSet.moveToCurrentRow();
 
-//			this.resultSet.last();
-			
-			this.rrn = this.resultSet.getInt(record.getElements().size()+1);
-			
+			// this.resultSet.last();
+
+			this.rrn = this.resultSet.getInt(record.getElements().size() + 1);
+
 			this.found = true;
 			this.endOfData = false;
 
 		} catch (SQLException e) {
 			handleSQLException(e);
 		}
-		
-		if(error != null)
+
+		if (error != null)
 			error.eval(onError());
 	}
 } // QDataSetImpl

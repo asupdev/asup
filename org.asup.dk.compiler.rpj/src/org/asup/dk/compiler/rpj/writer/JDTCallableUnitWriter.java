@@ -251,7 +251,8 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		writeImport(QBufferedData.class);
 
 		for (QKeyListTerm keyList : keyLists) {
-			writeKeyList(keyList);
+			if(!CompilationContextHelper.containsArray(expressionParser, keyList))
+				writeKeyList(keyList);
 		}
 	}
 
@@ -410,6 +411,9 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
 	@SuppressWarnings("unchecked")
 	public void writeRoutine(QRoutine routine) {
+
+		if (routine.getName().startsWith("*ENTRY") || routine.getName().startsWith("*EXIT"))
+			return;
 
 		MethodDeclaration methodDeclaration = getAST().newMethodDeclaration();
 		getTarget().bodyDeclarations().add(methodDeclaration);
@@ -596,8 +600,8 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 		// redefined record dataSet
 		if (getCompilationUnit().getRoot() instanceof QCallableUnit) {
 
-//			getCompilationUnit().refresh();
-			
+			// getCompilationUnit().refresh();
+
 			QCallableUnit callableUnit = (QCallableUnit) getCompilationUnit().getRoot();
 			if (callableUnit.getFileSection() != null) {
 				for (QDataSetTerm dataSetTerm : callableUnit.getFileSection().getDataSets()) {
@@ -742,6 +746,23 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 			block.statements().add(expressionStatement);
 		}
 
+		QRoutine routine = getCompilationUnit().getRoutine("*ENTRY", false);
+		if (routine != null) {
+			JDTStatementWriter statementWriter = getCompilationUnit().getContext().make(JDTStatementWriter.class);
+			statementWriter.setAST(getAST());
+
+			statementWriter.getBlocks().push(block);
+
+			if (routine.getMain() instanceof QBlock) {
+				QBlock qBlock = (QBlock) routine.getMain();
+				for (org.asup.il.flow.QStatement qStatement : qBlock.getStatements())
+					qStatement.accept(statementWriter);
+			} else
+				routine.getMain().accept(statementWriter);
+
+			statementWriter.getBlocks().pop();
+		}
+
 		// this.main
 		MethodInvocation mainInvocation = getAST().newMethodInvocation();
 		mainInvocation.setExpression(getAST().newThisExpression());
@@ -749,6 +770,24 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 
 		ExpressionStatement mainStatement = getAST().newExpressionStatement(mainInvocation);
 		block.statements().add(mainStatement);
+
+		routine = getCompilationUnit().getRoutine("*EXIT", false);
+		if (routine != null) {
+			JDTStatementWriter statementWriter = getCompilationUnit().getContext().make(JDTStatementWriter.class);
+			statementWriter.setAST(getAST());
+
+			statementWriter.getBlocks().push(block);
+
+			if (routine.getMain() instanceof QBlock) {
+				QBlock qBlock = (QBlock) routine.getMain();
+				for (org.asup.il.flow.QStatement qStatement : qBlock.getStatements())
+					qStatement.accept(statementWriter);
+			} else
+				routine.getMain().accept(statementWriter);
+
+			statementWriter.getBlocks().pop();
+		}
+
 	}
 
 	public void refactCallableUnit(QCallableUnit callableUnit) {

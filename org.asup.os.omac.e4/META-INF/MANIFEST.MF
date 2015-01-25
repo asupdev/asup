@@ -7,5 +7,6 @@ Bundle-Vendor: www.smeup.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.asup.os.type,
  org.asup.os.type.pgm,
- org.asup.os.type.cmd
+ org.asup.os.type.cmd,
+ org.asup.os.type.module
 Export-Package: org.asup.os.omac.e4

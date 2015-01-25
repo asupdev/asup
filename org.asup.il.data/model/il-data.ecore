@@ -127,6 +127,27 @@
       <eBounds eClassifier="#//BufferedData"/>
     </eTypeParameters>
     <eOperations name="sorta"/>
+    <eOperations name="movea">
+      <eParameters name="value" eType="#//BufferedData"/>
+    </eOperations>
+    <eOperations name="movea">
+      <eParameters name="value" eType="#//BufferedData"/>
+      <eParameters name="clear" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="movea">
+      <eParameters name="value" eType="#//DataWriter"/>
+    </eOperations>
+    <eOperations name="movea">
+      <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eOperations name="movea">
+      <eTypeParameters name="E">
+        <eBounds eClassifier="ecore:EClass ../../org.asup.fw.java/model/fw-java.ecore#//JavaEnum"/>
+      </eTypeParameters>
+      <eParameters name="value">
+        <eGenericType eTypeParameter="#//BufferedList/movea.4/E"/>
+      </eParameters>
+    </eOperations>
     <eGenericSuperTypes eClassifier="#//List">
       <eTypeArguments eTypeParameter="#//BufferedList/D"/>
     </eGenericSuperTypes>

@@ -28,7 +28,7 @@ public class RRDS_readp {
 
 	private void testBRARTI() {
 
-		QRRDataSet<BRARTI0F> brarti0f = isamFactory.createRelativeRecordDataSet(null, BRARTI0F.class);
+		QRRDataSet<BRARTI0F> brarti0f = isamFactory.createRelativeRecordDataSet(BRARTI0F.class);
 
 		brarti0f.open();
 

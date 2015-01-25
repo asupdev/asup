@@ -909,12 +909,12 @@ public class OperatingSystemFilePackageImpl extends EPackageImpl implements QOpe
 
 		initEClass(fileManagerEClass, QFileManager.class, "FileManager", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		op = addEOperation(fileManagerEClass, this.getFile(), "getOverriddenFile", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(fileManagerEClass, this.getFile(), "getFileOverride", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theOperatingSystemJobsPackage.getJob(), "job", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "fileName", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theOperatingSystemCorePackage.getOperatingSystemRuntimeException());
 
-		op = addEOperation(fileManagerEClass, null, "overrideFile", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(fileManagerEClass, null, "setFileOverride", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theOperatingSystemJobsPackage.getJob(), "job", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEString(), "fileFrom", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getFile(), "fileTo", 1, 1, IS_UNIQUE, IS_ORDERED);

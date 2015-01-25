@@ -45,6 +45,15 @@ public interface QOperatingSystemModuleFactory extends EFactory {
 	QModuleSource createModuleSource();
 
 	/**
+	 * Returns a new object of class '<em>Module Container</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Module Container</em>'.
+	 * @generated
+	 */
+	QModuleContainer createModuleContainer();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -15,6 +15,7 @@ package org.asup.dk.compiler.rpj;
 import javax.inject.Inject;
 
 import org.asup.dk.compiler.QCompilationUnit;
+import org.asup.fw.core.FrameworkCoreUnexpectedConditionException;
 import org.asup.il.core.QOverlay;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QUnaryAtomicDataTerm;
@@ -32,7 +33,7 @@ public class RPJDataOverlayRefactor extends RPJAbstractDataRefactor {
 
 		// overlay
 		QOverlay overlay = term.getFacet(QOverlay.class);
-		if (overlay != null) {
+		if (overlay != null && overlay.getName() != null) {
 			QDataTerm<?> overlayTerm = getCompilationUnit().getDataTerm(overlay.getName(), true);
 			if (overlayTerm == null)
 				throw new RuntimeException("Unexpected condition: 57as43534dftgasd8764xm0437");
@@ -54,9 +55,13 @@ public class RPJDataOverlayRefactor extends RPJAbstractDataRefactor {
 		// overlay
 		QOverlay overlay = term.getFacet(QOverlay.class);
 		if (overlay != null) {
+			
+			if(overlay.getName() == null)
+				throw new FrameworkCoreUnexpectedConditionException("b8r6w8er6wver87w68");
+			
 			QDataTerm<?> overlayTerm = getCompilationUnit().getDataTerm(overlay.getName(), true);
 			if (overlayTerm == null)
-				throw new RuntimeException("Unexpected condition: 57asdftgasd8764xm04372");
+				throw new FrameworkCoreUnexpectedConditionException("b8r6w8er6wver87w61");
 
 			if (overlayTerm.getDataTermType().isMultiple())
 				setDataTerm(buildMultipleDataTerm(term, overlayTerm));
