@@ -389,4 +389,92 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 		return asString();
 	}
 
+	@Override
+	public <E extends Enum<E>> boolean eq(E value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public <E extends Enum<E>> void eval(E value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean ge(E value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean gt(E value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean le(E value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean lt(E value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public <E extends Enum<E>> boolean ne(E value) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void move(String value, boolean clear) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public <E extends Enum<E>> void move(E value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public <E extends Enum<E>> void move(E value, boolean clear) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void movel(String value, boolean clear) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public <E extends Enum<E>> void movel(E value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public <E extends Enum<E>> void movel(E value, boolean clear) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean eq(QBufferedData value) {
+		return asBytes().equals(value.asBytes());
+	}
+
+	@Override
+	public boolean ne(QBufferedData value) {
+		return !eq(value);
+	}
+
 }

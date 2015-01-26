@@ -21,6 +21,7 @@ import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataFactory;
+import org.asup.il.data.QDataStruct;
 import org.asup.il.data.QDataStructWrapper;
 import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QDatetime;
@@ -31,6 +32,7 @@ import org.asup.il.data.QList;
 import org.asup.il.data.QNumeric;
 import org.asup.il.data.QPointer;
 import org.asup.il.data.QString;
+import org.asup.il.data.QStroller;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.isam.QDataSet;
 import org.asup.il.isam.QDisplay;
@@ -327,7 +329,7 @@ public class RPJProgramSupport {
 			character.eval(Integer.toString(numeric.asInteger()));
 		} else {
 			character = dataFactory.createCharacter(numeric.getLength() + 1, true, true);
-			character.eval(Double.toString(numeric.asDouble()));
+			character.eval(Double.toString(numeric.asDouble()).replaceAll("\\.", ""));
 		}
 
 		return character;
@@ -580,8 +582,8 @@ public class RPJProgramSupport {
 	public QNumeric qElem(QList<? extends QBufferedData> list) {
 
 		// TODO Unsigned
-		QDecimal decimal = dataFactory.createDecimal(5, 0, DecimalType.ZONED, true);
-		decimal.eval(list.capacity());
+		QDecimal decimal = createDecimal(list.capacity());
+
 		return decimal;
 	}
 
@@ -614,11 +616,11 @@ public class RPJProgramSupport {
 	}
 
 	/* Lookup */
-	public QNumeric qLookup(Specials argument, QList<? extends QBufferedData> list, Integer startIndex, Integer numElements) {
+	public <BD extends QBufferedData> QNumeric qLookup(Specials argument, QList<? extends QBufferedData> list, Integer startIndex, Integer numElements) {
 		return qLookup(LookupOperator.EQ, argument, list, startIndex, numElements);
 	}
 
-	public QNumeric qLookup(QBufferedData argument, QList<? extends QBufferedData> list, Integer startIndex, Integer numElements) {
+	public <BD extends QBufferedData> QNumeric qLookup(BD argument, QList<BD> list, Integer startIndex, Integer numElements) {
 		return qLookup(LookupOperator.EQ, argument, list, startIndex, numElements);
 	}
 
@@ -626,11 +628,15 @@ public class RPJProgramSupport {
 		return qLookup(LookupOperator.EQ, argument, list, startIndex, numElements);
 	}
 
+	public QNumeric qLookup(QDataStruct argument, QStroller<? extends QBufferedData> list, Integer startIndex, Integer numElements) {
+		return qLookup(LookupOperator.EQ, argument.asString(), list, startIndex, numElements);
+	}
+
 	public QNumeric qLookuplt(Specials argument, QList<? extends QBufferedData> list, Integer startIndex, Integer numElements) {
 		return qLookup(LookupOperator.LT, argument, list, startIndex, numElements);
 	}
 
-	public QNumeric qLookuplt(QBufferedData argument, QList<? extends QBufferedData> list, Integer startIndex, Integer numElements) {
+	public <BD extends QBufferedData> QNumeric qLookuplt(BD argument, QList<BD> list, Integer startIndex, Integer numElements) {
 		return qLookup(LookupOperator.LT, argument, list, startIndex, numElements);
 	}
 
@@ -638,7 +644,7 @@ public class RPJProgramSupport {
 		return qLookup(LookupOperator.LE, argument, list, startIndex, numElements);
 	}
 
-	public QNumeric qLookuple(QBufferedData argument, QList<? extends QBufferedData> list, Integer startIndex, Integer numElements) {
+	public <BD extends QBufferedData> QNumeric qLookuple(BD argument, QList<BD> list, Integer startIndex, Integer numElements) {
 		return qLookup(LookupOperator.LE, argument, list, startIndex, numElements);
 	}
 
@@ -646,7 +652,7 @@ public class RPJProgramSupport {
 		return qLookup(LookupOperator.GT, argument, list, startIndex, numElements);
 	}
 
-	public QNumeric qLookupgt(QBufferedData argument, QList<? extends QBufferedData> list, Integer startIndex, Integer numElements) {
+	public <BD extends QBufferedData> QNumeric qLookupgt(BD argument, QList<BD> list, Integer startIndex, Integer numElements) {
 		return qLookup(LookupOperator.GT, argument, list, startIndex, numElements);
 	}
 
@@ -654,7 +660,7 @@ public class RPJProgramSupport {
 		return qLookup(LookupOperator.GE, argument, list, startIndex, numElements);
 	}
 
-	public QNumeric qLookupge(QBufferedData argument, QList<? extends QBufferedData> list, Integer startIndex, Integer numElements) {
+	public <BD extends QBufferedData> QNumeric qLookupge(BD argument, QList<BD> list, Integer startIndex, Integer numElements) {
 		return qLookup(LookupOperator.GE, argument, list, startIndex, numElements);
 	}
 
@@ -674,7 +680,7 @@ public class RPJProgramSupport {
 		return qBox(0);
 	}
 
-	private QNumeric qLookup(LookupOperator operator, QBufferedData argument, QList<? extends QBufferedData> list, Integer startIndex, Integer numElements) {
+	private <BD extends QBufferedData> QNumeric qLookup(LookupOperator operator, BD argument, QList<BD> list, Integer startIndex, Integer numElements) {
 
 		if (startIndex == null)
 			startIndex = 1;
@@ -683,7 +689,7 @@ public class RPJProgramSupport {
 			numElements = list.capacity();
 
 		for (int i = startIndex; i <= numElements; i++) {
-			if (list.get(i).asString().equals(argument.asString()))
+			if (list.get(i).eq(argument))
 				return qBox(i);
 		}
 
@@ -755,11 +761,11 @@ public class RPJProgramSupport {
 	}
 
 	/* Substring */
-	public QString qSubst(QArray<QCharacter> source, Integer startIndex) {
+	public QCharacter qSubst(QArray<QCharacter> source, Integer startIndex) {
 		return qSubst(source.asString(), startIndex, null);
 	}
 
-	public QString qSubst(QArray<QCharacter> source, Integer startIndex, Integer length) {
+	public QCharacter qSubst(QArray<QCharacter> source, Integer startIndex, Integer length) {
 
 		if (startIndex == null)
 			startIndex = 1;
@@ -767,18 +773,18 @@ public class RPJProgramSupport {
 		if (length == null)
 			length = source.getLength() - startIndex;
 
-		QString string = dataFactory.createCharacter(length, false, false);
+		QCharacter string = dataFactory.createCharacter(length, false, false);
 		source.assign(string, startIndex);
 
 		return string;
 
 	}
 
-	public QString qSubst(QString source, Integer startIndex) {
+	public QCharacter qSubst(QString source, Integer startIndex) {
 		return qSubst(source, startIndex, null);
 	}
 
-	public QString qSubst(QString source, Integer startIndex, Integer length) {
+	public QCharacter qSubst(QString source, Integer startIndex, Integer length) {
 
 		if (startIndex == null)
 			startIndex = 1;
@@ -786,13 +792,13 @@ public class RPJProgramSupport {
 		if (length == null)
 			length = source.getLength() - startIndex;
 
-		QString string = dataFactory.createCharacter(length, false, false);
+		QCharacter string = dataFactory.createCharacter(length, false, false);
 		source.assign(string, startIndex);
 
 		return string;
 	}
 
-	public QString qSubst(String source, Integer startIndex, Integer length) {
+	public QCharacter qSubst(String source, Integer startIndex, Integer length) {
 
 		if (startIndex == null)
 			startIndex = 1;
@@ -802,7 +808,7 @@ public class RPJProgramSupport {
 
 		String str = source.substring(startIndex - 1, startIndex - 1 + length);
 
-		QString string = dataFactory.createCharacter(str.length(), false, true);
+		QCharacter string = dataFactory.createCharacter(str.length(), false, true);
 		string.eval(str);
 
 		return string;

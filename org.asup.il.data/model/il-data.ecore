@@ -86,12 +86,18 @@
       <eParameters name="value" lowerBound="1" eType="#//BufferedData"/>
       <eParameters name="position" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
+    <eOperations name="eq" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="value" eType="#//BufferedData"/>
+    </eOperations>
     <eOperations name="eval">
       <eParameters name="value" lowerBound="1" eType="#//BufferedData"/>
     </eOperations>
     <eOperations name="isNull" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="getLength" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eOperations name="getSize" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eOperations name="ne" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eParameters name="value" eType="#//BufferedData"/>
+    </eOperations>
     <eOperations name="s" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BufferDef">

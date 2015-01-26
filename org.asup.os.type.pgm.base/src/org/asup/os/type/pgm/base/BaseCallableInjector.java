@@ -177,6 +177,8 @@ public class BaseCallableInjector {
 				continue;
 
 			if(Modifier.isStatic(field.getModifiers())) {
+				if(Modifier.isFinal(field.getModifiers()))
+					continue;
 				if(field.get(callable) != null)
 					continue;
 			}

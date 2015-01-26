@@ -344,4 +344,15 @@ public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QB
 		return _delegate.s();
 	}
 
+
+	@Override
+	public boolean eq(QBufferedData value) {
+		return _delegate.eq(value);
+	}
+
+	@Override
+	public boolean ne(QBufferedData value) {
+		return _delegate.ne(value);
+	}
+
 }

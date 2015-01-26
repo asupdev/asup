@@ -57,6 +57,14 @@ public interface QBufferedData extends QData, QMoveable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean eq(QBufferedData value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model valueRequired="true"
 	 * @generated
 	 */
@@ -85,6 +93,14 @@ public interface QBufferedData extends QData, QMoveable {
 	 * @generated
 	 */
 	int getSize();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean ne(QBufferedData value);
 
 	/**
 	 * <!-- begin-user-doc -->

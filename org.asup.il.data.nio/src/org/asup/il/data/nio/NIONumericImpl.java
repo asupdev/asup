@@ -162,7 +162,9 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 		else if(value.name().equals("ZERO"))
 			return 0;
 		else if(value.name().equals("LOVAL"))
-			return 0;
+			return Integer.MIN_VALUE;
+		else if(value.name().equals("HIVAL"))
+			return Integer.MAX_VALUE;
 		
 		return 0;
 	}
