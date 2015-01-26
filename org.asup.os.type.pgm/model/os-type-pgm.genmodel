@@ -8,7 +8,7 @@
     rootExtendsInterface="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     suppressEMFTypes="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
     copyrightFields="false" editPluginID="org.asup.os.type.pgm.edit" editorPluginID="org.asup.os.type.pgm.editor"
-    language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.os.core/model/os-core.genmodel#//core ../../org.asup.os.type/model/os-type.genmodel#//type ../../org.asup.il.core/model/il-core.genmodel#//core ../../org.asup.il.data/model/il-data.genmodel#//data ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.os.omac/model/os-omac.genmodel#//omac"
+    language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.os.core/model/os-core.genmodel#//core ../../org.asup.os.type/model/os-type.genmodel#//type ../../org.asup.il.core/model/il-core.genmodel#//core ../../org.asup.il.data/model/il-data.genmodel#//data ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.os.omac/model/os-omac.genmodel#//omac ../../org.asup.il.expr/model/il-expr.genmodel#//expr"
     interfaceNamePattern="Q{0}">
   <foreignModel>os-type-pgm.ecore</foreignModel>
   <genPackages prefix="OperatingSystemProgram" basePackage="org.asup.os.type" disposableProviderFactory="true"
@@ -55,6 +55,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-pgm.ecore#//Program/address"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-pgm.ecore#//Program/creationParams"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-type-pgm.ecore#//Program/source"/>
+      <genOperations ecoreOperation="os-type-pgm.ecore#//Program/getClassURI"/>
+      <genOperations ecoreOperation="os-type-pgm.ecore#//Program/getPackageInfoURI"/>
     </genClasses>
     <genClasses ecoreClass="os-type-pgm.ecore#//ProgramContainer">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-pgm.ecore#//ProgramContainer/basePackage"/>
@@ -68,9 +70,15 @@
         <genParameters ecoreParameter="os-type-pgm.ecore#//ProgramManager/callProgram/params"/>
       </genOperations>
       <genOperations ecoreOperation="os-type-pgm.ecore#//ProgramManager/callProgram.1">
-        <genParameters ecoreParameter="os-type-pgm.ecore#//ProgramManager/callProgram.1/job"/>
-        <genParameters ecoreParameter="os-type-pgm.ecore#//ProgramManager/callProgram.1/klass"/>
+        <genParameters ecoreParameter="os-type-pgm.ecore#//ProgramManager/callProgram.1/contextID"/>
+        <genParameters ecoreParameter="os-type-pgm.ecore#//ProgramManager/callProgram.1/library"/>
+        <genParameters ecoreParameter="os-type-pgm.ecore#//ProgramManager/callProgram.1/program"/>
         <genParameters ecoreParameter="os-type-pgm.ecore#//ProgramManager/callProgram.1/params"/>
+      </genOperations>
+      <genOperations ecoreOperation="os-type-pgm.ecore#//ProgramManager/callProgram.2">
+        <genParameters ecoreParameter="os-type-pgm.ecore#//ProgramManager/callProgram.2/job"/>
+        <genParameters ecoreParameter="os-type-pgm.ecore#//ProgramManager/callProgram.2/klass"/>
+        <genParameters ecoreParameter="os-type-pgm.ecore#//ProgramManager/callProgram.2/params"/>
       </genOperations>
       <genOperations ecoreOperation="os-type-pgm.ecore#//ProgramManager/getCaller">
         <genParameters ecoreParameter="os-type-pgm.ecore#//ProgramManager/getCaller/contextID"/>

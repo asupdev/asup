@@ -133,7 +133,7 @@ public class RPJProgramSupport {
 
 		private static final long serialVersionUID = 1L;
 
-		@DataDef(length = 5)
+		@DataDef(precision = 5)
 		public QDecimal qStatus;
 	}
 
@@ -141,10 +141,10 @@ public class RPJProgramSupport {
 
 		private static final long serialVersionUID = 1L;
 
-		@DataDef(length = 4)
+		@DataDef(precision = 4)
 		public QDecimal uyear4;
 
-		@DataDef(length = 2)
+		@DataDef(precision = 2)
 		@Overlay(position = "1")
 		public QDecimal uyear;
 	}
@@ -187,6 +187,22 @@ public class RPJProgramSupport {
 
 		if (Math.abs(decimal) >= 0 && Math.abs(decimal) <= 9)
 			qDecimal = dataFactory.createDecimal(1, 0, DecimalType.ZONED, true);
+		else if (Math.abs(decimal) >= 10 && Math.abs(decimal) <= 99)
+			qDecimal = dataFactory.createDecimal(2, 0, DecimalType.ZONED, true);
+		else if (Math.abs(decimal) >= 100 && Math.abs(decimal) <= 999)
+			qDecimal = dataFactory.createDecimal(3, 0, DecimalType.ZONED, true);
+		else if (Math.abs(decimal) >= 1000 && Math.abs(decimal) <= 9999)
+			qDecimal = dataFactory.createDecimal(4, 0, DecimalType.ZONED, true);
+		else if (Math.abs(decimal) >= 10000 && Math.abs(decimal) <= 99999)
+			qDecimal = dataFactory.createDecimal(5, 0, DecimalType.ZONED, true);
+		else if (Math.abs(decimal) >= 100000 && Math.abs(decimal) <= 999999)
+			qDecimal = dataFactory.createDecimal(6, 0, DecimalType.ZONED, true);
+		else if (Math.abs(decimal) >= 1000000 && Math.abs(decimal) <= 9999999)
+			qDecimal = dataFactory.createDecimal(7, 0, DecimalType.ZONED, true);
+		else if (Math.abs(decimal) >= 10000000 && Math.abs(decimal) <= 99999999)
+			qDecimal = dataFactory.createDecimal(8, 0, DecimalType.ZONED, true);
+		else if (Math.abs(decimal) >= 100000000 && Math.abs(decimal) <= 999999999)
+			qDecimal = dataFactory.createDecimal(9, 0, DecimalType.ZONED, true);
 		else
 			qDecimal = dataFactory.createDecimal(10, 0, DecimalType.ZONED, true);
 
@@ -349,7 +365,10 @@ public class RPJProgramSupport {
 	}
 
 	public QIndicator qFound(QDataSet<?> dataSet) {
-		return qBox(dataSet.isFound());
+		if (dataSet == null)
+			return qBox(false);
+		else
+			return qBox(dataSet.isFound());
 	}
 
 	public QDecimal qInt(QString string) {
@@ -399,18 +418,6 @@ public class RPJProgramSupport {
 		return null;
 	}
 
-	public QDecimal qLen(QBufferedData bufferedData) {
-		QDecimal decimal = dataFactory.createDecimal(5, 0, DecimalType.ZONED, true);
-		decimal.eval(bufferedData.getLength());
-		return decimal;
-	}
-
-	public QDecimal qLen(String string) {
-		QDecimal decimal = dataFactory.createDecimal(5, 0, DecimalType.ZONED, true);
-		decimal.eval(string.length());
-		return decimal;
-	}
-
 	public QDecimal qSize(QBufferedData bufferedData) {
 		QDecimal decimal = dataFactory.createDecimal(5, 0, DecimalType.ZONED, true);
 		decimal.eval(bufferedData.getSize());
@@ -419,53 +426,6 @@ public class RPJProgramSupport {
 
 	public QDecimal qRem(QNumeric ope1, QNumeric ope2) {
 		return null;
-	}
-
-	public QDecimal qScan(byte argument, QString source) {
-		return qScan(argument, source, null, null);
-	}
-
-	public QDecimal qScan(byte argument, QString source, Integer start) {
-		return qScan(argument, source, start, null);
-	}
-
-	// TODO double byte?
-	public QDecimal qScan(byte argument, QString source, Integer start, Integer length) {
-
-		if (start == null)
-			start = 1;
-
-		int position = 0;
-
-		if (length != null)
-			position = qSubst(source, 1, length).asString().indexOf(argument, start - 1) + 1;
-		else
-			position = source.asString().indexOf(argument, start - 1) + 1;
-
-		return qBox(position);
-	}
-
-	public QDecimal qScan(String argument, QString source) {
-		return qScan(argument, source, null, null);
-	}
-
-	public QDecimal qScan(String argument, QString source, Integer start) {
-		return qScan(argument, source, start, null);
-	}
-
-	public QDecimal qScan(String argument, QString source, Integer start, Integer length) {
-
-		if (start == null)
-			start = 1;
-
-		int position = 0;
-
-		if (length != null)
-			position = qSubst(source, 1, length).asString().indexOf(argument, start - 1) + 1;
-		else
-			position = source.asString().indexOf(argument, start - 1) + 1;
-
-		return qBox(position);
 	}
 
 	public QDecimal qStatus() {
@@ -652,6 +612,34 @@ public class RPJProgramSupport {
 		return decimal;
 	}
 
+	/* Len */
+	public QDecimal qLen(QBufferedData bufferedData) {
+		return createDecimal(bufferedData.getLength());
+	}
+
+	public QDecimal qLen(String string) {
+		return createDecimal(string.length());
+	}
+
+	private QDecimal createDecimal(int length) {
+
+		QDecimal decimal = null;
+		if (length >= 0 && length <= 9)
+			decimal = dataFactory.createDecimal(1, 0, DecimalType.ZONED, true);
+		else if (length >= 10 && length <= 99)
+			decimal = dataFactory.createDecimal(2, 0, DecimalType.ZONED, true);
+		else if (length >= 100 && length <= 999)
+			decimal = dataFactory.createDecimal(3, 0, DecimalType.ZONED, true);
+		else if (length >= 1000 && length <= 9999)
+			decimal = dataFactory.createDecimal(4, 0, DecimalType.ZONED, true);
+		else
+			decimal = dataFactory.createDecimal(5, 0, DecimalType.ZONED, true);
+
+		decimal.eval(length);
+
+		return decimal;
+	}
+
 	/* Lookup */
 	public QNumeric qLookup(Specials argument, QList<? extends QBufferedData> list, Integer startIndex, Integer numElements) {
 		return qLookup(LookupOperator.EQ, argument, list, startIndex, numElements);
@@ -710,7 +698,7 @@ public class RPJProgramSupport {
 				return qBox(i);
 		}
 
-		return qBox(-1);
+		return qBox(0);
 	}
 
 	private QNumeric qLookup(LookupOperator operator, QBufferedData argument, QList<? extends QBufferedData> list, Integer startIndex, Integer numElements) {
@@ -726,7 +714,7 @@ public class RPJProgramSupport {
 				return qBox(i);
 		}
 
-		return qBox(-1);
+		return qBox(0);
 	}
 
 	private QNumeric qLookup(LookupOperator operator, Specials argument, QList<? extends QBufferedData> list, Integer startIndex, Integer numElements) {
@@ -742,25 +730,93 @@ public class RPJProgramSupport {
 				return qBox(i);
 		}
 
-		return qBox(-1);
+		return qBox(0);
 	}
-	
+
+	/* Scan */
+	public QDecimal qScan(byte argument, QString source) {
+		return qScan(argument, source, null, null);
+	}
+
+	public QDecimal qScan(byte argument, QString source, Integer start) {
+		return qScan(argument, source, start, null);
+	}
+
+	// TODO double byte?
+	public QDecimal qScan(byte argument, QString source, Integer start, Integer length) {
+
+		if (start == null)
+			start = 1;
+
+		int position = 0;
+
+		if (length != null)
+			position = qSubst(source, 1, length).asString().indexOf(argument, start - 1) + 1;
+		else
+			position = source.asString().indexOf(argument, start - 1) + 1;
+
+		return qBox(position);
+	}
+
+	public QDecimal qScan(String argument, QString source) {
+		return qScan(argument, source, null, null);
+	}
+
+	public QDecimal qScan(String argument, QString source, Integer start) {
+		return qScan(argument, source, start, null);
+	}
+
+	public QDecimal qScan(String argument, QString source, Integer start, Integer length) {
+
+		if (start == null)
+			start = 1;
+
+		int position = 0;
+
+		if (length != null)
+			position = qSubst(source, 1, length).asString().indexOf(argument, start - 1) + 1;
+		else
+			position = source.asString().indexOf(argument, start - 1) + 1;
+
+		return qBox(position);
+	}
+
 	/* Substring */
 	public QString qSubst(QArray<QCharacter> source, Integer startIndex) {
-		return qSubst(source.asString(), null, null);
+		return qSubst(source.asString(), startIndex, null);
 	}
 
 	public QString qSubst(QArray<QCharacter> source, Integer startIndex, Integer length) {
-		return qSubst(source.asString(), startIndex, length);
+
+		if (startIndex == null)
+			startIndex = 1;
+
+		if (length == null)
+			length = source.getLength() - startIndex;
+
+		QString string = dataFactory.createCharacter(length, false, false);
+		source.assign(string, startIndex);
+
+		return string;
+
 	}
 
 	public QString qSubst(QString source, Integer startIndex) {
-		return qSubst(source.asString(), startIndex, null);
+		return qSubst(source, startIndex, null);
 	}
 
 	public QString qSubst(QString source, Integer startIndex, Integer length) {
 
-		return qSubst(source.asString(), startIndex, length);
+		if (startIndex == null)
+			startIndex = 1;
+
+		if (length == null)
+			length = source.getLength() - startIndex;
+
+		QString string = dataFactory.createCharacter(length, false, false);
+		source.assign(string, startIndex);
+
+		return string;
 	}
 
 	public QString qSubst(String source, Integer startIndex, Integer length) {
@@ -769,7 +825,7 @@ public class RPJProgramSupport {
 			startIndex = 1;
 
 		if (length == null)
-			length = source.length()-startIndex;
+			length = source.length() - startIndex;
 
 		String str = source.substring(startIndex - 1, startIndex - 1 + length);
 

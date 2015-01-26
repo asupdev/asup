@@ -109,6 +109,11 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 
 	@Override
 	public void assign(QBufferedData target) {
+		assign(target, 1);
+	}
+
+	@Override
+	public void assign(QBufferedData target, int position) {
 
 		NIOBufferedDataImpl nioBufferedData = getNIOBufferedDataImpl(target);
 
@@ -117,9 +122,9 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 
 		nioBufferedData._parent = null;
 		nioBufferedData._buffer = getBuffer();
-		nioBufferedData._position = getPosition();
+		nioBufferedData._position = getPosition()+position-1;
 	}
-
+	
 	@Override
 	public void clear() {
 		NIOBufferHelper.clear(getBuffer(), getPosition(), getSize(), getFiller());

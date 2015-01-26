@@ -163,4 +163,9 @@ public class NIOScrollerImpl<D extends QBufferedData> extends NIOBufferedListImp
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public D[] asArray() {
+		throw new UnsupportedOperationException();
+	}
 }

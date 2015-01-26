@@ -170,6 +170,9 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 
 	protected boolean isBeforeFirst() throws SQLException {
 
+		if(this.currentOpRead == null)
+			return true;
+		
 		if (this.resultSet == null)
 			return true;
 
@@ -244,6 +247,8 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 
 		String querySelect = jdbcAccessHelper.buildSelect(this.currentTable, index, opSet, keySet, opRead, keyRead);
 
+		System.out.println(querySelect);
+		
 		this.resultSet = this.statement.executeQuery(querySelect);
 		this.dataReader.set(this.resultSet);
 		this.dataWriter.set(this.resultSet);

@@ -23,19 +23,16 @@ import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.type.cmd.QCallableCommand;
 import org.asup.os.type.cmd.QCommandManager;
-import org.asup.os.type.pgm.QCallableProgram;
-import org.asup.os.type.pgm.QProgramManager;
-import org.asup.os.type.pgm.QProgramStatus;
 
 @Program(name = "QCMDEXC")
 public class CommandExecutor {
 
 	@Inject
 	private QCommandManager commandManager;
-	@Inject
-	private QProgramManager programManager;
-	@Inject
-	private QProgramStatus programStatus;
+//	@Inject
+//	private QProgramManager programManager;
+//	@Inject
+//	private QProgramStatus programStatus;
 	@Inject
 	private QJob job;
 
@@ -50,12 +47,15 @@ public class CommandExecutor {
 		Map<String, Object> programsVariables = null;
 
 		// variable environment from caller
-		if (commandString.contains("&")) {
+/*		if (commandString.contains("&")) {
 			QCallableProgram caller = programManager.getCaller(job, programStatus.getCallableProgram());
 			if (caller != null)
 				programsVariables = null; // caller.getVariables();
-		}
+		}*/
 
+		if(commandString.startsWith("ADDENVVAR"))
+			return;
+		
 		try {
 			QCallableCommand callableCommand = commandManager.prepareCommand(job, commandString, programsVariables, true);
 			commandManager.executeCommand(job, callableCommand);

@@ -5,11 +5,12 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QDataVisitor;
+import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QList;
 import org.asup.il.data.QNumeric;
 
@@ -29,6 +30,17 @@ public class NIOListImpl<D extends NIODataImpl> extends NIODataImpl implements Q
 		this._model = model;
 		this._dimension = dimension;
 		this._elements = new ArrayList<D>(_dimension);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public D[] asArray() {
+		
+		D[] array = (D[]) Array.newInstance(_model.getClass(), _dimension);
+		
+		System.arraycopy(_elements.toArray(), 0, array, 0, _dimension);
+		
+		return array;
 	}
 
 	@Override
