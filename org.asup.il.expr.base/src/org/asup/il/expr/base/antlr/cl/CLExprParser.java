@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 CLExpr.g 2015-01-10 10:51:41
+// $ANTLR 3.5.1 CLExpr.g 2015-01-26 17:27:49
 
   package org.asup.il.expr.base.antlr.cl;
   
@@ -1312,7 +1312,7 @@ public class CLExprParser extends Parser {
 
 
 	// $ANTLR start "binary_fun"
-	// CLExpr.g:170:1: binary_fun : BINARY_FUN '(' ( value )? ')' -> ^( BINARY_FUN[$binary_fun.text] ) ;
+	// CLExpr.g:170:1: binary_fun : BINARY_FUN '(' ( value )? ')' -> ^( BINARY_FUN[$BINARY_FUN.text] ( value )? ) ;
 	public final CLExprParser.binary_fun_return binary_fun() throws RecognitionException {
 		CLExprParser.binary_fun_return retval = new CLExprParser.binary_fun_return();
 		retval.start = input.LT(1);
@@ -1333,7 +1333,7 @@ public class CLExprParser extends Parser {
 		RewriteRuleSubtreeStream stream_value=new RewriteRuleSubtreeStream(adaptor,"rule value");
 
 		try {
-			// CLExpr.g:171:2: ( BINARY_FUN '(' ( value )? ')' -> ^( BINARY_FUN[$binary_fun.text] ) )
+			// CLExpr.g:171:2: ( BINARY_FUN '(' ( value )? ')' -> ^( BINARY_FUN[$BINARY_FUN.text] ( value )? ) )
 			// CLExpr.g:172:3: BINARY_FUN '(' ( value )? ')'
 			{
 			BINARY_FUN41=(Token)match(input,BINARY_FUN,FOLLOW_BINARY_FUN_in_binary_fun465);  
@@ -1366,7 +1366,7 @@ public class CLExprParser extends Parser {
 			stream_CLOSE_BRACE.add(char_literal44);
 
 			// AST REWRITE
-			// elements: BINARY_FUN
+			// elements: value, BINARY_FUN
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1376,12 +1376,18 @@ public class CLExprParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 172:29: -> ^( BINARY_FUN[$binary_fun.text] )
+			// 172:29: -> ^( BINARY_FUN[$BINARY_FUN.text] ( value )? )
 			{
-				// CLExpr.g:172:32: ^( BINARY_FUN[$binary_fun.text] )
+				// CLExpr.g:172:32: ^( BINARY_FUN[$BINARY_FUN.text] ( value )? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
-				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(BINARY_FUN, input.toString(retval.start,input.LT(-1))), root_1);
+				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(BINARY_FUN, (BINARY_FUN41!=null?BINARY_FUN41.getText():null)), root_1);
+				// CLExpr.g:172:63: ( value )?
+				if ( stream_value.hasNext() ) {
+					adaptor.addChild(root_1, stream_value.nextTree());
+				}
+				stream_value.reset();
+
 				adaptor.addChild(root_0, root_1);
 				}
 
@@ -1420,7 +1426,7 @@ public class CLExprParser extends Parser {
 
 
 	// $ANTLR start "sst_fun"
-	// CLExpr.g:175:1: sst_fun : SST_FUN '(' value value value ')' -> ^( SST_FUN[$sst_fun.text] ) ;
+	// CLExpr.g:175:1: sst_fun : SST_FUN '(' value value value ')' -> ^( SST_FUN[$SST_FUN.text] value value value ) ;
 	public final CLExprParser.sst_fun_return sst_fun() throws RecognitionException {
 		CLExprParser.sst_fun_return retval = new CLExprParser.sst_fun_return();
 		retval.start = input.LT(1);
@@ -1443,35 +1449,35 @@ public class CLExprParser extends Parser {
 		RewriteRuleSubtreeStream stream_value=new RewriteRuleSubtreeStream(adaptor,"rule value");
 
 		try {
-			// CLExpr.g:176:2: ( SST_FUN '(' value value value ')' -> ^( SST_FUN[$sst_fun.text] ) )
+			// CLExpr.g:176:2: ( SST_FUN '(' value value value ')' -> ^( SST_FUN[$SST_FUN.text] value value value ) )
 			// CLExpr.g:177:3: SST_FUN '(' value value value ')'
 			{
-			SST_FUN45=(Token)match(input,SST_FUN,FOLLOW_SST_FUN_in_sst_fun492);  
+			SST_FUN45=(Token)match(input,SST_FUN,FOLLOW_SST_FUN_in_sst_fun496);  
 			stream_SST_FUN.add(SST_FUN45);
 
-			char_literal46=(Token)match(input,OPEN_BRACE,FOLLOW_OPEN_BRACE_in_sst_fun494);  
+			char_literal46=(Token)match(input,OPEN_BRACE,FOLLOW_OPEN_BRACE_in_sst_fun498);  
 			stream_OPEN_BRACE.add(char_literal46);
 
-			pushFollow(FOLLOW_value_in_sst_fun496);
+			pushFollow(FOLLOW_value_in_sst_fun500);
 			value47=value();
 			state._fsp--;
 
 			stream_value.add(value47.getTree());
-			pushFollow(FOLLOW_value_in_sst_fun498);
+			pushFollow(FOLLOW_value_in_sst_fun502);
 			value48=value();
 			state._fsp--;
 
 			stream_value.add(value48.getTree());
-			pushFollow(FOLLOW_value_in_sst_fun500);
+			pushFollow(FOLLOW_value_in_sst_fun504);
 			value49=value();
 			state._fsp--;
 
 			stream_value.add(value49.getTree());
-			char_literal50=(Token)match(input,CLOSE_BRACE,FOLLOW_CLOSE_BRACE_in_sst_fun502);  
+			char_literal50=(Token)match(input,CLOSE_BRACE,FOLLOW_CLOSE_BRACE_in_sst_fun506);  
 			stream_CLOSE_BRACE.add(char_literal50);
 
 			// AST REWRITE
-			// elements: SST_FUN
+			// elements: value, SST_FUN, value, value
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1481,12 +1487,15 @@ public class CLExprParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 177:37: -> ^( SST_FUN[$sst_fun.text] )
+			// 177:37: -> ^( SST_FUN[$SST_FUN.text] value value value )
 			{
-				// CLExpr.g:177:40: ^( SST_FUN[$sst_fun.text] )
+				// CLExpr.g:177:40: ^( SST_FUN[$SST_FUN.text] value value value )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
-				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SST_FUN, input.toString(retval.start,input.LT(-1))), root_1);
+				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SST_FUN, (SST_FUN45!=null?SST_FUN45.getText():null)), root_1);
+				adaptor.addChild(root_1, stream_value.nextTree());
+				adaptor.addChild(root_1, stream_value.nextTree());
+				adaptor.addChild(root_1, stream_value.nextTree());
 				adaptor.addChild(root_0, root_1);
 				}
 
@@ -1525,7 +1534,7 @@ public class CLExprParser extends Parser {
 
 
 	// $ANTLR start "switch_fun"
-	// CLExpr.g:180:1: switch_fun : SWITCH_FUN '(' SWITCH_VALUE ')' -> ^( SWITCH_FUN[$switch_fun.text] ) ;
+	// CLExpr.g:180:1: switch_fun : SWITCH_FUN '(' SWITCH_VALUE ')' -> ^( SWITCH_FUN[$SWITCH_FUN.text] SWITCH_VALUE ) ;
 	public final CLExprParser.switch_fun_return switch_fun() throws RecognitionException {
 		CLExprParser.switch_fun_return retval = new CLExprParser.switch_fun_return();
 		retval.start = input.LT(1);
@@ -1547,23 +1556,23 @@ public class CLExprParser extends Parser {
 		RewriteRuleTokenStream stream_OPEN_BRACE=new RewriteRuleTokenStream(adaptor,"token OPEN_BRACE");
 
 		try {
-			// CLExpr.g:181:2: ( SWITCH_FUN '(' SWITCH_VALUE ')' -> ^( SWITCH_FUN[$switch_fun.text] ) )
+			// CLExpr.g:181:2: ( SWITCH_FUN '(' SWITCH_VALUE ')' -> ^( SWITCH_FUN[$SWITCH_FUN.text] SWITCH_VALUE ) )
 			// CLExpr.g:182:3: SWITCH_FUN '(' SWITCH_VALUE ')'
 			{
-			SWITCH_FUN51=(Token)match(input,SWITCH_FUN,FOLLOW_SWITCH_FUN_in_switch_fun522);  
+			SWITCH_FUN51=(Token)match(input,SWITCH_FUN,FOLLOW_SWITCH_FUN_in_switch_fun535);  
 			stream_SWITCH_FUN.add(SWITCH_FUN51);
 
-			char_literal52=(Token)match(input,OPEN_BRACE,FOLLOW_OPEN_BRACE_in_switch_fun524);  
+			char_literal52=(Token)match(input,OPEN_BRACE,FOLLOW_OPEN_BRACE_in_switch_fun537);  
 			stream_OPEN_BRACE.add(char_literal52);
 
-			SWITCH_VALUE53=(Token)match(input,SWITCH_VALUE,FOLLOW_SWITCH_VALUE_in_switch_fun526);  
+			SWITCH_VALUE53=(Token)match(input,SWITCH_VALUE,FOLLOW_SWITCH_VALUE_in_switch_fun539);  
 			stream_SWITCH_VALUE.add(SWITCH_VALUE53);
 
-			char_literal54=(Token)match(input,CLOSE_BRACE,FOLLOW_CLOSE_BRACE_in_switch_fun528);  
+			char_literal54=(Token)match(input,CLOSE_BRACE,FOLLOW_CLOSE_BRACE_in_switch_fun541);  
 			stream_CLOSE_BRACE.add(char_literal54);
 
 			// AST REWRITE
-			// elements: SWITCH_FUN
+			// elements: SWITCH_FUN, SWITCH_VALUE
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1573,12 +1582,13 @@ public class CLExprParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 182:35: -> ^( SWITCH_FUN[$switch_fun.text] )
+			// 182:35: -> ^( SWITCH_FUN[$SWITCH_FUN.text] SWITCH_VALUE )
 			{
-				// CLExpr.g:182:38: ^( SWITCH_FUN[$switch_fun.text] )
+				// CLExpr.g:182:38: ^( SWITCH_FUN[$SWITCH_FUN.text] SWITCH_VALUE )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
-				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SWITCH_FUN, input.toString(retval.start,input.LT(-1))), root_1);
+				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SWITCH_FUN, (SWITCH_FUN51!=null?SWITCH_FUN51.getText():null)), root_1);
+				adaptor.addChild(root_1, stream_SWITCH_VALUE.nextNode());
 				adaptor.addChild(root_0, root_1);
 				}
 
@@ -1656,14 +1666,14 @@ public class CLExprParser extends Parser {
 	public static final BitSet FOLLOW_OPEN_BRACE_in_binary_fun467 = new BitSet(new long[]{0x091C000004101100L});
 	public static final BitSet FOLLOW_value_in_binary_fun469 = new BitSet(new long[]{0x0000000000001000L});
 	public static final BitSet FOLLOW_CLOSE_BRACE_in_binary_fun472 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_SST_FUN_in_sst_fun492 = new BitSet(new long[]{0x0000080000000000L});
-	public static final BitSet FOLLOW_OPEN_BRACE_in_sst_fun494 = new BitSet(new long[]{0x091C000004100100L});
-	public static final BitSet FOLLOW_value_in_sst_fun496 = new BitSet(new long[]{0x091C000004100100L});
-	public static final BitSet FOLLOW_value_in_sst_fun498 = new BitSet(new long[]{0x091C000004100100L});
-	public static final BitSet FOLLOW_value_in_sst_fun500 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_CLOSE_BRACE_in_sst_fun502 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_SWITCH_FUN_in_switch_fun522 = new BitSet(new long[]{0x0000080000000000L});
-	public static final BitSet FOLLOW_OPEN_BRACE_in_switch_fun524 = new BitSet(new long[]{0x0020000000000000L});
-	public static final BitSet FOLLOW_SWITCH_VALUE_in_switch_fun526 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_CLOSE_BRACE_in_switch_fun528 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_SST_FUN_in_sst_fun496 = new BitSet(new long[]{0x0000080000000000L});
+	public static final BitSet FOLLOW_OPEN_BRACE_in_sst_fun498 = new BitSet(new long[]{0x091C000004100100L});
+	public static final BitSet FOLLOW_value_in_sst_fun500 = new BitSet(new long[]{0x091C000004100100L});
+	public static final BitSet FOLLOW_value_in_sst_fun502 = new BitSet(new long[]{0x091C000004100100L});
+	public static final BitSet FOLLOW_value_in_sst_fun504 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_CLOSE_BRACE_in_sst_fun506 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_SWITCH_FUN_in_switch_fun535 = new BitSet(new long[]{0x0000080000000000L});
+	public static final BitSet FOLLOW_OPEN_BRACE_in_switch_fun537 = new BitSet(new long[]{0x0020000000000000L});
+	public static final BitSet FOLLOW_SWITCH_VALUE_in_switch_fun539 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_CLOSE_BRACE_in_switch_fun541 = new BitSet(new long[]{0x0000000000000002L});
 }

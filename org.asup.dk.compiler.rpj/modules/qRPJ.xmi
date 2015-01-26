@@ -2238,5 +2238,46 @@
         </parameters>
       </entry>
     </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%sst">
+        <definition
+            xsi:type="il-data:StringDef"/>
+      </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              constant="true"
+              name="string"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:StringDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="int1"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="int2"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
   </flowSection>
 </il-flow:Module>
