@@ -573,6 +573,33 @@ public class RPJProgramSupport {
 
 		return character;
 	}
+	
+	public QString qSst(String string1, QNumeric int1, QNumeric int2) {
+		
+		//TODO: inserire l'implementazione corretta
+		String str = qBox(string1).trimR();
+		int length = str.length();
+		QCharacter character = dataFactory.createCharacter(length, false, true);
+		character.eval(str);
+
+		return character;
+
+		
+	}
+
+	/*
+	public QString qSst(QString string1, QNumeric int1, QNumeric int2) {
+
+		String str = string1.trimR();
+		int length = str.length();
+		QCharacter character = dataFactory.createCharacter(length, false, true);
+		character.eval(str);
+
+		return character;
+	}
+	*/
+
+	
 
 	public QString qStr(QPointer source, Integer length) {
 

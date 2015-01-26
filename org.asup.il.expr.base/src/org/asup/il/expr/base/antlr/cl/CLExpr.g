@@ -169,19 +169,18 @@ value	:
 
 binary_fun
 	:
-		BINARY_FUN '(' value? ')' -> ^(BINARY_FUN[$binary_fun.text])
+		BINARY_FUN '(' value? ')' -> ^(BINARY_FUN[$BINARY_FUN.text] value?)	
 	;
 
 sst_fun
 	:
-		SST_FUN '(' value value value ')' -> ^(SST_FUN[$sst_fun.text])
-	;
+		SST_FUN '(' value value value ')' -> ^(SST_FUN[$SST_FUN.text] value value value)		
+	;	
 
 switch_fun
 	:
-		SWITCH_FUN '(' SWITCH_VALUE ')'	-> ^(SWITCH_FUN[$switch_fun.text])
+		SWITCH_FUN '(' SWITCH_VALUE ')'	-> ^(SWITCH_FUN[$SWITCH_FUN.text] SWITCH_VALUE)	
 	;
-
 
 VAR	:
 	'&' TERM
