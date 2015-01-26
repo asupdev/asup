@@ -737,4 +737,16 @@ public class NIODataFactoryImpl implements QDataFactory {
 
 		return elementTerm;
 	}
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
+	public <D extends QData> QList<D> createList(QUnaryAtomicDataDef<D> argument, int dimension, boolean initialize) {
+	
+		NIODataImpl model = (NIODataImpl)createData(argument, initialize);
+
+		QList<D> list = new NIOListImpl(model, dimension);
+
+		return list;
+		
+	}
 }

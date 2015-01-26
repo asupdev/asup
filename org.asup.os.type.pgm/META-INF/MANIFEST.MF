@@ -18,6 +18,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.asup.il.data;visibility:=reexport,
  org.asup.fw.java;visibility:=reexport,
  org.asup.os.omac;visibility:=reexport,
+ org.asup.il.expr;visibility:=reexport,
  org.asup.il.isam
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy

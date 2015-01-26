@@ -29,6 +29,11 @@ public abstract class QDataStructWrapper implements QDataStruct, QBufferedDataDe
 	public void assign(QBufferedData value) {
 		delegate.assign(value);
 	}
+	
+	@Override
+	public void assign(QBufferedData value, int position) {
+		delegate.assign(value, position);
+	}
 
 	@Override
 	public String asString() {

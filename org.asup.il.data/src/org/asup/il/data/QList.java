@@ -23,6 +23,14 @@ public interface QList<D extends QData> extends QData, Iterable<D> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model dataType="org.asup.il.data.DataArray" required="true"
+	 * @generated
+	 */
+	D[] asArray();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model indexRequired="true"
 	 * @generated
 	 */

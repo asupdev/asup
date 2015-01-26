@@ -19,7 +19,6 @@
     <eTypeParameters name="D">
       <eBounds eClassifier="#//BufferedData"/>
     </eTypeParameters>
-    <eOperations name="asArray" lowerBound="1" eType="#//DataArray"/>
     <eOperations name="eval">
       <eParameters name="value" lowerBound="1">
         <eGenericType eClassifier="#//Array">
@@ -82,6 +81,10 @@
     <eOperations name="asString" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eOperations name="assign">
       <eParameters name="value" lowerBound="1" eType="#//BufferedData"/>
+    </eOperations>
+    <eOperations name="assign">
+      <eParameters name="value" lowerBound="1" eType="#//BufferedData"/>
+      <eParameters name="position" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eOperations>
     <eOperations name="eval">
       <eParameters name="value" lowerBound="1" eType="#//BufferedData"/>
@@ -494,6 +497,21 @@
       <eParameters name="initialize" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
     <eOperations name="createIndicator" lowerBound="1" eType="#//Indicator">
+      <eParameters name="initialize" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="createList" lowerBound="1">
+      <eGenericType eClassifier="#//List">
+        <eTypeArguments eTypeParameter="#//DataFactory/createList/D"/>
+      </eGenericType>
+      <eTypeParameters name="D">
+        <eBounds eClassifier="#//Data"/>
+      </eTypeParameters>
+      <eParameters name="argument" lowerBound="1">
+        <eGenericType eClassifier="#//UnaryAtomicDataDef">
+          <eTypeArguments eTypeParameter="#//DataFactory/createList/D"/>
+        </eGenericType>
+      </eParameters>
+      <eParameters name="dimension" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eParameters name="initialize" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
     <eOperations name="createPointer" lowerBound="1" eType="#//Pointer">
@@ -1032,6 +1050,7 @@
     <eTypeParameters name="D">
       <eBounds eClassifier="#//Data"/>
     </eTypeParameters>
+    <eOperations name="asArray" lowerBound="1" eType="#//DataArray"/>
     <eOperations name="capacity" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eOperations name="count" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eOperations name="eval">

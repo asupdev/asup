@@ -128,7 +128,12 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 
 	@Override
 	public void eval(QNumeric value) {
-		writeNumber(value.asDouble());		
+		
+		// TODO remove
+		if(value == null)
+			writeNumber(0);
+		else
+			writeNumber(value.asDouble());		
 	}
 
 	@Override

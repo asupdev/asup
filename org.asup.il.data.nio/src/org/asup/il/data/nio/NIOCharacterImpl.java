@@ -24,8 +24,8 @@ import org.asup.il.data.QString;
 public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter {
 
 	private static final long serialVersionUID = 1L;
-	private static byte INIT = (byte) 32;
-	protected static String ENCODING = "ISO-8859-1";
+	private static final byte INIT = (byte) 32;
+	protected static final String ENCODING = "ISO-8859-1";
 
 	protected int _length;
 

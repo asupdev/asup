@@ -139,6 +139,14 @@ public interface QDataFactory {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model required="true" argumentRequired="true" dimensionRequired="true" initializeRequired="true"
+	 * @generated
+	 */
+	<D extends QData> QList<D> createList(QUnaryAtomicDataDef<D> argument, int dimension, boolean initialize);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model required="true" targetRequired="true" initializeRequired="true"
 	 * @generated
 	 */

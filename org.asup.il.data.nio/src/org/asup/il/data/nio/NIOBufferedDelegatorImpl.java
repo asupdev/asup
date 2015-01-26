@@ -17,12 +17,11 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import org.asup.fw.core.FrameworkCoreRuntimeException;
 import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QBufferedDataDelegator;
-import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QDataVisitor;
+import org.asup.il.data.QDataWriter;
 
 public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QBufferedData, QBufferedDataDelegator {
 
@@ -52,12 +51,13 @@ public abstract class NIOBufferedDelegatorImpl extends NIODataImpl implements QB
 
 	@Override
 	public void assign(QBufferedData value) {
-		if(_delegate != null)
-			_delegate.assign(value);
-		else
-			throw new FrameworkCoreRuntimeException("Unexpceted condition: fzt76tbc3bcr47");
+		_delegate.assign(value);
 	}
-	
+
+	public void assign(QBufferedData value, int position) {
+		_delegate.assign(value, position);
+	}
+
 	@Override
 	public String asString() {
 		return _delegate.asString();

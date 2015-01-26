@@ -23,15 +23,6 @@ public interface QArray<D extends QBufferedData> extends QBufferedList<D> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @model dataType="org.asup.il.data.DataArray" required="true"
-	 * @generated
-	 */
-	D[] asArray();
-	
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @model valueRequired="true"
 	 * @generated
 	 */
