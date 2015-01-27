@@ -28,7 +28,7 @@ import org.asup.os.type.dtaq.base.data.QueueSize;
 import org.asup.os.type.dtaq.base.data.RemoteDataQueue;
 
 @Program(name = "QMHQCRTQ")
-public class DataQueueCreator {
+public class BaseDataQueueCreator {
 
 	@Inject
 	private QDataQueueManager dataQueueManager;

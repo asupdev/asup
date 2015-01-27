@@ -18,22 +18,23 @@ import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QNumeric;
 import org.asup.il.data.QString;
 
-
 public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 
 	private static final long serialVersionUID = 1L;
-	
+
+	private short length;
+
 	public NIOCharacterVaryingImpl() {
 		super();
 	}
-	
-	public NIOCharacterVaryingImpl(int length) {
-		super(length);
+
+	public NIOCharacterVaryingImpl(int size) {
+		super(size);
 	}
 
 	@Override
 	public byte[] asBytes() {
-		return NIOBufferHelper.readBytes(getBuffer(), getPosition(), getSize());
+		return NIOBufferHelper.readBytes(getBuffer(), getPosition(), getLength());
 	}
 
 	@Override
@@ -44,19 +45,27 @@ public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 
 	@Override
 	public void eval(QBufferedData value) {
-		// TODO Auto-generated method stub
+
+		// TODO remove
+		if(value == null)
+			return;
+		
+		this.length = (value.getLength() > getSize() ? (short) getSize() : (short) value.getLength());
+
 		super.eval(value);
 	}
 
 	@Override
 	public void eval(String value) {
-		// TODO Auto-generated method stub
+
+		this.length = (value.length() > getSize() ? (short) getSize() : (short) value.length());
+
 		super.eval(value);
 	}
 
 	@Override
 	public int getLength() {
-		return trimR().length();
+		return this.length;
 	}
 
 	@Override
@@ -71,45 +80,24 @@ public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 	}
 
 	@Override
-	public void move(int value) {
-		// TODO Auto-generated method stub
-		super.move(value);
-	}
-
-	@Override
 	public void move(int value, boolean clear) {
 		// TODO Auto-generated method stub
 		super.move(value, clear);
 	}
 
 	@Override
-	public void move(QBufferedData value) {
-		// TODO Auto-generated method stub
-		super.move(value);
-	}
-
-	@Override
 	public void move(QBufferedData value, boolean clear) {
-		// TODO Auto-generated method stub
-		super.move(value, clear);
-	}
-
-	@Override
-	public void move(String value) {
-		// TODO Auto-generated method stub
-		super.move(value);
+		NIOBufferHelper.move(getBuffer(), getPosition(), getLength(), value.asBytes(), clear, getFiller());
 	}
 
 	@Override
 	public void move(String value, boolean clear) {
-		// TODO Auto-generated method stub
-		super.move(value, clear);
-	}
 
-	@Override
-	public void movea(QArray<?> value) {
-		// TODO Auto-generated method stub
-		super.movea(value);
+		try {
+			NIOBufferHelper.move(getBuffer(), getPosition(), getLength(), value.getBytes(ENCODING), clear, INIT);
+		} catch (UnsupportedEncodingException e) {
+			NIOBufferHelper.move(getBuffer(), getPosition(), getLength(), value.getBytes(), clear, INIT);
+		}
 	}
 
 	@Override
@@ -125,39 +113,25 @@ public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 	}
 
 	@Override
-	public void movel(int value) {
-		// TODO Auto-generated method stub
-		super.movel(value);
-	}
-
-	@Override
 	public void movel(int value, boolean clear) {
 		// TODO Auto-generated method stub
 		super.movel(value, clear);
 	}
 
 	@Override
-	public void movel(QBufferedData value) {
-		// TODO Auto-generated method stub
-		super.movel(value);
-	}
-
-	@Override
 	public void movel(QBufferedData value, boolean clear) {
-		// TODO Auto-generated method stub
-		super.movel(value, clear);
-	}
 
-	@Override
-	public void movel(String value) {
-		// TODO Auto-generated method stub
-		super.movel(value);
+		NIOBufferHelper.movel(getBuffer(), getPosition(), getLength(), value.asBytes(), clear, INIT);
 	}
 
 	@Override
 	public void movel(String value, boolean clear) {
-		// TODO Auto-generated method stub
-		super.movel(value, clear);
+		
+		try {
+			NIOBufferHelper.movel(getBuffer(), getPosition(), getLength(), value.getBytes(ENCODING), clear, INIT);
+		} catch (UnsupportedEncodingException e) {
+			NIOBufferHelper.movel(getBuffer(), getPosition(), getLength(), value.getBytes(), clear, INIT);
+		}
 	}
 
 	@Override
@@ -316,7 +290,6 @@ public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 		super.move(value, clear);
 	}
 
-
 	@Override
 	public <E extends Enum<E>> void movel(E value) {
 		// TODO Auto-generated method stub
@@ -332,7 +305,7 @@ public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 	@Override
 	public String asString() {
 		try {
-			return trimR(new String(asBytes(), ENCODING));
+			return new String(asBytes(), ENCODING);
 		} catch (UnsupportedEncodingException e) {
 			return new String(asBytes());
 		}
@@ -348,5 +321,73 @@ public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 	public void out() {
 		// TODO Auto-generated method stub
 		super.out();
-	}	
+	}
+
+	@Override
+	public void eval(byte value) {
+
+		this.length = 1;
+
+		super.eval(value);
+	}
+
+	@Override
+	public void cat(QString factor1, Number space) {
+		// TODO Auto-generated method stub
+		super.cat(factor1, space);
+	}
+
+	@Override
+	public void cat(String factor1, Number space) {
+		// TODO Auto-generated method stub
+		super.cat(factor1, space);
+	}
+
+	@Override
+	public void cat(QString factor1, QNumeric space) {
+		// TODO Auto-generated method stub
+		super.cat(factor1, space);
+	}
+
+	@Override
+	public void cat(String factor1, QNumeric space) {
+		// TODO Auto-generated method stub
+		super.cat(factor1, space);
+	}
+
+	@Override
+	public void cat(QString factor1, QString factor2, QNumeric space) {
+		// TODO Auto-generated method stub
+		super.cat(factor1, factor2, space);
+	}
+
+	@Override
+	public boolean le(QString value) {
+		// TODO Auto-generated method stub
+		return super.le(value);
+	}
+
+	@Override
+	public <E extends Enum<E>> void eval(E value) {
+		// TODO Auto-generated method stub
+		super.eval(value);
+	}
+
+	@Override
+	public void xlate(QString from, QString to, QString target) {
+		// TODO Auto-generated method stub
+		super.xlate(from, to, target);
+	}
+
+	@Override
+	public void xlate(String from, String to, QString target) {
+		// TODO Auto-generated method stub
+		super.xlate(from, to, target);
+	}
+
+	@Override
+	public void xlate(byte from, String to, QString target) {
+		// TODO Auto-generated method stub
+		super.xlate(from, to, target);
+	}
 }

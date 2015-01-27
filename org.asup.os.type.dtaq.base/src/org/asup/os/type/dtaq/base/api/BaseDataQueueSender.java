@@ -15,6 +15,7 @@ import javax.inject.Inject;
 
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDecimal;
+import org.asup.il.data.QPointer;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -24,7 +25,7 @@ import org.asup.os.core.jobs.QJob;
 import org.asup.os.type.dtaq.QDataQueueManager;
 
 @Program(name = "QSNDDTAQ")
-public class QDataQueueSender {
+public class BaseDataQueueSender {
 
 	@Inject
 	private QDataQueueManager dataQueueManager;
@@ -36,9 +37,9 @@ public class QDataQueueSender {
 	public void main(@DataDef(length = 10) QCharacter name,
 			@DataDef(length = 10) QCharacter library,
 			@DataDef(precision = 5, packed = true) QDecimal dataLength,
-			@DataDef(length = 20000, varying = true) QCharacter data) {
+			QPointer data) {
 		try {
-			dataQueueManager.writeDataQueue(job, library.trimR(), name.trimR(), null, data.toString());
+			dataQueueManager.writeDataQueue(job, library.trimR(), name.trimR(), null, data.getTarget().asString());
 		} catch (OperatingSystemException e) {
 			throw new OperatingSystemRuntimeException(e);
 		}

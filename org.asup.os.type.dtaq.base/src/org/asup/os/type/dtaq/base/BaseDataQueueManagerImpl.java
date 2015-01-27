@@ -47,6 +47,7 @@ public class BaseDataQueueManagerImpl extends DataQueueManagerImpl {
 	@Override
 	public void writeDataQueue(QContextID ContextID, String library, String name, String key, String aValue) throws OperatingSystemException {
 		try {
+			
 			dataQueueManager.writeToQueue(library, name, aValue);
 		} catch (BaseFifoQueueException e) {
 			throw new OperatingSystemException(e);

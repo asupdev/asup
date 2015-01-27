@@ -252,7 +252,7 @@ public class RPJProgramSupport {
 	}
 
 	public QString qChar(QNumeric numeric) {
-		return qBox(numeric.asString());
+		return qBox(Double.toString(numeric.asDouble()));
 	}
 
 	public QString qChar(int number) {
@@ -310,8 +310,8 @@ public class RPJProgramSupport {
 			character = dataFactory.createCharacter(numeric.getLength(), false, true);
 			character.eval(Integer.toString(numeric.asInteger()));
 		} else {
-			character = dataFactory.createCharacter(numeric.getLength() + 1, true, true);
-			character.eval(Double.toString(numeric.asDouble()));
+			character = dataFactory.createCharacter(numeric.getLength(), true, true);
+			character.eval(Double.toString(numeric.asDouble()).replaceAll("\\.", ""));
 		}
 
 		return character;
@@ -328,7 +328,7 @@ public class RPJProgramSupport {
 			character = dataFactory.createCharacter(numeric.getLength(), false, true);
 			character.eval(Integer.toString(numeric.asInteger()));
 		} else {
-			character = dataFactory.createCharacter(numeric.getLength() + 1, true, true);
+			character = dataFactory.createCharacter(numeric.getLength(), true, true);
 			character.eval(Double.toString(numeric.asDouble()).replaceAll("\\.", ""));
 		}
 

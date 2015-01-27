@@ -39,7 +39,6 @@ import org.asup.os.type.pgm.QProgramStack;
 import org.asup.os.type.pgm.impl.ProgramManagerImpl;
 
 public class BaseProgramManagerImpl extends ProgramManagerImpl {	
-
 	@Inject
 	private QJobManager jobManager;
 	@Inject
