@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 CLExpr.g 2015-01-26 17:27:49
+// $ANTLR 3.5.1 CLExpr.g 2015-01-27 10:53:11
 
   package org.asup.il.expr.base.antlr.cl;
 
@@ -1199,18 +1199,95 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = SST_FUN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:246:2: ( '%' S S T )
-			// CLExpr.g:247:2: '%' S S T
-			{
-			match('%'); 
-			mS(); 
+			// CLExpr.g:246:2: ( '%' S S T | '%' S U B S T R I N G )
+			int alt17=2;
+			int LA17_0 = input.LA(1);
+			if ( (LA17_0=='%') ) {
+				int LA17_1 = input.LA(2);
+				if ( (LA17_1=='S'||LA17_1=='s') ) {
+					int LA17_2 = input.LA(3);
+					if ( (LA17_2=='S'||LA17_2=='s') ) {
+						alt17=1;
+					}
+					else if ( (LA17_2=='U'||LA17_2=='u') ) {
+						alt17=2;
+					}
 
-			mS(); 
+					else {
+						int nvaeMark = input.mark();
+						try {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
+								input.consume();
+							}
+							NoViableAltException nvae =
+								new NoViableAltException("", 17, 2, input);
+							throw nvae;
+						} finally {
+							input.rewind(nvaeMark);
+						}
+					}
 
-			mT(); 
+				}
+
+				else {
+					int nvaeMark = input.mark();
+					try {
+						input.consume();
+						NoViableAltException nvae =
+							new NoViableAltException("", 17, 1, input);
+						throw nvae;
+					} finally {
+						input.rewind(nvaeMark);
+					}
+				}
 
 			}
 
+			else {
+				NoViableAltException nvae =
+					new NoViableAltException("", 17, 0, input);
+				throw nvae;
+			}
+
+			switch (alt17) {
+				case 1 :
+					// CLExpr.g:247:2: '%' S S T
+					{
+					match('%'); 
+					mS(); 
+
+					mS(); 
+
+					mT(); 
+
+					}
+					break;
+				case 2 :
+					// CLExpr.g:249:2: '%' S U B S T R I N G
+					{
+					match('%'); 
+					mS(); 
+
+					mU(); 
+
+					mB(); 
+
+					mS(); 
+
+					mT(); 
+
+					mR(); 
+
+					mI(); 
+
+					mN(); 
+
+					mG(); 
+
+					}
+					break;
+
+			}
 			state.type = _type;
 			state.channel = _channel;
 		}
@@ -1225,8 +1302,8 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = SWITCH_FUN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:251:2: ( '%' S W I T C H )
-			// CLExpr.g:252:2: '%' S W I T C H
+			// CLExpr.g:253:2: ( '%' S W I T C H )
+			// CLExpr.g:254:2: '%' S W I T C H
 			{
 			match('%'); 
 			mS(); 
@@ -1257,8 +1334,8 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = SWITCH_VALUE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:256:2: ( ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) )
-			// CLExpr.g:257:2: ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' )
+			// CLExpr.g:258:2: ( ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) )
+			// CLExpr.g:259:2: ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' ) ( '0' | X | '1' )
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '1')||input.LA(1)=='X'||input.LA(1)=='x' ) {
 				input.consume();
@@ -1338,7 +1415,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "LETTER"
 	public final void mLETTER() throws RecognitionException {
 		try {
-			// CLExpr.g:262:3: ( ( 'a' .. 'z' | 'A' .. 'Z' | CHAR_SPECIAL ) )
+			// CLExpr.g:264:3: ( ( 'a' .. 'z' | 'A' .. 'Z' | CHAR_SPECIAL ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='\"'||input.LA(1)=='$'||(input.LA(1) >= '+' && input.LA(1) <= '/')||input.LA(1)=='?'||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z')||input.LA(1)=='\u00A3'||input.LA(1)=='\u00A7'||input.LA(1)=='\u00E0'||(input.LA(1) >= '\u00E8' && input.LA(1) <= '\u00E9')||input.LA(1)=='\u00EC'||input.LA(1)=='\u00F2'||input.LA(1)=='\u00F9' ) {
@@ -1361,7 +1438,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "CHAR_SPECIAL"
 	public final void mCHAR_SPECIAL() throws RecognitionException {
 		try {
-			// CLExpr.g:267:3: ( ( '\\u00A7' | '_' | '.' | '/' | '\\u00e0' | '\\u00e8' | '\\u00e9' | '\\u00ec' | '\\u00f2' | '\\u00f9' | '\"' | '\\u00a3' | '?' | '+' | '-' | ',' | '$' ) )
+			// CLExpr.g:269:3: ( ( '\\u00A7' | '_' | '.' | '/' | '\\u00e0' | '\\u00e8' | '\\u00e9' | '\\u00ec' | '\\u00f2' | '\\u00f9' | '\"' | '\\u00a3' | '?' | '+' | '-' | ',' | '$' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='\"'||input.LA(1)=='$'||(input.LA(1) >= '+' && input.LA(1) <= '/')||input.LA(1)=='?'||input.LA(1)=='_'||input.LA(1)=='\u00A3'||input.LA(1)=='\u00A7'||input.LA(1)=='\u00E0'||(input.LA(1) >= '\u00E8' && input.LA(1) <= '\u00E9')||input.LA(1)=='\u00EC'||input.LA(1)=='\u00F2'||input.LA(1)=='\u00F9' ) {
@@ -1384,7 +1461,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "DIGIT"
 	public final void mDIGIT() throws RecognitionException {
 		try {
-			// CLExpr.g:290:3: ( ( '0' .. '9' ) )
+			// CLExpr.g:292:3: ( ( '0' .. '9' ) )
 			// CLExpr.g:
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
@@ -1407,7 +1484,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "DIGIT_SPECIAL"
 	public final void mDIGIT_SPECIAL() throws RecognitionException {
 		try {
-			// CLExpr.g:295:3: ( ( ',' | '.' ) )
+			// CLExpr.g:297:3: ( ( ',' | '.' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)==','||input.LA(1)=='.' ) {
@@ -1430,7 +1507,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "A"
 	public final void mA() throws RecognitionException {
 		try {
-			// CLExpr.g:298:11: ( ( 'a' | 'A' ) )
+			// CLExpr.g:300:11: ( ( 'a' | 'A' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='A'||input.LA(1)=='a' ) {
@@ -1453,7 +1530,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "B"
 	public final void mB() throws RecognitionException {
 		try {
-			// CLExpr.g:299:11: ( ( 'b' | 'B' ) )
+			// CLExpr.g:301:11: ( ( 'b' | 'B' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
@@ -1476,7 +1553,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "C"
 	public final void mC() throws RecognitionException {
 		try {
-			// CLExpr.g:300:11: ( ( 'c' | 'C' ) )
+			// CLExpr.g:302:11: ( ( 'c' | 'C' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='C'||input.LA(1)=='c' ) {
@@ -1499,7 +1576,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "D"
 	public final void mD() throws RecognitionException {
 		try {
-			// CLExpr.g:301:11: ( ( 'd' | 'D' ) )
+			// CLExpr.g:303:11: ( ( 'd' | 'D' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='D'||input.LA(1)=='d' ) {
@@ -1522,7 +1599,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "E"
 	public final void mE() throws RecognitionException {
 		try {
-			// CLExpr.g:302:11: ( ( 'e' | 'E' ) )
+			// CLExpr.g:304:11: ( ( 'e' | 'E' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
@@ -1545,7 +1622,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "F"
 	public final void mF() throws RecognitionException {
 		try {
-			// CLExpr.g:303:11: ( ( 'f' | 'F' ) )
+			// CLExpr.g:305:11: ( ( 'f' | 'F' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='F'||input.LA(1)=='f' ) {
@@ -1568,7 +1645,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "G"
 	public final void mG() throws RecognitionException {
 		try {
-			// CLExpr.g:304:11: ( ( 'g' | 'G' ) )
+			// CLExpr.g:306:11: ( ( 'g' | 'G' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='G'||input.LA(1)=='g' ) {
@@ -1591,7 +1668,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "H"
 	public final void mH() throws RecognitionException {
 		try {
-			// CLExpr.g:305:11: ( ( 'h' | 'H' ) )
+			// CLExpr.g:307:11: ( ( 'h' | 'H' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='H'||input.LA(1)=='h' ) {
@@ -1614,7 +1691,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "I"
 	public final void mI() throws RecognitionException {
 		try {
-			// CLExpr.g:306:11: ( ( 'i' | 'I' ) )
+			// CLExpr.g:308:11: ( ( 'i' | 'I' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
@@ -1637,7 +1714,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "J"
 	public final void mJ() throws RecognitionException {
 		try {
-			// CLExpr.g:307:11: ( ( 'j' | 'J' ) )
+			// CLExpr.g:309:11: ( ( 'j' | 'J' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='J'||input.LA(1)=='j' ) {
@@ -1660,7 +1737,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "K"
 	public final void mK() throws RecognitionException {
 		try {
-			// CLExpr.g:308:11: ( ( 'k' | 'K' ) )
+			// CLExpr.g:310:11: ( ( 'k' | 'K' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='K'||input.LA(1)=='k' ) {
@@ -1683,7 +1760,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "L"
 	public final void mL() throws RecognitionException {
 		try {
-			// CLExpr.g:309:11: ( ( 'l' | 'L' ) )
+			// CLExpr.g:311:11: ( ( 'l' | 'L' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
@@ -1706,7 +1783,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "M"
 	public final void mM() throws RecognitionException {
 		try {
-			// CLExpr.g:310:11: ( ( 'm' | 'M' ) )
+			// CLExpr.g:312:11: ( ( 'm' | 'M' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='M'||input.LA(1)=='m' ) {
@@ -1729,7 +1806,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "N"
 	public final void mN() throws RecognitionException {
 		try {
-			// CLExpr.g:311:11: ( ( 'n' | 'N' ) )
+			// CLExpr.g:313:11: ( ( 'n' | 'N' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='N'||input.LA(1)=='n' ) {
@@ -1752,7 +1829,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "O"
 	public final void mO() throws RecognitionException {
 		try {
-			// CLExpr.g:312:11: ( ( 'o' | 'O' ) )
+			// CLExpr.g:314:11: ( ( 'o' | 'O' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='O'||input.LA(1)=='o' ) {
@@ -1775,7 +1852,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "P"
 	public final void mP() throws RecognitionException {
 		try {
-			// CLExpr.g:313:11: ( ( 'p' | 'P' ) )
+			// CLExpr.g:315:11: ( ( 'p' | 'P' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='P'||input.LA(1)=='p' ) {
@@ -1798,7 +1875,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "Q"
 	public final void mQ() throws RecognitionException {
 		try {
-			// CLExpr.g:314:11: ( ( 'q' | 'Q' ) )
+			// CLExpr.g:316:11: ( ( 'q' | 'Q' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='Q'||input.LA(1)=='q' ) {
@@ -1821,7 +1898,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "R"
 	public final void mR() throws RecognitionException {
 		try {
-			// CLExpr.g:315:11: ( ( 'r' | 'R' ) )
+			// CLExpr.g:317:11: ( ( 'r' | 'R' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='R'||input.LA(1)=='r' ) {
@@ -1844,7 +1921,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "S"
 	public final void mS() throws RecognitionException {
 		try {
-			// CLExpr.g:316:11: ( ( 's' | 'S' ) )
+			// CLExpr.g:318:11: ( ( 's' | 'S' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='S'||input.LA(1)=='s' ) {
@@ -1867,7 +1944,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "T"
 	public final void mT() throws RecognitionException {
 		try {
-			// CLExpr.g:317:11: ( ( 't' | 'T' ) )
+			// CLExpr.g:319:11: ( ( 't' | 'T' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='T'||input.LA(1)=='t' ) {
@@ -1890,7 +1967,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "U"
 	public final void mU() throws RecognitionException {
 		try {
-			// CLExpr.g:318:11: ( ( 'u' | 'U' ) )
+			// CLExpr.g:320:11: ( ( 'u' | 'U' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='U'||input.LA(1)=='u' ) {
@@ -1913,7 +1990,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "V"
 	public final void mV() throws RecognitionException {
 		try {
-			// CLExpr.g:319:11: ( ( 'v' | 'V' ) )
+			// CLExpr.g:321:11: ( ( 'v' | 'V' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='V'||input.LA(1)=='v' ) {
@@ -1936,7 +2013,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "W"
 	public final void mW() throws RecognitionException {
 		try {
-			// CLExpr.g:320:11: ( ( 'w' | 'W' ) )
+			// CLExpr.g:322:11: ( ( 'w' | 'W' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='W'||input.LA(1)=='w' ) {
@@ -1959,7 +2036,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "X"
 	public final void mX() throws RecognitionException {
 		try {
-			// CLExpr.g:321:11: ( ( 'x' | 'X' ) )
+			// CLExpr.g:323:11: ( ( 'x' | 'X' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='X'||input.LA(1)=='x' ) {
@@ -1982,7 +2059,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "Y"
 	public final void mY() throws RecognitionException {
 		try {
-			// CLExpr.g:322:11: ( ( 'y' | 'Y' ) )
+			// CLExpr.g:324:11: ( ( 'y' | 'Y' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='Y'||input.LA(1)=='y' ) {
@@ -2005,7 +2082,7 @@ public class CLExprLexer extends Lexer {
 	// $ANTLR start "Z"
 	public final void mZ() throws RecognitionException {
 		try {
-			// CLExpr.g:323:11: ( ( 'z' | 'Z' ) )
+			// CLExpr.g:325:11: ( ( 'z' | 'Z' ) )
 			// CLExpr.g:
 			{
 			if ( input.LA(1)=='Z'||input.LA(1)=='z' ) {
@@ -2030,8 +2107,8 @@ public class CLExprLexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// CLExpr.g:327:2: ( ( ' ' | '\\t' | '\\u000C' | '\\n' | '\\r' ) )
-			// CLExpr.g:327:5: ( ' ' | '\\t' | '\\u000C' | '\\n' | '\\r' )
+			// CLExpr.g:329:2: ( ( ' ' | '\\t' | '\\u000C' | '\\n' | '\\r' ) )
+			// CLExpr.g:329:5: ( ' ' | '\\t' | '\\u000C' | '\\n' | '\\r' )
 			{
 			if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n')||(input.LA(1) >= '\f' && input.LA(1) <= '\r')||input.LA(1)==' ' ) {
 				input.consume();
@@ -2056,9 +2133,9 @@ public class CLExprLexer extends Lexer {
 	@Override
 	public void mTokens() throws RecognitionException {
 		// CLExpr.g:1:8: ( VAR | STRING | OR | AND | NOT | EQ | GT | LT | GTEQ | LTEQ | NE | NG | NL | PLUS | MINUS | MULT | DIV | CAT | BCAT | TCAT | TERM | INTEGER | FLOAT | OPEN_BRACE | CLOSE_BRACE | BINARY_FUN | SST_FUN | SWITCH_FUN | SWITCH_VALUE | WS )
-		int alt17=30;
-		alt17 = dfa17.predict(input);
-		switch (alt17) {
+		int alt18=30;
+		alt18 = dfa18.predict(input);
+		switch (alt18) {
 			case 1 :
 				// CLExpr.g:1:10: VAR
 				{
@@ -2274,30 +2351,30 @@ public class CLExprLexer extends Lexer {
 	}
 
 
-	protected DFA17 dfa17 = new DFA17(this);
-	static final String DFA17_eotS =
+	protected DFA18 dfa18 = new DFA18(this);
+	static final String DFA18_eotS =
 		"\1\uffff\1\26\1\uffff\1\32\1\36\4\uffff\1\42\1\43\1\44\1\23\1\47\1\23"+
 		"\3\uffff\1\47\22\uffff\1\23\1\47\3\uffff\1\23\5\uffff\1\47\1\23\2\uffff"+
 		"\1\47\1\23\1\47\1\23\1\47\1\23\1\47\1\23\1\47\1\uffff";
-	static final String DFA17_eofS =
+	static final String DFA18_eofS =
 		"\76\uffff";
-	static final String DFA17_minS =
+	static final String DFA18_minS =
 		"\1\11\1\42\1\uffff\1\41\1\101\3\uffff\1\74\3\42\1\60\1\54\1\60\2\uffff"+
 		"\1\102\1\54\10\uffff\3\105\7\uffff\1\60\1\54\3\uffff\1\60\1\uffff\1\123"+
 		"\3\uffff\1\54\1\60\2\uffff\1\54\1\60\1\54\1\60\1\54\1\60\1\54\1\60\1\54"+
 		"\1\uffff";
-	static final String DFA17_maxS =
+	static final String DFA18_maxS =
 		"\2\u00f9\1\uffff\1\76\1\164\3\uffff\1\76\3\u00f9\1\71\2\170\2\uffff\1"+
 		"\163\1\71\10\uffff\1\157\2\164\7\uffff\1\71\1\170\3\uffff\1\170\1\uffff"+
 		"\1\167\3\uffff\2\170\2\uffff\10\170\1\71\1\uffff";
-	static final String DFA17_acceptS =
+	static final String DFA18_acceptS =
 		"\2\uffff\1\2\2\uffff\1\6\1\7\1\10\7\uffff\1\30\1\31\2\uffff\1\25\1\36"+
 		"\1\1\1\4\1\22\1\23\1\24\1\3\3\uffff\1\20\1\13\1\14\1\15\1\16\1\17\1\21"+
 		"\2\uffff\1\26\1\35\1\27\1\uffff\1\32\1\uffff\1\5\1\11\1\12\2\uffff\1\33"+
 		"\1\34\11\uffff\1\25";
-	static final String DFA17_specialS =
+	static final String DFA18_specialS =
 		"\76\uffff}>";
-	static final String[] DFA17_transitionS = {
+	static final String[] DFA18_transitionS = {
 			"\2\24\1\uffff\2\24\22\uffff\1\24\1\3\1\23\1\uffff\1\23\1\21\1\1\1\2\1"+
 			"\17\1\20\1\4\1\11\1\14\1\12\1\14\1\13\2\15\10\22\2\uffff\1\7\1\5\1\6"+
 			"\1\23\1\uffff\27\23\1\16\2\23\3\uffff\1\10\1\23\1\uffff\27\23\1\16\2"+
@@ -2357,7 +2434,8 @@ public class CLExprLexer extends Lexer {
 			"",
 			"\2\61\46\uffff\1\61\37\uffff\1\61",
 			"",
-			"\1\62\3\uffff\1\63\33\uffff\1\62\3\uffff\1\63",
+			"\1\62\1\uffff\1\62\1\uffff\1\63\33\uffff\1\62\1\uffff\1\62\1\uffff\1"+
+			"\63",
 			"",
 			"",
 			"",
@@ -2377,34 +2455,34 @@ public class CLExprLexer extends Lexer {
 			""
 	};
 
-	static final short[] DFA17_eot = DFA.unpackEncodedString(DFA17_eotS);
-	static final short[] DFA17_eof = DFA.unpackEncodedString(DFA17_eofS);
-	static final char[] DFA17_min = DFA.unpackEncodedStringToUnsignedChars(DFA17_minS);
-	static final char[] DFA17_max = DFA.unpackEncodedStringToUnsignedChars(DFA17_maxS);
-	static final short[] DFA17_accept = DFA.unpackEncodedString(DFA17_acceptS);
-	static final short[] DFA17_special = DFA.unpackEncodedString(DFA17_specialS);
-	static final short[][] DFA17_transition;
+	static final short[] DFA18_eot = DFA.unpackEncodedString(DFA18_eotS);
+	static final short[] DFA18_eof = DFA.unpackEncodedString(DFA18_eofS);
+	static final char[] DFA18_min = DFA.unpackEncodedStringToUnsignedChars(DFA18_minS);
+	static final char[] DFA18_max = DFA.unpackEncodedStringToUnsignedChars(DFA18_maxS);
+	static final short[] DFA18_accept = DFA.unpackEncodedString(DFA18_acceptS);
+	static final short[] DFA18_special = DFA.unpackEncodedString(DFA18_specialS);
+	static final short[][] DFA18_transition;
 
 	static {
-		int numStates = DFA17_transitionS.length;
-		DFA17_transition = new short[numStates][];
+		int numStates = DFA18_transitionS.length;
+		DFA18_transition = new short[numStates][];
 		for (int i=0; i<numStates; i++) {
-			DFA17_transition[i] = DFA.unpackEncodedString(DFA17_transitionS[i]);
+			DFA18_transition[i] = DFA.unpackEncodedString(DFA18_transitionS[i]);
 		}
 	}
 
-	protected class DFA17 extends DFA {
+	protected class DFA18 extends DFA {
 
-		public DFA17(BaseRecognizer recognizer) {
+		public DFA18(BaseRecognizer recognizer) {
 			this.recognizer = recognizer;
-			this.decisionNumber = 17;
-			this.eot = DFA17_eot;
-			this.eof = DFA17_eof;
-			this.min = DFA17_min;
-			this.max = DFA17_max;
-			this.accept = DFA17_accept;
-			this.special = DFA17_special;
-			this.transition = DFA17_transition;
+			this.decisionNumber = 18;
+			this.eot = DFA18_eot;
+			this.eof = DFA18_eof;
+			this.min = DFA18_min;
+			this.max = DFA18_max;
+			this.accept = DFA18_accept;
+			this.special = DFA18_special;
+			this.transition = DFA18_transition;
 		}
 		@Override
 		public String getDescription() {

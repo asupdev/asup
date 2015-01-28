@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 CLExpr.g 2015-01-26 17:27:49
+// $ANTLR 3.5.1 CLExpr.g 2015-01-27 10:53:10
 
   package org.asup.il.expr.base.antlr.cl;
   
@@ -1426,7 +1426,7 @@ public class CLExprParser extends Parser {
 
 
 	// $ANTLR start "sst_fun"
-	// CLExpr.g:175:1: sst_fun : SST_FUN '(' value value value ')' -> ^( SST_FUN[$SST_FUN.text] value value value ) ;
+	// CLExpr.g:175:1: sst_fun : SST_FUN '(' value value value ')' -> ^( SST_FUN[\"\\%SST\"] value value value ) ;
 	public final CLExprParser.sst_fun_return sst_fun() throws RecognitionException {
 		CLExprParser.sst_fun_return retval = new CLExprParser.sst_fun_return();
 		retval.start = input.LT(1);
@@ -1449,7 +1449,7 @@ public class CLExprParser extends Parser {
 		RewriteRuleSubtreeStream stream_value=new RewriteRuleSubtreeStream(adaptor,"rule value");
 
 		try {
-			// CLExpr.g:176:2: ( SST_FUN '(' value value value ')' -> ^( SST_FUN[$SST_FUN.text] value value value ) )
+			// CLExpr.g:176:2: ( SST_FUN '(' value value value ')' -> ^( SST_FUN[\"\\%SST\"] value value value ) )
 			// CLExpr.g:177:3: SST_FUN '(' value value value ')'
 			{
 			SST_FUN45=(Token)match(input,SST_FUN,FOLLOW_SST_FUN_in_sst_fun496);  
@@ -1487,12 +1487,12 @@ public class CLExprParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 177:37: -> ^( SST_FUN[$SST_FUN.text] value value value )
+			// 177:37: -> ^( SST_FUN[\"\\%SST\"] value value value )
 			{
-				// CLExpr.g:177:40: ^( SST_FUN[$SST_FUN.text] value value value )
+				// CLExpr.g:177:40: ^( SST_FUN[\"\\%SST\"] value value value )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
-				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SST_FUN, (SST_FUN45!=null?SST_FUN45.getText():null)), root_1);
+				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SST_FUN, "%SST"), root_1);
 				adaptor.addChild(root_1, stream_value.nextTree());
 				adaptor.addChild(root_1, stream_value.nextTree());
 				adaptor.addChild(root_1, stream_value.nextTree());

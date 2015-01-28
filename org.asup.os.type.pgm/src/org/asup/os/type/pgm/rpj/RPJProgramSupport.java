@@ -520,6 +520,11 @@ public class RPJProgramSupport {
 
 		return character;
 	}
+	
+	public QNumeric qBin(String string1, QNumeric startIndex, QNumeric length) {
+		//TODO
+		return null;
+	}
 
 	public QString qTcat(String string1, String string2) {
 		return qTcat(qBox(string1), qBox(string1));
@@ -821,5 +826,10 @@ public class RPJProgramSupport {
 		string.eval(str);
 
 		return string;
+	}
+	
+	public QIndicator qSwitch(String switches) {
+		//TODO
+		return null;
 	}
 }

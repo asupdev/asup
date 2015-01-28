@@ -669,6 +669,10 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 			for (QSpecialElement specialElem : special.getElements()) {
 				if (specialElem.getName().equals(value)) {
 					result = specialElem.getValue();
+					//TODO: what is the correct assign if special has null value? 
+					if (result == null) {
+						result = value;
+					}
 					break;
 				}
 			}
