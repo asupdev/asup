@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: As.UP Operating System Program RPJ
+Bundle-SymbolicName: org.asup.os.type.pgm.rpj
+Bundle-Version: 0.5.3.qualifier
+Bundle-Vendor: www.smeup.com
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: org.asup.os.type.pgm.rpj
+Require-Bundle: org.asup.os.type.pgm,
+ org.asup.os.type.cmd,
+ org.asup.il.isam

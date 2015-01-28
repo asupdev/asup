@@ -46,6 +46,8 @@ public class RPJProgramSupport {
 
 	@Inject
 	public QProgramManager programManager;
+//	@Inject
+//	public QCommandManager commandManager;
 	@Inject
 	public QContextID contextID;
 	@DataDef(dimension = 99)
@@ -251,8 +253,11 @@ public class RPJProgramSupport {
 		programManager.callProgram(contextID, null, program.trim(), parameters);
 	}
 
-	public QString qChar(QNumeric numeric) {
-		return qBox(Double.toString(numeric.asDouble()));
+	public QString qChar(QDecimal numeric) {
+		if(numeric.getScale() > 0)
+			return qBox(Double.toString(numeric.asDouble()));
+		else
+			return qBox(Long.toString(numeric.asLong()));
 	}
 
 	public QString qChar(int number) {
@@ -281,10 +286,6 @@ public class RPJProgramSupport {
 
 	public QDecimal qDec(String string, int precision, int scale) {
 		return null;
-	}
-
-	public void qCommand(String statement) {
-
 	}
 
 	public QDatetime qAdddur(QDatetime op1, QDecimal op2, Enum<?> format) {

@@ -54,4 +54,12 @@ public interface QDataWriter extends QDataVisitor {
 	 */
 	QDataWriter set(QBufferedData value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model valueRequired="true"
+	 * @generated
+	 */
+	QDataWriter set(Object value);
+
 } // QDataWriter

@@ -11,13 +11,46 @@
  */
 package org.asup.os.type.usrprf.base.api;
 
+import org.asup.fw.core.annotation.ToDo;
+import org.asup.il.data.QCharacter;
+import org.asup.il.data.QDecimal;
+import org.asup.il.data.QEnum;
+import org.asup.il.data.annotation.DataDef;
+import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
 
 @Program(name = "QSYRTVUP")
 public class UserProfileRetriever {
 
-	public UserProfileRetriever() {
-		super();
+	public static enum QCPFMSG {
+	}
+
+	public @Entry void main(@ToDo @DataDef(length = 10) QEnum<USERPROFILEEnum, QCharacter> userProfile, @ToDo @DataDef(length = 10) QCharacter cLVarForRTNUSRPRF10,
+			@ToDo @DataDef(length = 100) QCharacter cLVarForSPCAUT100, @ToDo @DataDef(precision = 11) QDecimal cLVarForMAXSTG110, @ToDo @DataDef(precision = 15) QDecimal cLVarForSTGUSED150,
+			@ToDo @DataDef(length = 1) QCharacter cLVarForPTYLMT1, @ToDo @DataDef(length = 10) QCharacter cLVarForINLPGM10, @ToDo @DataDef(length = 10) QCharacter cLVarForINLPGMLIB10,
+			@ToDo @DataDef(length = 10) QCharacter cLVarForJOBD10, @ToDo @DataDef(length = 10) QCharacter cLVarForJOBDLIB10, @ToDo @DataDef(length = 10) QCharacter cLVarForGRPPRF10,
+			@ToDo @DataDef(length = 10) QCharacter cLVarForOWNER10, @ToDo @DataDef(length = 10) QCharacter cLVarForGRPAUT10, @ToDo @DataDef(length = 15) QCharacter cLVarForACGCDE15,
+			@ToDo @DataDef(length = 10) QCharacter cLVarForMSGQ10, @ToDo @DataDef(length = 10) QCharacter cLVarForMSGQLIB10, @ToDo @DataDef(length = 10) QCharacter cLVarForOUTQ10,
+			@ToDo @DataDef(length = 10) QCharacter cLVarForOUTQLIB10, @ToDo @DataDef(length = 50) QCharacter cLVarForTEXT50, @ToDo @DataDef(length = 6) QCharacter cLVarForPWDCHGDAT6,
+			@ToDo @DataDef(length = 10) QCharacter cLVarForUSRCLS10, @ToDo @DataDef(length = 10) QCharacter cLVarForASTLVL10, @ToDo @DataDef(length = 10) QCharacter cLVarForSPCENV10,
+			@ToDo @DataDef(length = 10) QCharacter cLVarForCURLIB10, @ToDo @DataDef(length = 10) QCharacter cLVarForINLMNU10, @ToDo @DataDef(length = 10) QCharacter cLVarForINLMNULIB10,
+			@ToDo @DataDef(length = 10) QCharacter cLVarForLMTCPB10, @ToDo @DataDef(length = 10) QCharacter cLVarForDLVRY10, @ToDo @DataDef(precision = 2) QDecimal cLVarForSEV20,
+			@ToDo @DataDef(length = 10) QCharacter cLVarForPRTDEV10, @ToDo @DataDef(length = 10) QCharacter cLVarForATNPGM10, @ToDo @DataDef(length = 10) QCharacter cLVarForATNPGMLIB10,
+			@ToDo @DataDef(length = 240) QCharacter cLVarForUSROPT240, @ToDo @DataDef(length = 7) QCharacter cLVarForDSPSGNINF7, @ToDo @DataDef(precision = 5) QDecimal cLVarForPWDEXPITV50,
+			@ToDo @DataDef(length = 4) QCharacter cLVarForPWDEXP4, @ToDo @DataDef(length = 10) QCharacter cLVarForSTATUS10, @ToDo @DataDef(length = 13) QCharacter cLVarForPRVSIGN13,
+			@ToDo @DataDef(precision = 11) QDecimal cLVarForNOTVLDSIGN110, @ToDo @DataDef(length = 7) QCharacter cLVarForLMTDEVSSN7, @ToDo @DataDef(length = 10) QCharacter cLVarForKBDBUF10,
+			@ToDo @DataDef(length = 10) QCharacter cLVarForLANGID10, @ToDo @DataDef(length = 10) QCharacter cLVarForCNTRYID10, @ToDo @DataDef(precision = 5) QDecimal cLVarForCCSID50,
+			@ToDo @DataDef(length = 10) QCharacter cLVarForSRTSEQ10, @ToDo @DataDef(length = 10) QCharacter cLVarForSRTSEQLIB10, @ToDo @DataDef(length = 10) QCharacter cLVarForOBJAUD10,
+			@ToDo @DataDef(length = 640) QCharacter cLVarForAUDLVL640, @ToDo @DataDef(length = 10) QCharacter cLVarForGRPAUTTYP10,
+			@ToDo @DataDef(length = 150) QCharacter cLVarForSUPGRPPRF150, @ToDo @DataDef(precision = 10) QDecimal cLVarForUID100, @ToDo @DataDef(precision = 10) QDecimal cLVarForGID100,
+			@ToDo @DataDef(length = 160) QCharacter cLVarForSETJOBATR160, @ToDo @DataDef(length = 10) QCharacter cLVarForCHRIDCTL10,
+			@ToDo @DataDef(length = 10) QCharacter cLVarForLCLPWDMGT10, @ToDo @DataDef(length = 10) QCharacter cLVarForPWDCHGBLK10) {
+		
+		"".toCharArray();
+	}
+
+	public static enum USERPROFILEEnum {
+		CURRENT, OTHER
 	}
 
 }

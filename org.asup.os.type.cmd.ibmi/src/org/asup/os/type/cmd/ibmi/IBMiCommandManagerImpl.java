@@ -38,6 +38,7 @@ import org.asup.il.core.QSpecial;
 import org.asup.il.core.QSpecialElement;
 import org.asup.il.core.util.FormatHelper;
 import org.asup.il.data.QAdapter;
+import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QCompoundDataDef;
 import org.asup.il.data.QData;
 import org.asup.il.data.QDataContainer;
@@ -180,9 +181,9 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 
 			// reset default
 			// dataContext.resetData(dataTerm);
-
+			
 			QData data = null;
-			if (value.isEmpty() == false || defaults) {
+			if (value.isEmpty() == false || value.startsWith("&") || defaults) {
 				data = assignValue(dataTerm, dataContainer, dataWriter, value, variables, defaults);
 			}
 
@@ -200,6 +201,24 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 
 		QData data = dataContainer.getData(dataTerm);
 
+		if(value.startsWith("&")) {
+			Object variable = variables.get(value.substring(1).toLowerCase());
+			
+			if(variable == null)
+				return data;
+			
+			if(!(variable instanceof QBufferedData))
+				return data;
+						
+			if(!(data instanceof QBufferedData))
+				return data;
+			
+			((QBufferedData)variable).assign((QBufferedData)data);
+			
+			return data;
+		}
+			
+		
 		/*
 		 * if (value.startsWith("(") && value.endsWith(")")) { value =
 		 * value.substring(1, value.length() - 1); }

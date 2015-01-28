@@ -11,6 +11,8 @@
  */
 package org.asup.il.data.nio;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.nio.ByteBuffer;
 
 import org.asup.fw.core.FrameworkCoreRuntimeException;
@@ -146,5 +148,17 @@ public class NIOBinaryImpl extends NIONumericImpl implements QBinary {
 	@Override
 	public void eval(double value) {
 		eval((int)value);
+	}
+
+	@Override
+	public void eval(BigInteger value) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eval(BigDecimal value) {
+		// TODO Auto-generated method stub
+		
 	}
 }

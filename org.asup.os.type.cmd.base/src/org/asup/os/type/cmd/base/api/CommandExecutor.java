@@ -54,6 +54,9 @@ public class CommandExecutor {
 		}*/
 	
 		try {
+			
+			System.out.println(commandString);
+			
 			QCallableCommand callableCommand = commandManager.prepareCommand(job, commandString, programsVariables, true);
 			commandManager.executeCommand(job, callableCommand);
 		} catch (OperatingSystemException e) {

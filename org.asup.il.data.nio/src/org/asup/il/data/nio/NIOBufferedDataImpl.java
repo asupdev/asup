@@ -263,14 +263,7 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 	@Override
 	public void movea(QArray<?> value, boolean clear) {
 
-		if (clear)
-			clear();
-
-		int position = getPosition();
-		for (int i = 1; i <= value.capacity(); i++) {
-			NIOBufferHelper.movel(getBuffer(), position, value.getLength(), value.asBytes(), false, getFiller());
-			position = value.getLength();
-		}
+		NIOBufferHelper.movel(getBuffer(), getPosition(), getLength(), value.asBytes(), clear, getFiller());
 	}
 
 	@Override

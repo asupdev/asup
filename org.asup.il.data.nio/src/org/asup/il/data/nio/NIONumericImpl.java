@@ -156,15 +156,17 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 		return compareNumber(value.asDouble()) >= 0;
 	}
 
-	protected <E extends Enum<E>> Integer getPrimitive(E value) {
+	private <E extends Enum<E>> Integer getPrimitive(E value) {
 		if(value.name().equals("ZEROS"))
 			return 0;
 		else if(value.name().equals("ZERO"))
 			return 0;
-		else if(value.name().equals("LOVAL"))
+		else if(value.name().equals("LOVAL")) {
 			return Integer.MIN_VALUE;
-		else if(value.name().equals("HIVAL"))
+		}
+		else if(value.name().equals("HIVAL")) {
 			return Integer.MAX_VALUE;
+		}
 		
 		return 0;
 	}
