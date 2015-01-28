@@ -15,6 +15,7 @@ import javax.inject.Inject;
 
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDecimal;
+import org.asup.il.data.QPointer;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
@@ -24,7 +25,7 @@ import org.asup.os.core.resources.QResourceFactory;
 import org.asup.os.type.dtaq.QDataQueueManager;
 
 @Program(name = "QRCVDTAQ")
-public class DataQueueReceiver {
+public class BaseDataQueueReceiver {
 
 	@Inject
 	public QDataQueueManager dataQueueManager;
@@ -34,25 +35,21 @@ public class DataQueueReceiver {
 	private QJob job;
 
 	@Entry
-	public void main(@DataDef(length = 10) QCharacter name,
-					 @DataDef(length = 10) QCharacter library,
-					 @DataDef(precision = 5, packed = true) QDecimal length,
-					 @DataDef(varying = true) QCharacter data,
-					 @DataDef(precision = 5, packed = true) QDecimal wait) {
+	public void main(@DataDef(length = 10) QCharacter name, @DataDef(length = 10) QCharacter library, @DataDef(precision = 5, packed = true) QDecimal length, QPointer data,
+			@DataDef(precision = 5, packed = true) QDecimal wait) {
 
 		try {
 
 			// content
-			String content = dataQueueManager.readDataQueue(job,
-					library.trimR(), name.trimR(), wait.asInteger() * 1000 * 100,
-					null, null);
+			String content = dataQueueManager.readDataQueue(job, library.trimR(), name.trimR(), wait.asInteger() * 1000 * 100, null, null);
+
 			if (content != null)
-				data.eval(content);
+				data.getTarget().movel(content, false);
 			else
 				data.clear();
 
 			// length
-			length.eval(data.trimR().length());
+			length.eval(data.getTarget().getLength());
 
 		} catch (OperatingSystemException e) {
 			e.printStackTrace();

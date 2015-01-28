@@ -145,7 +145,7 @@ public class NIOStrollerImpl<D extends QDataStruct> extends NIOScrollerImpl<D> i
 
 	@Override
 	public void eval(QStroller<D> value) {
-		value.eval(this);
+		movea(value, false);
 	}
 
 	@Override

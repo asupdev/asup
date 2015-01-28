@@ -8,6 +8,8 @@
 package org.asup.il.data;
 
 import java.lang.Enum;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 
 
 /**
@@ -148,6 +150,22 @@ public interface QNumeric extends QBufferedData {
 	 * @generated
 	 */
 	void eval(QNumeric value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model valueRequired="true"
+	 * @generated
+	 */
+	void eval(BigInteger value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model valueRequired="true"
+	 * @generated
+	 */
+	void eval(BigDecimal value);
 
 	/**
 	 * <!-- begin-user-doc -->

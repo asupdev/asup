@@ -877,6 +877,9 @@
     <eOperations name="set" eType="#//DataWriter">
       <eParameters name="value" lowerBound="1" eType="#//BufferedData"/>
     </eOperations>
+    <eOperations name="set" eType="#//DataWriter">
+      <eParameters name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Datetime" abstract="true" interface="true"
       eSuperTypes="#//BufferedData">
@@ -911,12 +914,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Decimal" abstract="true" interface="true"
       eSuperTypes="#//Numeric">
-    <eOperations name="eval">
-      <eParameters name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
-    </eOperations>
-    <eOperations name="eval">
-      <eParameters name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
-    </eOperations>
     <eOperations name="getPrecision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eOperations name="getScale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
@@ -1372,6 +1369,12 @@
     </eOperations>
     <eOperations name="eval">
       <eParameters name="value" lowerBound="1" eType="#//Numeric"/>
+    </eOperations>
+    <eOperations name="eval">
+      <eParameters name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    </eOperations>
+    <eOperations name="eval">
+      <eParameters name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
     </eOperations>
     <eOperations name="ge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
       <eParameters name="value" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.java/model/fw-java.ecore#//JavaNumber"/>

@@ -20,13 +20,16 @@ import org.asup.il.data.nio.jtopen.AS400ZonedDecimal;
 public class NIODecimalImpl extends NIONumericImpl implements QDecimal {
 
 	private static final long serialVersionUID = 1L;
+	
 	private static final byte INIT = (byte) 48;
 	protected static final byte ZERO = (byte) 48;
 
 	private static final AS400ZonedDecimal definitions[][] = new AS400ZonedDecimal[50][50];
 
-	private int _precision;
-	private int _scale;
+	private AS400ZonedDecimal zoned = null;
+	
+//	private int _precision;
+//	private int _scale;
 
 	public NIODecimalImpl() {
 		super();
@@ -34,8 +37,11 @@ public class NIODecimalImpl extends NIONumericImpl implements QDecimal {
 
 	public NIODecimalImpl(int precision, int scale) {
 		super();
-		_precision = precision;
-		_scale = scale;
+//		_precision = precision;
+//		_scale = scale;
+		
+		
+		zoned = getDecimal(precision, scale);
 	}
 
 	@Override
@@ -45,34 +51,22 @@ public class NIODecimalImpl extends NIONumericImpl implements QDecimal {
 
 	@Override
 	public int getLength() {
-		return _precision;
+		return getPrecision();
 	}
 
 	@Override
 	public int getSize() {
-		return _precision;
+		return zoned.getByteLength();
 	}
 
 	@Override
 	public int getPrecision() {
-		return _precision;
+		return zoned.getNumberOfDigits();
 	}
 
 	@Override
 	public int getScale() {
-		return _scale;
-	}
-
-	@Override
-	public void eval(BigInteger value) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void eval(BigDecimal value) {
-		// TODO Auto-generated method stub
-
+		return zoned.getNumberOfDecimalPositions();
 	}
 
 	@Override
@@ -89,19 +83,44 @@ public class NIODecimalImpl extends NIONumericImpl implements QDecimal {
 		try {
 			result = zoned.toDouble(asBytes());
 		} catch (Exception e) {
-			System.err.println("Unexpected condition vv6666eqw5rqvcrqv: " + e);
+			// TODO
+//			System.err.println("Unexpected condition vv6666eqw5rqvcrqv: " + e);
 		}
 
 		return result;
 	}
 
 	@Override
-	public void writeNumber(Number number) {
+	public void eval(BigInteger value) {
+		
+		AS400ZonedDecimal zoned = getDecimal(getPrecision(), getScale());
 
+		byte[] bytes = zoned.toBytes(value.doubleValue());
+		if(bytes.length < getLength())
+			bytes.toString();
+		NIOBufferHelper.movel(getBuffer(), getPosition(), getLength(), bytes, true, INIT);
+	}
+
+	@Override
+	public void eval(BigDecimal value) {
+		
+		AS400ZonedDecimal zoned = getDecimal(getPrecision(), getScale());
+
+		byte[] bytes = zoned.toBytes(value.doubleValue());
+		if(bytes.length < getLength())
+			bytes.toString();
+		NIOBufferHelper.movel(getBuffer(), getPosition(), getLength(), bytes, true, INIT);
+	}
+
+	@Override
+	public void writeNumber(Number number) {
+		
 		AS400ZonedDecimal zoned = getDecimal(getPrecision(), getScale());
 
 		byte[] bytes = zoned.toBytes(number.doubleValue());
-		NIOBufferHelper.move(getBuffer(), getPosition(), getLength(), bytes, true, INIT);
+		if(bytes.length < getLength())
+			bytes.toString();
+		NIOBufferHelper.movel(getBuffer(), getPosition(), getLength(), bytes, true, INIT);
 	}
 
 	@Override

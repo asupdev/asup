@@ -13,6 +13,7 @@
 package org.asup.dk.compiler.rpj;
 
 import org.asup.il.flow.QCallableUnit;
+import org.asup.il.flow.QCommandExec;
 import org.asup.il.flow.QJump;
 import org.asup.il.flow.QLabel;
 import org.asup.il.flow.QRoutine;
@@ -48,7 +49,7 @@ public class RPJCallableUnitAnalyzer extends StatementVisitorImpl {
 		}
 
 		if(callableUnit.getFileSection() != null && !callableUnit.getFileSection().getStatements().isEmpty())
-			callableUnitInfo.containsSQLInstruction(true);
+			callableUnitInfo.containsSQLStatement(true);
 
 		return callableUnitInfo;
 	}
@@ -76,6 +77,14 @@ public class RPJCallableUnitAnalyzer extends StatementVisitorImpl {
 			programInfo.getLabels().put(statement.getName(), label);
 		}
 
+		return super.visit(statement);
+	}
+
+	@Override
+	public boolean visit(QCommandExec statement) {
+		
+		programInfo.containsCMDStatement(true);
+		
 		return super.visit(statement);
 	}
 }

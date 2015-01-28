@@ -8,6 +8,8 @@
 package org.asup.il.data.impl;
 
 import java.lang.String;
+import java.math.BigDecimal;
+
 import org.asup.il.core.QSpecialElement;
 import org.asup.il.data.QAdapter;
 import org.asup.il.data.QBinary;
@@ -49,6 +51,7 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected DataWriterImpl() {
@@ -57,6 +60,7 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -66,6 +70,7 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated NOT
 	 */
 	public QDataWriter set(int value) {
@@ -99,6 +104,16 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 	 * @generated NOT
 	 */
 	public QDataWriter set(QBufferedData value) {
+		this.object = value;
+		return this;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated NOT
+	 */
+	public QDataWriter set(Object value) {
 		this.object = value;
 		return this;
 	}
@@ -187,11 +202,12 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 		return super.visit(data);
 	}
 
-	private void visitNumericData(QNumeric numeric) {
+	@SuppressWarnings("unchecked")
+	private <E extends Enum<E>> void visitNumericData(QNumeric numeric) {
 
 		if (object instanceof QBufferedData) {
 			numeric.eval((QBufferedData) object);
-		} else {
+		} else if (object instanceof String) {
 			try {
 				if (!object.toString().isEmpty())
 					numeric.eval(Double.parseDouble(object.toString()));
@@ -200,27 +216,29 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
+		} 
+		 else if (object instanceof Enum<?>) {
+				numeric.eval((E)object);
+			}
+		else if (object instanceof BigDecimal) {
+			numeric.eval((BigDecimal) object);
+		} else
+			"".toCharArray();
 
 	}
 
-	private void visitStringData(QString string) {
+	@SuppressWarnings("unchecked")
+	private <E extends Enum<E>> void visitStringData(QString string) {
 
 		if (object instanceof QString) {
 			string.eval((QString) object);
 		} else if (object instanceof String) {
 			String s = (String) object;
-
-			if (s.startsWith("*")) {
-				try {
-					Specials special = Specials.valueOf(s.substring(1));
-					string.eval(special);
-				} catch (Exception e) {
-					string.eval(s);
-				}
-			} else
-				string.eval(s);
-		} else {
+			string.eval(s);
+		} else if (object instanceof Enum<?>) {
+			string.eval((E)object);
+		} 
+		else {
 			if (object.toString().startsWith("*"))
 				object.toString();
 

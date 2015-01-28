@@ -239,5 +239,8 @@ public class NIOPointerImpl extends NIOBufferedDataImpl implements QPointer {
 	public QBufferedData getTarget() {
 		return this.target;
 	}
-
+	
+	protected void setTarget(QBufferedData target) {
+		this.target = target;
+	}
 }

@@ -28,12 +28,12 @@ public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBu
 	public NIOBufferedListImpl() {
 		super();
 	}
-	
+
 	@Override
 	public boolean isEmpty() {
 
 		for (D element : this) {
-			if(!element.isEmpty())
+			if (!element.isEmpty())
 				return false;
 		}
 
@@ -51,13 +51,11 @@ public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBu
 	public byte[] asBytes() {
 		return NIOBufferHelper.readBytes(getBuffer(), getPosition(), getSize());
 	}
-	
-/*	@Override
-	public void reset() {
-		for (QBufferedData element : this) {
-			element.reset();
-		}
-	}*/	
+
+	/*
+	 * @Override public void reset() { for (QBufferedData element : this) {
+	 * element.reset(); } }
+	 */
 
 	@Override
 	public void eval(QBufferedData value) {
@@ -65,7 +63,7 @@ public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBu
 			element.eval(value);
 		}
 	}
-	
+
 	@Override
 	public D get(QNumeric index) {
 		return get(index.asInteger());
@@ -75,7 +73,6 @@ public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBu
 	public Iterator<D> iterator() {
 		return new NIOListIteratorImpl<D>(this);
 	}
-	
 
 	@Override
 	public void move(int value) {
@@ -112,6 +109,7 @@ public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBu
 			element.move(value, clear);
 		}
 	}
+
 	@Override
 	public void movel(int value, boolean clear) {
 		for (QBufferedData element : this) {
@@ -126,8 +124,13 @@ public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBu
 
 	@Override
 	public void movel(QBufferedData value, boolean clear) {
-		for (QBufferedData element : this) {
-			element.movel(value, clear);
+
+		if (value instanceof QArray<?>) {
+			movea((QArray<?>)value, clear);
+		} else {
+			for (QBufferedData element : this) {
+				element.movel(value, clear);
+			}
 		}
 	}
 
@@ -147,55 +150,53 @@ public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBu
 		return new String(asBytes());
 	}
 
-
 	@Override
 	public <E extends Enum<E>> void move(E value) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public <E extends Enum<E>> void move(E value, boolean clear) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public <E extends Enum<E>> void movel(E value) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public <E extends Enum<E>> void movel(E value, boolean clear) {
 		// TODO Auto-generated method stub
-		
-	}	
+
+	}
 
 	@Override
 	public void accept(QDataVisitor visitor) {
 
-		if(visitor.visit(this)) {
-			
+		if (visitor.visit(this)) {
+
 			Iterator<D> datas = this.iterator();
-			while(datas.hasNext()) {
+			while (datas.hasNext()) {
 				datas.next().accept(visitor);
 			}
 			visitor.endVisit(this);
-		}	
+		}
 	}
-	
+
 	@Override
 	public <E extends Enum<E>> void eval(E value) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 	@Override
 	public void eval(QList<D> value) {
 		value.eval(this);
 	}
-
 
 	@Override
 	public void sorta() {
@@ -208,21 +209,19 @@ public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBu
 		movea(value, false);
 	}
 
-
 	@Override
 	public void movea(QArray<?> value, boolean clear) {
-		if(getSize() == value.getSize())
+		if (getSize() == value.getSize())
 			NIOBufferHelper.movel(getBuffer(), getPosition(), value.getSize(), value.asBytes(), false, (byte) 32);
 		else {
 
 			int i = 1;
-			for(QBufferedData elementTarget: this) {
-				
-				if(value.capacity()>=i)					
+			for (QBufferedData elementTarget : this) {
+
+				if (value.capacity() >= i)
 					elementTarget.eval(value.get(i));
-				else
-					if(clear)
-						elementTarget.clear();
+				else if (clear)
+					elementTarget.clear();
 				i++;
 			}
 		}
@@ -230,15 +229,15 @@ public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBu
 	}
 
 	@Override
-	public void movea(QBufferedData value) {	
+	public void movea(QBufferedData value) {
 		movea(value, false);
 	}
 
 	@Override
 	public void movea(QBufferedData value, boolean clear) {
-		NIOBufferHelper.movel(getBuffer(), getPosition(), value.getSize(), value.asBytes(), clear, (byte) 32);		
+		NIOBufferHelper.movel(getBuffer(), getPosition(), value.getSize(), value.asBytes(), clear, (byte) 32);
 	}
-	
+
 	@Override
 	public void movea(QDataWriter value) {
 		this.accept(value);
@@ -246,16 +245,16 @@ public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBu
 
 	@Override
 	public void movea(String value) {
-		for(QBufferedData elementTarget: this) {
+		for (QBufferedData elementTarget : this) {
 			elementTarget.movel(value, true);
-		}						
+		}
 	}
 
 	@Override
 	public <E extends Enum<E>> void movea(E value) {
-		for(QBufferedData elementTarget: this) {
+		for (QBufferedData elementTarget : this) {
 			elementTarget.eval(value);
-		}								
+		}
 	}
 
 }

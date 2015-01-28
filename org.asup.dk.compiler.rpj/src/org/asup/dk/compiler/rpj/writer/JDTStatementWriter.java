@@ -212,10 +212,11 @@ public class JDTStatementWriter extends StatementVisitorImpl {
 		Block block = blocks.peek();
 
 		MethodInvocation methodInvocation = ast.newMethodInvocation();
-		methodInvocation.setExpression(ast.newSimpleName("qRPJ"));
-		methodInvocation.setName(ast.newSimpleName("qCommand"));
+		methodInvocation.setExpression(ast.newSimpleName("qCMD"));
+		methodInvocation.setName(ast.newSimpleName("qExecute"));
 
-		// command statement
+		methodInvocation.arguments().add(ast.newThisExpression());
+
 		StringLiteral stringLiteral = ast.newStringLiteral();
 		stringLiteral.setLiteralValue(statement.getStatement());
 		methodInvocation.arguments().add(stringLiteral);

@@ -466,7 +466,7 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 
 			// this.resultSet.last();
 
-			this.rrn = this.resultSet.getInt(record.getElements().size() + 1);
+			// this.rrn = this.resultSet.getInt(record.getElements().size() + 1);
 
 			this.found = true;
 			this.endOfData = false;

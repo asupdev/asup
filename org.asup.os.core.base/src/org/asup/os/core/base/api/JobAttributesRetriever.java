@@ -11,16 +11,26 @@
  */
 package org.asup.os.core.base.api;
 
+import javax.inject.Inject;
+
 import org.asup.fw.core.annotation.ToDo;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDecimal;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
+import org.asup.os.core.jobs.QJob;
+import org.asup.os.core.jobs.QJobManager;
 
 @Program(name = "QCLRTVJA")
 public class JobAttributesRetriever {
 
+	@Inject
+	private QJob job;
+	@Inject
+	private QJobManager jobManager;
+	
+	
 	public @Entry void main(
 			@ToDo @DataDef(length = 10) QCharacter cLVarForJOB10,
 			@ToDo @DataDef(length = 10) QCharacter cLVarForUSER10,
@@ -30,7 +40,7 @@ public class JobAttributesRetriever {
 			@ToDo @DataDef(length = 1) QCharacter cLVarForSUBTYPE1,
 			@ToDo @DataDef(length = 165) QCharacter cLVarForSYSLIBL165,
 			@ToDo @DataDef(length = 10) QCharacter cLVarForCURLIB10,
-			@ToDo @DataDef(length = 275) QCharacter cLVarForUSRLIBL2750,
+			@ToDo @DataDef(length = 275) QCharacter userLibraries,
 			@ToDo @DataDef(length = 10) QCharacter cLVarForASPGRP10,
 			@ToDo @DataDef(length = 1) QCharacter cLVarForLOGLVL1,
 			@ToDo @DataDef(precision = 2) QDecimal cLVarForLOGSEV20,
@@ -83,5 +93,10 @@ public class JobAttributesRetriever {
 			@ToDo @DataDef(length = 10) QCharacter cLVarForTSEPOOL10,
 			@ToDo @DataDef(length = 20) QCharacter cLVarForTHDRSCAFN20,
 			@ToDo @DataDef(length = 10) QCharacter cLVarForRSCAFNGRP10) {
+		
+		
+		userLibraries.eval("P_MULT    ");
+		
+		"".toCharArray();
 	}
 }

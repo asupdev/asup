@@ -40,6 +40,7 @@ import org.asup.il.data.QList;
 import org.asup.il.data.QString;
 import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Program;
+import org.asup.il.data.impl.DataWriterImpl.Specials;
 import org.asup.il.isam.AccessMode;
 import org.asup.il.isam.QDataSet;
 import org.asup.il.isam.QIsamFactory;
@@ -176,13 +177,13 @@ public class BaseCallableInjector {
 			if (field.getName().startsWith("$SWITCH_TABLE"))
 				continue;
 
-			if(Modifier.isStatic(field.getModifiers())) {
-				if(Modifier.isFinal(field.getModifiers()))
+			if (Modifier.isStatic(field.getModifiers())) {
+				if (Modifier.isFinal(field.getModifiers()))
 					continue;
-				if(field.get(callable) != null)
+				if (field.get(callable) != null)
 					continue;
 			}
-			
+
 			field.setAccessible(true);
 
 			// System.out.println(field);
@@ -236,18 +237,23 @@ public class BaseCallableInjector {
 						}
 					} else {
 						if (!dataDef.value().isEmpty()) {
-							if(data instanceof QString) {
-								
+							if (data instanceof QString) {
+
 								String value = dataDef.value();
-								if(value.startsWith("'") && value.endsWith("'")) {
-									value = value.substring(1).substring(0, value.lastIndexOf("'")-1);
-									
+								if (value.startsWith("'") && value.endsWith("'")) {
+									value = value.substring(1).substring(0, value.lastIndexOf("'") - 1);
+
 									data.accept(dataWriter.set(value));
-								}
-								else							
+								} else if (value.startsWith("*")) {
+									try {
+										Specials special = Specials.valueOf(value.substring(1));
+										data.accept(dataWriter.set(special));
+									} catch (Exception e) {
+										data.accept(dataWriter.set(value));
+									}
+								} else
 									data.accept(dataWriter.set(value));
-							}
-							else {
+							} else {
 								data.accept(dataWriter.set(dataDef.value()));
 							}
 						}

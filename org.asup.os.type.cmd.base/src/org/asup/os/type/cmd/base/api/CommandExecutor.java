@@ -41,7 +41,7 @@ public class CommandExecutor {
 	}
 
 	@Entry
-	public void main(@DataDef(varying = true, length = 2000) QCharacter command) {
+	public void main(@DataDef(length = 2000) QCharacter command) {
 
 		String commandString = command.trimR();
 		Map<String, Object> programsVariables = null;
@@ -52,11 +52,11 @@ public class CommandExecutor {
 			if (caller != null)
 				programsVariables = null; // caller.getVariables();
 		}*/
-
-		if(commandString.startsWith("ADDENVVAR"))
-			return;
-		
+	
 		try {
+			
+			System.out.println(commandString);
+			
 			QCallableCommand callableCommand = commandManager.prepareCommand(job, commandString, programsVariables, true);
 			commandManager.executeCommand(job, callableCommand);
 		} catch (OperatingSystemException e) {

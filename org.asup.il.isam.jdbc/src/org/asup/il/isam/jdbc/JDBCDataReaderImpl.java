@@ -8,13 +8,16 @@ import java.text.DecimalFormatSymbols;
 
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QDataStruct;
+import org.asup.il.data.QDataWriter;
 import org.asup.il.data.QDecimal;
-import org.asup.il.data.QString;
+import org.asup.il.data.QIntegratedLanguageDataFactory;
 import org.asup.il.data.impl.DataReaderImpl;
 
 public class JDBCDataReaderImpl extends DataReaderImpl {
 
 	private static DecimalFormat[][] decimalFormats = new DecimalFormat[32][9]; 
+
+	private QDataWriter dataWriter = QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter();
 	
 	public JDBCDataReaderImpl set(ResultSet resultSet) {
 		
@@ -35,23 +38,27 @@ public class JDBCDataReaderImpl extends DataReaderImpl {
 		for(QBufferedData bufferedData: data.getElements()) {
 			try {
 //				bufferedData.movel(resultSet.getString(c), true);
-				
-				if(bufferedData instanceof QString) {
+
+				dataWriter.set(resultSet.getObject(c));
+				bufferedData.accept(dataWriter);
+/*				if(bufferedData instanceof QString) {
 					QString string = (QString) bufferedData;
 					string.eval(resultSet.getString(c));
 				}
 				else if(bufferedData instanceof QDecimal) {
 					QDecimal decimal = (QDecimal) bufferedData;
 
-/*					BigDecimal bigDecimal = resultSet.getBigDecimal(c);
-					decimal.eval(bigDecimal);
-					bufferedData.move(formatBigDecimal(bigDecimal, decimal), true);*/
+//					BigDecimal bigDecimal = resultSet.getBigDecimal(c);
+//					decimal.eval(bigDecimal);
 					
+//					bufferedData.move(formatBigDecimal(bigDecimal, decimal), true);
+					
+					System.out.println(resultSet.getObject(c));
 					decimal.eval(resultSet.getDouble(c));
 				}
 				else {
 					bufferedData.movel(resultSet.getObject(c).toString(), true);
-				}
+				}*/
 					
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block

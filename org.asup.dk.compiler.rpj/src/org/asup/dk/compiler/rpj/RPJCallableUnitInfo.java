@@ -19,17 +19,26 @@ public class RPJCallableUnitInfo {
 
 	private Map<String, Label> labels;
 	private boolean containsSQLStatement = false;
-	
-	public void containsSQLInstruction(boolean containsSQLStatement) {
-		this.containsSQLStatement = containsSQLStatement;
-	}
+	private boolean containsCMDStatement = false;
 
 	public RPJCallableUnitInfo() {
 		reset();
 	}
+	
+	public void containsSQLStatement(boolean containsSQLStatement) {
+		this.containsSQLStatement = containsSQLStatement;
+	}
+
+	public void containsCMDStatement(boolean containsCMDStatement) {
+		this.containsCMDStatement = containsCMDStatement;
+	}
 
 	public boolean containsSQLStatement() {
 		return this.containsSQLStatement;
+	}
+
+	public boolean containsCMDStatement() {
+		return this.containsCMDStatement;
 	}
 
 	public Map<String, Label> getLabels() {

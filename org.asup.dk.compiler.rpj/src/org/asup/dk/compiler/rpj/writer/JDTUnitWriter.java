@@ -19,6 +19,7 @@ import org.asup.dk.compiler.rpj.RPJCallableUnitInfo;
 import org.asup.dk.compiler.rpj.RPJExpressionNormalizer;
 import org.asup.il.data.QData;
 import org.asup.il.flow.QUnit;
+import org.asup.os.type.pgm.rpj.RPJCommandSupport;
 import org.asup.os.type.pgm.rpj.RPJDatabaseSupport;
 import org.asup.os.type.pgm.rpj.RPJProgramSupport;
 import org.asup.os.type.pgm.rpj.RPJServiceSupport;
@@ -73,6 +74,22 @@ public abstract class JDTUnitWriter extends JDTNamedNodeWriter {
 		field.setType(getAST().newSimpleType(getAST().newName(RPJProgramSupport.class.getSimpleName())));
 		variable.setName(getAST().newSimpleName("qRPJ"));
 		getTarget().bodyDeclarations().add(field);
+
+		// *CMD
+		if(callableUnitInfo.containsCMDStatement()) {
+			writeImport(RPJCommandSupport.class);
+			
+			variable = getAST().newVariableDeclarationFragment();
+			field = getAST().newFieldDeclaration(variable);
+			
+			writeAnnotation(field, Inject.class);
+			
+			field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
+			field.setType(getAST().newSimpleType(getAST().newName(RPJCommandSupport.class.getSimpleName())));
+			variable.setName(getAST().newSimpleName("qCMD"));
+			getTarget().bodyDeclarations().add(field);
+
+		}
 
 		// *SQL
 		if(callableUnitInfo.containsSQLStatement()) {
