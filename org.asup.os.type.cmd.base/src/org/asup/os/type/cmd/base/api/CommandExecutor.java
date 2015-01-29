@@ -19,7 +19,6 @@ import org.asup.il.data.annotation.DataDef;
 import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
 import org.asup.os.core.OperatingSystemException;
-import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.type.cmd.QCallableCommand;
 import org.asup.os.type.cmd.QCommandManager;
@@ -60,7 +59,7 @@ public class CommandExecutor {
 			QCallableCommand callableCommand = commandManager.prepareCommand(job, commandString, programsVariables, true);
 			commandManager.executeCommand(job, callableCommand);
 		} catch (OperatingSystemException e) {
-			throw new OperatingSystemRuntimeException(e);
+			System.err.println("Command API error: "+command+"\t"+e.getMessage());			
 		}
 	}
 }

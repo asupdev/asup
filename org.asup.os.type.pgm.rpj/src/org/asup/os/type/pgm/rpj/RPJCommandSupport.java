@@ -24,7 +24,6 @@ import org.asup.os.core.OperatingSystemException;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.type.cmd.QCallableCommand;
 import org.asup.os.type.cmd.QCommandManager;
-import org.asup.os.type.pgm.OperatingSystemRuntimeProgramException;
 
 public class RPJCommandSupport {
 

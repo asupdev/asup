@@ -18,7 +18,7 @@ import org.asup.il.data.annotation.Program;
 import org.asup.il.data.annotation.Special;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.output.QObjectWriter;
-import org.asup.os.core.output.QObjectWriterFactory;
+import org.asup.os.core.output.QOutputManager;
 import org.asup.os.core.resources.QResourceFactory;
 import org.asup.os.core.resources.QResourceReader;
 import org.asup.os.omac.QObjectIterator;
@@ -27,11 +27,11 @@ import org.asup.os.splf.QSpoolFile;
 public @ToDo @Program(name = "QSPWRKF") class SpoolFileWorker {
 	
 	@Inject
+	private QOutputManager outputManager;
+	@Inject
 	private QResourceFactory resourceFactory;
 	@Inject
 	private QJob job;
-	@Inject
-	private QObjectWriterFactory objectWriterFactory;
 	
 	public static enum QCPFMSG {
 	}
@@ -46,7 +46,7 @@ public @ToDo @Program(name = "QSPWRKF") class SpoolFileWorker {
 			@DataDef(length = 10) QEnum<LIVELLODIASSISTENZAEnum, QCharacter> livelloDiAssistenza) {
 		
 		QResourceReader<QSpoolFile> spoolFileReader = resourceFactory.getResourceReader(job, QSpoolFile.class, job.getSystem().getSystemLibrary());
-		QObjectWriter objectWriter = objectWriterFactory.createObjectWriter(job);
+		QObjectWriter objectWriter = outputManager.getObjectWriter(job, emissione.asData().trimR());
 		
 		objectWriter.initialize();
 		

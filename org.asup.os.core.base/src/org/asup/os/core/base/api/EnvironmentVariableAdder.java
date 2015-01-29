@@ -30,6 +30,8 @@ public class EnvironmentVariableAdder {
 			@ToDo @DataDef(binaryType = BinaryType.INTEGER) QEnum<CodedCharacterSetIDEnum, QBinary> codedCharacterSetID,
 			@ToDo @DataDef(length = 4) QEnum<LevelEnum, QCharacter> level,
 			@ToDo @DataDef(length = 4) QEnum<ReplaceExistingEntryEnum, QCharacter> replaceExistingEntry) {
+		
+		"".toCharArray();
 	}
 	
 	public static enum InitialValueEnum {

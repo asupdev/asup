@@ -85,6 +85,9 @@ public class NIOArrayImpl<D extends NIOBufferedDataImpl> extends NIOBufferedList
 
 	@Override
 	public void eval(QArray<D> value) {
+		if(value == null)
+			return;
+		
 		movea(value, true);
 	}
 

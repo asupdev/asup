@@ -22,11 +22,13 @@ import org.asup.il.data.annotation.Program;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.jobs.QJobManager;
 
+@SuppressWarnings("unused")
 @Program(name = "QCLRTVJA")
 public class JobAttributesRetriever {
 
 	@Inject
 	private QJob job;
+	
 	@Inject
 	private QJobManager jobManager;
 	

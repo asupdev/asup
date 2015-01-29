@@ -222,7 +222,11 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 			}
 		else if (object instanceof BigDecimal) {
 			numeric.eval((BigDecimal) object);
-		} else
+		}
+		else if (object instanceof Integer) {
+			numeric.eval((Integer) object);
+		}
+		else
 			"".toCharArray();
 
 	}

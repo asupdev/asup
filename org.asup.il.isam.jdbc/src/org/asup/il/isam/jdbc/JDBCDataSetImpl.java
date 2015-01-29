@@ -430,7 +430,24 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 	@Override
 	public void update(QIndicator error) {
 
-		// TODO
+
+		this.error = false;
+		this.equal = false;
+
+		try {
+
+			this.resultSet.moveToCurrentRow();
+			this.record.accept(this.dataWriter);
+			this.resultSet.updateRow();
+
+			this.resultSet.moveToCurrentRow();
+
+			this.found = true;
+			this.endOfData = false;
+
+		} catch (SQLException e) {
+			handleSQLException(e);
+		}
 
 		if (error != null)
 			error.eval(onError());
@@ -448,25 +465,12 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 		this.equal = false;
 
 		try {
-			if (this.resultSet == null) {
-				String querySelect = "SELECT " + jdbcAccessHelper.getSQLObjectNameHelper().getQualifiedNameInSQLFormat(this.currentTable) + ".*, digits(QASRRN) FROM "
-						+ jdbcAccessHelper.getSQLObjectNameHelper().getQualifiedNameInSQLFormat(this.currentTable) + " ORDER BY QASRRN";
-				this.resultSet = this.statement.executeQuery(querySelect);
-
-				this.dataReader.set(this.resultSet);
-				this.dataWriter.set(this.resultSet);
-
-			}
 
 			this.resultSet.moveToInsertRow();
 			this.record.accept(this.dataWriter);
 			this.resultSet.insertRow();
 
 			this.resultSet.moveToCurrentRow();
-
-			// this.resultSet.last();
-
-			// this.rrn = this.resultSet.getInt(record.getElements().size() + 1);
 
 			this.found = true;
 			this.endOfData = false;
