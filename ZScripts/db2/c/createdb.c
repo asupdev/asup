@@ -56,6 +56,7 @@ int main(int argc, char *argv[])
     char dbLocalAlias[SQL_ALIAS_SZ + 1];
     char dbPath[SQL_PATH_SZ + 1];
     struct sqledbdesc dbDescriptor;
+    struct sqledbdescext dbDescExt;
     SQLEDBTERRITORYINFO territoryInfo;
 
 
@@ -107,10 +108,20 @@ int main(int argc, char *argv[])
     strcpy(territoryInfo.sqldbcodeset, "ISO8859-1");
     strcpy(territoryInfo.sqldblocale, "IT");
 
+
+    /* initialize sqledbdescext structure */
+    dbDescExt.sqlPageSize = SQL_PAGESIZE_32K;
+    dbDescExt.sqlAutoStorage = NULL;
+    dbDescExt.sqlcattsext = NULL;
+    dbDescExt.sqlusrtsext = NULL;
+    dbDescExt.sqltmptsext = NULL;
+    dbDescExt.reserved = NULL;
+
+
     printf("Creating database %s\n", dbName);
 
     /* create database */
-    sqlecrea(dbName, dbLocalAlias, dbPath, &dbDescriptor, &territoryInfo, '\0', NULL, &sqlca);
+    sqlecrea(dbName, dbLocalAlias, dbPath, &dbDescriptor, &territoryInfo, '\0', (void *)&dbDescExt, &sqlca);
     if ((rc = checkError(&sqlca, "creating database")) < 0)
     {
         return rc;
@@ -125,5 +136,8 @@ int main(int argc, char *argv[])
             return rc;
         }
     }
+
+    printf("Database %s created successfully\n", dbName);
+
     return 0;
 }
