@@ -174,7 +174,7 @@ binary_fun
 
 sst_fun
 	:
-		SST_FUN '(' value value value ')' -> ^(SST_FUN[$SST_FUN.text] value value value)		
+		SST_FUN '(' value value value ')' -> ^(SST_FUN["\%SST"] value value value)		
 	;	
 
 switch_fun
@@ -245,6 +245,8 @@ BINARY_FUN
 SST_FUN
 	:
 	'%' S S T
+	|
+	'%' S U B S T R I N G
 	;
 
 SWITCH_FUN

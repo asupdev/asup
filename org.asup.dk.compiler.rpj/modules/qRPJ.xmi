@@ -973,6 +973,47 @@
     <prototypes>
       <delegate
           xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%bin">
+        <definition
+            xsi:type="il-data:NumericDef"/>
+      </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              constant="true"
+              name="string"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:StringDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="length"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="int2"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
           name="%cat">
         <definition
             xsi:type="il-data:StringDef"/>
@@ -1896,7 +1937,7 @@
         <parameters>
           <delegate
               xsi:type="il-data:UnaryAtomicDataTerm"
-              name="int1"
+              name="startIndex"
               default=""
               mandatory="true">
             <definition
@@ -1906,7 +1947,7 @@
         <parameters>
           <delegate
               xsi:type="il-data:UnaryAtomicDataTerm"
-              name="int2"
+              name="length"
               default=""
               mandatory="true">
             <definition
@@ -2078,6 +2119,27 @@
               default="">
             <definition
                 xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%switch">
+        <definition
+            xsi:type="il-data:IndicatorDef"/>
+      </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              constant="true"
+              name="switches"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:StringDef"/>
           </delegate>
         </parameters>
       </entry>

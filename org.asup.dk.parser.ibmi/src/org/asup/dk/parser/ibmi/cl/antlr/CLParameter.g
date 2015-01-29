@@ -102,10 +102,11 @@ value
   HEX -> HEX[$HEX.text.substring(2, $HEX.text.length()-1)]
   |
   STRING -> ^(STRING[$STRING.text.substring(1, $STRING.text.length()-1).replace("''", "'")])
+  |  
+  ESCAPE -> ^(STRING["''"])
   |
   function
   ;
-
   
 operator:
 	CAT
@@ -115,12 +116,13 @@ operator:
 	TCAT	
 	;
   
-
-
- 
 function:
-  FUNCTION_NAME list	-> ^(FUNCTION[$FUNCTION_NAME.text] list)
-	;
+  SST list	-> ^(FUNCTION["\%SST"] list)
+  |
+  BINARY list	-> ^(FUNCTION["\%BIN"] list)
+  |
+  SWITCH list	-> ^(FUNCTION["\%SWITCH"] list)
+ ; 
 	
 CAT     : '!!' | '*CAT';
 
@@ -128,9 +130,11 @@ BCAT    : '!>' | '*BCAT';
 
 TCAT    : '!<' | '*TCAT';	
 	
-FUNCTION_NAME:
-	('%SST' | '%SWITCH' | '%BINARY' | '%BIN')
-	;  	
+SST 	: ('%' S S T) | ('%' S U B S T R I N G);
+
+SWITCH  : '%' S W I T C H;	 
+
+BINARY  : ('%' B I N) | ('%' B I N A R Y);
   
 STRING	:	
    APOS ('a'..'z'|'A'..'Z'|'0'..'9'|CHAR_SPECIAL|' '|'%'|'&'|ASTERISK|OPEN_BRACE|CLOSE_BRACE|ESCAPE)+ APOS	
@@ -197,7 +201,32 @@ WS  :   ( ' '
         {$channel=HIDDEN;}
     ;
     
-	
+fragment A:('a'|'A');
+fragment B:('b'|'B');
+fragment C:('c'|'C');
+fragment D:('d'|'D');
+fragment E:('e'|'E');
+fragment F:('f'|'F');
+fragment G:('g'|'G');
+fragment H:('h'|'H');
+fragment I:('i'|'I');
+fragment J:('j'|'J');
+fragment K:('k'|'K');
+fragment L:('l'|'L');
+fragment M:('m'|'M');
+fragment N:('n'|'N');
+fragment O:('o'|'O');
+fragment P:('p'|'P');
+fragment Q:('q'|'Q');
+fragment R:('r'|'R');
+fragment S:('s'|'S');
+fragment T:('t'|'T');
+fragment U:('u'|'U');
+fragment V:('v'|'V');
+fragment W:('w'|'W');
+fragment X:('x'|'X');
+fragment Y:('y'|'Y');
+fragment Z:('z'|'Z');		
 
 fragment
 CHAR_SPECIAL
