@@ -1,0 +1,14 @@
+#! /bin/bash
+if [ $# -lt 2 ]; then
+    echo "Usage: $0 dbName backup_folder"
+    exit 1
+fi
+
+asupdb2create $1
+
+db2 -tvf  $2/$1_create.sql
+
+db2move $1 load -lo replace -l $2 
+
+echo "Import of $1 terminated"
+
