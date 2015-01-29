@@ -1,3 +1,17 @@
+/*
+Programma per creare un DB con collating EBCDIC
+Per la compilazione:
+1) Installare DB2 con gli strumenti per lo sviluppo
+2) Installare Microsoft C compiler (windows) o gnu C compiler (linux)
+3) Dalla cartella sqllib/samples/c lanciare il comando
+bdlapp createdb
+
+Per lanciare il programma
+
+createdb nomeIstanza nomeDB
+
+dove nomeIstanza può essere ''
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
