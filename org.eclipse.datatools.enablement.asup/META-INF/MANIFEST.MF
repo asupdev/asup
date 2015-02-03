@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Eclipse Data Tools Platform As.UP Core
 Bundle-SymbolicName: org.eclipse.datatools.enablement.asup;singleton:=true
-Bundle-Version: 0.5.3.qualifier
+Bundle-Version: 0.5.4.qualifier
 Bundle-Vendor: www.smeup.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy

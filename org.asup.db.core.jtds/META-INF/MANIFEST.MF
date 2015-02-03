@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Database Core JTDS
 Bundle-SymbolicName: org.asup.db.core.jtds;singleton:=true
-Bundle-Version: 0.5.3.qualifier
+Bundle-Version: 0.5.4.qualifier
 Bundle-ClassPath: .,
  lib/jtds-1.2.7.jar
 Bundle-Activator: org.asup.db.core.jtds.JtdsActivator$Activator

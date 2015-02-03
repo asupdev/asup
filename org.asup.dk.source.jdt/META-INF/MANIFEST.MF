@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Development Kit Source Eclipse JDT
 Bundle-SymbolicName: org.asup.dk.source.jdt;singleton:=true
-Bundle-Version: 0.5.3.qualifier
+Bundle-Version: 0.5.4.qualifier
 Bundle-Vendor: www.smeup.com
 Export-Package: org.asup.dk.source.jdt
 Require-Bundle: org.asup.dk.source;visibility:=reexport,

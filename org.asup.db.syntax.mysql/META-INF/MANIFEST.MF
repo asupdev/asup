@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Database Syntax MySql
 Bundle-SymbolicName: org.asup.db.syntax.mysql
-Bundle-Version: 0.5.3.qualifier
+Bundle-Version: 0.5.4.qualifier
 Bundle-Vendor: www.smeup.com
 Export-Package: org.asup.db.syntax.mysql
 Require-Bundle: org.asup.db.syntax,

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Database Core MsSql
 Bundle-SymbolicName: org.asup.db.core.mssql;singleton:=true
-Bundle-Version: 0.5.3.qualifier
+Bundle-Version: 0.5.4.qualifier
 Bundle-ClassPath: lib/sqljdbc4.jar,
  .
 Bundle-Activator: org.asup.db.core.mssql.MsSQLActivator$Activator

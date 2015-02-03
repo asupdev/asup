@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Integrated Language Data Test
 Bundle-SymbolicName: org.asup.il.data.test
-Bundle-Version: 0.5.3.qualifier
+Bundle-Version: 0.5.4.qualifier
 Bundle-Vendor: www.smeup.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.asup.fw.test,

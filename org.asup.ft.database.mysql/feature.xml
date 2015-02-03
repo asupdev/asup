@@ -2,7 +2,7 @@
 <feature
       id="org.asup.ft.database.mysql"
       label="As.UP Database MySQL"
-      version="0.5.3.qualifier"
+      version="0.5.4.qualifier"
       provider-name="www.smeup.com">
 
    <description url="http://www.example.com/description">
