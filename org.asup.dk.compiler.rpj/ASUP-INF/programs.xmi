@@ -7,7 +7,7 @@
     xsi:schemaLocation="http://www.asup.org/os/type/pgm ../../org.asup.os.type.pgm/model/os-type-pgm.ecore"
     name="org.asup.dk.compiler.rpj"
     text="As.UP Devolpment Kit Compiler RPJ Programs"
-    version="0.5.3"
+    version="0.5.4"
     vendor="www.smeup.com"
     basePackage="org.asup.dk.compiler.rpj.api"
     scanPackage="true"/>

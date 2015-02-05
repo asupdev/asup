@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: As.UP Database Syntax IBMi
 Bundle-SymbolicName: org.asup.db.syntax.ibmi
-Bundle-Version: 0.5.3.qualifier
+Bundle-Version: 0.5.4.qualifier
 Bundle-Vendor: www.smeup.com
 Export-Package: org.asup.db.syntax.ibmi.parser.dbl,
  org.asup.db.syntax.ibmi.parser.ddl,
@@ -10,5 +10,5 @@ Export-Package: org.asup.db.syntax.ibmi.parser.dbl,
 Require-Bundle: org.asup.db.syntax,
  net.sourceforge.lpg.lpgjavaruntime;bundle-version="1.1.0",
  org.eclipse.datatools.sqltools.parsers.sql.lexer;bundle-version="1.0.1",
- org.asup.dk.parser;bundle-version="0.5.3"
+ org.asup.dk.parser
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
