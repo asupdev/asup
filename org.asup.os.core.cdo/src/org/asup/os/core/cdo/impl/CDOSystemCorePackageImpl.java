@@ -9,18 +9,14 @@ package org.asup.os.core.cdo.impl;
 
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.fw.core.QFrameworkCorePackage;
-
 import org.asup.os.core.QOperatingSystemCorePackage;
-import org.asup.os.core.cdo.CDODataSourceFactory;
 import org.asup.os.core.cdo.CDOStoreConfig;
 import org.asup.os.core.cdo.CDOSystemConfig;
 import org.asup.os.core.cdo.CDOSystemCoreFactory;
 import org.asup.os.core.cdo.CDOSystemCorePackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -31,13 +27,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @generated
  */
 public class CDOSystemCorePackageImpl extends EPackageImpl implements CDOSystemCorePackage {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass cdoDataSourceFactoryEClass = null;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -122,15 +111,6 @@ public class CDOSystemCorePackageImpl extends EPackageImpl implements CDOSystemC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCDODataSourceFactory() {
-		return cdoDataSourceFactoryEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getCDOSystemConfig() {
 		return cdoSystemConfigEClass;
 	}
@@ -168,15 +148,6 @@ public class CDOSystemCorePackageImpl extends EPackageImpl implements CDOSystemC
 	 * @generated
 	 */
 	public EAttribute getCDOStoreConfig_Driver() {
-		return (EAttribute)cdoStoreConfigEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCDOStoreConfig_Url() {
 		return (EAttribute)cdoStoreConfigEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -185,8 +156,35 @@ public class CDOSystemCorePackageImpl extends EPackageImpl implements CDOSystemC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCDOStoreConfig_Port() {
+		return (EAttribute)cdoStoreConfigEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCDOStoreConfig_Repository() {
+		return (EAttribute)cdoStoreConfigEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCDOStoreConfig_Url() {
+		return (EAttribute)cdoStoreConfigEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getCDOStoreConfig_Credentials() {
-		return (EReference)cdoStoreConfigEClass.getEStructuralFeatures().get(3);
+		return (EReference)cdoStoreConfigEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -217,13 +215,13 @@ public class CDOSystemCorePackageImpl extends EPackageImpl implements CDOSystemC
 		isCreated = true;
 
 		// Create classes and their features
-		cdoDataSourceFactoryEClass = createEClass(CDO_DATA_SOURCE_FACTORY);
-
 		cdoStoreConfigEClass = createEClass(CDO_STORE_CONFIG);
 		createEAttribute(cdoStoreConfigEClass, CDO_STORE_CONFIG__ADAPTER);
-		createEAttribute(cdoStoreConfigEClass, CDO_STORE_CONFIG__DRIVER);
-		createEAttribute(cdoStoreConfigEClass, CDO_STORE_CONFIG__URL);
 		createEReference(cdoStoreConfigEClass, CDO_STORE_CONFIG__CREDENTIALS);
+		createEAttribute(cdoStoreConfigEClass, CDO_STORE_CONFIG__DRIVER);
+		createEAttribute(cdoStoreConfigEClass, CDO_STORE_CONFIG__PORT);
+		createEAttribute(cdoStoreConfigEClass, CDO_STORE_CONFIG__REPOSITORY);
+		createEAttribute(cdoStoreConfigEClass, CDO_STORE_CONFIG__URL);
 
 		cdoSystemConfigEClass = createEClass(CDO_SYSTEM_CONFIG);
 		createEReference(cdoSystemConfigEClass, CDO_SYSTEM_CONFIG__SYSTEM);
@@ -253,8 +251,8 @@ public class CDOSystemCorePackageImpl extends EPackageImpl implements CDOSystemC
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		QDatabaseCorePackage theDatabaseCorePackage = (QDatabaseCorePackage)EPackage.Registry.INSTANCE.getEPackage(QDatabaseCorePackage.eNS_URI);
 		QFrameworkCorePackage theFrameworkCorePackage = (QFrameworkCorePackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkCorePackage.eNS_URI);
+		QDatabaseCorePackage theDatabaseCorePackage = (QDatabaseCorePackage)EPackage.Registry.INSTANCE.getEPackage(QDatabaseCorePackage.eNS_URI);
 		QOperatingSystemCorePackage theOperatingSystemCorePackage = (QOperatingSystemCorePackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemCorePackage.eNS_URI);
 
 		// Create type parameters
@@ -262,18 +260,17 @@ public class CDOSystemCorePackageImpl extends EPackageImpl implements CDOSystemC
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		cdoDataSourceFactoryEClass.getESuperTypes().add(theDatabaseCorePackage.getDataSourceFactory());
 		cdoStoreConfigEClass.getESuperTypes().add(theFrameworkCorePackage.getServiceConfig());
 		cdoSystemConfigEClass.getESuperTypes().add(theFrameworkCorePackage.getServiceConfig());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(cdoDataSourceFactoryEClass, CDODataSourceFactory.class, "CDODataSourceFactory", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(cdoStoreConfigEClass, CDOStoreConfig.class, "CDOStoreConfig", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCDOStoreConfig_Adapter(), ecorePackage.getEString(), "adapter", null, 1, 1, CDOStoreConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCDOStoreConfig_Driver(), ecorePackage.getEString(), "driver", null, 1, 1, CDOStoreConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCDOStoreConfig_Url(), ecorePackage.getEString(), "url", null, 1, 1, CDOStoreConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCDOStoreConfig_Credentials(), theDatabaseCorePackage.getConnectionCredentials(), null, "credentials", null, 1, 1, CDOStoreConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCDOStoreConfig_Driver(), ecorePackage.getEString(), "driver", null, 1, 1, CDOStoreConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCDOStoreConfig_Port(), ecorePackage.getEInt(), "port", null, 1, 1, CDOStoreConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCDOStoreConfig_Repository(), ecorePackage.getEString(), "repository", null, 1, 1, CDOStoreConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCDOStoreConfig_Url(), ecorePackage.getEString(), "url", null, 1, 1, CDOStoreConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cdoSystemConfigEClass, CDOSystemConfig.class, "CDOSystemConfig", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCDOSystemConfig_System(), theOperatingSystemCorePackage.getSystem(), null, "system", null, 1, 1, CDOSystemConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -472,6 +472,25 @@ public interface QDatabaseCorePackage extends EPackage {
 	int DATABASE_MANAGER_FEATURE_COUNT = QFrameworkCorePackage.SERVICE_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.osgi.service.jdbc.DataSourceFactory <em>Data Source Factory</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.osgi.service.jdbc.DataSourceFactory
+	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDataSourceFactory()
+	 * @generated
+	 */
+	int DATA_SOURCE_FACTORY = 11;
+
+	/**
+	 * The number of structural features of the '<em>Data Source Factory</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_FACTORY_FEATURE_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.asup.db.core.impl.IndexDefImpl <em>Index Def</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -479,7 +498,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getIndexDef()
 	 * @generated
 	 */
-	int INDEX_DEF = 11;
+	int INDEX_DEF = 12;
 
 	/**
 	 * The feature id for the '<em><b>Clustered</b></em>' attribute.
@@ -525,7 +544,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getIndexColumnDef()
 	 * @generated
 	 */
-	int INDEX_COLUMN_DEF = 12;
+	int INDEX_COLUMN_DEF = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -571,7 +590,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getPreparedStatement()
 	 * @generated
 	 */
-	int PREPARED_STATEMENT = 13;
+	int PREPARED_STATEMENT = 14;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.core.impl.QualifiedNameImpl <em>Qualified Name</em>}' class.
@@ -581,7 +600,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getQualifiedName()
 	 * @generated
 	 */
-	int QUALIFIED_NAME = 14;
+	int QUALIFIED_NAME = 15;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.core.impl.SchemaDefImpl <em>Schema Def</em>}' class.
@@ -591,7 +610,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getSchemaDef()
 	 * @generated
 	 */
-	int SCHEMA_DEF = 15;
+	int SCHEMA_DEF = 16;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.core.QStatement <em>Statement</em>}' class.
@@ -601,7 +620,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getStatement()
 	 * @generated
 	 */
-	int STATEMENT = 16;
+	int STATEMENT = 17;
 
 	/**
 	 * The number of structural features of the '<em>Statement</em>' class.
@@ -656,7 +675,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getTableDef()
 	 * @generated
 	 */
-	int TABLE_DEF = 17;
+	int TABLE_DEF = 18;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
@@ -684,7 +703,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getTableColumnDef()
 	 * @generated
 	 */
-	int TABLE_COLUMN_DEF = 18;
+	int TABLE_COLUMN_DEF = 19;
 
 	/**
 	 * The feature id for the '<em><b>Data Type</b></em>' attribute.
@@ -757,7 +776,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getViewDef()
 	 * @generated
 	 */
-	int VIEW_DEF = 19;
+	int VIEW_DEF = 20;
 
 	/**
 	 * The feature id for the '<em><b>Columns</b></em>' containment reference list.
@@ -794,7 +813,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseDataType()
 	 * @generated
 	 */
-	int DATABASE_DATA_TYPE = 20;
+	int DATABASE_DATA_TYPE = 21;
 
 	/**
 	 * The meta object id for the '{@link org.asup.db.core.OrderingType <em>Ordering Type</em>}' enum.
@@ -804,7 +823,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getOrderingType()
 	 * @generated
 	 */
-	int ORDERING_TYPE = 21;
+	int ORDERING_TYPE = 22;
 
 	/**
 	 * The meta object id for the '<em>Database Exception</em>' data type.
@@ -814,7 +833,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseException()
 	 * @generated
 	 */
-	int DATABASE_EXCEPTION = 22;
+	int DATABASE_EXCEPTION = 23;
 
 	/**
 	 * The meta object id for the '<em>Database Result Set</em>' data type.
@@ -824,7 +843,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDatabaseResultSet()
 	 * @generated
 	 */
-	int DATABASE_RESULT_SET = 23;
+	int DATABASE_RESULT_SET = 24;
 
 
 	/**
@@ -834,7 +853,7 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getStatementBatchResult()
 	 * @generated
 	 */
-	int STATEMENT_BATCH_RESULT = 24;
+	int STATEMENT_BATCH_RESULT = 25;
 
 
 	/**
@@ -1144,6 +1163,17 @@ public interface QDatabaseCorePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDatabaseManager();
+
+	/**
+	 * Returns the meta object for class '{@link org.osgi.service.jdbc.DataSourceFactory <em>Data Source Factory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Source Factory</em>'.
+	 * @see org.osgi.service.jdbc.DataSourceFactory
+	 * @model instanceClass="org.osgi.service.jdbc.DataSourceFactory"
+	 * @generated
+	 */
+	EClass getDataSourceFactory();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.db.core.QIndexDef <em>Index Def</em>}'.
@@ -1727,6 +1757,16 @@ public interface QDatabaseCorePackage extends EPackage {
 		 * @generated
 		 */
 		EClass DATABASE_MANAGER = eINSTANCE.getDatabaseManager();
+
+		/**
+		 * The meta object literal for the '{@link org.osgi.service.jdbc.DataSourceFactory <em>Data Source Factory</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.osgi.service.jdbc.DataSourceFactory
+		 * @see org.asup.db.core.impl.DatabaseCorePackageImpl#getDataSourceFactory()
+		 * @generated
+		 */
+		EClass DATA_SOURCE_FACTORY = eINSTANCE.getDataSourceFactory();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.db.core.impl.IndexDefImpl <em>Index Def</em>}' class.

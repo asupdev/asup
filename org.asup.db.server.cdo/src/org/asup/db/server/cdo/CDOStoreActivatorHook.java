@@ -12,28 +12,40 @@
 package org.asup.db.server.cdo;
 
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
 
-import javax.inject.Inject;
+import javax.sql.DataSource;
 
-import org.asup.db.core.QConnectionManager;
 import org.asup.fw.core.annotation.LevelStarted;
 import org.asup.fw.core.impl.ServiceImpl;
+import org.asup.os.core.cdo.CDOStoreConfig;
+import org.eclipse.emf.cdo.server.CDOServerUtil;
+import org.eclipse.emf.cdo.server.IRepository;
+import org.eclipse.emf.cdo.server.db.CDODBUtil;
+import org.eclipse.emf.cdo.server.db.IDBStore;
+import org.eclipse.emf.cdo.server.db.mapping.IMappingStrategy;
 import org.eclipse.emf.cdo.server.internal.db.mapping.horizontal.HorizontalNonAuditMappingStrategy;
+import org.eclipse.emf.cdo.server.net4j.CDONet4jServerUtil;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.ENamedElement;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.net4j.Net4jUtil;
+import org.eclipse.net4j.db.DBUtil;
+import org.eclipse.net4j.db.IDBAdapter;
+import org.eclipse.net4j.db.IDBConnectionProvider;
+import org.eclipse.net4j.tcp.TCPUtil;
+import org.eclipse.net4j.util.container.IPluginContainer;
+import org.eclipse.net4j.util.om.OMPlatform;
+import org.osgi.service.jdbc.DataSourceFactory;
 
 @SuppressWarnings("restriction")
-public class CDODatabaseActivatorHook extends ServiceImpl {
-
-	@SuppressWarnings("unused")
-	@Inject
-	private QConnectionManager connectionManager;
+public class CDOStoreActivatorHook extends ServiceImpl {
 	
 	@LevelStarted
-	public void start() throws SQLException {
-/*
+	public void start(DataSourceFactory dataSourceFactory) throws SQLException {
 		OMPlatform.INSTANCE.setDebugging(true); 
 		OMPlatform.INSTANCE.addLogHandler(org.eclipse.net4j.util.om.log.PrintLogHandler.CONSOLE); 
 		OMPlatform.INSTANCE.addTraceHandler(org.eclipse.net4j.util.om.trace.PrintTraceHandler.CONSOLE); 
@@ -43,21 +55,20 @@ public class CDODatabaseActivatorHook extends ServiceImpl {
 	    CDONet4jServerUtil.prepareContainer(IPluginContainer.INSTANCE); // Prepare the CDO server
 
 	    
-		QConnectionConfig connectionConfig = (QConnectionConfig) getConfig();
-		connectionManager.registerConnectionConfig(connectionConfig.getDatabaseName(), connectionConfig);
+		CDOStoreConfig storeConfig = (CDOStoreConfig) getConfig();
 	    
 		// adapter
-		IDBAdapter adapter = DBUtil.getDBAdapter(connectionConfig.getPluginName());
+		IDBAdapter adapter = DBUtil.getDBAdapter(storeConfig.getAdapter());
 
 		// provider
-		QConnectionFactory connectionFactory = connectionFactoryRegistry.lookup(connectionConfig.getPluginName());
 		Properties dataSourceProps = new Properties();
-		dataSourceProps.put("class", connectionConfig.getDriver());
-		dataSourceProps.put("url", connectionConfig.getUrl());
-		dataSourceProps.put("user", connectionConfig.getUser());
-		dataSourceProps.put("password", connectionConfig.getPassword());
-
-		DataSource dataSource = connectionFactory.createDataSource(dataSourceProps);		
+		dataSourceProps.put("class", storeConfig.getDriver());
+		dataSourceProps.put("url", storeConfig.getUrl());
+		dataSourceProps.put("user", storeConfig.getCredentials().getUser());
+		dataSourceProps.put("password", storeConfig.getCredentials().getPassword());
+		
+		// TODO retrieve dataFactory by adapter 
+		DataSource dataSource = dataSourceFactory.createDataSource(dataSourceProps);		
 		IDBConnectionProvider provider = DBUtil.createConnectionProvider(dataSource); 
 
 		// store 		
@@ -81,13 +92,12 @@ public class CDODatabaseActivatorHook extends ServiceImpl {
 		repositoryProps.put("overrideUUID", "");
 		repositoryProps.put("supportingAudits", "false");
 		repositoryProps.put("supportingBranches", "false");
-		IRepository repository = CDOServerUtil.createRepository("AS400A", store, repositoryProps); 
+		IRepository repository = CDOServerUtil.createRepository(storeConfig.getRepository(), store, repositoryProps); 
 		CDOServerUtil.addRepository(IPluginContainer.INSTANCE, repository); 
 		
-		Net4jUtil.getAcceptor(IPluginContainer.INSTANCE, "tcp", "0.0.0.0:2036");*/
+		Net4jUtil.getAcceptor(IPluginContainer.INSTANCE, "tcp", "0.0.0.0:"+storeConfig.getPort());
 	}
 	
-	@SuppressWarnings("unused")
 	private class InternalMappingStrategy extends HorizontalNonAuditMappingStrategy {
 
 		@Override

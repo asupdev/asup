@@ -12,3 +12,4 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: org.eclipse.net4j.db.mysql,
  org.osgi.service.jdbc
 Bundle-ActivationPolicy: lazy
+Export-Package: org.asup.db.core.mysql

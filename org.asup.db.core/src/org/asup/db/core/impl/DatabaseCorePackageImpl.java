@@ -53,6 +53,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.osgi.service.jdbc.DataSourceFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -137,6 +138,13 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * @generated
 	 */
 	private EClass databaseManagerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataSourceFactoryEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -574,6 +582,15 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDataSourceFactory() {
+		return dataSourceFactoryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIndexDef() {
 		return indexDefEClass;
 	}
@@ -897,6 +914,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 		databaseObjectDefEClass = createEClass(DATABASE_OBJECT_DEF);
 
 		databaseManagerEClass = createEClass(DATABASE_MANAGER);
+
+		dataSourceFactoryEClass = createEClass(DATA_SOURCE_FACTORY);
 
 		indexDefEClass = createEClass(INDEX_DEF);
 		createEAttribute(indexDefEClass, INDEX_DEF__CLUSTERED);
@@ -1224,6 +1243,8 @@ public class DatabaseCorePackageImpl extends EPackageImpl implements QDatabaseCo
 
 		op = addEOperation(databaseManagerEClass, null, "start", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getDatabaseContainer(), "databaseContainer", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(dataSourceFactoryEClass, DataSourceFactory.class, "DataSourceFactory", IS_ABSTRACT, IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(indexDefEClass, QIndexDef.class, "IndexDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIndexDef_Clustered(), ecorePackage.getEBoolean(), "clustered", null, 0, 1, QIndexDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

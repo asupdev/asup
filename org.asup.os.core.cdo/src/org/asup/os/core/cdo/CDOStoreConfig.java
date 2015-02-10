@@ -19,9 +19,11 @@ import org.asup.fw.core.QServiceConfig;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.asup.os.core.cdo.CDOStoreConfig#getAdapter <em>Adapter</em>}</li>
- *   <li>{@link org.asup.os.core.cdo.CDOStoreConfig#getDriver <em>Driver</em>}</li>
- *   <li>{@link org.asup.os.core.cdo.CDOStoreConfig#getUrl <em>Url</em>}</li>
  *   <li>{@link org.asup.os.core.cdo.CDOStoreConfig#getCredentials <em>Credentials</em>}</li>
+ *   <li>{@link org.asup.os.core.cdo.CDOStoreConfig#getDriver <em>Driver</em>}</li>
+ *   <li>{@link org.asup.os.core.cdo.CDOStoreConfig#getPort <em>Port</em>}</li>
+ *   <li>{@link org.asup.os.core.cdo.CDOStoreConfig#getRepository <em>Repository</em>}</li>
+ *   <li>{@link org.asup.os.core.cdo.CDOStoreConfig#getUrl <em>Url</em>}</li>
  * </ul>
  * </p>
  *
@@ -82,6 +84,58 @@ public interface CDOStoreConfig extends QServiceConfig {
 	 * @generated
 	 */
 	void setDriver(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Port</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Port</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Port</em>' attribute.
+	 * @see #setPort(int)
+	 * @see org.asup.os.core.cdo.CDOSystemCorePackage#getCDOStoreConfig_Port()
+	 * @model required="true"
+	 * @generated
+	 */
+	int getPort();
+
+	/**
+	 * Sets the value of the '{@link org.asup.os.core.cdo.CDOStoreConfig#getPort <em>Port</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Port</em>' attribute.
+	 * @see #getPort()
+	 * @generated
+	 */
+	void setPort(int value);
+
+	/**
+	 * Returns the value of the '<em><b>Repository</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Repository</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Repository</em>' attribute.
+	 * @see #setRepository(String)
+	 * @see org.asup.os.core.cdo.CDOSystemCorePackage#getCDOStoreConfig_Repository()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getRepository();
+
+	/**
+	 * Sets the value of the '{@link org.asup.os.core.cdo.CDOStoreConfig#getRepository <em>Repository</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Repository</em>' attribute.
+	 * @see #getRepository()
+	 * @generated
+	 */
+	void setRepository(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Url</b></em>' attribute.

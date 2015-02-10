@@ -242,6 +242,8 @@
     <eLiterals name="Text" value="120" literal="TEXT"/>
     <eLiterals name="Blob" value="130" literal="BLOB"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataSourceFactory" instanceClassName="org.osgi.service.jdbc.DataSourceFactory"
+      abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="IndexDef" eSuperTypes="#//DatabaseObjectDef">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="clustered" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
