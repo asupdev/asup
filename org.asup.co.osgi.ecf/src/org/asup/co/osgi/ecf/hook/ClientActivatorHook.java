@@ -11,7 +11,7 @@
  */
 package org.asup.co.osgi.ecf.hook;
 
-import org.asup.co.osgi.ecf.QECFClientContainerConfig;
+import org.asup.co.osgi.ecf.ECFClientContainerConfig;
 import org.asup.fw.core.annotation.ApplicationStarting;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.eclipse.ecf.core.IContainerFactory;
@@ -31,7 +31,7 @@ public class ClientActivatorHook extends ServiceImpl {
 	public void init() throws Exception {
 
 		BundleContext bundleContext = FrameworkUtil.getBundle(this.getClass()).getBundleContext();		
-		QECFClientContainerConfig ecfClientConfig = (QECFClientContainerConfig) getConfig();
+		ECFClientContainerConfig ecfClientConfig = (ECFClientContainerConfig) getConfig();
 		
 		ServiceTracker<Object, IContainerFactory> containerFactoryServiceTracker = new ServiceTracker<Object, IContainerFactory>(bundleContext, IContainerFactory.class.getName(), null);
 		containerFactoryServiceTracker.open();

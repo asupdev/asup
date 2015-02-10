@@ -16,15 +16,15 @@ package org.asup.co.osgi.ecf;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.co.osgi.ecf.QECFClientContainerConfig#getClientContainerType <em>Client Container Type</em>}</li>
+ *   <li>{@link org.asup.co.osgi.ecf.ECFClientContainerConfig#getClientContainerType <em>Client Container Type</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.asup.co.osgi.ecf.QECFConnectorOSGIPackage#getECFClientContainerConfig()
+ * @see org.asup.co.osgi.ecf.ECFConnectorOSGIPackage#getECFClientContainerConfig()
  * @model
  * @generated
  */
-public interface QECFClientContainerConfig extends QECFContainerConfig {
+public interface ECFClientContainerConfig extends ECFContainerConfig {
 	/**
 	 * Returns the value of the '<em><b>Client Container Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -35,14 +35,14 @@ public interface QECFClientContainerConfig extends QECFContainerConfig {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Client Container Type</em>' attribute.
 	 * @see #setClientContainerType(String)
-	 * @see org.asup.co.osgi.ecf.QECFConnectorOSGIPackage#getECFClientContainerConfig_ClientContainerType()
+	 * @see org.asup.co.osgi.ecf.ECFConnectorOSGIPackage#getECFClientContainerConfig_ClientContainerType()
 	 * @model required="true"
 	 * @generated
 	 */
 	String getClientContainerType();
 
 	/**
-	 * Sets the value of the '{@link org.asup.co.osgi.ecf.QECFClientContainerConfig#getClientContainerType <em>Client Container Type</em>}' attribute.
+	 * Sets the value of the '{@link org.asup.co.osgi.ecf.ECFClientContainerConfig#getClientContainerType <em>Client Container Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Client Container Type</em>' attribute.

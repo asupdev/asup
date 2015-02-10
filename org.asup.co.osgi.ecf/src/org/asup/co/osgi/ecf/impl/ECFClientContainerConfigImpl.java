@@ -7,8 +7,8 @@
  */
 package org.asup.co.osgi.ecf.impl;
 
-import org.asup.co.osgi.ecf.QECFClientContainerConfig;
-import org.asup.co.osgi.ecf.QECFConnectorOSGIPackage;
+import org.asup.co.osgi.ecf.ECFClientContainerConfig;
+import org.asup.co.osgi.ecf.ECFConnectorOSGIPackage;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ECFClientContainerConfigImpl extends ECFContainerConfigImpl implements QECFClientContainerConfig {
+public class ECFClientContainerConfigImpl extends ECFContainerConfigImpl implements ECFClientContainerConfig {
 
 	/**
 	 * The default value of the '{@link #getClientContainerType() <em>Client Container Type</em>}' attribute.
@@ -64,7 +64,7 @@ public class ECFClientContainerConfigImpl extends ECFContainerConfigImpl impleme
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QECFConnectorOSGIPackage.Literals.ECF_CLIENT_CONTAINER_CONFIG;
+		return ECFConnectorOSGIPackage.Literals.ECF_CLIENT_CONTAINER_CONFIG;
 	}
 
 	/**
@@ -85,7 +85,7 @@ public class ECFClientContainerConfigImpl extends ECFContainerConfigImpl impleme
 		String oldClientContainerType = clientContainerType;
 		clientContainerType = newClientContainerType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QECFConnectorOSGIPackage.ECF_CLIENT_CONTAINER_CONFIG__CLIENT_CONTAINER_TYPE, oldClientContainerType, clientContainerType));
+			eNotify(new ENotificationImpl(this, Notification.SET, ECFConnectorOSGIPackage.ECF_CLIENT_CONTAINER_CONFIG__CLIENT_CONTAINER_TYPE, oldClientContainerType, clientContainerType));
 	}
 
 	/**
@@ -96,7 +96,7 @@ public class ECFClientContainerConfigImpl extends ECFContainerConfigImpl impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QECFConnectorOSGIPackage.ECF_CLIENT_CONTAINER_CONFIG__CLIENT_CONTAINER_TYPE:
+			case ECFConnectorOSGIPackage.ECF_CLIENT_CONTAINER_CONFIG__CLIENT_CONTAINER_TYPE:
 				return getClientContainerType();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -110,7 +110,7 @@ public class ECFClientContainerConfigImpl extends ECFContainerConfigImpl impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QECFConnectorOSGIPackage.ECF_CLIENT_CONTAINER_CONFIG__CLIENT_CONTAINER_TYPE:
+			case ECFConnectorOSGIPackage.ECF_CLIENT_CONTAINER_CONFIG__CLIENT_CONTAINER_TYPE:
 				setClientContainerType((String)newValue);
 				return;
 		}
@@ -125,7 +125,7 @@ public class ECFClientContainerConfigImpl extends ECFContainerConfigImpl impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QECFConnectorOSGIPackage.ECF_CLIENT_CONTAINER_CONFIG__CLIENT_CONTAINER_TYPE:
+			case ECFConnectorOSGIPackage.ECF_CLIENT_CONTAINER_CONFIG__CLIENT_CONTAINER_TYPE:
 				setClientContainerType(CLIENT_CONTAINER_TYPE_EDEFAULT);
 				return;
 		}
@@ -140,7 +140,7 @@ public class ECFClientContainerConfigImpl extends ECFContainerConfigImpl impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QECFConnectorOSGIPackage.ECF_CLIENT_CONTAINER_CONFIG__CLIENT_CONTAINER_TYPE:
+			case ECFConnectorOSGIPackage.ECF_CLIENT_CONTAINER_CONFIG__CLIENT_CONTAINER_TYPE:
 				return CLIENT_CONTAINER_TYPE_EDEFAULT == null ? clientContainerType != null : !CLIENT_CONTAINER_TYPE_EDEFAULT.equals(clientContainerType);
 		}
 		return super.eIsSet(featureID);

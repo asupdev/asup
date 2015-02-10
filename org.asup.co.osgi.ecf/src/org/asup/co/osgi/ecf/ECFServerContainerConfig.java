@@ -16,16 +16,16 @@ package org.asup.co.osgi.ecf;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.co.osgi.ecf.QECFServerContainerConfig#getServerContainerType <em>Server Container Type</em>}</li>
- *   <li>{@link org.asup.co.osgi.ecf.QECFServerContainerConfig#getContainerId <em>Container Id</em>}</li>
+ *   <li>{@link org.asup.co.osgi.ecf.ECFServerContainerConfig#getServerContainerType <em>Server Container Type</em>}</li>
+ *   <li>{@link org.asup.co.osgi.ecf.ECFServerContainerConfig#getContainerId <em>Container Id</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.asup.co.osgi.ecf.QECFConnectorOSGIPackage#getECFServerContainerConfig()
+ * @see org.asup.co.osgi.ecf.ECFConnectorOSGIPackage#getECFServerContainerConfig()
  * @model
  * @generated
  */
-public interface QECFServerContainerConfig extends QECFContainerConfig {
+public interface ECFServerContainerConfig extends ECFContainerConfig {
 	/**
 	 * Returns the value of the '<em><b>Server Container Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -36,14 +36,14 @@ public interface QECFServerContainerConfig extends QECFContainerConfig {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Server Container Type</em>' attribute.
 	 * @see #setServerContainerType(String)
-	 * @see org.asup.co.osgi.ecf.QECFConnectorOSGIPackage#getECFServerContainerConfig_ServerContainerType()
+	 * @see org.asup.co.osgi.ecf.ECFConnectorOSGIPackage#getECFServerContainerConfig_ServerContainerType()
 	 * @model required="true"
 	 * @generated
 	 */
 	String getServerContainerType();
 
 	/**
-	 * Sets the value of the '{@link org.asup.co.osgi.ecf.QECFServerContainerConfig#getServerContainerType <em>Server Container Type</em>}' attribute.
+	 * Sets the value of the '{@link org.asup.co.osgi.ecf.ECFServerContainerConfig#getServerContainerType <em>Server Container Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Server Container Type</em>' attribute.
@@ -62,14 +62,14 @@ public interface QECFServerContainerConfig extends QECFContainerConfig {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Container Id</em>' attribute.
 	 * @see #setContainerId(String)
-	 * @see org.asup.co.osgi.ecf.QECFConnectorOSGIPackage#getECFServerContainerConfig_ContainerId()
+	 * @see org.asup.co.osgi.ecf.ECFConnectorOSGIPackage#getECFServerContainerConfig_ContainerId()
 	 * @model required="true"
 	 * @generated
 	 */
 	String getContainerId();
 
 	/**
-	 * Sets the value of the '{@link org.asup.co.osgi.ecf.QECFServerContainerConfig#getContainerId <em>Container Id</em>}' attribute.
+	 * Sets the value of the '{@link org.asup.co.osgi.ecf.ECFServerContainerConfig#getContainerId <em>Container Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Container Id</em>' attribute.

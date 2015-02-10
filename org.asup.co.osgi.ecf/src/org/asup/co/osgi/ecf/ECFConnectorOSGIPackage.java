@@ -25,11 +25,11 @@ import org.eclipse.emf.ecore.EPackage;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see org.asup.co.osgi.ecf.QECFConnectorOSGIFactory
+ * @see org.asup.co.osgi.ecf.ECFConnectorOSGIFactory
  * @model kind="package"
  * @generated
  */
-public interface QECFConnectorOSGIPackage extends EPackage {
+public interface ECFConnectorOSGIPackage extends EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -60,7 +60,7 @@ public interface QECFConnectorOSGIPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	QECFConnectorOSGIPackage eINSTANCE = org.asup.co.osgi.ecf.impl.ECFConnectorOSGIPackageImpl.init();
+	ECFConnectorOSGIPackage eINSTANCE = org.asup.co.osgi.ecf.impl.ECFConnectorOSGIPackageImpl.init();
 
 	/**
 	 * The meta object id for the '{@link org.asup.co.osgi.ecf.impl.ECFContainerConfigImpl <em>ECF Container Config</em>}' class.
@@ -147,63 +147,63 @@ public interface QECFConnectorOSGIPackage extends EPackage {
 	int ECF_CLIENT_CONTAINER_CONFIG_FEATURE_COUNT = ECF_CONTAINER_CONFIG_FEATURE_COUNT + 1;
 
 	/**
-	 * Returns the meta object for class '{@link org.asup.co.osgi.ecf.QECFContainerConfig <em>ECF Container Config</em>}'.
+	 * Returns the meta object for class '{@link org.asup.co.osgi.ecf.ECFContainerConfig <em>ECF Container Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>ECF Container Config</em>'.
-	 * @see org.asup.co.osgi.ecf.QECFContainerConfig
+	 * @see org.asup.co.osgi.ecf.ECFContainerConfig
 	 * @generated
 	 */
 	EClass getECFContainerConfig();
 
 	/**
-	 * Returns the meta object for class '{@link org.asup.co.osgi.ecf.QECFServerContainerConfig <em>ECF Server Container Config</em>}'.
+	 * Returns the meta object for class '{@link org.asup.co.osgi.ecf.ECFServerContainerConfig <em>ECF Server Container Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>ECF Server Container Config</em>'.
-	 * @see org.asup.co.osgi.ecf.QECFServerContainerConfig
+	 * @see org.asup.co.osgi.ecf.ECFServerContainerConfig
 	 * @generated
 	 */
 	EClass getECFServerContainerConfig();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.co.osgi.ecf.QECFServerContainerConfig#getServerContainerType <em>Server Container Type</em>}'.
+	 * Returns the meta object for the attribute '{@link org.asup.co.osgi.ecf.ECFServerContainerConfig#getServerContainerType <em>Server Container Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Server Container Type</em>'.
-	 * @see org.asup.co.osgi.ecf.QECFServerContainerConfig#getServerContainerType()
+	 * @see org.asup.co.osgi.ecf.ECFServerContainerConfig#getServerContainerType()
 	 * @see #getECFServerContainerConfig()
 	 * @generated
 	 */
 	EAttribute getECFServerContainerConfig_ServerContainerType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.co.osgi.ecf.QECFServerContainerConfig#getContainerId <em>Container Id</em>}'.
+	 * Returns the meta object for the attribute '{@link org.asup.co.osgi.ecf.ECFServerContainerConfig#getContainerId <em>Container Id</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Container Id</em>'.
-	 * @see org.asup.co.osgi.ecf.QECFServerContainerConfig#getContainerId()
+	 * @see org.asup.co.osgi.ecf.ECFServerContainerConfig#getContainerId()
 	 * @see #getECFServerContainerConfig()
 	 * @generated
 	 */
 	EAttribute getECFServerContainerConfig_ContainerId();
 
 	/**
-	 * Returns the meta object for class '{@link org.asup.co.osgi.ecf.QECFClientContainerConfig <em>ECF Client Container Config</em>}'.
+	 * Returns the meta object for class '{@link org.asup.co.osgi.ecf.ECFClientContainerConfig <em>ECF Client Container Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>ECF Client Container Config</em>'.
-	 * @see org.asup.co.osgi.ecf.QECFClientContainerConfig
+	 * @see org.asup.co.osgi.ecf.ECFClientContainerConfig
 	 * @generated
 	 */
 	EClass getECFClientContainerConfig();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.co.osgi.ecf.QECFClientContainerConfig#getClientContainerType <em>Client Container Type</em>}'.
+	 * Returns the meta object for the attribute '{@link org.asup.co.osgi.ecf.ECFClientContainerConfig#getClientContainerType <em>Client Container Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Client Container Type</em>'.
-	 * @see org.asup.co.osgi.ecf.QECFClientContainerConfig#getClientContainerType()
+	 * @see org.asup.co.osgi.ecf.ECFClientContainerConfig#getClientContainerType()
 	 * @see #getECFClientContainerConfig()
 	 * @generated
 	 */
@@ -216,7 +216,7 @@ public interface QECFConnectorOSGIPackage extends EPackage {
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
-	QECFConnectorOSGIFactory getECFConnectorOSGIFactory();
+	ECFConnectorOSGIFactory getECFConnectorOSGIFactory();
 
 	/**
 	 * <!-- begin-user-doc -->

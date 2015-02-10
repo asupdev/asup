@@ -5,7 +5,7 @@
     modelName="As.UP Container OSGI ECF" rootExtendsInterface="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     suppressEMFTypes="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
     copyrightFields="false" language="EN" usedGenPackages="../../org.asup.co.osgi/model/co-osgi.genmodel#//osgi ../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.fw.java/model/fw-java.genmodel#//java"
-    interfaceNamePattern="Q{0}" classNamePattern="" importOrganizing="true">
+    classNamePattern="" importOrganizing="true">
   <foreignModel>co-osgi-ecf.ecore</foreignModel>
   <genPackages prefix="ECFConnectorOSGI" basePackage="org.asup.co.osgi" disposableProviderFactory="true"
       adapterFactory="false" utilityPackageSuffix="" ecorePackage="co-osgi-ecf.ecore#/">

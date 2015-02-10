@@ -14,17 +14,17 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see org.asup.co.osgi.ecf.QECFConnectorOSGIPackage
+ * @see org.asup.co.osgi.ecf.ECFConnectorOSGIPackage
  * @generated
  */
-public interface QECFConnectorOSGIFactory extends EFactory {
+public interface ECFConnectorOSGIFactory extends EFactory {
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	QECFConnectorOSGIFactory eINSTANCE = org.asup.co.osgi.ecf.impl.ECFConnectorOSGIFactoryImpl.init();
+	ECFConnectorOSGIFactory eINSTANCE = org.asup.co.osgi.ecf.impl.ECFConnectorOSGIFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>ECF Server Container Config</em>'.
@@ -33,7 +33,7 @@ public interface QECFConnectorOSGIFactory extends EFactory {
 	 * @return a new object of class '<em>ECF Server Container Config</em>'.
 	 * @generated
 	 */
-	QECFServerContainerConfig createECFServerContainerConfig();
+	ECFServerContainerConfig createECFServerContainerConfig();
 
 	/**
 	 * Returns a new object of class '<em>ECF Client Container Config</em>'.
@@ -42,7 +42,7 @@ public interface QECFConnectorOSGIFactory extends EFactory {
 	 * @return a new object of class '<em>ECF Client Container Config</em>'.
 	 * @generated
 	 */
-	QECFClientContainerConfig createECFClientContainerConfig();
+	ECFClientContainerConfig createECFClientContainerConfig();
 
 	/**
 	 * Returns the package supported by this factory.
@@ -51,6 +51,6 @@ public interface QECFConnectorOSGIFactory extends EFactory {
 	 * @return the package supported by this factory.
 	 * @generated
 	 */
-	QECFConnectorOSGIPackage getECFConnectorOSGIPackage();
+	ECFConnectorOSGIPackage getECFConnectorOSGIPackage();
 
 } //QECFConnectorOSGIFactory

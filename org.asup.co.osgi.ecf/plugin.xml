@@ -10,7 +10,7 @@
       <!-- @generated co-osgi-ecf -->
       <package
             uri="http://www.asup.org/co/osgi/ecf"
-            class="org.asup.co.osgi.ecf.QECFConnectorOSGIPackage"
+            class="org.asup.co.osgi.ecf.ECFConnectorOSGIPackage"
             genModel="model/co-osgi-ecf.genmodel"/>
    </extension>
 

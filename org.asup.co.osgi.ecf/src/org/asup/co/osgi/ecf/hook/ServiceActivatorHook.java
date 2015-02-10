@@ -16,7 +16,7 @@ import java.util.Dictionary;
 import javax.inject.Named;
 
 import org.asup.co.core.ConnectorCoreHelper;
-import org.asup.co.osgi.ecf.QECFServerContainerConfig;
+import org.asup.co.osgi.ecf.ECFServerContainerConfig;
 import org.asup.fw.core.annotation.ServiceRegistration;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.eclipse.ecf.osgi.services.distribution.IDistributionConstants;
@@ -32,7 +32,7 @@ public class ServiceActivatorHook extends ServiceImpl {
 			@Named("org.asup.fw.core.service.remoteExport") boolean remoteExport) {
 
 		if(remoteExport) {
-			QECFServerContainerConfig config = (QECFServerContainerConfig) getConfig();
+			ECFServerContainerConfig config = (ECFServerContainerConfig) getConfig();
 			properties.put(IDistributionConstants.SERVICE_EXPORTED_INTERFACES, IDistributionConstants.SERVICE_EXPORTED_INTERFACES_WILDCARD);
 			properties.put(IDistributionConstants.SERVICE_EXPORTED_CONFIGS, config.getServerContainerType());
 			properties.put(IDistributionConstants.SERVICE_EXPORTED_CONTAINER_FACTORY_ARGUMENTS, ConnectorCoreHelper.resolveVariables(config.getContainerId()));

@@ -11,9 +11,10 @@ Bundle-Localization: plugin
 Bundle-Vendor: %providerName
 Require-Bundle: org.eclipse.equinox.common,
  org.eclipse.core.runtime,
- org.eclipse.emf.ecore,
- org.asup.co.osgi,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.asup.co.osgi;visibility:=reexport,
  org.asup.fw.core;visibility:=reexport,
+ org.asup.fw.java;visibility:=reexport,
  org.eclipse.ecf,
  org.eclipse.ecf.osgi.services.distribution,
  org.eclipse.ecf.osgi.services.remoteserviceadmin,

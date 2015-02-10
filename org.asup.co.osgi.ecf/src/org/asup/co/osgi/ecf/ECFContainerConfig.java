@@ -15,9 +15,9 @@ import org.asup.co.osgi.QBaseConfig;
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.co.osgi.ecf.QECFConnectorOSGIPackage#getECFContainerConfig()
+ * @see org.asup.co.osgi.ecf.ECFConnectorOSGIPackage#getECFContainerConfig()
  * @model abstract="true"
  * @generated
  */
-public interface QECFContainerConfig extends QBaseConfig {
+public interface ECFContainerConfig extends QBaseConfig {
 } // ECFContainerConfig

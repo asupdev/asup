@@ -7,8 +7,8 @@
  */
 package org.asup.co.osgi.ecf.impl;
 
-import org.asup.co.osgi.ecf.QECFConnectorOSGIPackage;
-import org.asup.co.osgi.ecf.QECFServerContainerConfig;
+import org.asup.co.osgi.ecf.ECFConnectorOSGIPackage;
+import org.asup.co.osgi.ecf.ECFServerContainerConfig;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ECFServerContainerConfigImpl extends ECFContainerConfigImpl implements QECFServerContainerConfig {
+public class ECFServerContainerConfigImpl extends ECFContainerConfigImpl implements ECFServerContainerConfig {
 
 	/**
 	 * The default value of the '{@link #getServerContainerType() <em>Server Container Type</em>}' attribute.
@@ -85,7 +85,7 @@ public class ECFServerContainerConfigImpl extends ECFContainerConfigImpl impleme
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QECFConnectorOSGIPackage.Literals.ECF_SERVER_CONTAINER_CONFIG;
+		return ECFConnectorOSGIPackage.Literals.ECF_SERVER_CONTAINER_CONFIG;
 	}
 
 	/**
@@ -106,7 +106,7 @@ public class ECFServerContainerConfigImpl extends ECFContainerConfigImpl impleme
 		String oldServerContainerType = serverContainerType;
 		serverContainerType = newServerContainerType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QECFConnectorOSGIPackage.ECF_SERVER_CONTAINER_CONFIG__SERVER_CONTAINER_TYPE, oldServerContainerType, serverContainerType));
+			eNotify(new ENotificationImpl(this, Notification.SET, ECFConnectorOSGIPackage.ECF_SERVER_CONTAINER_CONFIG__SERVER_CONTAINER_TYPE, oldServerContainerType, serverContainerType));
 	}
 
 	/**
@@ -127,7 +127,7 @@ public class ECFServerContainerConfigImpl extends ECFContainerConfigImpl impleme
 		String oldContainerId = containerId;
 		containerId = newContainerId;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QECFConnectorOSGIPackage.ECF_SERVER_CONTAINER_CONFIG__CONTAINER_ID, oldContainerId, containerId));
+			eNotify(new ENotificationImpl(this, Notification.SET, ECFConnectorOSGIPackage.ECF_SERVER_CONTAINER_CONFIG__CONTAINER_ID, oldContainerId, containerId));
 	}
 
 	/**
@@ -138,9 +138,9 @@ public class ECFServerContainerConfigImpl extends ECFContainerConfigImpl impleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QECFConnectorOSGIPackage.ECF_SERVER_CONTAINER_CONFIG__SERVER_CONTAINER_TYPE:
+			case ECFConnectorOSGIPackage.ECF_SERVER_CONTAINER_CONFIG__SERVER_CONTAINER_TYPE:
 				return getServerContainerType();
-			case QECFConnectorOSGIPackage.ECF_SERVER_CONTAINER_CONFIG__CONTAINER_ID:
+			case ECFConnectorOSGIPackage.ECF_SERVER_CONTAINER_CONFIG__CONTAINER_ID:
 				return getContainerId();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -154,10 +154,10 @@ public class ECFServerContainerConfigImpl extends ECFContainerConfigImpl impleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QECFConnectorOSGIPackage.ECF_SERVER_CONTAINER_CONFIG__SERVER_CONTAINER_TYPE:
+			case ECFConnectorOSGIPackage.ECF_SERVER_CONTAINER_CONFIG__SERVER_CONTAINER_TYPE:
 				setServerContainerType((String)newValue);
 				return;
-			case QECFConnectorOSGIPackage.ECF_SERVER_CONTAINER_CONFIG__CONTAINER_ID:
+			case ECFConnectorOSGIPackage.ECF_SERVER_CONTAINER_CONFIG__CONTAINER_ID:
 				setContainerId((String)newValue);
 				return;
 		}
@@ -172,10 +172,10 @@ public class ECFServerContainerConfigImpl extends ECFContainerConfigImpl impleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QECFConnectorOSGIPackage.ECF_SERVER_CONTAINER_CONFIG__SERVER_CONTAINER_TYPE:
+			case ECFConnectorOSGIPackage.ECF_SERVER_CONTAINER_CONFIG__SERVER_CONTAINER_TYPE:
 				setServerContainerType(SERVER_CONTAINER_TYPE_EDEFAULT);
 				return;
-			case QECFConnectorOSGIPackage.ECF_SERVER_CONTAINER_CONFIG__CONTAINER_ID:
+			case ECFConnectorOSGIPackage.ECF_SERVER_CONTAINER_CONFIG__CONTAINER_ID:
 				setContainerId(CONTAINER_ID_EDEFAULT);
 				return;
 		}
@@ -190,9 +190,9 @@ public class ECFServerContainerConfigImpl extends ECFContainerConfigImpl impleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QECFConnectorOSGIPackage.ECF_SERVER_CONTAINER_CONFIG__SERVER_CONTAINER_TYPE:
+			case ECFConnectorOSGIPackage.ECF_SERVER_CONTAINER_CONFIG__SERVER_CONTAINER_TYPE:
 				return SERVER_CONTAINER_TYPE_EDEFAULT == null ? serverContainerType != null : !SERVER_CONTAINER_TYPE_EDEFAULT.equals(serverContainerType);
-			case QECFConnectorOSGIPackage.ECF_SERVER_CONTAINER_CONFIG__CONTAINER_ID:
+			case ECFConnectorOSGIPackage.ECF_SERVER_CONTAINER_CONFIG__CONTAINER_ID:
 				return CONTAINER_ID_EDEFAULT == null ? containerId != null : !CONTAINER_ID_EDEFAULT.equals(containerId);
 		}
 		return super.eIsSet(featureID);

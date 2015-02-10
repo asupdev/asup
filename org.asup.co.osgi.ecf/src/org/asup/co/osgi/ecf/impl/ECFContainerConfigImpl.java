@@ -7,8 +7,8 @@
  */
 package org.asup.co.osgi.ecf.impl;
 
-import org.asup.co.osgi.ecf.QECFConnectorOSGIPackage;
-import org.asup.co.osgi.ecf.QECFContainerConfig;
+import org.asup.co.osgi.ecf.ECFConnectorOSGIPackage;
+import org.asup.co.osgi.ecf.ECFContainerConfig;
 import org.asup.co.osgi.impl.BaseConfigImpl;
 import org.eclipse.emf.ecore.EClass;
 
@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class ECFContainerConfigImpl extends BaseConfigImpl implements QECFContainerConfig {
+public abstract class ECFContainerConfigImpl extends BaseConfigImpl implements ECFContainerConfig {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38,7 +38,7 @@ public abstract class ECFContainerConfigImpl extends BaseConfigImpl implements Q
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QECFConnectorOSGIPackage.Literals.ECF_CONTAINER_CONFIG;
+		return ECFConnectorOSGIPackage.Literals.ECF_CONTAINER_CONFIG;
 	}
 
 } //ECFContainerConfigImpl

@@ -23,16 +23,16 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ECFConnectorOSGIFactoryImpl extends EFactoryImpl implements QECFConnectorOSGIFactory {
+public class ECFConnectorOSGIFactoryImpl extends EFactoryImpl implements ECFConnectorOSGIFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static QECFConnectorOSGIFactory init() {
+	public static ECFConnectorOSGIFactory init() {
 		try {
-			QECFConnectorOSGIFactory theECFConnectorOSGIFactory = (QECFConnectorOSGIFactory)EPackage.Registry.INSTANCE.getEFactory(QECFConnectorOSGIPackage.eNS_URI);
+			ECFConnectorOSGIFactory theECFConnectorOSGIFactory = (ECFConnectorOSGIFactory)EPackage.Registry.INSTANCE.getEFactory(ECFConnectorOSGIPackage.eNS_URI);
 			if (theECFConnectorOSGIFactory != null) {
 				return theECFConnectorOSGIFactory;
 			}
@@ -61,8 +61,8 @@ public class ECFConnectorOSGIFactoryImpl extends EFactoryImpl implements QECFCon
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case QECFConnectorOSGIPackage.ECF_SERVER_CONTAINER_CONFIG: return (EObject)createECFServerContainerConfig();
-			case QECFConnectorOSGIPackage.ECF_CLIENT_CONTAINER_CONFIG: return (EObject)createECFClientContainerConfig();
+			case ECFConnectorOSGIPackage.ECF_SERVER_CONTAINER_CONFIG: return (EObject)createECFServerContainerConfig();
+			case ECFConnectorOSGIPackage.ECF_CLIENT_CONTAINER_CONFIG: return (EObject)createECFClientContainerConfig();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -73,7 +73,7 @@ public class ECFConnectorOSGIFactoryImpl extends EFactoryImpl implements QECFCon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QECFServerContainerConfig createECFServerContainerConfig() {
+	public ECFServerContainerConfig createECFServerContainerConfig() {
 		ECFServerContainerConfigImpl ecfServerContainerConfig = new ECFServerContainerConfigImpl();
 		return ecfServerContainerConfig;
 	}
@@ -83,7 +83,7 @@ public class ECFConnectorOSGIFactoryImpl extends EFactoryImpl implements QECFCon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QECFClientContainerConfig createECFClientContainerConfig() {
+	public ECFClientContainerConfig createECFClientContainerConfig() {
 		ECFClientContainerConfigImpl ecfClientContainerConfig = new ECFClientContainerConfigImpl();
 		return ecfClientContainerConfig;
 	}
@@ -93,8 +93,8 @@ public class ECFConnectorOSGIFactoryImpl extends EFactoryImpl implements QECFCon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QECFConnectorOSGIPackage getECFConnectorOSGIPackage() {
-		return (QECFConnectorOSGIPackage)getEPackage();
+	public ECFConnectorOSGIPackage getECFConnectorOSGIPackage() {
+		return (ECFConnectorOSGIPackage)getEPackage();
 	}
 
 	/**
@@ -104,8 +104,8 @@ public class ECFConnectorOSGIFactoryImpl extends EFactoryImpl implements QECFCon
 	 * @generated
 	 */
 	@Deprecated
-	public static QECFConnectorOSGIPackage getPackage() {
-		return QECFConnectorOSGIPackage.eINSTANCE;
+	public static ECFConnectorOSGIPackage getPackage() {
+		return ECFConnectorOSGIPackage.eINSTANCE;
 	}
 
 } //ECFConnectorOSGIFactoryImpl
