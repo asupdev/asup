@@ -23,16 +23,16 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CDOSystemCoreFactoryImpl extends EFactoryImpl implements QCDOSystemCoreFactory {
+public class CDOSystemCoreFactoryImpl extends EFactoryImpl implements CDOSystemCoreFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static QCDOSystemCoreFactory init() {
+	public static CDOSystemCoreFactory init() {
 		try {
-			QCDOSystemCoreFactory theCDOSystemCoreFactory = (QCDOSystemCoreFactory)EPackage.Registry.INSTANCE.getEFactory(QCDOSystemCorePackage.eNS_URI);
+			CDOSystemCoreFactory theCDOSystemCoreFactory = (CDOSystemCoreFactory)EPackage.Registry.INSTANCE.getEFactory(CDOSystemCorePackage.eNS_URI);
 			if (theCDOSystemCoreFactory != null) {
 				return theCDOSystemCoreFactory;
 			}
@@ -61,7 +61,8 @@ public class CDOSystemCoreFactoryImpl extends EFactoryImpl implements QCDOSystem
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case QCDOSystemCorePackage.CDO_SYSTEM_CONFIG: return (EObject)createCDOSystemConfig();
+			case CDOSystemCorePackage.CDO_STORE_CONFIG: return (EObject)createCDOStoreConfig();
+			case CDOSystemCorePackage.CDO_SYSTEM_CONFIG: return (EObject)createCDOSystemConfig();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -72,7 +73,7 @@ public class CDOSystemCoreFactoryImpl extends EFactoryImpl implements QCDOSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QCDOSystemConfig createCDOSystemConfig() {
+	public CDOSystemConfig createCDOSystemConfig() {
 		CDOSystemConfigImpl cdoSystemConfig = new CDOSystemConfigImpl();
 		return cdoSystemConfig;
 	}
@@ -82,8 +83,18 @@ public class CDOSystemCoreFactoryImpl extends EFactoryImpl implements QCDOSystem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QCDOSystemCorePackage getCDOSystemCorePackage() {
-		return (QCDOSystemCorePackage)getEPackage();
+	public CDOStoreConfig createCDOStoreConfig() {
+		CDOStoreConfigImpl cdoStoreConfig = new CDOStoreConfigImpl();
+		return cdoStoreConfig;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CDOSystemCorePackage getCDOSystemCorePackage() {
+		return (CDOSystemCorePackage)getEPackage();
 	}
 
 	/**
@@ -93,8 +104,8 @@ public class CDOSystemCoreFactoryImpl extends EFactoryImpl implements QCDOSystem
 	 * @generated
 	 */
 	@Deprecated
-	public static QCDOSystemCorePackage getPackage() {
-		return QCDOSystemCorePackage.eINSTANCE;
+	public static CDOSystemCorePackage getPackage() {
+		return CDOSystemCorePackage.eINSTANCE;
 	}
 
 } //CDOSystemCoreFactoryImpl

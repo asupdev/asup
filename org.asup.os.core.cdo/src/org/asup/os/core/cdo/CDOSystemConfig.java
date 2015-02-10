@@ -18,15 +18,15 @@ import org.asup.os.core.QSystem;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.os.core.cdo.QCDOSystemConfig#getSystem <em>System</em>}</li>
+ *   <li>{@link org.asup.os.core.cdo.CDOSystemConfig#getSystem <em>System</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.asup.os.core.cdo.QCDOSystemCorePackage#getCDOSystemConfig()
+ * @see org.asup.os.core.cdo.CDOSystemCorePackage#getCDOSystemConfig()
  * @model
  * @generated
  */
-public interface QCDOSystemConfig extends QServiceConfig {
+public interface CDOSystemConfig extends QServiceConfig {
 
 	/**
 	 * Returns the value of the '<em><b>System</b></em>' containment reference.
@@ -38,14 +38,14 @@ public interface QCDOSystemConfig extends QServiceConfig {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>System</em>' containment reference.
 	 * @see #setSystem(QSystem)
-	 * @see org.asup.os.core.cdo.QCDOSystemCorePackage#getCDOSystemConfig_System()
+	 * @see org.asup.os.core.cdo.CDOSystemCorePackage#getCDOSystemConfig_System()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	QSystem getSystem();
 
 	/**
-	 * Sets the value of the '{@link org.asup.os.core.cdo.QCDOSystemConfig#getSystem <em>System</em>}' containment reference.
+	 * Sets the value of the '{@link org.asup.os.core.cdo.CDOSystemConfig#getSystem <em>System</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>System</em>' containment reference.

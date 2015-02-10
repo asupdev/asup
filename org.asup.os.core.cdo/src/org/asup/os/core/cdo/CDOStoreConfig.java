@@ -1,0 +1,137 @@
+/**
+ * Copyright (c) 2012, 2014 Sme.UP and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ */
+package org.asup.os.core.cdo;
+
+import org.asup.db.core.QConnectionCredentials;
+import org.asup.fw.core.QServiceConfig;
+
+/**
+ * <!-- begin-user-doc -->
+ * A representation of the model object '<em><b>CDO Store Config</b></em>'.
+ * <!-- end-user-doc -->
+ *
+ * <p>
+ * The following features are supported:
+ * <ul>
+ *   <li>{@link org.asup.os.core.cdo.CDOStoreConfig#getAdapter <em>Adapter</em>}</li>
+ *   <li>{@link org.asup.os.core.cdo.CDOStoreConfig#getDriver <em>Driver</em>}</li>
+ *   <li>{@link org.asup.os.core.cdo.CDOStoreConfig#getUrl <em>Url</em>}</li>
+ *   <li>{@link org.asup.os.core.cdo.CDOStoreConfig#getCredentials <em>Credentials</em>}</li>
+ * </ul>
+ * </p>
+ *
+ * @see org.asup.os.core.cdo.CDOSystemCorePackage#getCDOStoreConfig()
+ * @model
+ * @generated
+ */
+public interface CDOStoreConfig extends QServiceConfig {
+
+	/**
+	 * Returns the value of the '<em><b>Adapter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Adapter</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Adapter</em>' attribute.
+	 * @see #setAdapter(String)
+	 * @see org.asup.os.core.cdo.CDOSystemCorePackage#getCDOStoreConfig_Adapter()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getAdapter();
+
+	/**
+	 * Sets the value of the '{@link org.asup.os.core.cdo.CDOStoreConfig#getAdapter <em>Adapter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Adapter</em>' attribute.
+	 * @see #getAdapter()
+	 * @generated
+	 */
+	void setAdapter(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Driver</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Driver</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Driver</em>' attribute.
+	 * @see #setDriver(String)
+	 * @see org.asup.os.core.cdo.CDOSystemCorePackage#getCDOStoreConfig_Driver()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getDriver();
+
+	/**
+	 * Sets the value of the '{@link org.asup.os.core.cdo.CDOStoreConfig#getDriver <em>Driver</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Driver</em>' attribute.
+	 * @see #getDriver()
+	 * @generated
+	 */
+	void setDriver(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Url</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Url</em>' attribute.
+	 * @see #setUrl(String)
+	 * @see org.asup.os.core.cdo.CDOSystemCorePackage#getCDOStoreConfig_Url()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getUrl();
+
+	/**
+	 * Sets the value of the '{@link org.asup.os.core.cdo.CDOStoreConfig#getUrl <em>Url</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Url</em>' attribute.
+	 * @see #getUrl()
+	 * @generated
+	 */
+	void setUrl(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Credentials</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Credentials</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Credentials</em>' containment reference.
+	 * @see #setCredentials(QConnectionCredentials)
+	 * @see org.asup.os.core.cdo.CDOSystemCorePackage#getCDOStoreConfig_Credentials()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	QConnectionCredentials getCredentials();
+
+	/**
+	 * Sets the value of the '{@link org.asup.os.core.cdo.CDOStoreConfig#getCredentials <em>Credentials</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Credentials</em>' containment reference.
+	 * @see #getCredentials()
+	 * @generated
+	 */
+	void setCredentials(QConnectionCredentials value);
+} // QCDOStoreConfig

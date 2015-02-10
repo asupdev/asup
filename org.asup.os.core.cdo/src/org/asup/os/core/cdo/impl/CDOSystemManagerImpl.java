@@ -22,7 +22,7 @@ import org.asup.os.core.QLocker;
 import org.asup.os.core.QOperatingSystemCoreHelper;
 import org.asup.os.core.QSystem;
 import org.asup.os.core.SystemStatus;
-import org.asup.os.core.cdo.QCDOSystemConfig;
+import org.asup.os.core.cdo.CDOSystemConfig;
 import org.asup.os.core.cdo.util.CDOResourceUtil;
 import org.asup.os.core.cdo.util.CDOSessionUtil;
 import org.asup.os.core.impl.SystemManagerImpl;
@@ -167,7 +167,7 @@ public class CDOSystemManagerImpl extends SystemManagerImpl {
 	
 	private QSystem prepareSystem() throws OperatingSystemException {
 
-		QCDOSystemConfig systemConfig = (QCDOSystemConfig) getConfig();
+		CDOSystemConfig systemConfig = (CDOSystemConfig) getConfig();
 		
 //		this.systemName = properties.get("org.asup.os.system.name").toString();
 //		this.systemAddress = properties.get("org.asup.os.system.address").toString();

@@ -7,8 +7,10 @@
  */
 package org.asup.os.core.cdo;
 
+import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.fw.core.QFrameworkCorePackage;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -24,11 +26,11 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see org.asup.os.core.cdo.QCDOSystemCoreFactory
+ * @see org.asup.os.core.cdo.CDOSystemCoreFactory
  * @model kind="package"
  * @generated
  */
-public interface QCDOSystemCorePackage extends EPackage {
+public interface CDOSystemCorePackage extends EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -59,7 +61,26 @@ public interface QCDOSystemCorePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	QCDOSystemCorePackage eINSTANCE = org.asup.os.core.cdo.impl.CDOSystemCorePackageImpl.init();
+	CDOSystemCorePackage eINSTANCE = org.asup.os.core.cdo.impl.CDOSystemCorePackageImpl.init();
+
+	/**
+	 * The meta object id for the '{@link org.asup.os.core.cdo.CDODataSourceFactory <em>CDO Data Source Factory</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.os.core.cdo.CDODataSourceFactory
+	 * @see org.asup.os.core.cdo.impl.CDOSystemCorePackageImpl#getCDODataSourceFactory()
+	 * @generated
+	 */
+	int CDO_DATA_SOURCE_FACTORY = 0;
+
+	/**
+	 * The number of structural features of the '<em>CDO Data Source Factory</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CDO_DATA_SOURCE_FACTORY_FEATURE_COUNT = QDatabaseCorePackage.DATA_SOURCE_FACTORY_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.core.cdo.impl.CDOSystemConfigImpl <em>CDO System Config</em>}' class.
@@ -69,7 +90,72 @@ public interface QCDOSystemCorePackage extends EPackage {
 	 * @see org.asup.os.core.cdo.impl.CDOSystemCorePackageImpl#getCDOSystemConfig()
 	 * @generated
 	 */
-	int CDO_SYSTEM_CONFIG = 0;
+	int CDO_SYSTEM_CONFIG = 2;
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.os.core.cdo.CDODataSourceFactory <em>CDO Data Source Factory</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>CDO Data Source Factory</em>'.
+	 * @see org.asup.os.core.cdo.CDODataSourceFactory
+	 * @generated
+	 */
+	EClass getCDODataSourceFactory();
+
+	/**
+	 * The meta object id for the '{@link org.asup.os.core.cdo.impl.CDOStoreConfigImpl <em>CDO Store Config</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.os.core.cdo.impl.CDOStoreConfigImpl
+	 * @see org.asup.os.core.cdo.impl.CDOSystemCorePackageImpl#getCDOStoreConfig()
+	 * @generated
+	 */
+	int CDO_STORE_CONFIG = 1;
+
+	/**
+	 * The feature id for the '<em><b>Adapter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CDO_STORE_CONFIG__ADAPTER = QFrameworkCorePackage.SERVICE_CONFIG_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Driver</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CDO_STORE_CONFIG__DRIVER = QFrameworkCorePackage.SERVICE_CONFIG_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CDO_STORE_CONFIG__URL = QFrameworkCorePackage.SERVICE_CONFIG_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Credentials</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CDO_STORE_CONFIG__CREDENTIALS = QFrameworkCorePackage.SERVICE_CONFIG_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>CDO Store Config</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CDO_STORE_CONFIG_FEATURE_COUNT = QFrameworkCorePackage.SERVICE_CONFIG_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>System</b></em>' containment reference.
@@ -91,25 +177,79 @@ public interface QCDOSystemCorePackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class '{@link org.asup.os.core.cdo.QCDOSystemConfig <em>CDO System Config</em>}'.
+	 * Returns the meta object for class '{@link org.asup.os.core.cdo.CDOSystemConfig <em>CDO System Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>CDO System Config</em>'.
-	 * @see org.asup.os.core.cdo.QCDOSystemConfig
+	 * @see org.asup.os.core.cdo.CDOSystemConfig
 	 * @generated
 	 */
 	EClass getCDOSystemConfig();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.asup.os.core.cdo.QCDOSystemConfig#getSystem <em>System</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.asup.os.core.cdo.CDOSystemConfig#getSystem <em>System</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>System</em>'.
-	 * @see org.asup.os.core.cdo.QCDOSystemConfig#getSystem()
+	 * @see org.asup.os.core.cdo.CDOSystemConfig#getSystem()
 	 * @see #getCDOSystemConfig()
 	 * @generated
 	 */
 	EReference getCDOSystemConfig_System();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.os.core.cdo.CDOStoreConfig <em>CDO Store Config</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>CDO Store Config</em>'.
+	 * @see org.asup.os.core.cdo.CDOStoreConfig
+	 * @generated
+	 */
+	EClass getCDOStoreConfig();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.os.core.cdo.CDOStoreConfig#getAdapter <em>Adapter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Adapter</em>'.
+	 * @see org.asup.os.core.cdo.CDOStoreConfig#getAdapter()
+	 * @see #getCDOStoreConfig()
+	 * @generated
+	 */
+	EAttribute getCDOStoreConfig_Adapter();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.os.core.cdo.CDOStoreConfig#getDriver <em>Driver</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Driver</em>'.
+	 * @see org.asup.os.core.cdo.CDOStoreConfig#getDriver()
+	 * @see #getCDOStoreConfig()
+	 * @generated
+	 */
+	EAttribute getCDOStoreConfig_Driver();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.os.core.cdo.CDOStoreConfig#getUrl <em>Url</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Url</em>'.
+	 * @see org.asup.os.core.cdo.CDOStoreConfig#getUrl()
+	 * @see #getCDOStoreConfig()
+	 * @generated
+	 */
+	EAttribute getCDOStoreConfig_Url();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.asup.os.core.cdo.CDOStoreConfig#getCredentials <em>Credentials</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Credentials</em>'.
+	 * @see org.asup.os.core.cdo.CDOStoreConfig#getCredentials()
+	 * @see #getCDOStoreConfig()
+	 * @generated
+	 */
+	EReference getCDOStoreConfig_Credentials();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -118,7 +258,7 @@ public interface QCDOSystemCorePackage extends EPackage {
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
-	QCDOSystemCoreFactory getCDOSystemCoreFactory();
+	CDOSystemCoreFactory getCDOSystemCoreFactory();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,6 +273,15 @@ public interface QCDOSystemCorePackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
+		/**
+		 * The meta object literal for the '{@link org.asup.os.core.cdo.CDODataSourceFactory <em>CDO Data Source Factory</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.os.core.cdo.CDODataSourceFactory
+		 * @see org.asup.os.core.cdo.impl.CDOSystemCorePackageImpl#getCDODataSourceFactory()
+		 * @generated
+		 */
+		EClass CDO_DATA_SOURCE_FACTORY = eINSTANCE.getCDODataSourceFactory();
 		/**
 		 * The meta object literal for the '{@link org.asup.os.core.cdo.impl.CDOSystemConfigImpl <em>CDO System Config</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -149,6 +298,43 @@ public interface QCDOSystemCorePackage extends EPackage {
 		 * @generated
 		 */
 		EReference CDO_SYSTEM_CONFIG__SYSTEM = eINSTANCE.getCDOSystemConfig_System();
+		/**
+		 * The meta object literal for the '{@link org.asup.os.core.cdo.impl.CDOStoreConfigImpl <em>CDO Store Config</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.os.core.cdo.impl.CDOStoreConfigImpl
+		 * @see org.asup.os.core.cdo.impl.CDOSystemCorePackageImpl#getCDOStoreConfig()
+		 * @generated
+		 */
+		EClass CDO_STORE_CONFIG = eINSTANCE.getCDOStoreConfig();
+		/**
+		 * The meta object literal for the '<em><b>Adapter</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CDO_STORE_CONFIG__ADAPTER = eINSTANCE.getCDOStoreConfig_Adapter();
+		/**
+		 * The meta object literal for the '<em><b>Driver</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CDO_STORE_CONFIG__DRIVER = eINSTANCE.getCDOStoreConfig_Driver();
+		/**
+		 * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CDO_STORE_CONFIG__URL = eINSTANCE.getCDOStoreConfig_Url();
+		/**
+		 * The meta object literal for the '<em><b>Credentials</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CDO_STORE_CONFIG__CREDENTIALS = eINSTANCE.getCDOStoreConfig_Credentials();
 
 	}
 

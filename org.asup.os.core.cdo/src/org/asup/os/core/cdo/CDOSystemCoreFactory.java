@@ -14,17 +14,17 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see org.asup.os.core.cdo.QCDOSystemCorePackage
+ * @see org.asup.os.core.cdo.CDOSystemCorePackage
  * @generated
  */
-public interface QCDOSystemCoreFactory extends EFactory {
+public interface CDOSystemCoreFactory extends EFactory {
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	QCDOSystemCoreFactory eINSTANCE = org.asup.os.core.cdo.impl.CDOSystemCoreFactoryImpl.init();
+	CDOSystemCoreFactory eINSTANCE = org.asup.os.core.cdo.impl.CDOSystemCoreFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>CDO System Config</em>'.
@@ -33,7 +33,16 @@ public interface QCDOSystemCoreFactory extends EFactory {
 	 * @return a new object of class '<em>CDO System Config</em>'.
 	 * @generated
 	 */
-	QCDOSystemConfig createCDOSystemConfig();
+	CDOSystemConfig createCDOSystemConfig();
+
+	/**
+	 * Returns a new object of class '<em>CDO Store Config</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>CDO Store Config</em>'.
+	 * @generated
+	 */
+	CDOStoreConfig createCDOStoreConfig();
 
 	/**
 	 * Returns the package supported by this factory.
@@ -42,6 +51,6 @@ public interface QCDOSystemCoreFactory extends EFactory {
 	 * @return the package supported by this factory.
 	 * @generated
 	 */
-	QCDOSystemCorePackage getCDOSystemCorePackage();
+	CDOSystemCorePackage getCDOSystemCorePackage();
 
 } //QCDOSystemCoreFactory

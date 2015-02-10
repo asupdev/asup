@@ -4,11 +4,18 @@
     modelDirectory="/org.asup.os.core.cdo/src" modelPluginID="org.asup.os.core.cdo"
     modelName="As.UP Operating System CDO" rootExtendsInterface="" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     suppressEMFTypes="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
-    copyrightFields="false" language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.os.core/model/os-core.genmodel#//core ../../org.asup.os.omac/model/os-omac.genmodel#//omac"
-    interfaceNamePattern="Q{0}" importOrganizing="true">
+    copyrightFields="false" language="EN" usedGenPackages="../../org.asup.db.core/model/db-core.genmodel#//core ../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.il.core/model/il-core.genmodel#//core ../../org.asup.il.data/model/il-data.genmodel#//data ../../org.asup.il.expr/model/il-expr.genmodel#//expr ../../org.asup.os.core/model/os-core.genmodel#//core ../../org.asup.os.omac/model/os-omac.genmodel#//omac ../../org.eclipse.emf.ecore/model/Ecore.genmodel#//ecore ../../org.eclipse.datatools.modelbase.sql/model/sqlmodel.genmodel#//sqlmodel"
+    importOrganizing="true">
   <foreignModel>os-core-cdo.ecore</foreignModel>
   <genPackages prefix="CDOSystemCore" basePackage="org.asup.os.core" disposableProviderFactory="true"
       adapterFactory="false" ecorePackage="os-core-cdo.ecore#/">
+    <genClasses image="false" ecoreClass="os-core-cdo.ecore#//CDODataSourceFactory"/>
+    <genClasses ecoreClass="os-core-cdo.ecore#//CDOStoreConfig">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-core-cdo.ecore#//CDOStoreConfig/adapter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-core-cdo.ecore#//CDOStoreConfig/driver"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-core-cdo.ecore#//CDOStoreConfig/url"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-core-cdo.ecore#//CDOStoreConfig/credentials"/>
+    </genClasses>
     <genClasses ecoreClass="os-core-cdo.ecore#//CDOSystemConfig">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-core-cdo.ecore#//CDOSystemConfig/system"/>
     </genClasses>

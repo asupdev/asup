@@ -10,8 +10,8 @@ package org.asup.os.core.cdo.impl;
 import org.asup.fw.core.impl.ServiceConfigImpl;
 
 import org.asup.os.core.QSystem;
-import org.asup.os.core.cdo.QCDOSystemConfig;
-import org.asup.os.core.cdo.QCDOSystemCorePackage;
+import org.asup.os.core.cdo.CDOSystemConfig;
+import org.asup.os.core.cdo.CDOSystemCorePackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class CDOSystemConfigImpl extends ServiceConfigImpl implements QCDOSystemConfig {
+public class CDOSystemConfigImpl extends ServiceConfigImpl implements CDOSystemConfig {
 	/**
 	 * The cached value of the '{@link #getSystem() <em>System</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -59,7 +59,7 @@ public class CDOSystemConfigImpl extends ServiceConfigImpl implements QCDOSystem
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return QCDOSystemCorePackage.Literals.CDO_SYSTEM_CONFIG;
+		return CDOSystemCorePackage.Literals.CDO_SYSTEM_CONFIG;
 	}
 
 	/**
@@ -80,7 +80,7 @@ public class CDOSystemConfigImpl extends ServiceConfigImpl implements QCDOSystem
 		QSystem oldSystem = system;
 		system = newSystem;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QCDOSystemCorePackage.CDO_SYSTEM_CONFIG__SYSTEM, oldSystem, newSystem);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDOSystemCorePackage.CDO_SYSTEM_CONFIG__SYSTEM, oldSystem, newSystem);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -95,14 +95,14 @@ public class CDOSystemConfigImpl extends ServiceConfigImpl implements QCDOSystem
 		if (newSystem != system) {
 			NotificationChain msgs = null;
 			if (system != null)
-				msgs = ((InternalEObject)system).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QCDOSystemCorePackage.CDO_SYSTEM_CONFIG__SYSTEM, null, msgs);
+				msgs = ((InternalEObject)system).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDOSystemCorePackage.CDO_SYSTEM_CONFIG__SYSTEM, null, msgs);
 			if (newSystem != null)
-				msgs = ((InternalEObject)newSystem).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QCDOSystemCorePackage.CDO_SYSTEM_CONFIG__SYSTEM, null, msgs);
+				msgs = ((InternalEObject)newSystem).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDOSystemCorePackage.CDO_SYSTEM_CONFIG__SYSTEM, null, msgs);
 			msgs = basicSetSystem(newSystem, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QCDOSystemCorePackage.CDO_SYSTEM_CONFIG__SYSTEM, newSystem, newSystem));
+			eNotify(new ENotificationImpl(this, Notification.SET, CDOSystemCorePackage.CDO_SYSTEM_CONFIG__SYSTEM, newSystem, newSystem));
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class CDOSystemConfigImpl extends ServiceConfigImpl implements QCDOSystem
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case QCDOSystemCorePackage.CDO_SYSTEM_CONFIG__SYSTEM:
+			case CDOSystemCorePackage.CDO_SYSTEM_CONFIG__SYSTEM:
 				return basicSetSystem(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -127,7 +127,7 @@ public class CDOSystemConfigImpl extends ServiceConfigImpl implements QCDOSystem
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QCDOSystemCorePackage.CDO_SYSTEM_CONFIG__SYSTEM:
+			case CDOSystemCorePackage.CDO_SYSTEM_CONFIG__SYSTEM:
 				return getSystem();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -141,7 +141,7 @@ public class CDOSystemConfigImpl extends ServiceConfigImpl implements QCDOSystem
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QCDOSystemCorePackage.CDO_SYSTEM_CONFIG__SYSTEM:
+			case CDOSystemCorePackage.CDO_SYSTEM_CONFIG__SYSTEM:
 				setSystem((QSystem)newValue);
 				return;
 		}
@@ -156,7 +156,7 @@ public class CDOSystemConfigImpl extends ServiceConfigImpl implements QCDOSystem
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QCDOSystemCorePackage.CDO_SYSTEM_CONFIG__SYSTEM:
+			case CDOSystemCorePackage.CDO_SYSTEM_CONFIG__SYSTEM:
 				setSystem((QSystem)null);
 				return;
 		}
@@ -171,7 +171,7 @@ public class CDOSystemConfigImpl extends ServiceConfigImpl implements QCDOSystem
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QCDOSystemCorePackage.CDO_SYSTEM_CONFIG__SYSTEM:
+			case CDOSystemCorePackage.CDO_SYSTEM_CONFIG__SYSTEM:
 				return system != null;
 		}
 		return super.eIsSet(featureID);
