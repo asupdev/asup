@@ -18,5 +18,5 @@
             class="org.asup.os.core.cdo.CDOSystemCorePackage"
             genModel="model/os-core-cdo.genmodel"/>
    </extension>
-
+   
 </plugin>

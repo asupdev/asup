@@ -18,6 +18,7 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
+import org.asup.co.core.QServerSocketConfig;
 import org.asup.fw.core.annotation.LevelStarted;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.asup.os.core.cdo.CDOStoreConfig;
@@ -46,6 +47,9 @@ public class CDOStoreActivatorHook extends ServiceImpl {
 	
 	@LevelStarted
 	public void start(DataSourceFactory dataSourceFactory) throws SQLException {
+		
+		System.out.println("abc");
+		
 		OMPlatform.INSTANCE.setDebugging(true); 
 		OMPlatform.INSTANCE.addLogHandler(org.eclipse.net4j.util.om.log.PrintLogHandler.CONSOLE); 
 		OMPlatform.INSTANCE.addTraceHandler(org.eclipse.net4j.util.om.trace.PrintTraceHandler.CONSOLE); 
@@ -95,7 +99,9 @@ public class CDOStoreActivatorHook extends ServiceImpl {
 		IRepository repository = CDOServerUtil.createRepository(storeConfig.getRepository(), store, repositoryProps); 
 		CDOServerUtil.addRepository(IPluginContainer.INSTANCE, repository); 
 		
-		Net4jUtil.getAcceptor(IPluginContainer.INSTANCE, "tcp", "0.0.0.0:"+storeConfig.getPort());
+		
+		QServerSocketConfig socketConfig = storeConfig.getSocketConfig();
+		Net4jUtil.getAcceptor(IPluginContainer.INSTANCE, "tcp", socketConfig.getAddress()+":"+socketConfig.getPort());
 	}
 	
 	private class InternalMappingStrategy extends HorizontalNonAuditMappingStrategy {

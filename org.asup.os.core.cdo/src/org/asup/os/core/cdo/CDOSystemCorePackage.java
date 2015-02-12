@@ -109,22 +109,22 @@ public interface CDOSystemCorePackage extends EPackage {
 	int CDO_STORE_CONFIG__DRIVER = QFrameworkCorePackage.SERVICE_CONFIG_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Port</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CDO_STORE_CONFIG__PORT = QFrameworkCorePackage.SERVICE_CONFIG_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Repository</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CDO_STORE_CONFIG__REPOSITORY = QFrameworkCorePackage.SERVICE_CONFIG_FEATURE_COUNT + 4;
+	int CDO_STORE_CONFIG__REPOSITORY = QFrameworkCorePackage.SERVICE_CONFIG_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Socket Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CDO_STORE_CONFIG__SOCKET_CONFIG = QFrameworkCorePackage.SERVICE_CONFIG_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Url</b></em>' attribute.
@@ -217,17 +217,6 @@ public interface CDOSystemCorePackage extends EPackage {
 	EAttribute getCDOStoreConfig_Driver();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.os.core.cdo.CDOStoreConfig#getPort <em>Port</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Port</em>'.
-	 * @see org.asup.os.core.cdo.CDOStoreConfig#getPort()
-	 * @see #getCDOStoreConfig()
-	 * @generated
-	 */
-	EAttribute getCDOStoreConfig_Port();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.asup.os.core.cdo.CDOStoreConfig#getRepository <em>Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -237,6 +226,17 @@ public interface CDOSystemCorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCDOStoreConfig_Repository();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.asup.os.core.cdo.CDOStoreConfig#getSocketConfig <em>Socket Config</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Socket Config</em>'.
+	 * @see org.asup.os.core.cdo.CDOStoreConfig#getSocketConfig()
+	 * @see #getCDOStoreConfig()
+	 * @generated
+	 */
+	EReference getCDOStoreConfig_SocketConfig();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.asup.os.core.cdo.CDOStoreConfig#getUrl <em>Url</em>}'.
@@ -322,19 +322,19 @@ public interface CDOSystemCorePackage extends EPackage {
 		 */
 		EAttribute CDO_STORE_CONFIG__DRIVER = eINSTANCE.getCDOStoreConfig_Driver();
 		/**
-		 * The meta object literal for the '<em><b>Port</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CDO_STORE_CONFIG__PORT = eINSTANCE.getCDOStoreConfig_Port();
-		/**
 		 * The meta object literal for the '<em><b>Repository</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute CDO_STORE_CONFIG__REPOSITORY = eINSTANCE.getCDOStoreConfig_Repository();
+		/**
+		 * The meta object literal for the '<em><b>Socket Config</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CDO_STORE_CONFIG__SOCKET_CONFIG = eINSTANCE.getCDOStoreConfig_SocketConfig();
 		/**
 		 * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->

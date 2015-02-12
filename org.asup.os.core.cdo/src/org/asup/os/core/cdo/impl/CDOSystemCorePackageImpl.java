@@ -7,6 +7,7 @@
  */
 package org.asup.os.core.cdo.impl;
 
+import org.asup.co.core.QConnectorCorePackage;
 import org.asup.db.core.QDatabaseCorePackage;
 import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.os.core.QOperatingSystemCorePackage;
@@ -88,6 +89,7 @@ public class CDOSystemCorePackageImpl extends EPackageImpl implements CDOSystemC
 		isInited = true;
 
 		// Initialize simple dependencies
+		QConnectorCorePackage.eINSTANCE.eClass();
 		QDatabaseCorePackage.eINSTANCE.eClass();
 		QOperatingSystemCorePackage.eINSTANCE.eClass();
 
@@ -156,7 +158,7 @@ public class CDOSystemCorePackageImpl extends EPackageImpl implements CDOSystemC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCDOStoreConfig_Port() {
+	public EAttribute getCDOStoreConfig_Repository() {
 		return (EAttribute)cdoStoreConfigEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -165,8 +167,8 @@ public class CDOSystemCorePackageImpl extends EPackageImpl implements CDOSystemC
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCDOStoreConfig_Repository() {
-		return (EAttribute)cdoStoreConfigEClass.getEStructuralFeatures().get(4);
+	public EReference getCDOStoreConfig_SocketConfig() {
+		return (EReference)cdoStoreConfigEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -219,8 +221,8 @@ public class CDOSystemCorePackageImpl extends EPackageImpl implements CDOSystemC
 		createEAttribute(cdoStoreConfigEClass, CDO_STORE_CONFIG__ADAPTER);
 		createEReference(cdoStoreConfigEClass, CDO_STORE_CONFIG__CREDENTIALS);
 		createEAttribute(cdoStoreConfigEClass, CDO_STORE_CONFIG__DRIVER);
-		createEAttribute(cdoStoreConfigEClass, CDO_STORE_CONFIG__PORT);
 		createEAttribute(cdoStoreConfigEClass, CDO_STORE_CONFIG__REPOSITORY);
+		createEReference(cdoStoreConfigEClass, CDO_STORE_CONFIG__SOCKET_CONFIG);
 		createEAttribute(cdoStoreConfigEClass, CDO_STORE_CONFIG__URL);
 
 		cdoSystemConfigEClass = createEClass(CDO_SYSTEM_CONFIG);
@@ -253,6 +255,7 @@ public class CDOSystemCorePackageImpl extends EPackageImpl implements CDOSystemC
 		// Obtain other dependent packages
 		QFrameworkCorePackage theFrameworkCorePackage = (QFrameworkCorePackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkCorePackage.eNS_URI);
 		QDatabaseCorePackage theDatabaseCorePackage = (QDatabaseCorePackage)EPackage.Registry.INSTANCE.getEPackage(QDatabaseCorePackage.eNS_URI);
+		QConnectorCorePackage theConnectorCorePackage = (QConnectorCorePackage)EPackage.Registry.INSTANCE.getEPackage(QConnectorCorePackage.eNS_URI);
 		QOperatingSystemCorePackage theOperatingSystemCorePackage = (QOperatingSystemCorePackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemCorePackage.eNS_URI);
 
 		// Create type parameters
@@ -268,8 +271,8 @@ public class CDOSystemCorePackageImpl extends EPackageImpl implements CDOSystemC
 		initEAttribute(getCDOStoreConfig_Adapter(), ecorePackage.getEString(), "adapter", null, 1, 1, CDOStoreConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCDOStoreConfig_Credentials(), theDatabaseCorePackage.getConnectionCredentials(), null, "credentials", null, 1, 1, CDOStoreConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCDOStoreConfig_Driver(), ecorePackage.getEString(), "driver", null, 1, 1, CDOStoreConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCDOStoreConfig_Port(), ecorePackage.getEInt(), "port", null, 1, 1, CDOStoreConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCDOStoreConfig_Repository(), ecorePackage.getEString(), "repository", null, 1, 1, CDOStoreConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCDOStoreConfig_SocketConfig(), theConnectorCorePackage.getServerSocketConfig(), null, "socketConfig", null, 1, 1, CDOStoreConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCDOStoreConfig_Url(), ecorePackage.getEString(), "url", null, 1, 1, CDOStoreConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cdoSystemConfigEClass, CDOSystemConfig.class, "CDOSystemConfig", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -50,6 +50,7 @@ public class E4EquinoxApplicationImpl implements IApplication {
 	    	System.out.println("Configuration required: see -asupConfig parameter");
 	    	return null;
 	    }
+	    
 	    context.applicationRunning();
 //		BundleContext bundleContext = InternalPlatform.getDefault().getBundleContext();
 	    // Load application

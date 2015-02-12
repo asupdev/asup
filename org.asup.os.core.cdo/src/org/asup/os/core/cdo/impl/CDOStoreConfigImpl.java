@@ -7,12 +7,11 @@
  */
 package org.asup.os.core.cdo.impl;
 
+import org.asup.co.core.QServerSocketConfig;
 import org.asup.db.core.QConnectionCredentials;
 import org.asup.fw.core.impl.ServiceConfigImpl;
-
 import org.asup.os.core.cdo.CDOStoreConfig;
 import org.asup.os.core.cdo.CDOSystemCorePackage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -29,8 +28,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link org.asup.os.core.cdo.impl.CDOStoreConfigImpl#getAdapter <em>Adapter</em>}</li>
  *   <li>{@link org.asup.os.core.cdo.impl.CDOStoreConfigImpl#getCredentials <em>Credentials</em>}</li>
  *   <li>{@link org.asup.os.core.cdo.impl.CDOStoreConfigImpl#getDriver <em>Driver</em>}</li>
- *   <li>{@link org.asup.os.core.cdo.impl.CDOStoreConfigImpl#getPort <em>Port</em>}</li>
  *   <li>{@link org.asup.os.core.cdo.impl.CDOStoreConfigImpl#getRepository <em>Repository</em>}</li>
+ *   <li>{@link org.asup.os.core.cdo.impl.CDOStoreConfigImpl#getSocketConfig <em>Socket Config</em>}</li>
  *   <li>{@link org.asup.os.core.cdo.impl.CDOStoreConfigImpl#getUrl <em>Url</em>}</li>
  * </ul>
  * </p>
@@ -85,24 +84,6 @@ public class CDOStoreConfigImpl extends ServiceConfigImpl implements CDOStoreCon
 	 */
 	protected String driver = DRIVER_EDEFAULT;
 	/**
-	 * The default value of the '{@link #getPort() <em>Port</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPort()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int PORT_EDEFAULT = 0;
-	/**
-	 * The cached value of the '{@link #getPort() <em>Port</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPort()
-	 * @generated
-	 * @ordered
-	 */
-	protected int port = PORT_EDEFAULT;
-	/**
 	 * The default value of the '{@link #getRepository() <em>Repository</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -120,6 +101,15 @@ public class CDOStoreConfigImpl extends ServiceConfigImpl implements CDOStoreCon
 	 * @ordered
 	 */
 	protected String repository = REPOSITORY_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getSocketConfig() <em>Socket Config</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSocketConfig()
+	 * @generated
+	 * @ordered
+	 */
+	protected QServerSocketConfig socketConfig;
 	/**
 	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -205,27 +195,6 @@ public class CDOStoreConfigImpl extends ServiceConfigImpl implements CDOStoreCon
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getPort() {
-		return port;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPort(int newPort) {
-		int oldPort = port;
-		port = newPort;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CDOSystemCorePackage.CDO_STORE_CONFIG__PORT, oldPort, port));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getRepository() {
 		return repository;
 	}
@@ -240,6 +209,49 @@ public class CDOStoreConfigImpl extends ServiceConfigImpl implements CDOStoreCon
 		repository = newRepository;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CDOSystemCorePackage.CDO_STORE_CONFIG__REPOSITORY, oldRepository, repository));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QServerSocketConfig getSocketConfig() {
+		return socketConfig;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSocketConfig(QServerSocketConfig newSocketConfig, NotificationChain msgs) {
+		QServerSocketConfig oldSocketConfig = socketConfig;
+		socketConfig = newSocketConfig;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CDOSystemCorePackage.CDO_STORE_CONFIG__SOCKET_CONFIG, oldSocketConfig, newSocketConfig);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSocketConfig(QServerSocketConfig newSocketConfig) {
+		if (newSocketConfig != socketConfig) {
+			NotificationChain msgs = null;
+			if (socketConfig != null)
+				msgs = ((InternalEObject)socketConfig).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CDOSystemCorePackage.CDO_STORE_CONFIG__SOCKET_CONFIG, null, msgs);
+			if (newSocketConfig != null)
+				msgs = ((InternalEObject)newSocketConfig).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CDOSystemCorePackage.CDO_STORE_CONFIG__SOCKET_CONFIG, null, msgs);
+			msgs = basicSetSocketConfig(newSocketConfig, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CDOSystemCorePackage.CDO_STORE_CONFIG__SOCKET_CONFIG, newSocketConfig, newSocketConfig));
 	}
 
 	/**
@@ -316,6 +328,8 @@ public class CDOStoreConfigImpl extends ServiceConfigImpl implements CDOStoreCon
 		switch (featureID) {
 			case CDOSystemCorePackage.CDO_STORE_CONFIG__CREDENTIALS:
 				return basicSetCredentials(null, msgs);
+			case CDOSystemCorePackage.CDO_STORE_CONFIG__SOCKET_CONFIG:
+				return basicSetSocketConfig(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -334,10 +348,10 @@ public class CDOStoreConfigImpl extends ServiceConfigImpl implements CDOStoreCon
 				return getCredentials();
 			case CDOSystemCorePackage.CDO_STORE_CONFIG__DRIVER:
 				return getDriver();
-			case CDOSystemCorePackage.CDO_STORE_CONFIG__PORT:
-				return getPort();
 			case CDOSystemCorePackage.CDO_STORE_CONFIG__REPOSITORY:
 				return getRepository();
+			case CDOSystemCorePackage.CDO_STORE_CONFIG__SOCKET_CONFIG:
+				return getSocketConfig();
 			case CDOSystemCorePackage.CDO_STORE_CONFIG__URL:
 				return getUrl();
 		}
@@ -361,11 +375,11 @@ public class CDOStoreConfigImpl extends ServiceConfigImpl implements CDOStoreCon
 			case CDOSystemCorePackage.CDO_STORE_CONFIG__DRIVER:
 				setDriver((String)newValue);
 				return;
-			case CDOSystemCorePackage.CDO_STORE_CONFIG__PORT:
-				setPort((Integer)newValue);
-				return;
 			case CDOSystemCorePackage.CDO_STORE_CONFIG__REPOSITORY:
 				setRepository((String)newValue);
+				return;
+			case CDOSystemCorePackage.CDO_STORE_CONFIG__SOCKET_CONFIG:
+				setSocketConfig((QServerSocketConfig)newValue);
 				return;
 			case CDOSystemCorePackage.CDO_STORE_CONFIG__URL:
 				setUrl((String)newValue);
@@ -391,11 +405,11 @@ public class CDOStoreConfigImpl extends ServiceConfigImpl implements CDOStoreCon
 			case CDOSystemCorePackage.CDO_STORE_CONFIG__DRIVER:
 				setDriver(DRIVER_EDEFAULT);
 				return;
-			case CDOSystemCorePackage.CDO_STORE_CONFIG__PORT:
-				setPort(PORT_EDEFAULT);
-				return;
 			case CDOSystemCorePackage.CDO_STORE_CONFIG__REPOSITORY:
 				setRepository(REPOSITORY_EDEFAULT);
+				return;
+			case CDOSystemCorePackage.CDO_STORE_CONFIG__SOCKET_CONFIG:
+				setSocketConfig((QServerSocketConfig)null);
 				return;
 			case CDOSystemCorePackage.CDO_STORE_CONFIG__URL:
 				setUrl(URL_EDEFAULT);
@@ -418,10 +432,10 @@ public class CDOStoreConfigImpl extends ServiceConfigImpl implements CDOStoreCon
 				return credentials != null;
 			case CDOSystemCorePackage.CDO_STORE_CONFIG__DRIVER:
 				return DRIVER_EDEFAULT == null ? driver != null : !DRIVER_EDEFAULT.equals(driver);
-			case CDOSystemCorePackage.CDO_STORE_CONFIG__PORT:
-				return port != PORT_EDEFAULT;
 			case CDOSystemCorePackage.CDO_STORE_CONFIG__REPOSITORY:
 				return REPOSITORY_EDEFAULT == null ? repository != null : !REPOSITORY_EDEFAULT.equals(repository);
+			case CDOSystemCorePackage.CDO_STORE_CONFIG__SOCKET_CONFIG:
+				return socketConfig != null;
 			case CDOSystemCorePackage.CDO_STORE_CONFIG__URL:
 				return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
 		}
@@ -442,8 +456,6 @@ public class CDOStoreConfigImpl extends ServiceConfigImpl implements CDOStoreCon
 		result.append(adapter);
 		result.append(", driver: ");
 		result.append(driver);
-		result.append(", port: ");
-		result.append(port);
 		result.append(", repository: ");
 		result.append(repository);
 		result.append(", url: ");
