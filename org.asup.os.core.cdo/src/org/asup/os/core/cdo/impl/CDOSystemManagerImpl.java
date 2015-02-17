@@ -71,6 +71,8 @@ public class CDOSystemManagerImpl extends SystemManagerImpl {
 		// prepare system
 		viewSystem = prepareSystem();			
 		
+		this.systemContext = this.application.getContext().createChildContext(viewSystem.getName());
+
 		// acquire system lock
 		while(!getLocker().tryLock(startupJob, transactionSystem, QSystem.LOCK_TIMEOUT, LockType.EXCLUSIVE));
 		
@@ -98,8 +100,6 @@ public class CDOSystemManagerImpl extends SystemManagerImpl {
 		try {
 			transactionSystem.setStatus(SystemStatus.STARTED);			
 			transaction.commit();
-			
-			this.systemContext = this.application.getContext().createChildContext(this.viewSystem.getName());
 						
 		} catch (CommitException e) {
 			throw new OperatingSystemException(e);
@@ -107,6 +107,9 @@ public class CDOSystemManagerImpl extends SystemManagerImpl {
 		finally {
 			getLocker().unlock(startupJob, transactionSystem);
 		}
+		
+		getSystem().setContext(systemContext);
+
 		return startupJob;
 	}
 
@@ -191,7 +194,7 @@ public class CDOSystemManagerImpl extends SystemManagerImpl {
 			query.setMaxResults(1);	
 			transactionSystem = query.getResultValue(QSystem.class);
 		}
-		catch(org.eclipse.net4j.signal.RemoteException e) {
+		catch(Exception e) {
 			e.printStackTrace();
 		}		
 

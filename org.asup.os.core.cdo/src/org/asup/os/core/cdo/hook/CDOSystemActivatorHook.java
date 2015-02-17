@@ -27,6 +27,7 @@ public class CDOSystemActivatorHook extends ServiceImpl {
 		QJob qJob = systemManager.start();
 		
 		application.getContext().set(QSystem.class, systemManager.getSystem());
+		
 		application.getContext().set(QJob.class, qJob);
 	}
 

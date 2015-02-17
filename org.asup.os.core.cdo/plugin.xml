@@ -42,5 +42,17 @@
          </property>
       </product>
    </extension>
+   <extension
+         id="kernel"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.asup.fw.core.e4.application"
+            name="As.UP System CDO">
+         <property
+               name="appName"
+               value="As.UP System CDO">
+         </property>
+      </product>
+   </extension>
    
 </plugin>
