@@ -6,6 +6,6 @@ Bundle-Version: 0.5.4.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: www.smeup.com
 Export-Package: org.asup.fw.core.base
-Require-Bundle: org.asup.fw.core;visibility:=reexport,
+Require-Bundle: org.asup.fw.core,
  org.asup.fw.util
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
