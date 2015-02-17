@@ -48,8 +48,6 @@ public class CDOStoreActivatorHook extends ServiceImpl {
 	@LevelStarted
 	public void start(DataSourceFactory dataSourceFactory) throws SQLException {
 		
-		System.out.println("abc");
-		
 		OMPlatform.INSTANCE.setDebugging(true); 
 		OMPlatform.INSTANCE.addLogHandler(org.eclipse.net4j.util.om.log.PrintLogHandler.CONSOLE); 
 		OMPlatform.INSTANCE.addTraceHandler(org.eclipse.net4j.util.om.trace.PrintTraceHandler.CONSOLE); 

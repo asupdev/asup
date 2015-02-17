@@ -18,5 +18,29 @@
             class="org.asup.os.core.cdo.CDOSystemCorePackage"
             genModel="model/os-core-cdo.genmodel"/>
    </extension>
+   <extension
+         id="org_asup_os_core_cdo_id"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.asup.fw.core.e4.application"
+            name="As.UP CDO Store">
+         <property
+               name="appName"
+               value="As.UP CDO Store">
+         </property>
+      </product>
+   </extension>
+   <extension
+         id="store"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.asup.fw.core.e4.application"
+            name="As.UP CDO Store">
+         <property
+               name="appName"
+               value="As.UP CDO Store">
+         </property>
+      </product>
+   </extension>
    
 </plugin>

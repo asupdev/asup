@@ -9,17 +9,16 @@
  * Contributors: 
  *   Mattia Rocchi - Initial API and implementation 
  */
-package org.asup.fw.core.base;
-
-import java.net.URI;
+package org.asup.fw.core.asf;
 
 import org.asup.fw.core.impl.ServiceImpl;
+import org.asup.fw.util.QFileUtil;
 
-public class BaseURIUtilImpl extends ServiceImpl implements org.asup.fw.util.QURIUtil {
-
+public class ASFFileUtilImpl extends ServiceImpl implements QFileUtil {
+	
 	@Override
-	public String getBaseName(URI uri) {
-		return org.apache.commons.io.FilenameUtils.getBaseName(uri.getRawPath());
+	public String getBaseName(String name) {
+		return org.apache.commons.io.FilenameUtils.getBaseName(name);
 	}
 
 }

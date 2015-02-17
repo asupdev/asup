@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: As.UP Framework Core ASF
+Bundle-SymbolicName: org.asup.fw.core.asf
+Bundle-Version: 0.5.4.qualifier
+Bundle-Vendor: www.smeup.com
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.asup.fw.util
+Export-Package: org.asup.fw.core.asf
+Bundle-ClassPath: lib/commons-io-2.4.jar,
+ .

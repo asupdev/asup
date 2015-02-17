@@ -9,7 +9,7 @@
  * Contributors: 
  *   Mattia Rocchi - Initial API and implementation 
  */
-package org.asup.fw.core.base;
+package org.asup.fw.core.asf;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,7 +18,7 @@ import java.io.OutputStream;
 import org.asup.fw.core.impl.ServiceImpl;
 
 
-public class BaseIOUtilImpl extends ServiceImpl implements org.asup.fw.util.QIOUtil {
+public class ASFIOUtilImpl extends ServiceImpl implements org.asup.fw.util.QIOUtil {
 
 	@Override
 	public void copy(InputStream input, OutputStream output) throws IOException {
