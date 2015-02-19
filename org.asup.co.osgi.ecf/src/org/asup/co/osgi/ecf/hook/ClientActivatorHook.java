@@ -86,7 +86,7 @@ public class ClientActivatorHook extends ServiceImpl {
 		@Override
 		public void removedService(ServiceReference reference, Object service) {
 
-			activeService++;
+			activeService--;
 		}
 
 	}
