@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.asup.ft.eclipse.cdo"
-      label="As.UP Eclipse CDO"
+      label="As.UP Eclipse CDO (UI)"
       version="0.5.4.qualifier"
       provider-name="www.smeup.com">
 
