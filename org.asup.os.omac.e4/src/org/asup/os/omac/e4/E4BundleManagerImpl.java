@@ -106,6 +106,8 @@ public class E4BundleManagerImpl extends BundleManagerImpl {
 
 	private synchronized void registerBundle(QJob job, Bundle bundle) {
 
+		System.out.println("Registering bundle: "+bundle.getSymbolicName());
+		
 		// As.UP introspection
 		Enumeration<String> models = bundle.getEntryPaths("ASUP-INF");
 				
@@ -207,8 +209,7 @@ public class E4BundleManagerImpl extends BundleManagerImpl {
 				for(QCommand command: commands) {
 					try {
 						if(command.getStatus() == CommandStatus.SUPPORTED ||
-						   command.getStatus() == CommandStatus.TODO ||
-						   command.getStatus() == CommandStatus.POSSIBLE)
+						   command.getStatus() == CommandStatus.TODO)
 							commandWriter.save(command, true);
 							
 					} catch (OperatingSystemException e) {
@@ -436,7 +437,6 @@ public class E4BundleManagerImpl extends BundleManagerImpl {
 		Bundle bundle = Platform.getBundle(bundleName);		
 		if(bundle == null)
 			throw new OperatingSystemRuntimeException("Bundle not found: "+bundleName);
-
 		
 		// As.UP introspection
 		Enumeration<String> models = bundle.getEntryPaths("ASUP-INF");

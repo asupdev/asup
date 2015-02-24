@@ -133,7 +133,7 @@
          id="org.eclipse.ecf.remoteservice.asyncproxy"
          download-size="0"
          install-size="0"
-         version="0.0.0"
+         version="1.0.0.v20140410-1838"
          unpack="false"/>
 
 </feature>

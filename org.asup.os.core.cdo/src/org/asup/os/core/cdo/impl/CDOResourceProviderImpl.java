@@ -132,7 +132,7 @@ public class CDOResourceProviderImpl extends ResourceProviderImpl {
 				
 		CDONet4jSession session = sessions.get(job);
 		if(session == null) {
-			session = CDOSessionUtil.openSession("localhost:2036", job.getSystem().getName());
+			session = CDOSessionUtil.openSession("asup-db1:2036", job.getSystem().getName());
 			session.options().getNet4jProtocol().setTimeout(60000);
 			sessions.put(job, session);
 		}
