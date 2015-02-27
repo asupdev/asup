@@ -46760,13 +46760,11 @@
       xsi:type="os-type-cmd:Command"
       name="RUNSQL"
       text="Run SQL Statements"
-      program="QSQSCHEM"
-      status="POS">
+      program="QSQSCHEM">
     <parameters
         allowVariable="true"
         name="SQL"
-        position="1"
-        status="POS">
+        position="1">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="sQL"
@@ -47208,8 +47206,7 @@
     <parameters
         allowVariable="true"
         name="OUTPUT"
-        position="16"
-        status="POS">
+        position="16">
       <dataTerm
           xsi:type="il-data:UnaryAtomicDataTerm"
           name="output"
