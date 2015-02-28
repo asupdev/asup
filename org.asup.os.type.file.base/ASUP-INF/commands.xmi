@@ -34884,8 +34884,7 @@
       xsi:type="os-type-cmd:Command"
       name="OVRDBF"
       text="Override with Data Base File"
-      program="QDMOVERD"
-      status="TODO">
+      program="QDMOVERD">
     <parameters
         allowVariable="true"
         name="FILE"

@@ -126,8 +126,7 @@
       xsi:type="os-type-cmd:Command"
       name="DSPJOBLOG"
       text="Display Job Log"
-      program="QMHDSPJL"
-      status="TODO">
+      program="QMHDSPJL">
     <parameters
         allowVariable="true"
         name="JOB"
@@ -1460,8 +1459,7 @@
       xsi:type="os-type-cmd:Command"
       name="RUNMBR"
       text="Run Member"
-      program="QASRUNMB"
-      status="POS">
+      program="QASRUNMB">
     <parameters
         allowVariable="true"
         name="FILE"
@@ -1532,8 +1530,7 @@
       xsi:type="os-type-cmd:Command"
       name="SBMJOB"
       text="Submit Job"
-      program="QWTCCSBJ"
-      status="TODO">
+      program="QWTCCSBJ">
     <parameters
         allowVariable="true"
         name="JOB"
@@ -2830,8 +2827,7 @@
       xsi:type="os-type-cmd:Command"
       name="WRKACTJOB"
       text="Work with Active Jobs"
-      program="QWCCDSAC"
-      status="TODO">
+      program="QWCCDSAC">
     <parameters
         allowVariable="true"
         name="OUTPUT"

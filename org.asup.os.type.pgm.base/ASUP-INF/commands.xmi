@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <os-type-cmd:CommandContainer
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
@@ -575,8 +576,7 @@
       xsi:type="os-type-cmd:Command"
       name="CALL"
       text="Call Program"
-      program="QCLCALL"
-      status="TODO">
+      program="QCLCALL">
     <parameters
         allowVariable="true"
         name="PGM"
@@ -11344,7 +11344,7 @@
               name="'-'"
               value="*DASH"/>
           <elements
-              name="'&#xa0;'"
+              name="' '"
               value="*BLANK"/>
           <elements
               name="*BLANK"
@@ -11413,7 +11413,7 @@
               name="','"
               value="*COMMA"/>
           <elements
-              name="'&#xa0;'"
+              name="' '"
               value="*BLANK"/>
           <elements
               name="*BLANK"
@@ -11512,7 +11512,7 @@
               name="*NONE"
               value="*NONE"/>
           <elements
-              name="'&#xa0;'"
+              name="' '"
               value="*NONE"/>
         </facets>
         <definition
@@ -12667,7 +12667,7 @@
               name="'-'"
               value="*DASH"/>
           <elements
-              name="'&#xa0;'"
+              name="' '"
               value="*BLANK"/>
           <elements
               name="*BLANK"
@@ -12736,7 +12736,7 @@
               name="','"
               value="*COMMA"/>
           <elements
-              name="'&#xa0;'"
+              name="' '"
               value="*BLANK"/>
           <elements
               name="*BLANK"
@@ -12835,7 +12835,7 @@
               name="*NONE"
               value="*NONE"/>
           <elements
-              name="'&#xa0;'"
+              name="' '"
               value="*NONE"/>
         </facets>
         <definition
@@ -28441,7 +28441,7 @@
               name="*BLANK"
               value="X'40'"/>
           <elements
-              name="'&#xa0;'"/>
+              name="' '"/>
           <elements
               name="2"/>
           <elements
