@@ -57,7 +57,7 @@ public interface QJobLog extends QObjectNameable {
 	 * @return the value of the '<em>Job ID</em>' attribute.
 	 * @see #setJobID(String)
 	 * @see org.asup.os.core.jobs.QOperatingSystemJobsPackage#getJobLog_JobID()
-	 * @model required="true"
+	 * @model id="true" required="true"
 	 * @generated
 	 */
 	String getJobID();

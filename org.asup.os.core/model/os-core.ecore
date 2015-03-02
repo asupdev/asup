@@ -232,7 +232,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="entries" lowerBound="1"
           upperBound="-1" eType="#//jobs/JobLogEntry" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobID" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="JobLogEntry" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//Object">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="gravity" lowerBound="1"

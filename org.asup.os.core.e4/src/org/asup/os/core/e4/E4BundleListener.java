@@ -17,13 +17,15 @@ import org.asup.fw.core.impl.ServiceImpl;
 import org.asup.os.core.QSystem;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.omac.QBundleManager;
+import org.eclipse.osgi.framework.console.CommandInterpreter;
+import org.eclipse.osgi.framework.console.CommandProvider;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleEvent;
 import org.osgi.framework.BundleListener;
 import org.osgi.framework.FrameworkUtil;
 
-public class E4BundleListener extends ServiceImpl implements BundleListener {
+public class E4BundleListener extends ServiceImpl implements BundleListener, CommandProvider {
 
 	@Inject
 	private QBundleManager bundleManager;
@@ -35,17 +37,6 @@ public class E4BundleListener extends ServiceImpl implements BundleListener {
 		this.job = job;
 
 		BundleContext bundleContext = FrameworkUtil.getBundle(QSystem.class).getBundleContext();
-		for (Bundle bundle : bundleContext.getBundles()) {
-
-			if (!bundleManager.isRegisterable(job, bundle.getSymbolicName()))
-				continue;
-
-			if (bundle.getState() == Bundle.ACTIVE)
-				bundleManager.register(job, bundle.getSymbolicName());
-			else if (bundle.getState() == Bundle.UNINSTALLED)
-				bundleManager.unregister(job, bundle.getSymbolicName());
-		}
-
 		bundleContext.addBundleListener(this);
 	}
 
@@ -97,5 +88,29 @@ public class E4BundleListener extends ServiceImpl implements BundleListener {
 		default:
 			return "??" + type + "??";
 		}
+	}
+	
+	public void _loadOMAC(CommandInterpreter interpreter) throws Exception {
+
+		BundleContext bundleContext = FrameworkUtil.getBundle(QSystem.class).getBundleContext();
+		
+		for (Bundle bundle : bundleContext.getBundles()) {
+
+			if (!bundleManager.isRegisterable(job, bundle.getSymbolicName()))
+				continue;
+
+			if (bundle.getState() == Bundle.ACTIVE)
+				bundleManager.register(job, bundle.getSymbolicName());
+			else if (bundle.getState() == Bundle.UNINSTALLED)
+				bundleManager.unregister(job, bundle.getSymbolicName());
+			
+		}
+		
+	}
+	
+	@Override
+	public String getHelp() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

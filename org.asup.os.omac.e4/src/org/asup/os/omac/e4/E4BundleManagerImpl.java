@@ -225,6 +225,8 @@ public class E4BundleManagerImpl extends BundleManagerImpl {
 
 	private synchronized void unregisterBundle(QJob job, Bundle bundle) {
 
+		System.out.println("Unregistering bundle: "+bundle.getSymbolicName());
+		
 		// As.UP introspection
 		Enumeration<String> models = bundle.getEntryPaths("ASUP-INF");
 				
