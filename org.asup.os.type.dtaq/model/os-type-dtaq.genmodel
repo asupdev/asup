@@ -6,7 +6,7 @@
     editorPluginClass="org.asup.os.type.dtaq.presentation.AsUPOSDataQueueEditorPlugin"
     rootExtendsInterface="" suppressEMFTypes="true" testSuiteClass="org.asup.os.type.dtaq.tests.AsUPOSDataQueueAllTests"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
-    language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.os.core/model/os-core.genmodel#//core ../../org.asup.os.type/model/os-type.genmodel#//type ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.os.omac/model/os-omac.genmodel#//omac ../../org.asup.il.data/model/il-data.genmodel#//data ../../org.asup.il.core/model/il-core.genmodel#//core"
+    language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.os.core/model/os-core.genmodel#//core ../../org.asup.os.type/model/os-type.genmodel#//type ../../org.asup.fw.java/model/fw-java.genmodel#//java ../../org.asup.os.omac/model/os-omac.genmodel#//omac ../../org.asup.il.data/model/il-data.genmodel#//data ../../org.asup.il.core/model/il-core.genmodel#//core ../../org.asup.il.expr/model/il-expr.genmodel#//expr"
     interfaceNamePattern="Q{0}">
   <foreignModel>os-type-dtaq.ecore</foreignModel>
   <genPackages prefix="OperatingSystemDataQueue" basePackage="org.asup.os.type" disposableProviderFactory="true"
@@ -29,7 +29,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-dtaq.ecore#//DataQueue/keyLength"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-dtaq.ecore#//DataQueue/maxEntryLength"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-dtaq.ecore#//DataQueue/senderInfo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-type-dtaq.ecore#//DataQueue/content"/>
     </genClasses>
+    <genClasses ecoreClass="os-type-dtaq.ecore#//DataQueueContent"/>
     <genClasses ecoreClass="os-type-dtaq.ecore#//DataQueueEntry">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-dtaq.ecore#//DataQueueEntry/key"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-type-dtaq.ecore#//DataQueueEntry/value"/>

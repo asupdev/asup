@@ -7,7 +7,6 @@
  */
 package org.asup.os.core;
 
-import org.asup.os.omac.QObject;
 import org.eclipse.emf.ecore.EFactory;
 
 /**
@@ -35,15 +34,6 @@ public interface QOperatingSystemCoreFactory extends EFactory {
 	 * @generated
 	 */
 	QContentLock createContentLock();
-
-	/**
-	 * Returns a new object of class '<em>Object Content</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Object Content</em>'.
-	 * @generated
-	 */
-	<T extends QObject> QObjectContent<T> createObjectContent();
 
 	/**
 	 * Returns a new object of class '<em>System</em>'.

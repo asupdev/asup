@@ -70,7 +70,7 @@
       <eParameters name="scope" eType="ecore:EEnum ../../org.asup.os.core/model/os-core.ecore#//Scope"/>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TypedObject" abstract="true" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable">
+  <eClassifiers xsi:type="ecore:EClass" name="TypedObject" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//ObjectNameable">
     <eOperations name="getAttribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="application" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">

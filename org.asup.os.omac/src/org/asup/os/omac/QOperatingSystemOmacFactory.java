@@ -45,6 +45,15 @@ public interface QOperatingSystemOmacFactory extends EFactory {
 	QMemoryInfo createMemoryInfo();
 
 	/**
+	 * Returns a new object of class '<em>Object</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Object</em>'.
+	 * @generated
+	 */
+	QObject createObject();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

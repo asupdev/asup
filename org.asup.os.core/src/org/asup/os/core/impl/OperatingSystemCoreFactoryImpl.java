@@ -12,13 +12,11 @@ import org.asup.os.core.LockType;
 import org.asup.os.core.OperatingSystemException;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.QContentLock;
-import org.asup.os.core.QObjectContent;
 import org.asup.os.core.QOperatingSystemCoreFactory;
 import org.asup.os.core.QOperatingSystemCorePackage;
 import org.asup.os.core.QSystem;
 import org.asup.os.core.Scope;
 import org.asup.os.core.SystemStatus;
-import org.asup.os.omac.QObject;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -73,7 +71,6 @@ public class OperatingSystemCoreFactoryImpl extends EFactoryImpl implements QOpe
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case QOperatingSystemCorePackage.CONTENT_LOCK: return (EObject)createContentLock();
-			case QOperatingSystemCorePackage.OBJECT_CONTENT: return (EObject)createObjectContent();
 			case QOperatingSystemCorePackage.SYSTEM: return (EObject)createSystem();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -138,16 +135,6 @@ public class OperatingSystemCoreFactoryImpl extends EFactoryImpl implements QOpe
 	public QContentLock createContentLock() {
 		ContentLockImpl contentLock = new ContentLockImpl();
 		return contentLock;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public <T extends QObject> QObjectContent<T> createObjectContent() {
-		ObjectContentImpl<T> objectContent = new ObjectContentImpl<T>();
-		return objectContent;
 	}
 
 	/**

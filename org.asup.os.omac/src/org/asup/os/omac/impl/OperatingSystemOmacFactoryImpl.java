@@ -9,6 +9,7 @@ package org.asup.os.omac.impl;
 
 import org.asup.os.omac.QCreationInfo;
 import org.asup.os.omac.QMemoryInfo;
+import org.asup.os.omac.QObject;
 import org.asup.os.omac.QOperatingSystemOmacFactory;
 import org.asup.os.omac.QOperatingSystemOmacPackage;
 import org.eclipse.emf.ecore.EClass;
@@ -63,6 +64,7 @@ public class OperatingSystemOmacFactoryImpl extends EFactoryImpl implements QOpe
 		switch (eClass.getClassifierID()) {
 			case QOperatingSystemOmacPackage.CREATION_INFO: return (EObject)createCreationInfo();
 			case QOperatingSystemOmacPackage.MEMORY_INFO: return (EObject)createMemoryInfo();
+			case QOperatingSystemOmacPackage.OBJECT: return (EObject)createObject();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -86,6 +88,16 @@ public class OperatingSystemOmacFactoryImpl extends EFactoryImpl implements QOpe
 	public QMemoryInfo createMemoryInfo() {
 		MemoryInfoImpl memoryInfo = new MemoryInfoImpl();
 		return memoryInfo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QObject createObject() {
+		ObjectImpl object = new ObjectImpl();
+		return object;
 	}
 
 	/**

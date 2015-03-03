@@ -50,7 +50,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="MemoryInfo" eSuperTypes="#//Object">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="dimension" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Object" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Object">
     <eOperations name="qClass" lowerBound="1" eType="#//Class"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ObjectContainer" abstract="true">

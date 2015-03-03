@@ -272,15 +272,6 @@ public class OperatingSystemCorePackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContainer_Content() {
-		return (EReference)containerEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getContentLockable() {
 		return contentLockableEClass;
 	}
@@ -541,7 +532,6 @@ public class OperatingSystemCorePackageImpl extends EPackageImpl implements QOpe
 		callableEClass = createEClass(CALLABLE);
 
 		containerEClass = createEClass(CONTAINER);
-		createEReference(containerEClass, CONTAINER__CONTENT);
 
 		contentLockableEClass = createEClass(CONTENT_LOCKABLE);
 
@@ -620,36 +610,30 @@ public class OperatingSystemCorePackageImpl extends EPackageImpl implements QOpe
 		getESubpackages().add(theDatetimePackage);
 
 		// Create type parameters
-		ETypeParameter containerEClass_T = addETypeParameter(containerEClass, "T");
+		ETypeParameter containerEClass_C = addETypeParameter(containerEClass, "C");
 		ETypeParameter contentLockableEClass_T = addETypeParameter(contentLockableEClass, "T");
-		ETypeParameter contentLockableEClass_K = addETypeParameter(contentLockableEClass, "K");
 		ETypeParameter contentLockerEClass_T = addETypeParameter(contentLockerEClass, "T");
-		ETypeParameter contentLockerEClass_K = addETypeParameter(contentLockerEClass, "K");
 		ETypeParameter lockableEClass_T = addETypeParameter(lockableEClass, "T");
 		ETypeParameter lockerEClass_T = addETypeParameter(lockerEClass, "T");
-		ETypeParameter objectContentEClass_T = addETypeParameter(objectContentEClass, "T");
+		ETypeParameter objectContentEClass_C = addETypeParameter(objectContentEClass, "C");
 
 		// Set bounds for type parameters
 		EGenericType g1 = createEGenericType(theOperatingSystemOmacPackage.getObject());
-		containerEClass_T.getEBounds().add(g1);
+		containerEClass_C.getEBounds().add(g1);
 		g1 = createEGenericType(this.getContainer());
-		EGenericType g2 = createEGenericType(contentLockableEClass_K);
+		EGenericType g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		contentLockableEClass_T.getEBounds().add(g1);
-		g1 = createEGenericType(theOperatingSystemOmacPackage.getObject());
-		contentLockableEClass_K.getEBounds().add(g1);
 		g1 = createEGenericType(this.getContainer());
-		g2 = createEGenericType(contentLockerEClass_K);
+		g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		contentLockerEClass_T.getEBounds().add(g1);
-		g1 = createEGenericType(theOperatingSystemOmacPackage.getObject());
-		contentLockerEClass_K.getEBounds().add(g1);
 		g1 = createEGenericType(theOperatingSystemOmacPackage.getObject());
 		lockableEClass_T.getEBounds().add(g1);
 		g1 = createEGenericType(theOperatingSystemOmacPackage.getObject());
 		lockerEClass_T.getEBounds().add(g1);
 		g1 = createEGenericType(theOperatingSystemOmacPackage.getObject());
-		objectContentEClass_T.getEBounds().add(g1);
+		objectContentEClass_C.getEBounds().add(g1);
 
 		// Add supertypes to classes
 		contentLockEClass.getESuperTypes().add(theOperatingSystemOmacPackage.getObject());
@@ -669,18 +653,18 @@ public class OperatingSystemCorePackageImpl extends EPackageImpl implements QOpe
 		addEOperation(callableEClass, null, "call", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(containerEClass, QContainer.class, "Container", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		EOperation op = addEOperation(containerEClass, null, "getContent", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getObjectContent());
-		g2 = createEGenericType(containerEClass_T);
+		g2 = createEGenericType(containerEClass_C);
 		g1.getETypeArguments().add(g2);
-		initEReference(getContainer_Content(), g1, null, "content", null, 0, 1, QContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEOperation(op, g1);
 
 		initEClass(contentLockableEClass, QContentLockable.class, "ContentLockable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		EOperation op = addEOperation(contentLockableEClass, null, "getContainLocker", 1, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(contentLockableEClass, null, "getContentLocker", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(this.getContentLocker());
 		g2 = createEGenericType(contentLockableEClass_T);
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(contentLockableEClass_K);
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
@@ -752,8 +736,8 @@ public class OperatingSystemCorePackageImpl extends EPackageImpl implements QOpe
 		addEParameter(op, g1, "object", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, this.getOperatingSystemRuntimeException());
 
-		initEClass(objectContentEClass, QObjectContent.class, "ObjectContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(objectContentEClass_T);
+		initEClass(objectContentEClass, QObjectContent.class, "ObjectContent", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(objectContentEClass_C);
 		initEReference(getObjectContent_Entries(), g1, null, "entries", null, 0, -1, QObjectContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObjectContent_ReadLock(), this.getContentLock(), null, "readLock", null, 1, 1, QObjectContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObjectContent_WriteLock(), this.getContentLock(), null, "writeLock", null, 1, 1, QObjectContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

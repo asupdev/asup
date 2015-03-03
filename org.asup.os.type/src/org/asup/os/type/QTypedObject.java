@@ -31,7 +31,7 @@ import org.asup.os.omac.QObjectNameable;
  * </p>
  *
  * @see org.asup.os.type.QOperatingSystemTypePackage#getTypedObject()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface QTypedObject extends QObjectNameable {

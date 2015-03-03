@@ -13,6 +13,7 @@ import org.asup.os.omac.QOperatingSystemOmacPackage;
 import org.asup.os.type.dtaq.QOperatingSystemDataQueueFactory;
 import org.asup.os.type.dtaq.QOperatingSystemDataQueuePackage;
 import org.asup.os.type.dtaq.QDataQueue;
+import org.asup.os.type.dtaq.QDataQueueContent;
 import org.asup.os.type.dtaq.QDataQueueEntry;
 import org.asup.os.type.dtaq.QDataQueueManager;
 import org.asup.os.type.dtaq.DataQueueSearchType;
@@ -24,6 +25,7 @@ import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -39,6 +41,13 @@ public class OperatingSystemDataQueuePackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	private EClass dataQueueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataQueueContentEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -182,6 +191,24 @@ public class OperatingSystemDataQueuePackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getDataQueue_Content() {
+		return (EReference)dataQueueEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDataQueueContent() {
+		return dataQueueContentEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDataQueueEntry() {
 		return dataQueueEntryEClass;
 	}
@@ -264,6 +291,9 @@ public class OperatingSystemDataQueuePackageImpl extends EPackageImpl implements
 		createEAttribute(dataQueueEClass, DATA_QUEUE__KEY_LENGTH);
 		createEAttribute(dataQueueEClass, DATA_QUEUE__MAX_ENTRY_LENGTH);
 		createEAttribute(dataQueueEClass, DATA_QUEUE__SENDER_INFO);
+		createEReference(dataQueueEClass, DATA_QUEUE__CONTENT);
+
+		dataQueueContentEClass = createEClass(DATA_QUEUE_CONTENT);
 
 		dataQueueEntryEClass = createEClass(DATA_QUEUE_ENTRY);
 		createEAttribute(dataQueueEntryEClass, DATA_QUEUE_ENTRY__KEY);
@@ -316,6 +346,10 @@ public class OperatingSystemDataQueuePackageImpl extends EPackageImpl implements
 		EGenericType g2 = createEGenericType(this.getDataQueueEntry());
 		g1.getETypeArguments().add(g2);
 		dataQueueEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(theOperatingSystemCorePackage.getObjectContent());
+		g2 = createEGenericType(this.getDataQueueEntry());
+		g1.getETypeArguments().add(g2);
+		dataQueueContentEClass.getEGenericSuperTypes().add(g1);
 		dataQueueEntryEClass.getESuperTypes().add(theOperatingSystemOmacPackage.getObject());
 		g1 = createEGenericType(theOperatingSystemTypePackage.getTypedManager());
 		g2 = createEGenericType(this.getDataQueue());
@@ -323,8 +357,6 @@ public class OperatingSystemDataQueuePackageImpl extends EPackageImpl implements
 		dataQueueManagerEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(theOperatingSystemCorePackage.getContentLockable());
 		g2 = createEGenericType(this.getDataQueue());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(this.getDataQueueEntry());
 		g1.getETypeArguments().add(g2);
 		dataQueueManagerEClass.getEGenericSuperTypes().add(g1);
 
@@ -334,6 +366,9 @@ public class OperatingSystemDataQueuePackageImpl extends EPackageImpl implements
 		initEAttribute(getDataQueue_KeyLength(), ecorePackage.getEInt(), "keyLength", null, 1, 1, QDataQueue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataQueue_MaxEntryLength(), ecorePackage.getEInt(), "maxEntryLength", null, 1, 1, QDataQueue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDataQueue_SenderInfo(), ecorePackage.getEBoolean(), "senderInfo", null, 0, 1, QDataQueue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataQueue_Content(), this.getDataQueueContent(), null, "content", null, 0, 1, QDataQueue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dataQueueContentEClass, QDataQueueContent.class, "DataQueueContent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dataQueueEntryEClass, QDataQueueEntry.class, "DataQueueEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDataQueueEntry_Key(), ecorePackage.getEString(), "key", null, 0, 1, QDataQueueEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

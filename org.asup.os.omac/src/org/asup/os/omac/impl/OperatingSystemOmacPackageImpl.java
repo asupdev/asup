@@ -455,7 +455,7 @@ public class OperatingSystemOmacPackageImpl extends EPackageImpl implements QOpe
 		initEClass(memoryInfoEClass, QMemoryInfo.class, "MemoryInfo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMemoryInfo_Dimension(), ecorePackage.getEInt(), "dimension", null, 0, 1, QMemoryInfo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(objectEClass, QObject.class, "Object", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(objectEClass, QObject.class, "Object", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		addEOperation(objectEClass, this.getClass_(), "qClass", 1, 1, IS_UNIQUE, IS_ORDERED);
 

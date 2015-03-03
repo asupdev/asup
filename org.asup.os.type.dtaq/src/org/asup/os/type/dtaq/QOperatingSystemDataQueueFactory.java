@@ -36,6 +36,15 @@ public interface QOperatingSystemDataQueueFactory extends EFactory {
 	QDataQueue createDataQueue();
 
 	/**
+	 * Returns a new object of class '<em>Data Queue Content</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Data Queue Content</em>'.
+	 * @generated
+	 */
+	QDataQueueContent createDataQueueContent();
+
+	/**
 	 * Returns a new object of class '<em>Data Queue Entry</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

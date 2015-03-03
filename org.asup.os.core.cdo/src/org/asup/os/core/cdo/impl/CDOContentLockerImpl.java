@@ -11,26 +11,25 @@
  */
 package org.asup.os.core.cdo.impl;
 
+import org.asup.os.core.ContentLockType;
 import org.asup.os.core.QContainer;
 import org.asup.os.core.QContentLock;
-import org.asup.os.core.ContentLockType;
 import org.asup.os.core.QContentLocker;
 import org.asup.os.core.QObjectContent;
 import org.asup.os.core.jobs.QJob;
-import org.asup.os.omac.QObject;
 import org.asup.os.type.QTypedObject;
 import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.cdo.util.CDOUtil;
 import org.eclipse.emf.ecore.EObject;
 
-public class CDOContentLockerImpl<T extends QContainer<K>, K extends QObject> implements QContentLocker<T, K> {
+public class CDOContentLockerImpl<T extends QContainer<?>> implements QContentLocker<T> {
 
 	@Override
 	public void lock(QJob job, T object, ContentLockType lockType) {
 
 		if (object instanceof QTypedObject){
 
-			QObjectContent<K> content = object.getContent();
+			QObjectContent<?> content = object.getContent();
 
 
 			switch (lockType.getValue()) {
@@ -59,7 +58,7 @@ public class CDOContentLockerImpl<T extends QContainer<K>, K extends QObject> im
 		boolean result = false;
 		if (object instanceof QTypedObject){
 
-			QObjectContent<K> content = object.getContent();
+			QObjectContent<?> content = object.getContent();
 
 			switch (lockType.getValue()) {
 			case ContentLockType.READ_LOCKED_VALUE:
@@ -102,7 +101,7 @@ public class CDOContentLockerImpl<T extends QContainer<K>, K extends QObject> im
 	public void unlock(QJob job, T object, ContentLockType lockType) {
 		if (object instanceof QTypedObject){
 
-			QObjectContent<K> content = object.getContent();
+			QObjectContent<?> content = object.getContent();
 
 			switch (lockType.getValue()) {
 			case ContentLockType.READ_LOCKED_VALUE:
@@ -132,7 +131,7 @@ public class CDOContentLockerImpl<T extends QContainer<K>, K extends QObject> im
 		boolean result = false;
 		if (object instanceof QTypedObject){
 
-			QObjectContent<K> content = object.getContent();
+			QObjectContent<?> content = object.getContent();
 
 			switch (lockType.getValue()) {
 			case ContentLockType.READ_LOCKED_VALUE:
@@ -161,7 +160,7 @@ public class CDOContentLockerImpl<T extends QContainer<K>, K extends QObject> im
 		boolean result = false;
 		if (object instanceof QTypedObject){
 
-			QObjectContent<K> content = object.getContent();
+			QObjectContent<?> content = object.getContent();
 
 			switch (lockType.getValue()) {
 			case ContentLockType.READ_LOCKED_VALUE:

@@ -24,7 +24,6 @@ import org.asup.os.core.resources.QResourceWriter;
 import org.asup.os.type.dtaq.DataQueueSearchType;
 import org.asup.os.type.dtaq.DataQueueType;
 import org.asup.os.type.dtaq.QDataQueue;
-import org.asup.os.type.dtaq.QDataQueueEntry;
 import org.asup.os.type.dtaq.QOperatingSystemDataQueueFactory;
 import org.asup.os.type.dtaq.impl.DataQueueManagerImpl;
 
@@ -36,12 +35,12 @@ public class BaseDataQueueManagerImpl extends DataQueueManagerImpl {
 	private QJobManager jobManager;
 
 	private BaseFifoQueueManager dataQueueManager;
-	private BaseContentLockerImpl<QDataQueue, QDataQueueEntry> contentLocker;
+	private BaseContentLockerImpl<QDataQueue> contentLocker;
 
 	@PostConstruct
 	public void init() {
 		dataQueueManager = new BaseFifoQueueManager();
-		contentLocker = new BaseContentLockerImpl<QDataQueue, QDataQueueEntry>();
+		contentLocker = new BaseContentLockerImpl<QDataQueue>();
 	}
 
 	@Override
@@ -131,7 +130,7 @@ public class BaseDataQueueManagerImpl extends DataQueueManagerImpl {
 	}
 
 	@Override
-	public QContentLocker<QDataQueue, QDataQueueEntry> getContainLocker() {
+	public QContentLocker<QDataQueue> getContentLocker() {
 		return contentLocker;
 	}
 }

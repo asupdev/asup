@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public abstract class ObjectImpl extends MinimalEObjectImpl.Container implements QObject {
+public class ObjectImpl extends MinimalEObjectImpl.Container implements QObject {
 	/**
 	 * 
 	 */

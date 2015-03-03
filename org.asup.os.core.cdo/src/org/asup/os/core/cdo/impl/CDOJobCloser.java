@@ -58,8 +58,8 @@ public class CDOJobCloser extends Thread {
 				
 				long seconds = (now.getTime()-creationDate.getTime())/1000;
 				
-				// 1 day
-				if(seconds>60*60*24) {
+				// 1 hour
+				if(seconds>60*60) {
 
 					try {
 						jobManager.updateStatus(job, JobStatus.END);

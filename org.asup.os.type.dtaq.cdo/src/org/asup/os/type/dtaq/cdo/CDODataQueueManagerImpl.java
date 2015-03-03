@@ -16,22 +16,22 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.asup.fw.core.QContextID;
-import org.asup.os.core.QOperatingSystemCoreFactory;
+import org.asup.os.core.ContentLockType;
 import org.asup.os.core.OperatingSystemException;
 import org.asup.os.core.QContentLock;
-import org.asup.os.core.ContentLockType;
 import org.asup.os.core.QContentLocker;
-import org.asup.os.core.QObjectContent;
+import org.asup.os.core.QOperatingSystemCoreFactory;
 import org.asup.os.core.cdo.impl.CDOContentLockerImpl;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.jobs.QJobManager;
 import org.asup.os.core.resources.QResourceFactory;
 import org.asup.os.core.resources.QResourceWriter;
-import org.asup.os.type.dtaq.QOperatingSystemDataQueueFactory;
-import org.asup.os.type.dtaq.QDataQueue;
-import org.asup.os.type.dtaq.QDataQueueEntry;
 import org.asup.os.type.dtaq.DataQueueSearchType;
 import org.asup.os.type.dtaq.DataQueueType;
+import org.asup.os.type.dtaq.QDataQueue;
+import org.asup.os.type.dtaq.QDataQueueContent;
+import org.asup.os.type.dtaq.QDataQueueEntry;
+import org.asup.os.type.dtaq.QOperatingSystemDataQueueFactory;
 import org.asup.os.type.dtaq.impl.DataQueueManagerImpl;
 
 
@@ -45,12 +45,12 @@ public class CDODataQueueManagerImpl extends DataQueueManagerImpl {
 
 
 
-	private QContentLocker<QDataQueue, QDataQueueEntry> contentLocker;
+	private QContentLocker<QDataQueue> contentLocker;
 
 	@Inject
 	public CDODataQueueManagerImpl(QResourceFactory resourceFactory, QJobManager jobManager) {
 		super();
-		this.contentLocker = new CDOContentLockerImpl<QDataQueue, QDataQueueEntry>();
+		this.contentLocker = new CDOContentLockerImpl<QDataQueue>();
 		this.resourceFactory = resourceFactory;
 		this.jobManager = jobManager;
 	}
@@ -71,7 +71,7 @@ public class CDODataQueueManagerImpl extends DataQueueManagerImpl {
 			dataQueue.setDataQueueType(type);
 			dataQueue.setMaxEntryLength(maxEntryLength);
 
-			QObjectContent<QDataQueueEntry> content = QOperatingSystemCoreFactory.eINSTANCE.createObjectContent();
+			QDataQueueContent content = QOperatingSystemDataQueueFactory.eINSTANCE.createDataQueueContent();
 
 			QContentLock writeLock = QOperatingSystemCoreFactory.eINSTANCE.createContentLock();
 			writeLock.setType(ContentLockType.WRITE_LOCKED);
@@ -157,11 +157,11 @@ public class CDODataQueueManagerImpl extends DataQueueManagerImpl {
 			dataQueue.getContent().getEntries().clear();
 
 			//Clears locks
-			if (getContainLocker().isLocked(job, dataQueue, ContentLockType.READ_LOCKED) == false) {
-				getContainLocker().unlock(job, dataQueue, ContentLockType.READ_LOCKED);
+			if (getContentLocker().isLocked(job, dataQueue, ContentLockType.READ_LOCKED) == false) {
+				getContentLocker().unlock(job, dataQueue, ContentLockType.READ_LOCKED);
 			}
-			if (getContainLocker().isLocked(job, dataQueue, ContentLockType.WRITE_LOCKED) == false){
-				getContainLocker().unlock(job, dataQueue, ContentLockType.WRITE_LOCKED);
+			if (getContentLocker().isLocked(job, dataQueue, ContentLockType.WRITE_LOCKED) == false){
+				getContentLocker().unlock(job, dataQueue, ContentLockType.WRITE_LOCKED);
 			}
 		}
 		else{
@@ -189,7 +189,7 @@ public class CDODataQueueManagerImpl extends DataQueueManagerImpl {
 	}
 
 	@Override
-	public QContentLocker<QDataQueue, QDataQueueEntry> getContainLocker() {
+	public QContentLocker<QDataQueue> getContentLocker() {
 		// TODO Auto-generated method stub
 		return contentLocker;
 	}

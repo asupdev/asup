@@ -38,6 +38,8 @@ public class E4BundleListener extends ServiceImpl implements BundleListener, Com
 
 		BundleContext bundleContext = FrameworkUtil.getBundle(QSystem.class).getBundleContext();
 		bundleContext.addBundleListener(this);
+		
+		bundleContext.registerService(CommandProvider.class, this, null);
 	}
 
 	@Override
@@ -98,12 +100,11 @@ public class E4BundleListener extends ServiceImpl implements BundleListener, Com
 
 			if (!bundleManager.isRegisterable(job, bundle.getSymbolicName()))
 				continue;
-
-			if (bundle.getState() == Bundle.ACTIVE)
-				bundleManager.register(job, bundle.getSymbolicName());
-			else if (bundle.getState() == Bundle.UNINSTALLED)
+				
+			if (bundle.getState() == Bundle.UNINSTALLED)
 				bundleManager.unregister(job, bundle.getSymbolicName());
-			
+			else
+				bundleManager.register(job, bundle.getSymbolicName());
 		}
 		
 	}
