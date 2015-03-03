@@ -5,22 +5,19 @@
  * which accompanies this distribution, and is available at
  * http://www.eclipse.org/legal/epl-v10.html
  */
-package org.asup.os.omac;
+package org.asup.os.type.dtaq;
 
-import org.asup.il.core.QNameable;
-
-
+import org.asup.os.core.QObjectContent;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>QObject Nameable</b></em>'.
+ * A representation of the model object '<em><b>Data Queue Content</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.asup.os.omac.QOperatingSystemOmacPackage#getObjectNameable()
- * @model abstract="true"
+ * @see org.asup.os.type.dtaq.QOperatingSystemDataQueuePackage#getDataQueueContent()
+ * @model
  * @generated
  */
-public interface QObjectNameable extends QObject, QNameable {
-
-} // QObjectNameable
+public interface QDataQueueContent extends QObjectContent<QDataQueueEntry> {
+} // QDataQueueContent

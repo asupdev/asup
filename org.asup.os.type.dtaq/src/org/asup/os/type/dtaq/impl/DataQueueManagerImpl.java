@@ -13,7 +13,6 @@ import org.asup.os.core.QContentLocker;
 import org.asup.os.type.dtaq.DataQueueSearchType;
 import org.asup.os.type.dtaq.DataQueueType;
 import org.asup.os.type.dtaq.QDataQueue;
-import org.asup.os.type.dtaq.QDataQueueEntry;
 import org.asup.os.type.dtaq.QDataQueueManager;
 import org.asup.os.type.dtaq.QOperatingSystemDataQueuePackage;
 import org.asup.os.type.impl.TypedManagerImpl;
@@ -129,7 +128,7 @@ public abstract class DataQueueManagerImpl extends TypedManagerImpl<QDataQueue> 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QContentLocker<QDataQueue, QDataQueueEntry> getContainLocker() {
+	public QContentLocker<QDataQueue> getContentLocker() {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

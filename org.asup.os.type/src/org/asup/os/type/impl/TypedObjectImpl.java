@@ -36,7 +36,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public abstract class TypedObjectImpl extends ObjectNameableImpl implements QTypedObject {
+public class TypedObjectImpl extends ObjectNameableImpl implements QTypedObject {
 	
 	/**
 	 * 

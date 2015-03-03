@@ -11,33 +11,28 @@
  */
 package org.asup.os.type.dtaq.base;
 
+import org.asup.os.core.ContentLockType;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.QContainer;
-import org.asup.os.core.ContentLockType;
 import org.asup.os.core.QContentLocker;
 import org.asup.os.core.jobs.QJob;
-import org.asup.os.omac.QObject;
 
-public class BaseContentLockerImpl<T extends QContainer<K>, K extends QObject>
-		implements QContentLocker<T, K> {
+public class BaseContentLockerImpl<T extends QContainer<?>> implements QContentLocker<T> {
 
 	@Override
-	public void lock(QJob job, T object, ContentLockType lockType)
-			throws OperatingSystemRuntimeException {
+	public void lock(QJob job, T object, ContentLockType lockType) throws OperatingSystemRuntimeException {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public boolean tryLock(QJob job, T object, long time,
-			ContentLockType lockType) {
+	public boolean tryLock(QJob job, T object, long time, ContentLockType lockType) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public void unlock(QJob job, T object, ContentLockType lockType)
-			throws OperatingSystemRuntimeException {
+	public void unlock(QJob job, T object, ContentLockType lockType) throws OperatingSystemRuntimeException {
 		// TODO Auto-generated method stub
 
 	}

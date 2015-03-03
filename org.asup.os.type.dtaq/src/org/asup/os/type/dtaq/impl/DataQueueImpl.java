@@ -7,13 +7,10 @@
  */
 package org.asup.os.type.dtaq.impl;
 
-import org.asup.os.core.QOperatingSystemCorePackage;
-import org.asup.os.core.QContainer;
-import org.asup.os.core.QObjectContent;
-import org.asup.os.type.dtaq.QOperatingSystemDataQueuePackage;
-import org.asup.os.type.dtaq.QDataQueue;
-import org.asup.os.type.dtaq.QDataQueueEntry;
 import org.asup.os.type.dtaq.DataQueueType;
+import org.asup.os.type.dtaq.QDataQueue;
+import org.asup.os.type.dtaq.QDataQueueContent;
+import org.asup.os.type.dtaq.QOperatingSystemDataQueuePackage;
 import org.asup.os.type.impl.TypedObjectImpl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -28,11 +25,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.os.type.dtaq.impl.DataQueueImpl#getContent <em>Content</em>}</li>
  *   <li>{@link org.asup.os.type.dtaq.impl.DataQueueImpl#getDataQueueType <em>Data Queue Type</em>}</li>
  *   <li>{@link org.asup.os.type.dtaq.impl.DataQueueImpl#getKeyLength <em>Key Length</em>}</li>
  *   <li>{@link org.asup.os.type.dtaq.impl.DataQueueImpl#getMaxEntryLength <em>Max Entry Length</em>}</li>
  *   <li>{@link org.asup.os.type.dtaq.impl.DataQueueImpl#isSenderInfo <em>Sender Info</em>}</li>
+ *   <li>{@link org.asup.os.type.dtaq.impl.DataQueueImpl#getContent <em>Content</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,16 +40,6 @@ public class DataQueueImpl extends TypedObjectImpl implements QDataQueue {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * The cached value of the '{@link #getContent() <em>Content</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContent()
-	 * @generated
-	 * @ordered
-	 */
-	protected QObjectContent<QDataQueueEntry> content;
 
 	/**
 	 * The default value of the '{@link #getDataQueueType() <em>Data Queue Type</em>}' attribute.
@@ -135,6 +122,16 @@ public class DataQueueImpl extends TypedObjectImpl implements QDataQueue {
 	protected boolean senderInfo = SENDER_INFO_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getContent() <em>Content</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContent()
+	 * @generated
+	 * @ordered
+	 */
+	protected QDataQueueContent content;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -158,7 +155,7 @@ public class DataQueueImpl extends TypedObjectImpl implements QDataQueue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QObjectContent<QDataQueueEntry> getContent() {
+	public QDataQueueContent getContent() {
 		return content;
 	}
 
@@ -167,8 +164,8 @@ public class DataQueueImpl extends TypedObjectImpl implements QDataQueue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetContent(QObjectContent<QDataQueueEntry> newContent, NotificationChain msgs) {
-		QObjectContent<QDataQueueEntry> oldContent = content;
+	public NotificationChain basicSetContent(QDataQueueContent newContent, NotificationChain msgs) {
+		QDataQueueContent oldContent = content;
 		content = newContent;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QOperatingSystemDataQueuePackage.DATA_QUEUE__CONTENT, oldContent, newContent);
@@ -182,7 +179,7 @@ public class DataQueueImpl extends TypedObjectImpl implements QDataQueue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setContent(QObjectContent<QDataQueueEntry> newContent) {
+	public void setContent(QDataQueueContent newContent) {
 		if (newContent != content) {
 			NotificationChain msgs = null;
 			if (content != null)
@@ -302,8 +299,6 @@ public class DataQueueImpl extends TypedObjectImpl implements QDataQueue {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QOperatingSystemDataQueuePackage.DATA_QUEUE__CONTENT:
-				return getContent();
 			case QOperatingSystemDataQueuePackage.DATA_QUEUE__DATA_QUEUE_TYPE:
 				return getDataQueueType();
 			case QOperatingSystemDataQueuePackage.DATA_QUEUE__KEY_LENGTH:
@@ -312,6 +307,8 @@ public class DataQueueImpl extends TypedObjectImpl implements QDataQueue {
 				return getMaxEntryLength();
 			case QOperatingSystemDataQueuePackage.DATA_QUEUE__SENDER_INFO:
 				return isSenderInfo();
+			case QOperatingSystemDataQueuePackage.DATA_QUEUE__CONTENT:
+				return getContent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -321,13 +318,9 @@ public class DataQueueImpl extends TypedObjectImpl implements QDataQueue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QOperatingSystemDataQueuePackage.DATA_QUEUE__CONTENT:
-				setContent((QObjectContent<QDataQueueEntry>)newValue);
-				return;
 			case QOperatingSystemDataQueuePackage.DATA_QUEUE__DATA_QUEUE_TYPE:
 				setDataQueueType((DataQueueType)newValue);
 				return;
@@ -339,6 +332,9 @@ public class DataQueueImpl extends TypedObjectImpl implements QDataQueue {
 				return;
 			case QOperatingSystemDataQueuePackage.DATA_QUEUE__SENDER_INFO:
 				setSenderInfo((Boolean)newValue);
+				return;
+			case QOperatingSystemDataQueuePackage.DATA_QUEUE__CONTENT:
+				setContent((QDataQueueContent)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -352,9 +348,6 @@ public class DataQueueImpl extends TypedObjectImpl implements QDataQueue {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QOperatingSystemDataQueuePackage.DATA_QUEUE__CONTENT:
-				setContent((QObjectContent<QDataQueueEntry>)null);
-				return;
 			case QOperatingSystemDataQueuePackage.DATA_QUEUE__DATA_QUEUE_TYPE:
 				setDataQueueType(DATA_QUEUE_TYPE_EDEFAULT);
 				return;
@@ -366,6 +359,9 @@ public class DataQueueImpl extends TypedObjectImpl implements QDataQueue {
 				return;
 			case QOperatingSystemDataQueuePackage.DATA_QUEUE__SENDER_INFO:
 				setSenderInfo(SENDER_INFO_EDEFAULT);
+				return;
+			case QOperatingSystemDataQueuePackage.DATA_QUEUE__CONTENT:
+				setContent((QDataQueueContent)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -379,8 +375,6 @@ public class DataQueueImpl extends TypedObjectImpl implements QDataQueue {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QOperatingSystemDataQueuePackage.DATA_QUEUE__CONTENT:
-				return content != null;
 			case QOperatingSystemDataQueuePackage.DATA_QUEUE__DATA_QUEUE_TYPE:
 				return dataQueueType != DATA_QUEUE_TYPE_EDEFAULT;
 			case QOperatingSystemDataQueuePackage.DATA_QUEUE__KEY_LENGTH:
@@ -389,40 +383,10 @@ public class DataQueueImpl extends TypedObjectImpl implements QDataQueue {
 				return maxEntryLength != MAX_ENTRY_LENGTH_EDEFAULT;
 			case QOperatingSystemDataQueuePackage.DATA_QUEUE__SENDER_INFO:
 				return senderInfo != SENDER_INFO_EDEFAULT;
+			case QOperatingSystemDataQueuePackage.DATA_QUEUE__CONTENT:
+				return content != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == QContainer.class) {
-			switch (derivedFeatureID) {
-				case QOperatingSystemDataQueuePackage.DATA_QUEUE__CONTENT: return QOperatingSystemCorePackage.CONTAINER__CONTENT;
-				default: return -1;
-			}
-		}
-		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == QContainer.class) {
-			switch (baseFeatureID) {
-				case QOperatingSystemCorePackage.CONTAINER__CONTENT: return QOperatingSystemDataQueuePackage.DATA_QUEUE__CONTENT;
-				default: return -1;
-			}
-		}
-		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

@@ -62,6 +62,7 @@ public class OperatingSystemTypeFactoryImpl extends EFactoryImpl implements QOpe
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case QOperatingSystemTypePackage.TYPE: return (EObject)createType();
+			case QOperatingSystemTypePackage.TYPED_OBJECT: return (EObject)createTypedObject();
 			case QOperatingSystemTypePackage.TYPED_REFERENCE: return (EObject)createTypedReference();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -76,6 +77,16 @@ public class OperatingSystemTypeFactoryImpl extends EFactoryImpl implements QOpe
 	public QType createType() {
 		TypeImpl type = new TypeImpl();
 		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QTypedObject createTypedObject() {
+		TypedObjectImpl typedObject = new TypedObjectImpl();
+		return typedObject;
 	}
 
 	/**

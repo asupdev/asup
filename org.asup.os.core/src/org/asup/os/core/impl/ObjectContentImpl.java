@@ -39,7 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ObjectContentImpl<T extends QObject> extends ObjectImpl implements QObjectContent<T> {
+public abstract class ObjectContentImpl<C extends QObject> extends ObjectImpl implements QObjectContent<C> {
 	/**
 	 * 
 	 */
@@ -53,7 +53,7 @@ public class ObjectContentImpl<T extends QObject> extends ObjectImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<T> entries;
+	protected EList<C> entries;
 
 	/**
 	 * The cached value of the '{@link #getReadLock() <em>Read Lock</em>}' containment reference.
@@ -99,9 +99,9 @@ public class ObjectContentImpl<T extends QObject> extends ObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public List<T> getEntries() {
+	public List<C> getEntries() {
 		if (entries == null) {
-			entries = new EObjectContainmentEList<T>(QObject.class, this, QOperatingSystemCorePackage.OBJECT_CONTENT__ENTRIES);
+			entries = new EObjectContainmentEList<C>(QObject.class, this, QOperatingSystemCorePackage.OBJECT_CONTENT__ENTRIES);
 		}
 		return entries;
 	}
@@ -239,7 +239,7 @@ public class ObjectContentImpl<T extends QObject> extends ObjectImpl implements 
 		switch (featureID) {
 			case QOperatingSystemCorePackage.OBJECT_CONTENT__ENTRIES:
 				getEntries().clear();
-				getEntries().addAll((Collection<? extends T>)newValue);
+				getEntries().addAll((Collection<? extends C>)newValue);
 				return;
 			case QOperatingSystemCorePackage.OBJECT_CONTENT__READ_LOCK:
 				setReadLock((QContentLock)newValue);

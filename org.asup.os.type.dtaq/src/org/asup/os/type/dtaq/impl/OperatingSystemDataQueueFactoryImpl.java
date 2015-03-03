@@ -2,6 +2,7 @@
  */
 package org.asup.os.type.dtaq.impl;
 
+import org.asup.os.type.dtaq.*;
 import org.asup.os.type.dtaq.DataQueueSearchType;
 import org.asup.os.type.dtaq.DataQueueType;
 import org.asup.os.type.dtaq.QDataQueue;
@@ -60,6 +61,7 @@ public class OperatingSystemDataQueueFactoryImpl extends EFactoryImpl implements
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case QOperatingSystemDataQueuePackage.DATA_QUEUE: return (EObject)createDataQueue();
+			case QOperatingSystemDataQueuePackage.DATA_QUEUE_CONTENT: return (EObject)createDataQueueContent();
 			case QOperatingSystemDataQueuePackage.DATA_QUEUE_ENTRY: return (EObject)createDataQueueEntry();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -108,6 +110,16 @@ public class OperatingSystemDataQueueFactoryImpl extends EFactoryImpl implements
 	public QDataQueue createDataQueue() {
 		DataQueueImpl dataQueue = new DataQueueImpl();
 		return dataQueue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QDataQueueContent createDataQueueContent() {
+		DataQueueContentImpl dataQueueContent = new DataQueueContentImpl();
+		return dataQueueContent;
 	}
 
 	/**

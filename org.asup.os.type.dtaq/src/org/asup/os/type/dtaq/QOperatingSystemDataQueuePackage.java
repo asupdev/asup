@@ -7,12 +7,14 @@
  */
 package org.asup.os.type.dtaq;
 
+import org.asup.os.core.QOperatingSystemCorePackage;
 import org.asup.os.omac.QOperatingSystemOmacPackage;
 import org.asup.os.type.QOperatingSystemTypePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -127,22 +129,13 @@ public interface QOperatingSystemDataQueuePackage extends EPackage {
 	int DATA_QUEUE__MEMORY_INFO = QOperatingSystemTypePackage.TYPED_OBJECT__MEMORY_INFO;
 
 	/**
-	 * The feature id for the '<em><b>Content</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_QUEUE__CONTENT = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Data Queue Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_QUEUE__DATA_QUEUE_TYPE = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 1;
+	int DATA_QUEUE__DATA_QUEUE_TYPE = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Key Length</b></em>' attribute.
@@ -151,7 +144,7 @@ public interface QOperatingSystemDataQueuePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_QUEUE__KEY_LENGTH = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 2;
+	int DATA_QUEUE__KEY_LENGTH = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Max Entry Length</b></em>' attribute.
@@ -160,7 +153,7 @@ public interface QOperatingSystemDataQueuePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_QUEUE__MAX_ENTRY_LENGTH = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 3;
+	int DATA_QUEUE__MAX_ENTRY_LENGTH = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Sender Info</b></em>' attribute.
@@ -169,7 +162,16 @@ public interface QOperatingSystemDataQueuePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_QUEUE__SENDER_INFO = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 4;
+	int DATA_QUEUE__SENDER_INFO = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_QUEUE__CONTENT = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Data Queue</em>' class.
@@ -181,6 +183,52 @@ public interface QOperatingSystemDataQueuePackage extends EPackage {
 	int DATA_QUEUE_FEATURE_COUNT = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 5;
 
 	/**
+	 * The meta object id for the '{@link org.asup.os.type.dtaq.impl.DataQueueContentImpl <em>Data Queue Content</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.os.type.dtaq.impl.DataQueueContentImpl
+	 * @see org.asup.os.type.dtaq.impl.OperatingSystemDataQueuePackageImpl#getDataQueueContent()
+	 * @generated
+	 */
+	int DATA_QUEUE_CONTENT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Entries</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_QUEUE_CONTENT__ENTRIES = QOperatingSystemCorePackage.OBJECT_CONTENT__ENTRIES;
+
+	/**
+	 * The feature id for the '<em><b>Read Lock</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_QUEUE_CONTENT__READ_LOCK = QOperatingSystemCorePackage.OBJECT_CONTENT__READ_LOCK;
+
+	/**
+	 * The feature id for the '<em><b>Write Lock</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_QUEUE_CONTENT__WRITE_LOCK = QOperatingSystemCorePackage.OBJECT_CONTENT__WRITE_LOCK;
+
+	/**
+	 * The number of structural features of the '<em>Data Queue Content</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_QUEUE_CONTENT_FEATURE_COUNT = QOperatingSystemCorePackage.OBJECT_CONTENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.asup.os.type.dtaq.impl.DataQueueEntryImpl <em>Data Queue Entry</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -188,7 +236,7 @@ public interface QOperatingSystemDataQueuePackage extends EPackage {
 	 * @see org.asup.os.type.dtaq.impl.OperatingSystemDataQueuePackageImpl#getDataQueueEntry()
 	 * @generated
 	 */
-	int DATA_QUEUE_ENTRY = 1;
+	int DATA_QUEUE_ENTRY = 2;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -225,7 +273,7 @@ public interface QOperatingSystemDataQueuePackage extends EPackage {
 	 * @see org.asup.os.type.dtaq.impl.OperatingSystemDataQueuePackageImpl#getDataQueueManager()
 	 * @generated
 	 */
-	int DATA_QUEUE_MANAGER = 2;
+	int DATA_QUEUE_MANAGER = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -289,7 +337,7 @@ public interface QOperatingSystemDataQueuePackage extends EPackage {
 	 * @see org.asup.os.type.dtaq.impl.OperatingSystemDataQueuePackageImpl#getDataQueueType()
 	 * @generated
 	 */
-	int DATA_QUEUE_TYPE = 3;
+	int DATA_QUEUE_TYPE = 4;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.type.dtaq.DataQueueSearchType <em>Data Queue Search Type</em>}' enum.
@@ -299,7 +347,7 @@ public interface QOperatingSystemDataQueuePackage extends EPackage {
 	 * @see org.asup.os.type.dtaq.impl.OperatingSystemDataQueuePackageImpl#getDataQueueSearchType()
 	 * @generated
 	 */
-	int DATA_QUEUE_SEARCH_TYPE = 4;
+	int DATA_QUEUE_SEARCH_TYPE = 5;
 
 
 	/**
@@ -355,6 +403,27 @@ public interface QOperatingSystemDataQueuePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getDataQueue_SenderInfo();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.asup.os.type.dtaq.QDataQueue#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Content</em>'.
+	 * @see org.asup.os.type.dtaq.QDataQueue#getContent()
+	 * @see #getDataQueue()
+	 * @generated
+	 */
+	EReference getDataQueue_Content();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.os.type.dtaq.QDataQueueContent <em>Data Queue Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Queue Content</em>'.
+	 * @see org.asup.os.type.dtaq.QDataQueueContent
+	 * @generated
+	 */
+	EClass getDataQueueContent();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.os.type.dtaq.QDataQueueEntry <em>Data Queue Entry</em>}'.
@@ -481,6 +550,24 @@ public interface QOperatingSystemDataQueuePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DATA_QUEUE__SENDER_INFO = eINSTANCE.getDataQueue_SenderInfo();
+
+		/**
+		 * The meta object literal for the '<em><b>Content</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_QUEUE__CONTENT = eINSTANCE.getDataQueue_Content();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.os.type.dtaq.impl.DataQueueContentImpl <em>Data Queue Content</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.os.type.dtaq.impl.DataQueueContentImpl
+		 * @see org.asup.os.type.dtaq.impl.OperatingSystemDataQueuePackageImpl#getDataQueueContent()
+		 * @generated
+		 */
+		EClass DATA_QUEUE_CONTENT = eINSTANCE.getDataQueueContent();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.os.type.dtaq.impl.DataQueueEntryImpl <em>Data Queue Entry</em>}' class.

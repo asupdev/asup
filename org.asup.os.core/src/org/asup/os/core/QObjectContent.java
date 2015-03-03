@@ -26,10 +26,10 @@ import org.asup.os.omac.QObject;
  * </p>
  *
  * @see org.asup.os.core.QOperatingSystemCorePackage#getObjectContent()
- * @model
+ * @model abstract="true"
  * @generated
  */
-public interface QObjectContent<T extends QObject> extends QObject {
+public interface QObjectContent<C extends QObject> extends QObject {
 	/**
 	 * Returns the value of the '<em><b>Entries</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -43,7 +43,7 @@ public interface QObjectContent<T extends QObject> extends QObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	List<T> getEntries();
+	List<C> getEntries();
 
 	/**
 	 * Returns the value of the '<em><b>Read Lock</b></em>' containment reference.

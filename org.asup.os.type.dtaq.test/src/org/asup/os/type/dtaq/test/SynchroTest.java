@@ -201,7 +201,7 @@ public class SynchroTest {
 		   QDataQueue dataQueue = resource.lookup(queue);
 
 		   // Lock it for reading
-		   dataQueueManager.getContainLocker().lock(childJob, dataQueue, ContentLockType.READ_LOCKED);
+		   dataQueueManager.getContentLocker().lock(childJob, dataQueue, ContentLockType.READ_LOCKED);
 
 		   //Notify lock success to caller class
 		   synchronized(lockWaitObj){
@@ -219,7 +219,7 @@ public class SynchroTest {
 		    }
 
 		   // Unlock
-		   dataQueueManager.getContainLocker().unlock(childJob, dataQueue, ContentLockType.READ_LOCKED);
+		   dataQueueManager.getContentLocker().unlock(childJob, dataQueue, ContentLockType.READ_LOCKED);
 	   }
 
 	}

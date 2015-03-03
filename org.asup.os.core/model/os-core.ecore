@@ -5,14 +5,14 @@
     <eOperations name="call"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Container" abstract="true" interface="true">
-    <eTypeParameters name="T">
+    <eTypeParameters name="C">
       <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//Object"/>
     </eTypeParameters>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="content" containment="true">
+    <eOperations name="getContent">
       <eGenericType eClassifier="#//ObjectContent">
-        <eTypeArguments eTypeParameter="#//Container/T"/>
+        <eTypeArguments eTypeParameter="#//Container/C"/>
       </eGenericType>
-    </eStructuralFeatures>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ContentLockType">
     <eLiterals name="ReadLocked" value="10" literal="R_LOCK"/>
@@ -21,16 +21,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="ContentLockable" abstract="true" interface="true">
     <eTypeParameters name="T">
       <eBounds eClassifier="#//Container">
-        <eTypeArguments eTypeParameter="#//ContentLockable/K"/>
+        <eTypeArguments/>
       </eBounds>
     </eTypeParameters>
-    <eTypeParameters name="K">
-      <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//Object"/>
-    </eTypeParameters>
-    <eOperations name="getContainLocker" lowerBound="1">
+    <eOperations name="getContentLocker" lowerBound="1">
       <eGenericType eClassifier="#//ContentLocker">
         <eTypeArguments eTypeParameter="#//ContentLockable/T"/>
-        <eTypeArguments eTypeParameter="#//ContentLockable/K"/>
       </eGenericType>
     </eOperations>
   </eClassifiers>
@@ -40,11 +36,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="ContentLocker" abstract="true" interface="true">
     <eTypeParameters name="T">
       <eBounds eClassifier="#//Container">
-        <eTypeArguments eTypeParameter="#//ContentLocker/K"/>
+        <eTypeArguments/>
       </eBounds>
-    </eTypeParameters>
-    <eTypeParameters name="K">
-      <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//Object"/>
     </eTypeParameters>
     <eOperations name="lock" eExceptions="#//OperatingSystemRuntimeException">
       <eParameters name="job" lowerBound="1" eType="#//jobs/Job"/>
@@ -127,13 +120,13 @@
     </eLiterals>
     <eLiterals name="ExclusiveRD" value="20" literal="EXCLRD"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ObjectContent" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//Object">
-    <eTypeParameters name="T">
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectContent" abstract="true" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//Object">
+    <eTypeParameters name="C">
       <eBounds eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//Object"/>
     </eTypeParameters>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
         containment="true">
-      <eGenericType eTypeParameter="#//ObjectContent/T"/>
+      <eGenericType eTypeParameter="#//ObjectContent/C"/>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="readLock" lowerBound="1"
         eType="#//ContentLock" containment="true"/>

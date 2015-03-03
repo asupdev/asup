@@ -8,7 +8,6 @@
 package org.asup.os.core;
 
 import org.asup.os.core.jobs.QJob;
-import org.asup.os.omac.QObject;
 
 
 /**
@@ -21,7 +20,7 @@ import org.asup.os.omac.QObject;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface QContentLocker<T extends QContainer<K>, K extends QObject> {
+public interface QContentLocker<T extends QContainer<?>> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

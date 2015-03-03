@@ -22,6 +22,7 @@ import org.asup.os.type.QTypedObject;
  *   <li>{@link org.asup.os.type.dtaq.QDataQueue#getKeyLength <em>Key Length</em>}</li>
  *   <li>{@link org.asup.os.type.dtaq.QDataQueue#getMaxEntryLength <em>Max Entry Length</em>}</li>
  *   <li>{@link org.asup.os.type.dtaq.QDataQueue#isSenderInfo <em>Sender Info</em>}</li>
+ *   <li>{@link org.asup.os.type.dtaq.QDataQueue#getContent <em>Content</em>}</li>
  * </ul>
  * </p>
  *
@@ -137,4 +138,29 @@ public interface QDataQueue extends QTypedObject, QContainer<QDataQueueEntry> {
 	 */
 	void setSenderInfo(boolean value);
 
+	/**
+	 * Returns the value of the '<em><b>Content</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Content</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Content</em>' containment reference.
+	 * @see #setContent(QDataQueueContent)
+	 * @see org.asup.os.type.dtaq.QOperatingSystemDataQueuePackage#getDataQueue_Content()
+	 * @model containment="true"
+	 * @generated
+	 */
+	QDataQueueContent getContent();
+
+	/**
+	 * Sets the value of the '{@link org.asup.os.type.dtaq.QDataQueue#getContent <em>Content</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Content</em>' containment reference.
+	 * @see #getContent()
+	 * @generated
+	 */
+	void setContent(QDataQueueContent value);
 } // QDataQueue

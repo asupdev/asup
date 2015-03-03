@@ -22,7 +22,7 @@ import org.asup.os.type.QTypedManager;
  * @model abstract="true"
  * @generated
  */
-public interface QDataQueueManager extends QTypedManager<QDataQueue>, QContentLockable<QDataQueue, QDataQueueEntry> {
+public interface QDataQueueManager extends QTypedManager<QDataQueue>, QContentLockable<QDataQueue> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -9,8 +9,15 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxEntryLength" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="senderInfo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="#//DataQueueContent"
+        containment="true"/>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.os.type/model/os-type.ecore#//TypedObject"/>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//Container">
+      <eTypeArguments eClassifier="#//DataQueueEntry"/>
+    </eGenericSuperTypes>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataQueueContent">
+    <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//ObjectContent">
       <eTypeArguments eClassifier="#//DataQueueEntry"/>
     </eGenericSuperTypes>
   </eClassifiers>
@@ -66,7 +73,6 @@
     </eGenericSuperTypes>
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//ContentLockable">
       <eTypeArguments eClassifier="#//DataQueue"/>
-      <eTypeArguments eClassifier="#//DataQueueEntry"/>
     </eGenericSuperTypes>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="DataQueueType">

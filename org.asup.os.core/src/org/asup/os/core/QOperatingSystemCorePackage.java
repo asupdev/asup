@@ -93,22 +93,13 @@ public interface QOperatingSystemCorePackage extends EPackage {
 	int CONTAINER = 1;
 
 	/**
-	 * The feature id for the '<em><b>Content</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTAINER__CONTENT = 0;
-
-	/**
 	 * The number of structural features of the '<em>Container</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTAINER_FEATURE_COUNT = 1;
+	int CONTAINER_FEATURE_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.core.QContentLockable <em>Content Lockable</em>}' class.
@@ -461,17 +452,6 @@ public interface QOperatingSystemCorePackage extends EPackage {
 	EClass getContainer();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link org.asup.os.core.QContainer#getContent <em>Content</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Content</em>'.
-	 * @see org.asup.os.core.QContainer#getContent()
-	 * @see #getContainer()
-	 * @generated
-	 */
-	EReference getContainer_Content();
-
-	/**
 	 * Returns the meta object for class '{@link org.asup.os.core.QContentLockable <em>Content Lockable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -786,14 +766,6 @@ public interface QOperatingSystemCorePackage extends EPackage {
 		 * @generated
 		 */
 		EClass CONTAINER = eINSTANCE.getContainer();
-
-		/**
-		 * The meta object literal for the '<em><b>Content</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONTAINER__CONTENT = eINSTANCE.getContainer_Content();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.os.core.QContentLockable <em>Content Lockable</em>}' class.

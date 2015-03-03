@@ -36,6 +36,15 @@ public interface QOperatingSystemTypeFactory extends EFactory {
 	QType createType();
 
 	/**
+	 * Returns a new object of class '<em>Typed Object</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Typed Object</em>'.
+	 * @generated
+	 */
+	QTypedObject createTypedObject();
+
+	/**
 	 * Returns a new object of class '<em>Typed Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -7,7 +7,6 @@
  */
 package org.asup.os.core;
 
-import org.asup.os.omac.QObject;
 
 
 /**
@@ -20,13 +19,13 @@ import org.asup.os.omac.QObject;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface QContentLockable<T extends QContainer<K>, K extends QObject> {
+public interface QContentLockable<T extends QContainer<?>> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @model kind="operation" required="true"
 	 * @generated
 	 */
-	QContentLocker<T, K> getContainLocker();
+	QContentLocker<T> getContentLocker();
 
 } // QContentLockable
