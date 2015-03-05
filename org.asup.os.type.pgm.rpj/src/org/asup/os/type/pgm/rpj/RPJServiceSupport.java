@@ -112,7 +112,7 @@ public class RPJServiceSupport {
 		if($B<=$A){
 			int $I = 0;
 			$I = arg0.substring($I).indexOf(arg1);
-			if($I==0){
+			if($I<=0){
 				value.eval("");
 				return value;
 			}
