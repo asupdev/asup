@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 RPGExpr.g 2015-01-16 12:11:44
+// $ANTLR 3.5.1 RPGExpr.g 2015-03-06 14:48:49
 
   package org.asup.il.expr.base.antlr.rpg;
 
@@ -11,12 +11,12 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class RPGExprLexer extends Lexer {
 	public static final int EOF=-1;
-	public static final int T__72=72;
-	public static final int T__73=73;
 	public static final int T__74=74;
+	public static final int T__75=75;
+	public static final int T__76=76;
 	public static final int A=4;
-	public static final int AND=5;
-	public static final int ARRAY_INDICATOR=6;
+	public static final int ALL=5;
+	public static final int AND=6;
 	public static final int B=7;
 	public static final int BI_FUN=8;
 	public static final int BI_FUNCTION=9;
@@ -33,30 +33,30 @@ public class RPGExprLexer extends Lexer {
 	public static final int EQ=20;
 	public static final int EscapeSequence=21;
 	public static final int F=22;
-	public static final int FILLER=23;
-	public static final int FLOAT=24;
-	public static final int G=25;
-	public static final int GT=26;
-	public static final int GTEQ=27;
-	public static final int H=28;
-	public static final int HEX=29;
-	public static final int HexDigit=30;
-	public static final int I=31;
-	public static final int INDICATOR=32;
-	public static final int INTEGER=33;
-	public static final int J=34;
-	public static final int K=35;
-	public static final int L=36;
-	public static final int LETTER=37;
-	public static final int LT=38;
-	public static final int LTEQ=39;
-	public static final int M=40;
-	public static final int MINUS=41;
-	public static final int MOD=42;
-	public static final int MULT=43;
-	public static final int N=44;
-	public static final int NE=45;
-	public static final int NEGATE=46;
+	public static final int FLOAT=23;
+	public static final int G=24;
+	public static final int GT=25;
+	public static final int GTEQ=26;
+	public static final int H=27;
+	public static final int HEX=28;
+	public static final int HexDigit=29;
+	public static final int I=30;
+	public static final int IN=31;
+	public static final int INNR=32;
+	public static final int INNU=33;
+	public static final int INTEGER=34;
+	public static final int J=35;
+	public static final int K=36;
+	public static final int L=37;
+	public static final int LETTER=38;
+	public static final int LT=39;
+	public static final int LTEQ=40;
+	public static final int M=41;
+	public static final int MINUS=42;
+	public static final int MOD=43;
+	public static final int MULT=44;
+	public static final int N=45;
+	public static final int NE=46;
 	public static final int NOT=47;
 	public static final int O=48;
 	public static final int OR=49;
@@ -68,20 +68,22 @@ public class RPGExprLexer extends Lexer {
 	public static final int QUALIFIED=55;
 	public static final int R=56;
 	public static final int S=57;
-	public static final int SPECIAL=58;
-	public static final int SP_VALUE=59;
-	public static final int STRING=60;
-	public static final int T=61;
-	public static final int TERM=62;
-	public static final int U=63;
-	public static final int USER_FUNCTION=64;
-	public static final int UnicodeEscape=65;
-	public static final int V=66;
-	public static final int W=67;
-	public static final int WS=68;
-	public static final int X=69;
-	public static final int Y=70;
-	public static final int Z=71;
+	public static final int SIGN_MINUS=58;
+	public static final int SIGN_PLUS=59;
+	public static final int SPECIAL=60;
+	public static final int SP_VALUE=61;
+	public static final int STRING=62;
+	public static final int T=63;
+	public static final int TERM=64;
+	public static final int U=65;
+	public static final int USER_FUNCTION=66;
+	public static final int UnicodeEscape=67;
+	public static final int V=68;
+	public static final int W=69;
+	public static final int WS=70;
+	public static final int X=71;
+	public static final int Y=72;
+	public static final int Z=73;
 
 	// delegates
 	// delegators
@@ -98,10 +100,10 @@ public class RPGExprLexer extends Lexer {
 	}
 	@Override public String getGrammarFileName() { return "RPGExpr.g"; }
 
-	// $ANTLR start "T__72"
-	public final void mT__72() throws RecognitionException {
+	// $ANTLR start "T__74"
+	public final void mT__74() throws RecognitionException {
 		try {
-			int _type = T__72;
+			int _type = T__74;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
 			// RPGExpr.g:11:7: ( '(' )
 			// RPGExpr.g:11:9: '('
@@ -116,12 +118,12 @@ public class RPGExprLexer extends Lexer {
 			// do for sure before leaving
 		}
 	}
-	// $ANTLR end "T__72"
+	// $ANTLR end "T__74"
 
-	// $ANTLR start "T__73"
-	public final void mT__73() throws RecognitionException {
+	// $ANTLR start "T__75"
+	public final void mT__75() throws RecognitionException {
 		try {
-			int _type = T__73;
+			int _type = T__75;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
 			// RPGExpr.g:12:7: ( ')' )
 			// RPGExpr.g:12:9: ')'
@@ -136,12 +138,12 @@ public class RPGExprLexer extends Lexer {
 			// do for sure before leaving
 		}
 	}
-	// $ANTLR end "T__73"
+	// $ANTLR end "T__75"
 
-	// $ANTLR start "T__74"
-	public final void mT__74() throws RecognitionException {
+	// $ANTLR start "T__76"
+	public final void mT__76() throws RecognitionException {
 		try {
-			int _type = T__74;
+			int _type = T__76;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
 			// RPGExpr.g:13:7: ( ':' )
 			// RPGExpr.g:13:9: ':'
@@ -156,14 +158,14 @@ public class RPGExprLexer extends Lexer {
 			// do for sure before leaving
 		}
 	}
-	// $ANTLR end "T__74"
+	// $ANTLR end "T__76"
 
 	// $ANTLR start "SPECIAL"
 	public final void mSPECIAL() throws RecognitionException {
 		try {
 			int _type = SPECIAL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:206:2: ( ( H I V A L ) | ( L O V A L ) | ( Z E R O S ) | ( Z E R O ) | ( B L A N K ) | ( B L A N K S ) | ( O N ) | ( O F F ) | ( O M I T ) | ( N U L L ) | ( S T A T U S ) | ( P A R M S ) | ( M S ) | ( N E X T ) )
+			// RPGExpr.g:213:2: ( ( H I V A L ) | ( L O V A L ) | ( Z E R O S ) | ( Z E R O ) | ( B L A N K ) | ( B L A N K S ) | ( O N ) | ( O F F ) | ( O M I T ) | ( N U L L ) | ( S T A T U S ) | ( P A R M S ) | ( M S ) | ( N E X T ) )
 			int alt1=14;
 			switch ( input.LA(1) ) {
 			case 'H':
@@ -413,10 +415,10 @@ public class RPGExprLexer extends Lexer {
 			}
 			switch (alt1) {
 				case 1 :
-					// RPGExpr.g:206:4: ( H I V A L )
+					// RPGExpr.g:213:4: ( H I V A L )
 					{
-					// RPGExpr.g:206:4: ( H I V A L )
-					// RPGExpr.g:206:6: H I V A L
+					// RPGExpr.g:213:4: ( H I V A L )
+					// RPGExpr.g:213:6: H I V A L
 					{
 					mH(); 
 
@@ -433,10 +435,10 @@ public class RPGExprLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// RPGExpr.g:208:3: ( L O V A L )
+					// RPGExpr.g:215:3: ( L O V A L )
 					{
-					// RPGExpr.g:208:3: ( L O V A L )
-					// RPGExpr.g:208:5: L O V A L
+					// RPGExpr.g:215:3: ( L O V A L )
+					// RPGExpr.g:215:5: L O V A L
 					{
 					mL(); 
 
@@ -453,10 +455,10 @@ public class RPGExprLexer extends Lexer {
 					}
 					break;
 				case 3 :
-					// RPGExpr.g:210:3: ( Z E R O S )
+					// RPGExpr.g:217:3: ( Z E R O S )
 					{
-					// RPGExpr.g:210:3: ( Z E R O S )
-					// RPGExpr.g:210:5: Z E R O S
+					// RPGExpr.g:217:3: ( Z E R O S )
+					// RPGExpr.g:217:5: Z E R O S
 					{
 					mZ(); 
 
@@ -473,10 +475,10 @@ public class RPGExprLexer extends Lexer {
 					}
 					break;
 				case 4 :
-					// RPGExpr.g:212:3: ( Z E R O )
+					// RPGExpr.g:219:3: ( Z E R O )
 					{
-					// RPGExpr.g:212:3: ( Z E R O )
-					// RPGExpr.g:212:5: Z E R O
+					// RPGExpr.g:219:3: ( Z E R O )
+					// RPGExpr.g:219:5: Z E R O
 					{
 					mZ(); 
 
@@ -491,10 +493,10 @@ public class RPGExprLexer extends Lexer {
 					}
 					break;
 				case 5 :
-					// RPGExpr.g:214:3: ( B L A N K )
+					// RPGExpr.g:221:3: ( B L A N K )
 					{
-					// RPGExpr.g:214:3: ( B L A N K )
-					// RPGExpr.g:214:5: B L A N K
+					// RPGExpr.g:221:3: ( B L A N K )
+					// RPGExpr.g:221:5: B L A N K
 					{
 					mB(); 
 
@@ -511,10 +513,10 @@ public class RPGExprLexer extends Lexer {
 					}
 					break;
 				case 6 :
-					// RPGExpr.g:216:3: ( B L A N K S )
+					// RPGExpr.g:223:3: ( B L A N K S )
 					{
-					// RPGExpr.g:216:3: ( B L A N K S )
-					// RPGExpr.g:216:5: B L A N K S
+					// RPGExpr.g:223:3: ( B L A N K S )
+					// RPGExpr.g:223:5: B L A N K S
 					{
 					mB(); 
 
@@ -533,10 +535,10 @@ public class RPGExprLexer extends Lexer {
 					}
 					break;
 				case 7 :
-					// RPGExpr.g:218:3: ( O N )
+					// RPGExpr.g:225:3: ( O N )
 					{
-					// RPGExpr.g:218:3: ( O N )
-					// RPGExpr.g:218:5: O N
+					// RPGExpr.g:225:3: ( O N )
+					// RPGExpr.g:225:5: O N
 					{
 					mO(); 
 
@@ -547,10 +549,10 @@ public class RPGExprLexer extends Lexer {
 					}
 					break;
 				case 8 :
-					// RPGExpr.g:220:3: ( O F F )
+					// RPGExpr.g:227:3: ( O F F )
 					{
-					// RPGExpr.g:220:3: ( O F F )
-					// RPGExpr.g:220:5: O F F
+					// RPGExpr.g:227:3: ( O F F )
+					// RPGExpr.g:227:5: O F F
 					{
 					mO(); 
 
@@ -563,10 +565,10 @@ public class RPGExprLexer extends Lexer {
 					}
 					break;
 				case 9 :
-					// RPGExpr.g:222:3: ( O M I T )
+					// RPGExpr.g:229:3: ( O M I T )
 					{
-					// RPGExpr.g:222:3: ( O M I T )
-					// RPGExpr.g:222:5: O M I T
+					// RPGExpr.g:229:3: ( O M I T )
+					// RPGExpr.g:229:5: O M I T
 					{
 					mO(); 
 
@@ -581,10 +583,10 @@ public class RPGExprLexer extends Lexer {
 					}
 					break;
 				case 10 :
-					// RPGExpr.g:224:3: ( N U L L )
+					// RPGExpr.g:231:3: ( N U L L )
 					{
-					// RPGExpr.g:224:3: ( N U L L )
-					// RPGExpr.g:224:5: N U L L
+					// RPGExpr.g:231:3: ( N U L L )
+					// RPGExpr.g:231:5: N U L L
 					{
 					mN(); 
 
@@ -599,10 +601,10 @@ public class RPGExprLexer extends Lexer {
 					}
 					break;
 				case 11 :
-					// RPGExpr.g:226:3: ( S T A T U S )
+					// RPGExpr.g:233:3: ( S T A T U S )
 					{
-					// RPGExpr.g:226:3: ( S T A T U S )
-					// RPGExpr.g:226:5: S T A T U S
+					// RPGExpr.g:233:3: ( S T A T U S )
+					// RPGExpr.g:233:5: S T A T U S
 					{
 					mS(); 
 
@@ -621,10 +623,10 @@ public class RPGExprLexer extends Lexer {
 					}
 					break;
 				case 12 :
-					// RPGExpr.g:228:3: ( P A R M S )
+					// RPGExpr.g:235:3: ( P A R M S )
 					{
-					// RPGExpr.g:228:3: ( P A R M S )
-					// RPGExpr.g:228:5: P A R M S
+					// RPGExpr.g:235:3: ( P A R M S )
+					// RPGExpr.g:235:5: P A R M S
 					{
 					mP(); 
 
@@ -641,10 +643,10 @@ public class RPGExprLexer extends Lexer {
 					}
 					break;
 				case 13 :
-					// RPGExpr.g:230:3: ( M S )
+					// RPGExpr.g:237:3: ( M S )
 					{
-					// RPGExpr.g:230:3: ( M S )
-					// RPGExpr.g:230:5: M S
+					// RPGExpr.g:237:3: ( M S )
+					// RPGExpr.g:237:5: M S
 					{
 					mM(); 
 
@@ -655,10 +657,10 @@ public class RPGExprLexer extends Lexer {
 					}
 					break;
 				case 14 :
-					// RPGExpr.g:232:3: ( N E X T )
+					// RPGExpr.g:239:3: ( N E X T )
 					{
-					// RPGExpr.g:232:3: ( N E X T )
-					// RPGExpr.g:232:5: N E X T
+					// RPGExpr.g:239:3: ( N E X T )
+					// RPGExpr.g:239:5: N E X T
 					{
 					mN(); 
 
@@ -688,7 +690,7 @@ public class RPGExprLexer extends Lexer {
 		try {
 			int _type = OR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:236:5: ( '||' | ( O R ) )
+			// RPGExpr.g:242:5: ( '||' | ( O R ) )
 			int alt2=2;
 			int LA2_0 = input.LA(1);
 			if ( (LA2_0=='|') ) {
@@ -706,17 +708,17 @@ public class RPGExprLexer extends Lexer {
 
 			switch (alt2) {
 				case 1 :
-					// RPGExpr.g:236:8: '||'
+					// RPGExpr.g:242:8: '||'
 					{
 					match("||"); 
 
 					}
 					break;
 				case 2 :
-					// RPGExpr.g:236:15: ( O R )
+					// RPGExpr.g:242:15: ( O R )
 					{
-					// RPGExpr.g:236:15: ( O R )
-					// RPGExpr.g:236:16: O R
+					// RPGExpr.g:242:15: ( O R )
+					// RPGExpr.g:242:16: O R
 					{
 					mO(); 
 
@@ -742,7 +744,7 @@ public class RPGExprLexer extends Lexer {
 		try {
 			int _type = AND;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:237:6: ( '&&' | ( A N D ) )
+			// RPGExpr.g:243:6: ( '&&' | ( A N D ) )
 			int alt3=2;
 			int LA3_0 = input.LA(1);
 			if ( (LA3_0=='&') ) {
@@ -760,17 +762,17 @@ public class RPGExprLexer extends Lexer {
 
 			switch (alt3) {
 				case 1 :
-					// RPGExpr.g:237:9: '&&'
+					// RPGExpr.g:243:9: '&&'
 					{
 					match("&&"); 
 
 					}
 					break;
 				case 2 :
-					// RPGExpr.g:237:16: ( A N D )
+					// RPGExpr.g:243:16: ( A N D )
 					{
-					// RPGExpr.g:237:16: ( A N D )
-					// RPGExpr.g:237:17: A N D
+					// RPGExpr.g:243:16: ( A N D )
+					// RPGExpr.g:243:17: A N D
 					{
 					mA(); 
 
@@ -798,7 +800,7 @@ public class RPGExprLexer extends Lexer {
 		try {
 			int _type = NOT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:238:5: ( '!' | ( N O T ) )
+			// RPGExpr.g:244:5: ( '!' | ( N O T ) )
 			int alt4=2;
 			int LA4_0 = input.LA(1);
 			if ( (LA4_0=='!') ) {
@@ -816,16 +818,16 @@ public class RPGExprLexer extends Lexer {
 
 			switch (alt4) {
 				case 1 :
-					// RPGExpr.g:238:7: '!'
+					// RPGExpr.g:244:7: '!'
 					{
 					match('!'); 
 					}
 					break;
 				case 2 :
-					// RPGExpr.g:238:14: ( N O T )
+					// RPGExpr.g:244:14: ( N O T )
 					{
-					// RPGExpr.g:238:14: ( N O T )
-					// RPGExpr.g:238:15: N O T
+					// RPGExpr.g:244:14: ( N O T )
+					// RPGExpr.g:244:15: N O T
 					{
 					mN(); 
 
@@ -853,7 +855,7 @@ public class RPGExprLexer extends Lexer {
 		try {
 			int _type = EQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:240:4: ( '=' | '==' )
+			// RPGExpr.g:246:4: ( '=' | '==' )
 			int alt5=2;
 			int LA5_0 = input.LA(1);
 			if ( (LA5_0=='=') ) {
@@ -876,13 +878,13 @@ public class RPGExprLexer extends Lexer {
 
 			switch (alt5) {
 				case 1 :
-					// RPGExpr.g:240:6: '='
+					// RPGExpr.g:246:6: '='
 					{
 					match('='); 
 					}
 					break;
 				case 2 :
-					// RPGExpr.g:240:13: '=='
+					// RPGExpr.g:246:13: '=='
 					{
 					match("=="); 
 
@@ -904,7 +906,7 @@ public class RPGExprLexer extends Lexer {
 		try {
 			int _type = NE;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:241:4: ( '!=' | '<>' )
+			// RPGExpr.g:247:4: ( '!=' | '<>' )
 			int alt6=2;
 			int LA6_0 = input.LA(1);
 			if ( (LA6_0=='!') ) {
@@ -922,14 +924,14 @@ public class RPGExprLexer extends Lexer {
 
 			switch (alt6) {
 				case 1 :
-					// RPGExpr.g:241:6: '!='
+					// RPGExpr.g:247:6: '!='
 					{
 					match("!="); 
 
 					}
 					break;
 				case 2 :
-					// RPGExpr.g:241:13: '<>'
+					// RPGExpr.g:247:13: '<>'
 					{
 					match("<>"); 
 
@@ -951,8 +953,8 @@ public class RPGExprLexer extends Lexer {
 		try {
 			int _type = LT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:242:4: ( '<' )
-			// RPGExpr.g:242:6: '<'
+			// RPGExpr.g:248:4: ( '<' )
+			// RPGExpr.g:248:6: '<'
 			{
 			match('<'); 
 			}
@@ -971,8 +973,8 @@ public class RPGExprLexer extends Lexer {
 		try {
 			int _type = LTEQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:243:6: ( '<=' )
-			// RPGExpr.g:243:8: '<='
+			// RPGExpr.g:249:6: ( '<=' )
+			// RPGExpr.g:249:8: '<='
 			{
 			match("<="); 
 
@@ -992,8 +994,8 @@ public class RPGExprLexer extends Lexer {
 		try {
 			int _type = GT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:244:4: ( '>' )
-			// RPGExpr.g:244:6: '>'
+			// RPGExpr.g:250:4: ( '>' )
+			// RPGExpr.g:250:6: '>'
 			{
 			match('>'); 
 			}
@@ -1012,8 +1014,8 @@ public class RPGExprLexer extends Lexer {
 		try {
 			int _type = GTEQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:245:6: ( '>=' )
-			// RPGExpr.g:245:8: '>='
+			// RPGExpr.g:251:6: ( '>=' )
+			// RPGExpr.g:251:8: '>='
 			{
 			match(">="); 
 
@@ -1033,8 +1035,8 @@ public class RPGExprLexer extends Lexer {
 		try {
 			int _type = PLUS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:247:6: ( '+' )
-			// RPGExpr.g:247:8: '+'
+			// RPGExpr.g:253:6: ( '+' )
+			// RPGExpr.g:253:8: '+'
 			{
 			match('+'); 
 			}
@@ -1053,8 +1055,8 @@ public class RPGExprLexer extends Lexer {
 		try {
 			int _type = MINUS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:248:7: ( '-' )
-			// RPGExpr.g:248:9: '-'
+			// RPGExpr.g:254:7: ( '-' )
+			// RPGExpr.g:254:9: '-'
 			{
 			match('-'); 
 			}
@@ -1073,8 +1075,8 @@ public class RPGExprLexer extends Lexer {
 		try {
 			int _type = MULT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:249:6: ( '*' )
-			// RPGExpr.g:249:8: '*'
+			// RPGExpr.g:255:6: ( '*' )
+			// RPGExpr.g:255:8: '*'
 			{
 			match('*'); 
 			}
@@ -1093,8 +1095,8 @@ public class RPGExprLexer extends Lexer {
 		try {
 			int _type = DIV;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:250:5: ( '/' )
-			// RPGExpr.g:250:7: '/'
+			// RPGExpr.g:256:5: ( '/' )
+			// RPGExpr.g:256:7: '/'
 			{
 			match('/'); 
 			}
@@ -1113,8 +1115,8 @@ public class RPGExprLexer extends Lexer {
 		try {
 			int _type = MOD;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:251:5: ( '%' )
-			// RPGExpr.g:251:7: '%'
+			// RPGExpr.g:257:5: ( '%' )
+			// RPGExpr.g:257:7: '%'
 			{
 			match('%'); 
 			}
@@ -1128,55 +1130,13 @@ public class RPGExprLexer extends Lexer {
 	}
 	// $ANTLR end "MOD"
 
-	// $ANTLR start "POW"
-	public final void mPOW() throws RecognitionException {
-		try {
-			int _type = POW;
-			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:252:5: ( '**' )
-			// RPGExpr.g:252:7: '**'
-			{
-			match("**"); 
-
-			}
-
-			state.type = _type;
-			state.channel = _channel;
-		}
-		finally {
-			// do for sure before leaving
-		}
-	}
-	// $ANTLR end "POW"
-
-	// $ANTLR start "FILLER"
-	public final void mFILLER() throws RecognitionException {
-		try {
-			int _type = FILLER;
-			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:254:8: ( '*ALL' )
-			// RPGExpr.g:254:10: '*ALL'
-			{
-			match("*ALL"); 
-
-			}
-
-			state.type = _type;
-			state.channel = _channel;
-		}
-		finally {
-			// do for sure before leaving
-		}
-	}
-	// $ANTLR end "FILLER"
-
 	// $ANTLR start "BI_FUN"
 	public final void mBI_FUN() throws RecognitionException {
 		try {
 			int _type = BI_FUN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:257:9: ( '%' TERM )
-			// RPGExpr.g:257:11: '%' TERM
+			// RPGExpr.g:261:9: ( '%' TERM )
+			// RPGExpr.g:261:11: '%' TERM
 			{
 			match('%'); 
 			mTERM(); 
@@ -1192,36 +1152,210 @@ public class RPGExprLexer extends Lexer {
 	}
 	// $ANTLR end "BI_FUN"
 
-	// $ANTLR start "INDICATOR"
-	public final void mINDICATOR() throws RecognitionException {
+	// $ANTLR start "IN"
+	public final void mIN() throws RecognitionException {
 		try {
-			int _type = INDICATOR;
+			int _type = IN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:260:11: ( ( '*' I N ( LETTER | DIGIT )* ) )
-			// RPGExpr.g:260:13: ( '*' I N ( LETTER | DIGIT )* )
+			// RPGExpr.g:276:5: ( MULT I N )
+			// RPGExpr.g:277:2: MULT I N
 			{
-			// RPGExpr.g:260:13: ( '*' I N ( LETTER | DIGIT )* )
-			// RPGExpr.g:260:14: '*' I N ( LETTER | DIGIT )*
-			{
-			match('*'); 
+			mMULT(); 
+
 			mI(); 
 
 			mN(); 
 
-			// RPGExpr.g:260:22: ( LETTER | DIGIT )*
-			loop7:
-			while (true) {
-				int alt7=2;
-				int LA7_0 = input.LA(1);
-				if ( (LA7_0=='$'||(LA7_0 >= '0' && LA7_0 <= '9')||(LA7_0 >= 'A' && LA7_0 <= 'Z')||LA7_0=='_'||(LA7_0 >= 'a' && LA7_0 <= 'z')||LA7_0=='\u00A3'||LA7_0=='\u00A7') ) {
-					alt7=1;
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "IN"
+
+	// $ANTLR start "INNR"
+	public final void mINNR() throws RecognitionException {
+		try {
+			int _type = INNR;
+			int _channel = DEFAULT_TOKEN_CHANNEL;
+			// RPGExpr.g:280:6: ( MULT I N ( '0' .. '9' ) ( '0' .. '9' ) )
+			// RPGExpr.g:281:2: MULT I N ( '0' .. '9' ) ( '0' .. '9' )
+			{
+			mMULT(); 
+
+			mI(); 
+
+			mN(); 
+
+			if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
+				input.consume();
+			}
+			else {
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				recover(mse);
+				throw mse;
+			}
+			if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
+				input.consume();
+			}
+			else {
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				recover(mse);
+				throw mse;
+			}
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "INNR"
+
+	// $ANTLR start "INNU"
+	public final void mINNU() throws RecognitionException {
+		try {
+			int _type = INNU;
+			int _channel = DEFAULT_TOKEN_CHANNEL;
+			// RPGExpr.g:284:6: (| MULT I N U ( '1' .. '8' ) | MULT I N H ( '1' .. '8' ) | MULT I N M R | MULT I N O ( A | G | V | F ) | MULT I N L ( '1' .. '9' ) | MULT I N L R | MULT I N R T )
+			int alt7=8;
+			int LA7_0 = input.LA(1);
+			if ( (LA7_0=='*') ) {
+				int LA7_2 = input.LA(2);
+				if ( (LA7_2=='I'||LA7_2=='i') ) {
+					int LA7_3 = input.LA(3);
+					if ( (LA7_3=='N'||LA7_3=='n') ) {
+						switch ( input.LA(4) ) {
+						case 'U':
+						case 'u':
+							{
+							alt7=2;
+							}
+							break;
+						case 'H':
+						case 'h':
+							{
+							alt7=3;
+							}
+							break;
+						case 'M':
+						case 'm':
+							{
+							alt7=4;
+							}
+							break;
+						case 'O':
+						case 'o':
+							{
+							alt7=5;
+							}
+							break;
+						case 'L':
+						case 'l':
+							{
+							int LA7_9 = input.LA(5);
+							if ( ((LA7_9 >= '1' && LA7_9 <= '9')) ) {
+								alt7=6;
+							}
+							else if ( (LA7_9=='R'||LA7_9=='r') ) {
+								alt7=7;
+							}
+
+							else {
+								int nvaeMark = input.mark();
+								try {
+									for (int nvaeConsume = 0; nvaeConsume < 5 - 1; nvaeConsume++) {
+										input.consume();
+									}
+									NoViableAltException nvae =
+										new NoViableAltException("", 7, 9, input);
+									throw nvae;
+								} finally {
+									input.rewind(nvaeMark);
+								}
+							}
+
+							}
+							break;
+						case 'R':
+						case 'r':
+							{
+							alt7=8;
+							}
+							break;
+						default:
+							int nvaeMark = input.mark();
+							try {
+								for (int nvaeConsume = 0; nvaeConsume < 4 - 1; nvaeConsume++) {
+									input.consume();
+								}
+								NoViableAltException nvae =
+									new NoViableAltException("", 7, 4, input);
+								throw nvae;
+							} finally {
+								input.rewind(nvaeMark);
+							}
+						}
+					}
+
+					else {
+						int nvaeMark = input.mark();
+						try {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
+								input.consume();
+							}
+							NoViableAltException nvae =
+								new NoViableAltException("", 7, 3, input);
+							throw nvae;
+						} finally {
+							input.rewind(nvaeMark);
+						}
+					}
+
 				}
 
-				switch (alt7) {
+				else {
+					int nvaeMark = input.mark();
+					try {
+						input.consume();
+						NoViableAltException nvae =
+							new NoViableAltException("", 7, 2, input);
+						throw nvae;
+					} finally {
+						input.rewind(nvaeMark);
+					}
+				}
+
+			}
+
+			else {
+				alt7=1;
+			}
+
+			switch (alt7) {
 				case 1 :
-					// RPGExpr.g:
+					// RPGExpr.g:285:2: 
 					{
-					if ( input.LA(1)=='$'||(input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z')||input.LA(1)=='\u00A3'||input.LA(1)=='\u00A7' ) {
+					}
+					break;
+				case 2 :
+					// RPGExpr.g:286:2: MULT I N U ( '1' .. '8' )
+					{
+					mMULT(); 
+
+					mI(); 
+
+					mN(); 
+
+					mU(); 
+
+					if ( (input.LA(1) >= '1' && input.LA(1) <= '8') ) {
 						input.consume();
 					}
 					else {
@@ -1231,16 +1365,116 @@ public class RPGExprLexer extends Lexer {
 					}
 					}
 					break;
+				case 3 :
+					// RPGExpr.g:288:2: MULT I N H ( '1' .. '8' )
+					{
+					mMULT(); 
 
-				default :
-					break loop7;
-				}
+					mI(); 
+
+					mN(); 
+
+					mH(); 
+
+					if ( (input.LA(1) >= '1' && input.LA(1) <= '8') ) {
+						input.consume();
+					}
+					else {
+						MismatchedSetException mse = new MismatchedSetException(null,input);
+						recover(mse);
+						throw mse;
+					}
+					}
+					break;
+				case 4 :
+					// RPGExpr.g:290:2: MULT I N M R
+					{
+					mMULT(); 
+
+					mI(); 
+
+					mN(); 
+
+					mM(); 
+
+					mR(); 
+
+					}
+					break;
+				case 5 :
+					// RPGExpr.g:292:2: MULT I N O ( A | G | V | F )
+					{
+					mMULT(); 
+
+					mI(); 
+
+					mN(); 
+
+					mO(); 
+
+					if ( input.LA(1)=='A'||(input.LA(1) >= 'F' && input.LA(1) <= 'G')||input.LA(1)=='V'||input.LA(1)=='a'||(input.LA(1) >= 'f' && input.LA(1) <= 'g')||input.LA(1)=='v' ) {
+						input.consume();
+					}
+					else {
+						MismatchedSetException mse = new MismatchedSetException(null,input);
+						recover(mse);
+						throw mse;
+					}
+					}
+					break;
+				case 6 :
+					// RPGExpr.g:294:2: MULT I N L ( '1' .. '9' )
+					{
+					mMULT(); 
+
+					mI(); 
+
+					mN(); 
+
+					mL(); 
+
+					if ( (input.LA(1) >= '1' && input.LA(1) <= '9') ) {
+						input.consume();
+					}
+					else {
+						MismatchedSetException mse = new MismatchedSetException(null,input);
+						recover(mse);
+						throw mse;
+					}
+					}
+					break;
+				case 7 :
+					// RPGExpr.g:296:2: MULT I N L R
+					{
+					mMULT(); 
+
+					mI(); 
+
+					mN(); 
+
+					mL(); 
+
+					mR(); 
+
+					}
+					break;
+				case 8 :
+					// RPGExpr.g:298:2: MULT I N R T
+					{
+					mMULT(); 
+
+					mI(); 
+
+					mN(); 
+
+					mR(); 
+
+					mT(); 
+
+					}
+					break;
+
 			}
-
-			}
-
-			}
-
 			state.type = _type;
 			state.channel = _channel;
 		}
@@ -1248,17 +1482,21 @@ public class RPGExprLexer extends Lexer {
 			// do for sure before leaving
 		}
 	}
-	// $ANTLR end "INDICATOR"
+	// $ANTLR end "INNU"
 
-	// $ANTLR start "ARRAY_INDICATOR"
-	public final void mARRAY_INDICATOR() throws RecognitionException {
+	// $ANTLR start "ALL"
+	public final void mALL() throws RecognitionException {
 		try {
-			int _type = ARRAY_INDICATOR;
+			int _type = ALL;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:263:17: ( '*IN(' )
-			// RPGExpr.g:263:19: '*IN('
+			// RPGExpr.g:302:5: ( A L L )
+			// RPGExpr.g:303:2: A L L
 			{
-			match("*IN("); 
+			mA(); 
+
+			mL(); 
+
+			mL(); 
 
 			}
 
@@ -1269,17 +1507,17 @@ public class RPGExprLexer extends Lexer {
 			// do for sure before leaving
 		}
 	}
-	// $ANTLR end "ARRAY_INDICATOR"
+	// $ANTLR end "ALL"
 
 	// $ANTLR start "HEX"
 	public final void mHEX() throws RecognitionException {
 		try {
 			int _type = HEX;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:266:5: ( ( 'X\\'' | 'x\\'' ) ( HexDigit )+ '\\'' )
-			// RPGExpr.g:266:9: ( 'X\\'' | 'x\\'' ) ( HexDigit )+ '\\''
+			// RPGExpr.g:307:5: ( ( 'X\\'' | 'x\\'' ) ( HexDigit )+ '\\'' )
+			// RPGExpr.g:307:9: ( 'X\\'' | 'x\\'' ) ( HexDigit )+ '\\''
 			{
-			// RPGExpr.g:266:9: ( 'X\\'' | 'x\\'' )
+			// RPGExpr.g:307:9: ( 'X\\'' | 'x\\'' )
 			int alt8=2;
 			int LA8_0 = input.LA(1);
 			if ( (LA8_0=='X') ) {
@@ -1297,14 +1535,14 @@ public class RPGExprLexer extends Lexer {
 
 			switch (alt8) {
 				case 1 :
-					// RPGExpr.g:266:10: 'X\\''
+					// RPGExpr.g:307:10: 'X\\''
 					{
 					match("X'"); 
 
 					}
 					break;
 				case 2 :
-					// RPGExpr.g:266:16: 'x\\''
+					// RPGExpr.g:307:16: 'x\\''
 					{
 					match("x'"); 
 
@@ -1313,7 +1551,7 @@ public class RPGExprLexer extends Lexer {
 
 			}
 
-			// RPGExpr.g:266:23: ( HexDigit )+
+			// RPGExpr.g:307:23: ( HexDigit )+
 			int cnt9=0;
 			loop9:
 			while (true) {
@@ -1365,12 +1603,12 @@ public class RPGExprLexer extends Lexer {
 			int _channel = DEFAULT_TOKEN_CHANNEL;
 			int c;
 
-			// RPGExpr.g:270:2: ( '\\'' ( '\\'' '\\'' |c=~ ( '\\'' | '\\r' | '\\n' ) )* '\\'' )
-			// RPGExpr.g:270:4: '\\'' ( '\\'' '\\'' |c=~ ( '\\'' | '\\r' | '\\n' ) )* '\\''
+			// RPGExpr.g:313:2: ( '\\'' ( '\\'' '\\'' |c=~ ( '\\'' | '\\r' | '\\n' ) )* '\\'' )
+			// RPGExpr.g:313:4: '\\'' ( '\\'' '\\'' |c=~ ( '\\'' | '\\r' | '\\n' ) )* '\\''
 			{
 			match('\''); 
 			 StringBuilder b = new StringBuilder(); 
-			// RPGExpr.g:272:2: ( '\\'' '\\'' |c=~ ( '\\'' | '\\r' | '\\n' ) )*
+			// RPGExpr.g:315:2: ( '\\'' '\\'' |c=~ ( '\\'' | '\\r' | '\\n' ) )*
 			loop10:
 			while (true) {
 				int alt10=3;
@@ -1388,7 +1626,7 @@ public class RPGExprLexer extends Lexer {
 
 				switch (alt10) {
 				case 1 :
-					// RPGExpr.g:272:4: '\\'' '\\''
+					// RPGExpr.g:315:4: '\\'' '\\''
 					{
 					match('\''); 
 					match('\''); 
@@ -1396,7 +1634,7 @@ public class RPGExprLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// RPGExpr.g:273:4: c=~ ( '\\'' | '\\r' | '\\n' )
+					// RPGExpr.g:316:4: c=~ ( '\\'' | '\\r' | '\\n' )
 					{
 					c= input.LA(1);
 					if ( (input.LA(1) >= '\u0000' && input.LA(1) <= '\t')||(input.LA(1) >= '\u000B' && input.LA(1) <= '\f')||(input.LA(1) >= '\u000E' && input.LA(1) <= '&')||(input.LA(1) >= '(' && input.LA(1) <= '\uFFFF') ) {
@@ -1434,10 +1672,10 @@ public class RPGExprLexer extends Lexer {
 		try {
 			int _type = INTEGER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:280:2: ( ( '0' .. '9' )+ )
-			// RPGExpr.g:280:4: ( '0' .. '9' )+
+			// RPGExpr.g:325:2: ( ( '0' .. '9' )+ )
+			// RPGExpr.g:325:4: ( '0' .. '9' )+
 			{
-			// RPGExpr.g:280:4: ( '0' .. '9' )+
+			// RPGExpr.g:325:4: ( '0' .. '9' )+
 			int cnt11=0;
 			loop11:
 			while (true) {
@@ -1486,10 +1724,10 @@ public class RPGExprLexer extends Lexer {
 		try {
 			int _type = FLOAT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:284:2: ( ( '0' .. '9' )* DIGIT_SPECIAL ( '0' .. '9' )+ )
-			// RPGExpr.g:284:4: ( '0' .. '9' )* DIGIT_SPECIAL ( '0' .. '9' )+
+			// RPGExpr.g:329:2: ( ( '0' .. '9' )* DIGIT_SPECIAL ( '0' .. '9' )+ )
+			// RPGExpr.g:329:4: ( '0' .. '9' )* DIGIT_SPECIAL ( '0' .. '9' )+
 			{
-			// RPGExpr.g:284:4: ( '0' .. '9' )*
+			// RPGExpr.g:329:4: ( '0' .. '9' )*
 			loop12:
 			while (true) {
 				int alt12=2;
@@ -1520,7 +1758,7 @@ public class RPGExprLexer extends Lexer {
 
 			mDIGIT_SPECIAL(); 
 
-			// RPGExpr.g:284:30: ( '0' .. '9' )+
+			// RPGExpr.g:329:30: ( '0' .. '9' )+
 			int cnt13=0;
 			loop13:
 			while (true) {
@@ -1569,11 +1807,11 @@ public class RPGExprLexer extends Lexer {
 		try {
 			int _type = DATETIME;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:288:3: ( '#' (~ '#' )* '#' )
-			// RPGExpr.g:288:5: '#' (~ '#' )* '#'
+			// RPGExpr.g:333:3: ( '#' (~ '#' )* '#' )
+			// RPGExpr.g:333:5: '#' (~ '#' )* '#'
 			{
 			match('#'); 
-			// RPGExpr.g:288:9: (~ '#' )*
+			// RPGExpr.g:333:9: (~ '#' )*
 			loop14:
 			while (true) {
 				int alt14=2;
@@ -1619,7 +1857,7 @@ public class RPGExprLexer extends Lexer {
 		try {
 			int _type = BOOLEAN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:292:2: ( ( T R U E ) | ( F A L S E ) )
+			// RPGExpr.g:337:2: ( ( T R U E ) | ( F A L S E ) )
 			int alt15=2;
 			int LA15_0 = input.LA(1);
 			if ( (LA15_0=='T'||LA15_0=='t') ) {
@@ -1637,10 +1875,10 @@ public class RPGExprLexer extends Lexer {
 
 			switch (alt15) {
 				case 1 :
-					// RPGExpr.g:292:4: ( T R U E )
+					// RPGExpr.g:337:4: ( T R U E )
 					{
-					// RPGExpr.g:292:4: ( T R U E )
-					// RPGExpr.g:292:5: T R U E
+					// RPGExpr.g:337:4: ( T R U E )
+					// RPGExpr.g:337:5: T R U E
 					{
 					mT(); 
 
@@ -1655,10 +1893,10 @@ public class RPGExprLexer extends Lexer {
 					}
 					break;
 				case 2 :
-					// RPGExpr.g:293:4: ( F A L S E )
+					// RPGExpr.g:338:4: ( F A L S E )
 					{
-					// RPGExpr.g:293:4: ( F A L S E )
-					// RPGExpr.g:293:5: F A L S E
+					// RPGExpr.g:338:4: ( F A L S E )
+					// RPGExpr.g:338:5: F A L S E
 					{
 					mF(); 
 
@@ -1690,12 +1928,12 @@ public class RPGExprLexer extends Lexer {
 		try {
 			int _type = TERM;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:297:2: ( LETTER ( LETTER | DIGIT )* )
-			// RPGExpr.g:297:4: LETTER ( LETTER | DIGIT )*
+			// RPGExpr.g:343:2: ( LETTER ( LETTER | DIGIT )* )
+			// RPGExpr.g:343:4: LETTER ( LETTER | DIGIT )*
 			{
 			mLETTER(); 
 
-			// RPGExpr.g:297:11: ( LETTER | DIGIT )*
+			// RPGExpr.g:343:11: ( LETTER | DIGIT )*
 			loop16:
 			while (true) {
 				int alt16=2;
@@ -1740,8 +1978,8 @@ public class RPGExprLexer extends Lexer {
 		try {
 			int _type = POINT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:301:3: ( '.' )
-			// RPGExpr.g:301:5: '.'
+			// RPGExpr.g:347:3: ( '.' )
+			// RPGExpr.g:347:5: '.'
 			{
 			match('.'); 
 			}
@@ -1758,7 +1996,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "DIGIT"
 	public final void mDIGIT() throws RecognitionException {
 		try {
-			// RPGExpr.g:305:3: ( ( '0' .. '9' ) )
+			// RPGExpr.g:351:3: ( ( '0' .. '9' ) )
 			// RPGExpr.g:
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
@@ -1781,7 +2019,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "CHAR_SPECIAL"
 	public final void mCHAR_SPECIAL() throws RecognitionException {
 		try {
-			// RPGExpr.g:309:3: ( ( '\\u00A3' | '\\u00A7' | '$' | '_' ) )
+			// RPGExpr.g:355:3: ( ( '\\u00A3' | '\\u00A7' | '$' | '_' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='$'||input.LA(1)=='_'||input.LA(1)=='\u00A3'||input.LA(1)=='\u00A7' ) {
@@ -1804,7 +2042,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "LETTER"
 	public final void mLETTER() throws RecognitionException {
 		try {
-			// RPGExpr.g:313:3: ( ( 'a' .. 'z' | 'A' .. 'Z' | CHAR_SPECIAL ) )
+			// RPGExpr.g:359:3: ( ( 'a' .. 'z' | 'A' .. 'Z' | CHAR_SPECIAL ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='$'||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z')||input.LA(1)=='\u00A3'||input.LA(1)=='\u00A7' ) {
@@ -1827,11 +2065,11 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "EscapeSequence"
 	public final void mEscapeSequence() throws RecognitionException {
 		try {
-			// RPGExpr.g:318:2: ( '\\\\' ( 'n' | 'r' | 't' | '\\'' | '\\\\' | UnicodeEscape ) )
-			// RPGExpr.g:318:4: '\\\\' ( 'n' | 'r' | 't' | '\\'' | '\\\\' | UnicodeEscape )
+			// RPGExpr.g:364:2: ( '\\\\' ( 'n' | 'r' | 't' | '\\'' | '\\\\' | UnicodeEscape ) )
+			// RPGExpr.g:364:4: '\\\\' ( 'n' | 'r' | 't' | '\\'' | '\\\\' | UnicodeEscape )
 			{
 			match('\\'); 
-			// RPGExpr.g:319:4: ( 'n' | 'r' | 't' | '\\'' | '\\\\' | UnicodeEscape )
+			// RPGExpr.g:365:4: ( 'n' | 'r' | 't' | '\\'' | '\\\\' | UnicodeEscape )
 			int alt17=6;
 			switch ( input.LA(1) ) {
 			case 'n':
@@ -1871,37 +2109,37 @@ public class RPGExprLexer extends Lexer {
 			}
 			switch (alt17) {
 				case 1 :
-					// RPGExpr.g:320:5: 'n'
+					// RPGExpr.g:366:5: 'n'
 					{
 					match('n'); 
 					}
 					break;
 				case 2 :
-					// RPGExpr.g:321:4: 'r'
+					// RPGExpr.g:367:4: 'r'
 					{
 					match('r'); 
 					}
 					break;
 				case 3 :
-					// RPGExpr.g:322:4: 't'
+					// RPGExpr.g:368:4: 't'
 					{
 					match('t'); 
 					}
 					break;
 				case 4 :
-					// RPGExpr.g:323:4: '\\''
+					// RPGExpr.g:369:4: '\\''
 					{
 					match('\''); 
 					}
 					break;
 				case 5 :
-					// RPGExpr.g:324:4: '\\\\'
+					// RPGExpr.g:370:4: '\\\\'
 					{
 					match('\\'); 
 					}
 					break;
 				case 6 :
-					// RPGExpr.g:325:4: UnicodeEscape
+					// RPGExpr.g:371:4: UnicodeEscape
 					{
 					mUnicodeEscape(); 
 
@@ -1922,8 +2160,8 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "UnicodeEscape"
 	public final void mUnicodeEscape() throws RecognitionException {
 		try {
-			// RPGExpr.g:330:6: ( 'u' HexDigit HexDigit HexDigit HexDigit )
-			// RPGExpr.g:330:12: 'u' HexDigit HexDigit HexDigit HexDigit
+			// RPGExpr.g:376:6: ( 'u' HexDigit HexDigit HexDigit HexDigit )
+			// RPGExpr.g:376:12: 'u' HexDigit HexDigit HexDigit HexDigit
 			{
 			match('u'); 
 			mHexDigit(); 
@@ -1946,7 +2184,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "HexDigit"
 	public final void mHexDigit() throws RecognitionException {
 		try {
-			// RPGExpr.g:334:2: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
+			// RPGExpr.g:380:2: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
 			// RPGExpr.g:
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'F')||(input.LA(1) >= 'a' && input.LA(1) <= 'f') ) {
@@ -1969,7 +2207,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "DIGIT_SPECIAL"
 	public final void mDIGIT_SPECIAL() throws RecognitionException {
 		try {
-			// RPGExpr.g:337:3: ( ( ',' | '.' ) )
+			// RPGExpr.g:383:3: ( ( ',' | '.' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)==','||input.LA(1)=='.' ) {
@@ -1992,7 +2230,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "A"
 	public final void mA() throws RecognitionException {
 		try {
-			// RPGExpr.g:342:11: ( ( 'a' | 'A' ) )
+			// RPGExpr.g:388:11: ( ( 'a' | 'A' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='A'||input.LA(1)=='a' ) {
@@ -2015,7 +2253,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "B"
 	public final void mB() throws RecognitionException {
 		try {
-			// RPGExpr.g:343:11: ( ( 'b' | 'B' ) )
+			// RPGExpr.g:389:11: ( ( 'b' | 'B' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='B'||input.LA(1)=='b' ) {
@@ -2038,7 +2276,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "C"
 	public final void mC() throws RecognitionException {
 		try {
-			// RPGExpr.g:344:11: ( ( 'c' | 'C' ) )
+			// RPGExpr.g:390:11: ( ( 'c' | 'C' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='C'||input.LA(1)=='c' ) {
@@ -2061,7 +2299,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "D"
 	public final void mD() throws RecognitionException {
 		try {
-			// RPGExpr.g:345:11: ( ( 'd' | 'D' ) )
+			// RPGExpr.g:391:11: ( ( 'd' | 'D' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='D'||input.LA(1)=='d' ) {
@@ -2084,7 +2322,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "E"
 	public final void mE() throws RecognitionException {
 		try {
-			// RPGExpr.g:346:11: ( ( 'e' | 'E' ) )
+			// RPGExpr.g:392:11: ( ( 'e' | 'E' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
@@ -2107,7 +2345,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "F"
 	public final void mF() throws RecognitionException {
 		try {
-			// RPGExpr.g:347:11: ( ( 'f' | 'F' ) )
+			// RPGExpr.g:393:11: ( ( 'f' | 'F' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='F'||input.LA(1)=='f' ) {
@@ -2130,7 +2368,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "G"
 	public final void mG() throws RecognitionException {
 		try {
-			// RPGExpr.g:348:11: ( ( 'g' | 'G' ) )
+			// RPGExpr.g:394:11: ( ( 'g' | 'G' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='G'||input.LA(1)=='g' ) {
@@ -2153,7 +2391,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "H"
 	public final void mH() throws RecognitionException {
 		try {
-			// RPGExpr.g:349:11: ( ( 'h' | 'H' ) )
+			// RPGExpr.g:395:11: ( ( 'h' | 'H' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='H'||input.LA(1)=='h' ) {
@@ -2176,7 +2414,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "I"
 	public final void mI() throws RecognitionException {
 		try {
-			// RPGExpr.g:350:11: ( ( 'i' | 'I' ) )
+			// RPGExpr.g:396:11: ( ( 'i' | 'I' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='I'||input.LA(1)=='i' ) {
@@ -2199,7 +2437,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "J"
 	public final void mJ() throws RecognitionException {
 		try {
-			// RPGExpr.g:351:11: ( ( 'j' | 'J' ) )
+			// RPGExpr.g:397:11: ( ( 'j' | 'J' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='J'||input.LA(1)=='j' ) {
@@ -2222,7 +2460,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "K"
 	public final void mK() throws RecognitionException {
 		try {
-			// RPGExpr.g:352:11: ( ( 'k' | 'K' ) )
+			// RPGExpr.g:398:11: ( ( 'k' | 'K' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='K'||input.LA(1)=='k' ) {
@@ -2245,7 +2483,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "L"
 	public final void mL() throws RecognitionException {
 		try {
-			// RPGExpr.g:353:11: ( ( 'l' | 'L' ) )
+			// RPGExpr.g:399:11: ( ( 'l' | 'L' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
@@ -2268,7 +2506,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "M"
 	public final void mM() throws RecognitionException {
 		try {
-			// RPGExpr.g:354:11: ( ( 'm' | 'M' ) )
+			// RPGExpr.g:400:11: ( ( 'm' | 'M' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='M'||input.LA(1)=='m' ) {
@@ -2291,7 +2529,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "N"
 	public final void mN() throws RecognitionException {
 		try {
-			// RPGExpr.g:355:11: ( ( 'n' | 'N' ) )
+			// RPGExpr.g:401:11: ( ( 'n' | 'N' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='N'||input.LA(1)=='n' ) {
@@ -2314,7 +2552,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "O"
 	public final void mO() throws RecognitionException {
 		try {
-			// RPGExpr.g:356:11: ( ( 'o' | 'O' ) )
+			// RPGExpr.g:402:11: ( ( 'o' | 'O' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='O'||input.LA(1)=='o' ) {
@@ -2337,7 +2575,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "P"
 	public final void mP() throws RecognitionException {
 		try {
-			// RPGExpr.g:357:11: ( ( 'p' | 'P' ) )
+			// RPGExpr.g:403:11: ( ( 'p' | 'P' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='P'||input.LA(1)=='p' ) {
@@ -2360,7 +2598,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "Q"
 	public final void mQ() throws RecognitionException {
 		try {
-			// RPGExpr.g:358:11: ( ( 'q' | 'Q' ) )
+			// RPGExpr.g:404:11: ( ( 'q' | 'Q' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='Q'||input.LA(1)=='q' ) {
@@ -2383,7 +2621,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "R"
 	public final void mR() throws RecognitionException {
 		try {
-			// RPGExpr.g:359:11: ( ( 'r' | 'R' ) )
+			// RPGExpr.g:405:11: ( ( 'r' | 'R' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='R'||input.LA(1)=='r' ) {
@@ -2406,7 +2644,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "S"
 	public final void mS() throws RecognitionException {
 		try {
-			// RPGExpr.g:360:11: ( ( 's' | 'S' ) )
+			// RPGExpr.g:406:11: ( ( 's' | 'S' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='S'||input.LA(1)=='s' ) {
@@ -2429,7 +2667,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "T"
 	public final void mT() throws RecognitionException {
 		try {
-			// RPGExpr.g:361:11: ( ( 't' | 'T' ) )
+			// RPGExpr.g:407:11: ( ( 't' | 'T' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='T'||input.LA(1)=='t' ) {
@@ -2452,7 +2690,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "U"
 	public final void mU() throws RecognitionException {
 		try {
-			// RPGExpr.g:362:11: ( ( 'u' | 'U' ) )
+			// RPGExpr.g:408:11: ( ( 'u' | 'U' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='U'||input.LA(1)=='u' ) {
@@ -2475,7 +2713,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "V"
 	public final void mV() throws RecognitionException {
 		try {
-			// RPGExpr.g:363:11: ( ( 'v' | 'V' ) )
+			// RPGExpr.g:409:11: ( ( 'v' | 'V' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='V'||input.LA(1)=='v' ) {
@@ -2498,7 +2736,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "W"
 	public final void mW() throws RecognitionException {
 		try {
-			// RPGExpr.g:364:11: ( ( 'w' | 'W' ) )
+			// RPGExpr.g:410:11: ( ( 'w' | 'W' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='W'||input.LA(1)=='w' ) {
@@ -2521,7 +2759,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "X"
 	public final void mX() throws RecognitionException {
 		try {
-			// RPGExpr.g:365:11: ( ( 'x' | 'X' ) )
+			// RPGExpr.g:411:11: ( ( 'x' | 'X' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='X'||input.LA(1)=='x' ) {
@@ -2544,7 +2782,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "Y"
 	public final void mY() throws RecognitionException {
 		try {
-			// RPGExpr.g:366:11: ( ( 'y' | 'Y' ) )
+			// RPGExpr.g:412:11: ( ( 'y' | 'Y' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='Y'||input.LA(1)=='y' ) {
@@ -2567,7 +2805,7 @@ public class RPGExprLexer extends Lexer {
 	// $ANTLR start "Z"
 	public final void mZ() throws RecognitionException {
 		try {
-			// RPGExpr.g:367:11: ( ( 'z' | 'Z' ) )
+			// RPGExpr.g:413:11: ( ( 'z' | 'Z' ) )
 			// RPGExpr.g:
 			{
 			if ( input.LA(1)=='Z'||input.LA(1)=='z' ) {
@@ -2592,8 +2830,8 @@ public class RPGExprLexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// RPGExpr.g:373:2: ( ( ' ' | '\\t' | '\\u000C' | '\\n' | '\\r' ) )
-			// RPGExpr.g:373:5: ( ' ' | '\\t' | '\\u000C' | '\\n' | '\\r' )
+			// RPGExpr.g:419:2: ( ( ' ' | '\\t' | '\\u000C' | '\\n' | '\\r' ) )
+			// RPGExpr.g:419:5: ( ' ' | '\\t' | '\\u000C' | '\\n' | '\\r' )
 			{
 			if ( (input.LA(1) >= '\t' && input.LA(1) <= '\n')||(input.LA(1) >= '\f' && input.LA(1) <= '\r')||input.LA(1)==' ' ) {
 				input.consume();
@@ -2617,28 +2855,28 @@ public class RPGExprLexer extends Lexer {
 
 	@Override
 	public void mTokens() throws RecognitionException {
-		// RPGExpr.g:1:8: ( T__72 | T__73 | T__74 | SPECIAL | OR | AND | NOT | EQ | NE | LT | LTEQ | GT | GTEQ | PLUS | MINUS | MULT | DIV | MOD | POW | FILLER | BI_FUN | INDICATOR | ARRAY_INDICATOR | HEX | STRING | INTEGER | FLOAT | DATETIME | BOOLEAN | TERM | POINT | WS )
+		// RPGExpr.g:1:8: ( T__74 | T__75 | T__76 | SPECIAL | OR | AND | NOT | EQ | NE | LT | LTEQ | GT | GTEQ | PLUS | MINUS | MULT | DIV | MOD | BI_FUN | IN | INNR | INNU | ALL | HEX | STRING | INTEGER | FLOAT | DATETIME | BOOLEAN | TERM | POINT | WS )
 		int alt18=32;
 		alt18 = dfa18.predict(input);
 		switch (alt18) {
 			case 1 :
-				// RPGExpr.g:1:10: T__72
+				// RPGExpr.g:1:10: T__74
 				{
-				mT__72(); 
+				mT__74(); 
 
 				}
 				break;
 			case 2 :
-				// RPGExpr.g:1:16: T__73
+				// RPGExpr.g:1:16: T__75
 				{
-				mT__73(); 
+				mT__75(); 
 
 				}
 				break;
 			case 3 :
-				// RPGExpr.g:1:22: T__74
+				// RPGExpr.g:1:22: T__76
 				{
-				mT__74(); 
+				mT__76(); 
 
 				}
 				break;
@@ -2748,98 +2986,98 @@ public class RPGExprLexer extends Lexer {
 				}
 				break;
 			case 19 :
-				// RPGExpr.g:1:93: POW
-				{
-				mPOW(); 
-
-				}
-				break;
-			case 20 :
-				// RPGExpr.g:1:97: FILLER
-				{
-				mFILLER(); 
-
-				}
-				break;
-			case 21 :
-				// RPGExpr.g:1:104: BI_FUN
+				// RPGExpr.g:1:93: BI_FUN
 				{
 				mBI_FUN(); 
 
 				}
 				break;
-			case 22 :
-				// RPGExpr.g:1:111: INDICATOR
+			case 20 :
+				// RPGExpr.g:1:100: IN
 				{
-				mINDICATOR(); 
+				mIN(); 
+
+				}
+				break;
+			case 21 :
+				// RPGExpr.g:1:103: INNR
+				{
+				mINNR(); 
+
+				}
+				break;
+			case 22 :
+				// RPGExpr.g:1:108: INNU
+				{
+				mINNU(); 
 
 				}
 				break;
 			case 23 :
-				// RPGExpr.g:1:121: ARRAY_INDICATOR
+				// RPGExpr.g:1:113: ALL
 				{
-				mARRAY_INDICATOR(); 
+				mALL(); 
 
 				}
 				break;
 			case 24 :
-				// RPGExpr.g:1:137: HEX
+				// RPGExpr.g:1:117: HEX
 				{
 				mHEX(); 
 
 				}
 				break;
 			case 25 :
-				// RPGExpr.g:1:141: STRING
+				// RPGExpr.g:1:121: STRING
 				{
 				mSTRING(); 
 
 				}
 				break;
 			case 26 :
-				// RPGExpr.g:1:148: INTEGER
+				// RPGExpr.g:1:128: INTEGER
 				{
 				mINTEGER(); 
 
 				}
 				break;
 			case 27 :
-				// RPGExpr.g:1:156: FLOAT
+				// RPGExpr.g:1:136: FLOAT
 				{
 				mFLOAT(); 
 
 				}
 				break;
 			case 28 :
-				// RPGExpr.g:1:162: DATETIME
+				// RPGExpr.g:1:142: DATETIME
 				{
 				mDATETIME(); 
 
 				}
 				break;
 			case 29 :
-				// RPGExpr.g:1:171: BOOLEAN
+				// RPGExpr.g:1:151: BOOLEAN
 				{
 				mBOOLEAN(); 
 
 				}
 				break;
 			case 30 :
-				// RPGExpr.g:1:179: TERM
+				// RPGExpr.g:1:159: TERM
 				{
 				mTERM(); 
 
 				}
 				break;
 			case 31 :
-				// RPGExpr.g:1:184: POINT
+				// RPGExpr.g:1:164: POINT
 				{
 				mPOINT(); 
 
 				}
 				break;
 			case 32 :
-				// RPGExpr.g:1:190: WS
+				// RPGExpr.g:1:170: WS
 				{
 				mWS(); 
 
@@ -2852,99 +3090,101 @@ public class RPGExprLexer extends Lexer {
 
 	protected DFA18 dfa18 = new DFA18(this);
 	static final String DFA18_eotS =
-		"\4\uffff\11\41\2\uffff\1\41\1\64\1\uffff\1\66\1\70\2\uffff\1\74\1\uffff"+
-		"\1\76\2\41\1\uffff\1\101\1\102\1\uffff\2\41\3\uffff\4\41\1\111\2\41\1"+
-		"\15\5\41\1\111\1\41\20\uffff\6\41\1\uffff\1\111\3\41\1\64\2\41\1\16\1"+
-		"\75\4\41\1\111\1\41\3\111\2\41\1\uffff\1\147\1\41\4\111\1\41\1\111\1\uffff"+
-		"\1\147\2\111";
+		"\1\31\3\uffff\11\42\2\uffff\1\42\1\66\1\uffff\1\70\1\72\2\uffff\1\73\1"+
+		"\uffff\1\75\1\uffff\2\42\1\uffff\1\100\1\101\1\uffff\2\42\3\uffff\4\42"+
+		"\1\110\2\42\1\15\5\42\1\110\2\42\15\uffff\6\42\1\uffff\1\110\3\42\1\66"+
+		"\2\42\1\16\1\136\1\137\4\42\1\110\1\42\3\110\2\42\3\uffff\1\151\1\42\4"+
+		"\110\1\42\1\110\1\uffff\1\151\2\110";
 	static final String DFA18_eofS =
-		"\153\uffff";
+		"\155\uffff";
 	static final String DFA18_minS =
 		"\1\11\3\uffff\1\111\1\117\1\105\1\114\1\106\1\105\1\124\1\101\1\123\2"+
-		"\uffff\1\116\1\75\1\uffff\2\75\2\uffff\1\52\1\uffff\1\44\2\47\1\uffff"+
-		"\1\54\1\60\1\uffff\1\122\1\101\3\uffff\2\126\1\122\1\101\1\44\1\106\1"+
-		"\111\1\44\1\114\1\130\1\124\1\101\1\122\1\44\1\104\10\uffff\1\116\7\uffff"+
-		"\1\125\1\114\2\101\1\117\1\116\1\uffff\1\44\1\124\1\114\1\124\1\44\1\124"+
-		"\1\115\1\44\1\50\1\105\1\123\2\114\1\44\1\113\3\44\1\125\1\123\1\uffff"+
-		"\1\44\1\105\4\44\1\123\1\44\1\uffff\3\44";
+		"\uffff\1\114\1\75\1\uffff\2\75\2\uffff\1\111\1\uffff\1\44\1\uffff\2\47"+
+		"\1\uffff\1\54\1\60\1\uffff\1\122\1\101\3\uffff\2\126\1\122\1\101\1\44"+
+		"\1\106\1\111\1\44\1\114\1\130\1\124\1\101\1\122\1\44\1\104\1\114\7\uffff"+
+		"\1\116\5\uffff\1\125\1\114\2\101\1\117\1\116\1\uffff\1\44\1\124\1\114"+
+		"\1\124\1\44\1\124\1\115\2\44\1\60\1\105\1\123\2\114\1\44\1\113\3\44\1"+
+		"\125\1\123\3\uffff\1\44\1\105\4\44\1\123\1\44\1\uffff\3\44";
 	static final String DFA18_maxS =
 		"\1\u00a7\3\uffff\1\151\1\157\1\145\1\154\1\162\1\165\1\164\1\141\1\163"+
-		"\2\uffff\1\156\1\75\1\uffff\1\76\1\75\2\uffff\1\151\1\uffff\1\u00a7\2"+
-		"\47\1\uffff\2\71\1\uffff\1\162\1\141\3\uffff\2\166\1\162\1\141\1\u00a7"+
-		"\1\146\1\151\1\u00a7\1\154\1\170\1\164\1\141\1\162\1\u00a7\1\144\10\uffff"+
-		"\1\156\7\uffff\1\165\1\154\2\141\1\157\1\156\1\uffff\1\u00a7\1\164\1\154"+
-		"\1\164\1\u00a7\1\164\1\155\1\u00a7\1\50\1\145\1\163\2\154\1\u00a7\1\153"+
-		"\3\u00a7\1\165\1\163\1\uffff\1\u00a7\1\145\4\u00a7\1\163\1\u00a7\1\uffff"+
-		"\3\u00a7";
+		"\2\uffff\1\156\1\75\1\uffff\1\76\1\75\2\uffff\1\151\1\uffff\1\u00a7\1"+
+		"\uffff\2\47\1\uffff\2\71\1\uffff\1\162\1\141\3\uffff\2\166\1\162\1\141"+
+		"\1\u00a7\1\146\1\151\1\u00a7\1\154\1\170\1\164\1\141\1\162\1\u00a7\1\144"+
+		"\1\154\7\uffff\1\156\5\uffff\1\165\1\154\2\141\1\157\1\156\1\uffff\1\u00a7"+
+		"\1\164\1\154\1\164\1\u00a7\1\164\1\155\2\u00a7\1\165\1\145\1\163\2\154"+
+		"\1\u00a7\1\153\3\u00a7\1\165\1\163\3\uffff\1\u00a7\1\145\4\u00a7\1\163"+
+		"\1\u00a7\1\uffff\3\u00a7";
 	static final String DFA18_acceptS =
 		"\1\uffff\1\1\1\2\1\3\11\uffff\1\5\1\6\2\uffff\1\10\2\uffff\1\16\1\17\1"+
-		"\uffff\1\21\3\uffff\1\31\2\uffff\1\34\2\uffff\1\36\1\33\1\40\17\uffff"+
-		"\1\11\1\7\1\13\1\12\1\15\1\14\1\23\1\24\1\uffff\1\20\1\26\1\22\1\25\1"+
-		"\30\1\32\1\37\6\uffff\1\4\24\uffff\1\27\10\uffff\1\35\3\uffff";
+		"\uffff\1\21\1\uffff\1\26\2\uffff\1\31\2\uffff\1\34\2\uffff\1\36\1\33\1"+
+		"\40\20\uffff\1\11\1\7\1\13\1\12\1\15\1\14\1\20\1\uffff\1\22\1\23\1\30"+
+		"\1\32\1\37\6\uffff\1\4\25\uffff\1\27\1\24\1\25\10\uffff\1\35\3\uffff";
 	static final String DFA18_specialS =
-		"\153\uffff}>";
+		"\155\uffff}>";
 	static final String[] DFA18_transitionS = {
-			"\2\43\1\uffff\2\43\22\uffff\1\43\1\20\1\uffff\1\36\1\41\1\30\1\16\1\33"+
-			"\1\1\1\2\1\26\1\24\1\42\1\25\1\35\1\27\12\34\1\3\1\uffff\1\22\1\21\1"+
-			"\23\2\uffff\1\17\1\7\3\41\1\40\1\41\1\4\3\41\1\5\1\14\1\11\1\10\1\13"+
-			"\2\41\1\12\1\37\3\41\1\31\1\41\1\6\4\uffff\1\41\1\uffff\1\17\1\7\3\41"+
-			"\1\40\1\41\1\4\3\41\1\5\1\14\1\11\1\10\1\13\2\41\1\12\1\37\3\41\1\32"+
-			"\1\41\1\6\1\uffff\1\15\46\uffff\1\41\3\uffff\1\41",
+			"\2\44\1\uffff\2\44\22\uffff\1\44\1\20\1\uffff\1\37\1\42\1\30\1\16\1\34"+
+			"\1\1\1\2\1\26\1\24\1\43\1\25\1\36\1\27\12\35\1\3\1\uffff\1\22\1\21\1"+
+			"\23\2\uffff\1\17\1\7\3\42\1\41\1\42\1\4\3\42\1\5\1\14\1\11\1\10\1\13"+
+			"\2\42\1\12\1\40\3\42\1\32\1\42\1\6\4\uffff\1\42\1\uffff\1\17\1\7\3\42"+
+			"\1\41\1\42\1\4\3\42\1\5\1\14\1\11\1\10\1\13\2\42\1\12\1\40\3\42\1\33"+
+			"\1\42\1\6\1\uffff\1\15\46\uffff\1\42\3\uffff\1\42",
 			"",
 			"",
 			"",
-			"\1\44\37\uffff\1\44",
 			"\1\45\37\uffff\1\45",
 			"\1\46\37\uffff\1\46",
 			"\1\47\37\uffff\1\47",
-			"\1\51\6\uffff\1\52\1\50\3\uffff\1\53\23\uffff\1\51\6\uffff\1\52\1\50"+
-			"\3\uffff\1\53",
-			"\1\55\11\uffff\1\56\5\uffff\1\54\17\uffff\1\55\11\uffff\1\56\5\uffff"+
-			"\1\54",
-			"\1\57\37\uffff\1\57",
+			"\1\50\37\uffff\1\50",
+			"\1\52\6\uffff\1\53\1\51\3\uffff\1\54\23\uffff\1\52\6\uffff\1\53\1\51"+
+			"\3\uffff\1\54",
+			"\1\56\11\uffff\1\57\5\uffff\1\55\17\uffff\1\56\11\uffff\1\57\5\uffff"+
+			"\1\55",
 			"\1\60\37\uffff\1\60",
 			"\1\61\37\uffff\1\61",
-			"",
-			"",
 			"\1\62\37\uffff\1\62",
-			"\1\63",
-			"",
-			"\1\65\1\63",
-			"\1\67",
 			"",
 			"",
-			"\1\71\26\uffff\1\72\7\uffff\1\73\37\uffff\1\75",
+			"\1\64\1\uffff\1\63\35\uffff\1\64\1\uffff\1\63",
+			"\1\65",
 			"",
-			"\1\77\34\uffff\32\77\4\uffff\1\77\1\uffff\32\77\50\uffff\1\77\3\uffff"+
+			"\1\67\1\65",
+			"\1\71",
+			"",
+			"",
+			"\1\74\37\uffff\1\74",
+			"",
+			"\1\76\34\uffff\32\76\4\uffff\1\76\1\uffff\32\76\50\uffff\1\76\3\uffff"+
+			"\1\76",
+			"",
 			"\1\77",
-			"\1\100",
-			"\1\100",
+			"\1\77",
 			"",
-			"\1\42\1\uffff\1\42\1\uffff\12\34",
-			"\12\42",
+			"\1\43\1\uffff\1\43\1\uffff\12\35",
+			"\12\43",
 			"",
+			"\1\102\37\uffff\1\102",
 			"\1\103\37\uffff\1\103",
+			"",
+			"",
+			"",
 			"\1\104\37\uffff\1\104",
-			"",
-			"",
-			"",
 			"\1\105\37\uffff\1\105",
 			"\1\106\37\uffff\1\106",
 			"\1\107\37\uffff\1\107",
-			"\1\110\37\uffff\1\110",
-			"\1\41\13\uffff\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41\50\uffff"+
-			"\1\41\3\uffff\1\41",
+			"\1\42\13\uffff\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42\50\uffff"+
+			"\1\42\3\uffff\1\42",
+			"\1\111\37\uffff\1\111",
 			"\1\112\37\uffff\1\112",
+			"\1\42\13\uffff\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42\50\uffff"+
+			"\1\42\3\uffff\1\42",
 			"\1\113\37\uffff\1\113",
-			"\1\41\13\uffff\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41\50\uffff"+
-			"\1\41\3\uffff\1\41",
 			"\1\114\37\uffff\1\114",
 			"\1\115\37\uffff\1\115",
 			"\1\116\37\uffff\1\116",
 			"\1\117\37\uffff\1\117",
+			"\1\42\13\uffff\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42\50\uffff"+
+			"\1\42\3\uffff\1\42",
 			"\1\120\37\uffff\1\120",
-			"\1\41\13\uffff\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41\50\uffff"+
-			"\1\41\3\uffff\1\41",
 			"\1\121\37\uffff\1\121",
 			"",
 			"",
@@ -2953,10 +3193,7 @@ public class RPGExprLexer extends Lexer {
 			"",
 			"",
 			"",
-			"",
-			"\1\122\37\uffff\1\75",
-			"",
-			"",
+			"\1\122\37\uffff\1\122",
 			"",
 			"",
 			"",
@@ -2969,55 +3206,61 @@ public class RPGExprLexer extends Lexer {
 			"\1\127\37\uffff\1\127",
 			"\1\130\37\uffff\1\130",
 			"",
-			"\1\41\13\uffff\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41\50\uffff"+
-			"\1\41\3\uffff\1\41",
+			"\1\42\13\uffff\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42\50\uffff"+
+			"\1\42\3\uffff\1\42",
 			"\1\131\37\uffff\1\131",
 			"\1\132\37\uffff\1\132",
 			"\1\133\37\uffff\1\133",
-			"\1\41\13\uffff\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41\50\uffff"+
-			"\1\41\3\uffff\1\41",
+			"\1\42\13\uffff\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42\50\uffff"+
+			"\1\42\3\uffff\1\42",
 			"\1\134\37\uffff\1\134",
 			"\1\135\37\uffff\1\135",
-			"\1\41\13\uffff\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41\50\uffff"+
-			"\1\41\3\uffff\1\41",
-			"\1\136",
-			"\1\137\37\uffff\1\137",
-			"\1\140\37\uffff\1\140",
+			"\1\42\13\uffff\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42\50\uffff"+
+			"\1\42\3\uffff\1\42",
+			"\1\42\13\uffff\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42\50\uffff"+
+			"\1\42\3\uffff\1\42",
+			"\12\140\16\uffff\1\31\3\uffff\2\31\1\uffff\1\31\2\uffff\1\31\2\uffff"+
+			"\1\31\22\uffff\1\31\3\uffff\2\31\1\uffff\1\31\2\uffff\1\31\2\uffff\1"+
+			"\31",
 			"\1\141\37\uffff\1\141",
 			"\1\142\37\uffff\1\142",
-			"\1\41\13\uffff\12\41\7\uffff\22\41\1\143\7\41\4\uffff\1\41\1\uffff\22"+
-			"\41\1\143\7\41\50\uffff\1\41\3\uffff\1\41",
+			"\1\143\37\uffff\1\143",
 			"\1\144\37\uffff\1\144",
-			"\1\41\13\uffff\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41\50\uffff"+
-			"\1\41\3\uffff\1\41",
-			"\1\41\13\uffff\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41\50\uffff"+
-			"\1\41\3\uffff\1\41",
-			"\1\41\13\uffff\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41\50\uffff"+
-			"\1\41\3\uffff\1\41",
-			"\1\145\37\uffff\1\145",
+			"\1\42\13\uffff\12\42\7\uffff\22\42\1\145\7\42\4\uffff\1\42\1\uffff\22"+
+			"\42\1\145\7\42\50\uffff\1\42\3\uffff\1\42",
 			"\1\146\37\uffff\1\146",
-			"",
-			"\1\41\13\uffff\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41\50\uffff"+
-			"\1\41\3\uffff\1\41",
+			"\1\42\13\uffff\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42\50\uffff"+
+			"\1\42\3\uffff\1\42",
+			"\1\42\13\uffff\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42\50\uffff"+
+			"\1\42\3\uffff\1\42",
+			"\1\42\13\uffff\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42\50\uffff"+
+			"\1\42\3\uffff\1\42",
+			"\1\147\37\uffff\1\147",
 			"\1\150\37\uffff\1\150",
-			"\1\41\13\uffff\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41\50\uffff"+
-			"\1\41\3\uffff\1\41",
-			"\1\41\13\uffff\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41\50\uffff"+
-			"\1\41\3\uffff\1\41",
-			"\1\41\13\uffff\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41\50\uffff"+
-			"\1\41\3\uffff\1\41",
-			"\1\41\13\uffff\12\41\7\uffff\22\41\1\151\7\41\4\uffff\1\41\1\uffff\22"+
-			"\41\1\151\7\41\50\uffff\1\41\3\uffff\1\41",
-			"\1\152\37\uffff\1\152",
-			"\1\41\13\uffff\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41\50\uffff"+
-			"\1\41\3\uffff\1\41",
 			"",
-			"\1\41\13\uffff\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41\50\uffff"+
-			"\1\41\3\uffff\1\41",
-			"\1\41\13\uffff\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41\50\uffff"+
-			"\1\41\3\uffff\1\41",
-			"\1\41\13\uffff\12\41\7\uffff\32\41\4\uffff\1\41\1\uffff\32\41\50\uffff"+
-			"\1\41\3\uffff\1\41"
+			"",
+			"",
+			"\1\42\13\uffff\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42\50\uffff"+
+			"\1\42\3\uffff\1\42",
+			"\1\152\37\uffff\1\152",
+			"\1\42\13\uffff\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42\50\uffff"+
+			"\1\42\3\uffff\1\42",
+			"\1\42\13\uffff\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42\50\uffff"+
+			"\1\42\3\uffff\1\42",
+			"\1\42\13\uffff\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42\50\uffff"+
+			"\1\42\3\uffff\1\42",
+			"\1\42\13\uffff\12\42\7\uffff\22\42\1\153\7\42\4\uffff\1\42\1\uffff\22"+
+			"\42\1\153\7\42\50\uffff\1\42\3\uffff\1\42",
+			"\1\154\37\uffff\1\154",
+			"\1\42\13\uffff\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42\50\uffff"+
+			"\1\42\3\uffff\1\42",
+			"",
+			"\1\42\13\uffff\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42\50\uffff"+
+			"\1\42\3\uffff\1\42",
+			"\1\42\13\uffff\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42\50\uffff"+
+			"\1\42\3\uffff\1\42",
+			"\1\42\13\uffff\12\42\7\uffff\32\42\4\uffff\1\42\1\uffff\32\42\50\uffff"+
+			"\1\42\3\uffff\1\42"
 	};
 
 	static final short[] DFA18_eot = DFA.unpackEncodedString(DFA18_eotS);
@@ -3051,7 +3294,7 @@ public class RPGExprLexer extends Lexer {
 		}
 		@Override
 		public String getDescription() {
-			return "1:1: Tokens : ( T__72 | T__73 | T__74 | SPECIAL | OR | AND | NOT | EQ | NE | LT | LTEQ | GT | GTEQ | PLUS | MINUS | MULT | DIV | MOD | POW | FILLER | BI_FUN | INDICATOR | ARRAY_INDICATOR | HEX | STRING | INTEGER | FLOAT | DATETIME | BOOLEAN | TERM | POINT | WS );";
+			return "1:1: Tokens : ( T__74 | T__75 | T__76 | SPECIAL | OR | AND | NOT | EQ | NE | LT | LTEQ | GT | GTEQ | PLUS | MINUS | MULT | DIV | MOD | BI_FUN | IN | INNR | INNU | ALL | HEX | STRING | INTEGER | FLOAT | DATETIME | BOOLEAN | TERM | POINT | WS );";
 		}
 	}
 

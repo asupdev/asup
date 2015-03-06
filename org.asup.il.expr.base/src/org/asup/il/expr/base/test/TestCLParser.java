@@ -16,22 +16,18 @@ import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.net.URI;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.tree.CommonTree;
-import org.asup.il.expr.base.antlr.rpg.RPGExprLexer;
-import org.asup.il.expr.base.antlr.rpg.RPGExprParser;
-import org.osgi.framework.FrameworkUtil;
+import org.asup.il.expr.base.antlr.cl.CLExprLexer;
+import org.asup.il.expr.base.antlr.cl.CLExprParser;
 
-public class TestRPGParser {
+public class TestCLParser {
 
 	public static void main(String[] args) {
-		new TestRPGParser().doTest();
+		new TestCLParser().doTest();
 	}
 
 	private void doTest() {
@@ -42,7 +38,7 @@ public class TestRPGParser {
 
 		
 		try {
-			URL entry = this.getClass().getClassLoader().getResource("rpg_expressions.txt");
+			URL entry = this.getClass().getClassLoader().getResource("cl_expressions.txt");
 			File vTestFile = new File(entry.toURI());
 
 			FileInputStream fstream = new FileInputStream(vTestFile);
@@ -55,9 +51,9 @@ public class TestRPGParser {
 				count++;
 				try {
 
-					RPGExprLexer lex = new RPGExprLexer(new ANTLRStringStream(expr));
+					CLExprLexer lex = new CLExprLexer(new ANTLRStringStream(expr));
 					CommonTokenStream tokens = new CommonTokenStream(lex);
-					RPGExprParser parser = new RPGExprParser(tokens);
+					CLExprParser parser = new CLExprParser(tokens);
 	
 					CommonTree tree = parser.expression().getTree();
 	

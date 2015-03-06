@@ -26,7 +26,8 @@ tokens
 	//MULT
 	//DIV
 	//NOT
-	NEGATE;
+	SIGN_MINUS;
+	SIGN_PLUS;
 	//BINARY_FUN
 	//SST_FUN
 	//SWITCH_FUN
@@ -136,11 +137,12 @@ multiplicativeExpression
 	;
 
 unaryExpression
-	:
+	:		
 	 	primaryExpression
     	|	NOT^ primaryExpression
-    	|	MINUS primaryExpression -> ^(NEGATE primaryExpression)
-    	 	;
+    	|	MINUS primaryExpression -> ^(SIGN_MINUS primaryExpression)
+    	|	PLUS primaryExpression -> ^(SIGN_PLUS primaryExpression)
+    ;
 
 primaryExpression
 	:	'('! logicalExpression ')'!

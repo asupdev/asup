@@ -24,6 +24,7 @@ import org.asup.il.expr.LogicalOperator;
 import org.asup.il.expr.RelationalOperator;
 import org.asup.il.expr.base.antlr.cl.CLExprLexer;
 import org.asup.il.expr.base.antlr.cl.CLExprParser;
+import org.asup.il.expr.base.antlr.rpg.RPGExprLexer;
 
 public class CLExpressionHelper implements ExpressionHelper {
 
@@ -38,7 +39,8 @@ public class CLExpressionHelper implements ExpressionHelper {
 		case CLExprLexer.MINUS:
 		case CLExprLexer.MULT:
 		case CLExprLexer.DIV:
-		case CLExprLexer.NEGATE:				
+		case CLExprLexer.SIGN_MINUS:				
+		case CLExprLexer.SIGN_PLUS:	
 			expressionType = ExpressionType.ARITHMETIC;
 		break;
 
@@ -117,8 +119,10 @@ public class CLExpressionHelper implements ExpressionHelper {
 			return ArithmeticOperator.MULT;
 		case CLExprLexer.DIV:
 			return ArithmeticOperator.DIVIDE;
-		case CLExprLexer.NEGATE:
-			return ArithmeticOperator.NEGATE;
+		case RPGExprLexer.SIGN_MINUS:
+			return ArithmeticOperator.SIGN_MINUS;
+		case RPGExprLexer.SIGN_PLUS:	
+				return ArithmeticOperator.SIGN_PLUS;			
 		default:
 			System.err.println(node.getType());
 			return null;

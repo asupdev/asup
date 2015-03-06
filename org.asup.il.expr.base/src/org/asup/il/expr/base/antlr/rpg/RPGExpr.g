@@ -4,13 +4,14 @@ options
 {
 	output=AST;
 	ASTLabelType=CommonTree;
+	backtrack=true;
 	language=Java;
 }
 
 tokens
-{
-	NEGATE;
-	STRING;
+{	
+	SIGN_MINUS;
+	SIGN_PLUS;
 	BI_FUNCTION;
 	USER_FUNCTION;
 	SP_VALUE;
@@ -27,7 +28,7 @@ tokens
 	//MULT
 	//DIV
 	//MOD
-	//POW
+	POW;
 	//NOT
 	QUALIFIED;
 	BLOCK;
@@ -121,29 +122,30 @@ additiveExpression
 
 multiplicativeExpression
 	:
-		powerExpression ( (MULT|DIV|MOD)^ powerExpression )*
+		powerExpression ( (MULT|DIV|MOD)^ powerExpression)*
 	;
 
 powerExpression
-	:	unaryExpression ( POW^ unaryExpression )?
+	:	(v1=unaryExpression -> unaryExpression) (( MULT MULT v2=unaryExpression ) -> ^(POW $v1 $v2))*
 	;
 
 unaryExpression
 	:
 	 	qualified
     	|	NOT^ qualified
-    	|	MINUS qualified -> ^(NEGATE qualified)
+    	|	MINUS qualified -> ^(SIGN_MINUS qualified)
+    	|	PLUS qualified  -> ^(SIGN_PLUS qualified)
    	;
-
+   	
 qualified
 	:
-		(v=primaryExpression -> primaryExpression) ((POINT vals+=primaryExpression) -> ^(QUALIFIED[$qualified.text] $v $vals+))*
-	;
+		(v=primaryExpression -> primaryExpression) ((POINT vals+=primaryExpression) -> ^(QUALIFIED[$qualified.text] $v $vals+))* 
+	;   	
 
 primaryExpression
 	:	'(' logicalExpression ')' -> ^(BLOCK[$primaryExpression.text] logicalExpression)
 		|
-		value
+		value		
 	;
 
 value
@@ -155,53 +157,58 @@ value
 	|	STRING
 	|	HEX
 	|	TERM
-	|	INDICATOR	
 	|	(SPECIAL -> TERM)
 	|	filler
 	|	special
 	|	bi_function
 	|	usr_function
-	|   array_indicator
+	|   indicator
 	;
-
-filler	:
-		FILLER STRING -> ^(BI_FUNCTION[$FILLER.text] STRING)
+	
+indicator
+	:
+		IN '(' logicalExpression ')' -> ^(BI_FUNCTION["*IN"] logicalExpression)  	// Caso *IN(nn)
 		|
-		FILLER HEX -> ^(BI_FUNCTION[$FILLER.text] HEX)
+		INNR ->	^(BI_FUNCTION["*IN"] INTEGER[$INNR.text.substring(3)])	 	// Caso *INnn
+		|
+		INNU -> ^(BI_FUNCTION["*IN"] STRING[$INNU.text.substring(3)])	        // Caso *INU0 - *INU8
+	;		
+	
+filler	:	
+		MULT ALL STRING -> ^(BI_FUNCTION["*ALL"] STRING)
+		|
+		MULT ALL HEX -> ^(BI_FUNCTION["*ALL"] HEX)	
 	;
 
 special	:
 		MULT SPECIAL -> SP_VALUE[$MULT.text + $SPECIAL.text]
 	;
 
+
 usr_function
 	:	TERM params	 -> ^(USER_FUNCTION[$TERM.text] params)
 		|
 		TERM empty	-> ^(USER_FUNCTION[$TERM.text])
 	;
-
 bi_function
-	: 	
-		BI_FUN (params)? -> ^(BI_FUNCTION[$BI_FUN.text] (params)?)
+	: 	BI_FUN (params)? -> ^(BI_FUNCTION[$BI_FUN.text] (params)?)
 		|
 		BI_FUN '(' ')'   -> ^(BI_FUNCTION[$BI_FUN.text])
 	;
 
 params
-	:	'('! logicalExpression (':'! logicalExpression)* ')'!
+	:			
+		'('! logicalExpression (':'! logicalExpression)* ')'!
 	;
-
+	
 empty
 	:
 	'(' ')'
 	;	
 
-array_indicator
-	:
-		ARRAY_INDICATOR  logicalExpression ')' -> ^(BI_FUNCTION["*IN"] logicalExpression)
-	;			
-
-
+	
+	
+		
 SPECIAL
 	:	( H I V A L)
 		|
@@ -232,7 +239,6 @@ SPECIAL
 		( N E X T)
 	;
 
-
 OR 	: 	'||' | (O R);
 AND 	: 	'&&' | (A N D);
 NOT	:	'!'  | (N O T);
@@ -249,23 +255,60 @@ MINUS	:	'-';
 MULT	:	'*';
 DIV	:	'/';
 MOD	:	'%';
-POW	:	'**';
+//POW	:	'**';
 
-FILLER	: '*ALL'
-		;
 
 BI_FUN  :	'%'TERM
-		;
+	;
 
-INDICATOR : ('*' I N (LETTER | DIGIT )*)
+/*
+INDICATOR : ('*IN' (LETTER | DIGIT )*)
+	;
+
+ARRAY_INDICATOR	: '*IN('
+	;
+
+
+ALL	: '*ALL'
+	;
+*/	
+
+IN 	:
+	MULT I N
 	;
 	
-ARRAY_INDICATOR	: '*IN('
+INNR	:
+	MULT I N ('0'..'9') ('0'..'9')
+	;
+	
+INNU	:	
+	|
+	MULT I N U ('1'..'8')
+	|
+	MULT I N H ('1'..'8')
+	|
+	MULT I N M R
+	|
+	MULT I N O (A | G | V | F)
+	|
+	MULT I N L ('1'..'9')
+	|
+	MULT I N L R
+	|
+	MULT I N R T
+	
 	;	
+
+ALL	:
+	A L L
+	;	
+	
 
 HEX	:   ('X\''|'x\'') (HexDigit)+ '\''
 	;
 
+
+//NB: Gli apici interni alla stringa vanno duplicati
 STRING
 	: '\''
     	{ StringBuilder b = new StringBuilder(); }
@@ -275,6 +318,8 @@ STRING
 	'\''
 	{ setText(b.toString()); }
   ;
+
+
 
 INTEGER
 	:	('0'..'9')+
@@ -292,6 +337,7 @@ BOOLEAN
 	:	(T R U E)
 	|	(F A L S E)
 	;
+
 
 TERM
 	:	LETTER (LETTER | DIGIT)*

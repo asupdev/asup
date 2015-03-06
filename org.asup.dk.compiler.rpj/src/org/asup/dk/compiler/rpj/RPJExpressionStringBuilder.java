@@ -131,11 +131,16 @@ public class RPJExpressionStringBuilder extends ExpressionVisitorImpl {
 		}
 		*/
 
-		if (expression.getOperator() == ArithmeticOperator.NEGATE) {
+		if (expression.getOperator() == ArithmeticOperator.SIGN_MINUS) {
 			result += "-";
 			expression.getLeftOperand().accept(this);
 			if (expression.getRightOperand() != null)
 				throw new IntegratedLanguageExpressionRuntimeException("Unexpected condition: kdsf43g77q35n4v5");
+		} else if (expression.getOperator() == ArithmeticOperator.SIGN_PLUS) {
+			result += "+";
+			expression.getLeftOperand().accept(this);
+			if (expression.getRightOperand() != null)
+				throw new IntegratedLanguageExpressionRuntimeException("Unexpected condition: kdsf43g77q35v5gt");
 		} else {
 			expression.getLeftOperand().accept(this);
 
@@ -159,7 +164,8 @@ public class RPJExpressionStringBuilder extends ExpressionVisitorImpl {
 			case POWER:
 				result += "**";
 				break;
-			case NEGATE:
+			case SIGN_MINUS:
+			case SIGN_PLUS:	
 				throw new IntegratedLanguageExpressionRuntimeException("Unexpected condition: mct8734034vn7q35n4v5");
 			}
 

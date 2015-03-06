@@ -39,7 +39,8 @@ public class RPGExpressionHelper implements ExpressionHelper {
 		case RPGExprLexer.DIV:
 		case RPGExprLexer.MOD:
 		case RPGExprLexer.POW:
-		case RPGExprLexer.NEGATE:
+		case RPGExprLexer.SIGN_MINUS:
+		case RPGExprLexer.SIGN_PLUS:	
 			return ExpressionType.ARITHMETIC;
 
 		// logical
@@ -62,8 +63,7 @@ public class RPGExpressionHelper implements ExpressionHelper {
 		case RPGExprLexer.BI_FUNCTION:
 			return ExpressionType.COMPOUND;
 
-		case RPGExprLexer.SP_VALUE:
-		case RPGExprLexer.INDICATOR:
+		case RPGExprLexer.SP_VALUE:		
 		case RPGExprLexer.TERM:
 		case RPGExprLexer.INTEGER:
 		case RPGExprLexer.FLOAT:
@@ -98,8 +98,10 @@ public class RPGExpressionHelper implements ExpressionHelper {
 			return ArithmeticOperator.MODULAR;
 		case RPGExprLexer.POW:
 			return ArithmeticOperator.POWER;
-		case RPGExprLexer.NEGATE:
-			return ArithmeticOperator.NEGATE;
+		case RPGExprLexer.SIGN_MINUS:
+				return ArithmeticOperator.SIGN_MINUS;
+		case RPGExprLexer.SIGN_PLUS:
+				return ArithmeticOperator.SIGN_PLUS;			
 		default:
 			System.err.println(node.getType());
 			return null;
@@ -167,9 +169,7 @@ public class RPGExpressionHelper implements ExpressionHelper {
 
 	public AtomicType getTermType(Tree node) {
 
-		switch (node.getType()) {
-		case RPGExprLexer.INDICATOR:
-			return AtomicType.INDICATOR;
+		switch (node.getType()) {		
 		case RPGExprLexer.SP_VALUE:
 			return AtomicType.SPECIAL;
 		case RPGExprLexer.TERM:

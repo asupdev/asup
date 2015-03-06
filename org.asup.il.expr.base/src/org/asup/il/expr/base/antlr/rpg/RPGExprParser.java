@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 RPGExpr.g 2015-01-16 12:11:44
+// $ANTLR 3.5.1 RPGExpr.g 2015-03-06 14:48:49
 
   package org.asup.il.expr.base.antlr.rpg;
   
@@ -9,6 +9,8 @@ import org.antlr.runtime.*;
 import java.util.Stack;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 
 import org.antlr.runtime.tree.*;
 
@@ -16,23 +18,23 @@ import org.antlr.runtime.tree.*;
 @SuppressWarnings("all")
 public class RPGExprParser extends Parser {
 	public static final String[] tokenNames = new String[] {
-		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "A", "AND", "ARRAY_INDICATOR", 
-		"B", "BI_FUN", "BI_FUNCTION", "BLOCK", "BOOLEAN", "C", "CHAR_SPECIAL", 
-		"D", "DATETIME", "DIGIT", "DIGIT_SPECIAL", "DIV", "E", "EQ", "EscapeSequence", 
-		"F", "FILLER", "FLOAT", "G", "GT", "GTEQ", "H", "HEX", "HexDigit", "I", 
-		"INDICATOR", "INTEGER", "J", "K", "L", "LETTER", "LT", "LTEQ", "M", "MINUS", 
-		"MOD", "MULT", "N", "NE", "NEGATE", "NOT", "O", "OR", "P", "PLUS", "POINT", 
-		"POW", "Q", "QUALIFIED", "R", "S", "SPECIAL", "SP_VALUE", "STRING", "T", 
-		"TERM", "U", "USER_FUNCTION", "UnicodeEscape", "V", "W", "WS", "X", "Y", 
-		"Z", "'('", "')'", "':'"
+		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "A", "ALL", "AND", "B", "BI_FUN", 
+		"BI_FUNCTION", "BLOCK", "BOOLEAN", "C", "CHAR_SPECIAL", "D", "DATETIME", 
+		"DIGIT", "DIGIT_SPECIAL", "DIV", "E", "EQ", "EscapeSequence", "F", "FLOAT", 
+		"G", "GT", "GTEQ", "H", "HEX", "HexDigit", "I", "IN", "INNR", "INNU", 
+		"INTEGER", "J", "K", "L", "LETTER", "LT", "LTEQ", "M", "MINUS", "MOD", 
+		"MULT", "N", "NE", "NOT", "O", "OR", "P", "PLUS", "POINT", "POW", "Q", 
+		"QUALIFIED", "R", "S", "SIGN_MINUS", "SIGN_PLUS", "SPECIAL", "SP_VALUE", 
+		"STRING", "T", "TERM", "U", "USER_FUNCTION", "UnicodeEscape", "V", "W", 
+		"WS", "X", "Y", "Z", "'('", "')'", "':'"
 	};
 	public static final int EOF=-1;
-	public static final int T__72=72;
-	public static final int T__73=73;
 	public static final int T__74=74;
+	public static final int T__75=75;
+	public static final int T__76=76;
 	public static final int A=4;
-	public static final int AND=5;
-	public static final int ARRAY_INDICATOR=6;
+	public static final int ALL=5;
+	public static final int AND=6;
 	public static final int B=7;
 	public static final int BI_FUN=8;
 	public static final int BI_FUNCTION=9;
@@ -49,30 +51,30 @@ public class RPGExprParser extends Parser {
 	public static final int EQ=20;
 	public static final int EscapeSequence=21;
 	public static final int F=22;
-	public static final int FILLER=23;
-	public static final int FLOAT=24;
-	public static final int G=25;
-	public static final int GT=26;
-	public static final int GTEQ=27;
-	public static final int H=28;
-	public static final int HEX=29;
-	public static final int HexDigit=30;
-	public static final int I=31;
-	public static final int INDICATOR=32;
-	public static final int INTEGER=33;
-	public static final int J=34;
-	public static final int K=35;
-	public static final int L=36;
-	public static final int LETTER=37;
-	public static final int LT=38;
-	public static final int LTEQ=39;
-	public static final int M=40;
-	public static final int MINUS=41;
-	public static final int MOD=42;
-	public static final int MULT=43;
-	public static final int N=44;
-	public static final int NE=45;
-	public static final int NEGATE=46;
+	public static final int FLOAT=23;
+	public static final int G=24;
+	public static final int GT=25;
+	public static final int GTEQ=26;
+	public static final int H=27;
+	public static final int HEX=28;
+	public static final int HexDigit=29;
+	public static final int I=30;
+	public static final int IN=31;
+	public static final int INNR=32;
+	public static final int INNU=33;
+	public static final int INTEGER=34;
+	public static final int J=35;
+	public static final int K=36;
+	public static final int L=37;
+	public static final int LETTER=38;
+	public static final int LT=39;
+	public static final int LTEQ=40;
+	public static final int M=41;
+	public static final int MINUS=42;
+	public static final int MOD=43;
+	public static final int MULT=44;
+	public static final int N=45;
+	public static final int NE=46;
 	public static final int NOT=47;
 	public static final int O=48;
 	public static final int OR=49;
@@ -84,20 +86,22 @@ public class RPGExprParser extends Parser {
 	public static final int QUALIFIED=55;
 	public static final int R=56;
 	public static final int S=57;
-	public static final int SPECIAL=58;
-	public static final int SP_VALUE=59;
-	public static final int STRING=60;
-	public static final int T=61;
-	public static final int TERM=62;
-	public static final int U=63;
-	public static final int USER_FUNCTION=64;
-	public static final int UnicodeEscape=65;
-	public static final int V=66;
-	public static final int W=67;
-	public static final int WS=68;
-	public static final int X=69;
-	public static final int Y=70;
-	public static final int Z=71;
+	public static final int SIGN_MINUS=58;
+	public static final int SIGN_PLUS=59;
+	public static final int SPECIAL=60;
+	public static final int SP_VALUE=61;
+	public static final int STRING=62;
+	public static final int T=63;
+	public static final int TERM=64;
+	public static final int U=65;
+	public static final int USER_FUNCTION=66;
+	public static final int UnicodeEscape=67;
+	public static final int V=68;
+	public static final int W=69;
+	public static final int WS=70;
+	public static final int X=71;
+	public static final int Y=72;
+	public static final int Z=73;
 
 	// delegates
 	public Parser[] getDelegates() {
@@ -175,7 +179,7 @@ public class RPGExprParser extends Parser {
 
 
 	// $ANTLR start "expression"
-	// RPGExpr.g:96:1: expression : logicalExpression EOF !;
+	// RPGExpr.g:97:1: expression : logicalExpression EOF !;
 	public final RPGExprParser.expression_return expression() throws RecognitionException {
 		RPGExprParser.expression_return retval = new RPGExprParser.expression_return();
 		retval.start = input.LT(1);
@@ -188,26 +192,27 @@ public class RPGExprParser extends Parser {
 		CommonTree EOF2_tree=null;
 
 		try {
-			// RPGExpr.g:97:2: ( logicalExpression EOF !)
-			// RPGExpr.g:97:5: logicalExpression EOF !
+			// RPGExpr.g:98:2: ( logicalExpression EOF !)
+			// RPGExpr.g:98:5: logicalExpression EOF !
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_logicalExpression_in_expression132);
+			pushFollow(FOLLOW_logicalExpression_in_expression141);
 			logicalExpression1=logicalExpression();
 			state._fsp--;
+			if (state.failed) return retval;
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, logicalExpression1.getTree());
 
-			adaptor.addChild(root_0, logicalExpression1.getTree());
-
-			EOF2=(Token)match(input,EOF,FOLLOW_EOF_in_expression134); 
+			EOF2=(Token)match(input,EOF,FOLLOW_EOF_in_expression143); if (state.failed) return retval;
 			}
 
 			retval.stop = input.LT(-1);
 
+			if ( state.backtracking==0 ) {
 			retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
 			adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+			}
 		}
 
 		    catch (RecognitionException e) {
@@ -231,7 +236,7 @@ public class RPGExprParser extends Parser {
 
 
 	// $ANTLR start "logicalExpression"
-	// RPGExpr.g:100:1: logicalExpression : booleanAndExpression ( OR ^ booleanAndExpression )* ;
+	// RPGExpr.g:101:1: logicalExpression : booleanAndExpression ( OR ^ booleanAndExpression )* ;
 	public final RPGExprParser.logicalExpression_return logicalExpression() throws RecognitionException {
 		RPGExprParser.logicalExpression_return retval = new RPGExprParser.logicalExpression_return();
 		retval.start = input.LT(1);
@@ -245,19 +250,19 @@ public class RPGExprParser extends Parser {
 		CommonTree OR4_tree=null;
 
 		try {
-			// RPGExpr.g:101:2: ( booleanAndExpression ( OR ^ booleanAndExpression )* )
-			// RPGExpr.g:101:4: booleanAndExpression ( OR ^ booleanAndExpression )*
+			// RPGExpr.g:102:2: ( booleanAndExpression ( OR ^ booleanAndExpression )* )
+			// RPGExpr.g:102:4: booleanAndExpression ( OR ^ booleanAndExpression )*
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_booleanAndExpression_in_logicalExpression146);
+			pushFollow(FOLLOW_booleanAndExpression_in_logicalExpression155);
 			booleanAndExpression3=booleanAndExpression();
 			state._fsp--;
+			if (state.failed) return retval;
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, booleanAndExpression3.getTree());
 
-			adaptor.addChild(root_0, booleanAndExpression3.getTree());
-
-			// RPGExpr.g:101:25: ( OR ^ booleanAndExpression )*
+			// RPGExpr.g:102:25: ( OR ^ booleanAndExpression )*
 			loop1:
 			while (true) {
 				int alt1=2;
@@ -268,17 +273,19 @@ public class RPGExprParser extends Parser {
 
 				switch (alt1) {
 				case 1 :
-					// RPGExpr.g:101:26: OR ^ booleanAndExpression
+					// RPGExpr.g:102:26: OR ^ booleanAndExpression
 					{
-					OR4=(Token)match(input,OR,FOLLOW_OR_in_logicalExpression149); 
+					OR4=(Token)match(input,OR,FOLLOW_OR_in_logicalExpression158); if (state.failed) return retval;
+					if ( state.backtracking==0 ) {
 					OR4_tree = (CommonTree)adaptor.create(OR4);
 					root_0 = (CommonTree)adaptor.becomeRoot(OR4_tree, root_0);
+					}
 
-					pushFollow(FOLLOW_booleanAndExpression_in_logicalExpression152);
+					pushFollow(FOLLOW_booleanAndExpression_in_logicalExpression161);
 					booleanAndExpression5=booleanAndExpression();
 					state._fsp--;
-
-					adaptor.addChild(root_0, booleanAndExpression5.getTree());
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, booleanAndExpression5.getTree());
 
 					}
 					break;
@@ -292,9 +299,10 @@ public class RPGExprParser extends Parser {
 
 			retval.stop = input.LT(-1);
 
+			if ( state.backtracking==0 ) {
 			retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
 			adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+			}
 		}
 
 		    catch (RecognitionException e) {
@@ -318,7 +326,7 @@ public class RPGExprParser extends Parser {
 
 
 	// $ANTLR start "booleanAndExpression"
-	// RPGExpr.g:104:1: booleanAndExpression : equalityExpression ( AND ^ equalityExpression )* ;
+	// RPGExpr.g:105:1: booleanAndExpression : equalityExpression ( AND ^ equalityExpression )* ;
 	public final RPGExprParser.booleanAndExpression_return booleanAndExpression() throws RecognitionException {
 		RPGExprParser.booleanAndExpression_return retval = new RPGExprParser.booleanAndExpression_return();
 		retval.start = input.LT(1);
@@ -332,19 +340,19 @@ public class RPGExprParser extends Parser {
 		CommonTree AND7_tree=null;
 
 		try {
-			// RPGExpr.g:105:2: ( equalityExpression ( AND ^ equalityExpression )* )
-			// RPGExpr.g:105:4: equalityExpression ( AND ^ equalityExpression )*
+			// RPGExpr.g:106:2: ( equalityExpression ( AND ^ equalityExpression )* )
+			// RPGExpr.g:106:4: equalityExpression ( AND ^ equalityExpression )*
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_equalityExpression_in_booleanAndExpression166);
+			pushFollow(FOLLOW_equalityExpression_in_booleanAndExpression175);
 			equalityExpression6=equalityExpression();
 			state._fsp--;
+			if (state.failed) return retval;
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, equalityExpression6.getTree());
 
-			adaptor.addChild(root_0, equalityExpression6.getTree());
-
-			// RPGExpr.g:105:23: ( AND ^ equalityExpression )*
+			// RPGExpr.g:106:23: ( AND ^ equalityExpression )*
 			loop2:
 			while (true) {
 				int alt2=2;
@@ -355,17 +363,19 @@ public class RPGExprParser extends Parser {
 
 				switch (alt2) {
 				case 1 :
-					// RPGExpr.g:105:24: AND ^ equalityExpression
+					// RPGExpr.g:106:24: AND ^ equalityExpression
 					{
-					AND7=(Token)match(input,AND,FOLLOW_AND_in_booleanAndExpression169); 
+					AND7=(Token)match(input,AND,FOLLOW_AND_in_booleanAndExpression178); if (state.failed) return retval;
+					if ( state.backtracking==0 ) {
 					AND7_tree = (CommonTree)adaptor.create(AND7);
 					root_0 = (CommonTree)adaptor.becomeRoot(AND7_tree, root_0);
+					}
 
-					pushFollow(FOLLOW_equalityExpression_in_booleanAndExpression172);
+					pushFollow(FOLLOW_equalityExpression_in_booleanAndExpression181);
 					equalityExpression8=equalityExpression();
 					state._fsp--;
-
-					adaptor.addChild(root_0, equalityExpression8.getTree());
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, equalityExpression8.getTree());
 
 					}
 					break;
@@ -379,9 +389,10 @@ public class RPGExprParser extends Parser {
 
 			retval.stop = input.LT(-1);
 
+			if ( state.backtracking==0 ) {
 			retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
 			adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+			}
 		}
 
 		    catch (RecognitionException e) {
@@ -405,7 +416,7 @@ public class RPGExprParser extends Parser {
 
 
 	// $ANTLR start "equalityExpression"
-	// RPGExpr.g:109:1: equalityExpression : relationalExpression ( ( EQ | NE ) ^ relationalExpression )* ;
+	// RPGExpr.g:110:1: equalityExpression : relationalExpression ( ( EQ | NE ) ^ relationalExpression )* ;
 	public final RPGExprParser.equalityExpression_return equalityExpression() throws RecognitionException {
 		RPGExprParser.equalityExpression_return retval = new RPGExprParser.equalityExpression_return();
 		retval.start = input.LT(1);
@@ -419,19 +430,19 @@ public class RPGExprParser extends Parser {
 		CommonTree set10_tree=null;
 
 		try {
-			// RPGExpr.g:110:2: ( relationalExpression ( ( EQ | NE ) ^ relationalExpression )* )
-			// RPGExpr.g:110:4: relationalExpression ( ( EQ | NE ) ^ relationalExpression )*
+			// RPGExpr.g:111:2: ( relationalExpression ( ( EQ | NE ) ^ relationalExpression )* )
+			// RPGExpr.g:111:4: relationalExpression ( ( EQ | NE ) ^ relationalExpression )*
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_relationalExpression_in_equalityExpression186);
+			pushFollow(FOLLOW_relationalExpression_in_equalityExpression195);
 			relationalExpression9=relationalExpression();
 			state._fsp--;
+			if (state.failed) return retval;
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, relationalExpression9.getTree());
 
-			adaptor.addChild(root_0, relationalExpression9.getTree());
-
-			// RPGExpr.g:110:25: ( ( EQ | NE ) ^ relationalExpression )*
+			// RPGExpr.g:111:25: ( ( EQ | NE ) ^ relationalExpression )*
 			loop3:
 			while (true) {
 				int alt3=2;
@@ -442,24 +453,26 @@ public class RPGExprParser extends Parser {
 
 				switch (alt3) {
 				case 1 :
-					// RPGExpr.g:110:26: ( EQ | NE ) ^ relationalExpression
+					// RPGExpr.g:111:26: ( EQ | NE ) ^ relationalExpression
 					{
 					set10=input.LT(1);
 					set10=input.LT(1);
 					if ( input.LA(1)==EQ||input.LA(1)==NE ) {
 						input.consume();
-						root_0 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(set10), root_0);
+						if ( state.backtracking==0 ) root_0 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(set10), root_0);
 						state.errorRecovery=false;
+						state.failed=false;
 					}
 					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						MismatchedSetException mse = new MismatchedSetException(null,input);
 						throw mse;
 					}
-					pushFollow(FOLLOW_relationalExpression_in_equalityExpression196);
+					pushFollow(FOLLOW_relationalExpression_in_equalityExpression205);
 					relationalExpression11=relationalExpression();
 					state._fsp--;
-
-					adaptor.addChild(root_0, relationalExpression11.getTree());
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, relationalExpression11.getTree());
 
 					}
 					break;
@@ -473,9 +486,10 @@ public class RPGExprParser extends Parser {
 
 			retval.stop = input.LT(-1);
 
+			if ( state.backtracking==0 ) {
 			retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
 			adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+			}
 		}
 
 		    catch (RecognitionException e) {
@@ -499,7 +513,7 @@ public class RPGExprParser extends Parser {
 
 
 	// $ANTLR start "relationalExpression"
-	// RPGExpr.g:113:1: relationalExpression : additiveExpression ( ( LT | LTEQ | GT | GTEQ ) ^ additiveExpression )* ;
+	// RPGExpr.g:114:1: relationalExpression : additiveExpression ( ( LT | LTEQ | GT | GTEQ ) ^ additiveExpression )* ;
 	public final RPGExprParser.relationalExpression_return relationalExpression() throws RecognitionException {
 		RPGExprParser.relationalExpression_return retval = new RPGExprParser.relationalExpression_return();
 		retval.start = input.LT(1);
@@ -513,19 +527,19 @@ public class RPGExprParser extends Parser {
 		CommonTree set13_tree=null;
 
 		try {
-			// RPGExpr.g:114:2: ( additiveExpression ( ( LT | LTEQ | GT | GTEQ ) ^ additiveExpression )* )
-			// RPGExpr.g:114:4: additiveExpression ( ( LT | LTEQ | GT | GTEQ ) ^ additiveExpression )*
+			// RPGExpr.g:115:2: ( additiveExpression ( ( LT | LTEQ | GT | GTEQ ) ^ additiveExpression )* )
+			// RPGExpr.g:115:4: additiveExpression ( ( LT | LTEQ | GT | GTEQ ) ^ additiveExpression )*
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_additiveExpression_in_relationalExpression209);
+			pushFollow(FOLLOW_additiveExpression_in_relationalExpression218);
 			additiveExpression12=additiveExpression();
 			state._fsp--;
+			if (state.failed) return retval;
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, additiveExpression12.getTree());
 
-			adaptor.addChild(root_0, additiveExpression12.getTree());
-
-			// RPGExpr.g:114:23: ( ( LT | LTEQ | GT | GTEQ ) ^ additiveExpression )*
+			// RPGExpr.g:115:23: ( ( LT | LTEQ | GT | GTEQ ) ^ additiveExpression )*
 			loop4:
 			while (true) {
 				int alt4=2;
@@ -536,24 +550,26 @@ public class RPGExprParser extends Parser {
 
 				switch (alt4) {
 				case 1 :
-					// RPGExpr.g:114:25: ( LT | LTEQ | GT | GTEQ ) ^ additiveExpression
+					// RPGExpr.g:115:25: ( LT | LTEQ | GT | GTEQ ) ^ additiveExpression
 					{
 					set13=input.LT(1);
 					set13=input.LT(1);
 					if ( (input.LA(1) >= GT && input.LA(1) <= GTEQ)||(input.LA(1) >= LT && input.LA(1) <= LTEQ) ) {
 						input.consume();
-						root_0 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(set13), root_0);
+						if ( state.backtracking==0 ) root_0 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(set13), root_0);
 						state.errorRecovery=false;
+						state.failed=false;
 					}
 					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						MismatchedSetException mse = new MismatchedSetException(null,input);
 						throw mse;
 					}
-					pushFollow(FOLLOW_additiveExpression_in_relationalExpression224);
+					pushFollow(FOLLOW_additiveExpression_in_relationalExpression233);
 					additiveExpression14=additiveExpression();
 					state._fsp--;
-
-					adaptor.addChild(root_0, additiveExpression14.getTree());
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, additiveExpression14.getTree());
 
 					}
 					break;
@@ -567,9 +583,10 @@ public class RPGExprParser extends Parser {
 
 			retval.stop = input.LT(-1);
 
+			if ( state.backtracking==0 ) {
 			retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
 			adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+			}
 		}
 
 		    catch (RecognitionException e) {
@@ -593,7 +610,7 @@ public class RPGExprParser extends Parser {
 
 
 	// $ANTLR start "additiveExpression"
-	// RPGExpr.g:118:1: additiveExpression : multiplicativeExpression ( ( PLUS | MINUS ) ^ multiplicativeExpression )* ;
+	// RPGExpr.g:119:1: additiveExpression : multiplicativeExpression ( ( PLUS | MINUS ) ^ multiplicativeExpression )* ;
 	public final RPGExprParser.additiveExpression_return additiveExpression() throws RecognitionException {
 		RPGExprParser.additiveExpression_return retval = new RPGExprParser.additiveExpression_return();
 		retval.start = input.LT(1);
@@ -607,19 +624,19 @@ public class RPGExprParser extends Parser {
 		CommonTree set16_tree=null;
 
 		try {
-			// RPGExpr.g:119:2: ( multiplicativeExpression ( ( PLUS | MINUS ) ^ multiplicativeExpression )* )
-			// RPGExpr.g:119:4: multiplicativeExpression ( ( PLUS | MINUS ) ^ multiplicativeExpression )*
+			// RPGExpr.g:120:2: ( multiplicativeExpression ( ( PLUS | MINUS ) ^ multiplicativeExpression )* )
+			// RPGExpr.g:120:4: multiplicativeExpression ( ( PLUS | MINUS ) ^ multiplicativeExpression )*
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_multiplicativeExpression_in_additiveExpression239);
+			pushFollow(FOLLOW_multiplicativeExpression_in_additiveExpression248);
 			multiplicativeExpression15=multiplicativeExpression();
 			state._fsp--;
+			if (state.failed) return retval;
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, multiplicativeExpression15.getTree());
 
-			adaptor.addChild(root_0, multiplicativeExpression15.getTree());
-
-			// RPGExpr.g:119:29: ( ( PLUS | MINUS ) ^ multiplicativeExpression )*
+			// RPGExpr.g:120:29: ( ( PLUS | MINUS ) ^ multiplicativeExpression )*
 			loop5:
 			while (true) {
 				int alt5=2;
@@ -630,24 +647,26 @@ public class RPGExprParser extends Parser {
 
 				switch (alt5) {
 				case 1 :
-					// RPGExpr.g:119:31: ( PLUS | MINUS ) ^ multiplicativeExpression
+					// RPGExpr.g:120:31: ( PLUS | MINUS ) ^ multiplicativeExpression
 					{
 					set16=input.LT(1);
 					set16=input.LT(1);
 					if ( input.LA(1)==MINUS||input.LA(1)==PLUS ) {
 						input.consume();
-						root_0 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(set16), root_0);
+						if ( state.backtracking==0 ) root_0 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(set16), root_0);
 						state.errorRecovery=false;
+						state.failed=false;
 					}
 					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						MismatchedSetException mse = new MismatchedSetException(null,input);
 						throw mse;
 					}
-					pushFollow(FOLLOW_multiplicativeExpression_in_additiveExpression250);
+					pushFollow(FOLLOW_multiplicativeExpression_in_additiveExpression259);
 					multiplicativeExpression17=multiplicativeExpression();
 					state._fsp--;
-
-					adaptor.addChild(root_0, multiplicativeExpression17.getTree());
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, multiplicativeExpression17.getTree());
 
 					}
 					break;
@@ -661,9 +680,10 @@ public class RPGExprParser extends Parser {
 
 			retval.stop = input.LT(-1);
 
+			if ( state.backtracking==0 ) {
 			retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
 			adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+			}
 		}
 
 		    catch (RecognitionException e) {
@@ -687,7 +707,7 @@ public class RPGExprParser extends Parser {
 
 
 	// $ANTLR start "multiplicativeExpression"
-	// RPGExpr.g:122:1: multiplicativeExpression : powerExpression ( ( MULT | DIV | MOD ) ^ powerExpression )* ;
+	// RPGExpr.g:123:1: multiplicativeExpression : powerExpression ( ( MULT | DIV | MOD ) ^ powerExpression )* ;
 	public final RPGExprParser.multiplicativeExpression_return multiplicativeExpression() throws RecognitionException {
 		RPGExprParser.multiplicativeExpression_return retval = new RPGExprParser.multiplicativeExpression_return();
 		retval.start = input.LT(1);
@@ -701,19 +721,19 @@ public class RPGExprParser extends Parser {
 		CommonTree set19_tree=null;
 
 		try {
-			// RPGExpr.g:123:2: ( powerExpression ( ( MULT | DIV | MOD ) ^ powerExpression )* )
-			// RPGExpr.g:124:3: powerExpression ( ( MULT | DIV | MOD ) ^ powerExpression )*
+			// RPGExpr.g:124:2: ( powerExpression ( ( MULT | DIV | MOD ) ^ powerExpression )* )
+			// RPGExpr.g:125:3: powerExpression ( ( MULT | DIV | MOD ) ^ powerExpression )*
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_powerExpression_in_multiplicativeExpression266);
+			pushFollow(FOLLOW_powerExpression_in_multiplicativeExpression275);
 			powerExpression18=powerExpression();
 			state._fsp--;
+			if (state.failed) return retval;
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, powerExpression18.getTree());
 
-			adaptor.addChild(root_0, powerExpression18.getTree());
-
-			// RPGExpr.g:124:19: ( ( MULT | DIV | MOD ) ^ powerExpression )*
+			// RPGExpr.g:125:19: ( ( MULT | DIV | MOD ) ^ powerExpression )*
 			loop6:
 			while (true) {
 				int alt6=2;
@@ -724,24 +744,26 @@ public class RPGExprParser extends Parser {
 
 				switch (alt6) {
 				case 1 :
-					// RPGExpr.g:124:21: ( MULT | DIV | MOD ) ^ powerExpression
+					// RPGExpr.g:125:21: ( MULT | DIV | MOD ) ^ powerExpression
 					{
 					set19=input.LT(1);
 					set19=input.LT(1);
 					if ( input.LA(1)==DIV||(input.LA(1) >= MOD && input.LA(1) <= MULT) ) {
 						input.consume();
-						root_0 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(set19), root_0);
+						if ( state.backtracking==0 ) root_0 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(set19), root_0);
 						state.errorRecovery=false;
+						state.failed=false;
 					}
 					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						MismatchedSetException mse = new MismatchedSetException(null,input);
 						throw mse;
 					}
-					pushFollow(FOLLOW_powerExpression_in_multiplicativeExpression279);
+					pushFollow(FOLLOW_powerExpression_in_multiplicativeExpression288);
 					powerExpression20=powerExpression();
 					state._fsp--;
-
-					adaptor.addChild(root_0, powerExpression20.getTree());
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, powerExpression20.getTree());
 
 					}
 					break;
@@ -755,9 +777,10 @@ public class RPGExprParser extends Parser {
 
 			retval.stop = input.LT(-1);
 
+			if ( state.backtracking==0 ) {
 			retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
 			adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+			}
 		}
 
 		    catch (RecognitionException e) {
@@ -781,64 +804,149 @@ public class RPGExprParser extends Parser {
 
 
 	// $ANTLR start "powerExpression"
-	// RPGExpr.g:127:1: powerExpression : unaryExpression ( POW ^ unaryExpression )? ;
+	// RPGExpr.g:128:1: powerExpression : (v1= unaryExpression -> unaryExpression ) ( ( MULT MULT v2= unaryExpression ) -> ^( POW $v1 $v2) )* ;
 	public final RPGExprParser.powerExpression_return powerExpression() throws RecognitionException {
 		RPGExprParser.powerExpression_return retval = new RPGExprParser.powerExpression_return();
 		retval.start = input.LT(1);
 
 		CommonTree root_0 = null;
 
-		Token POW22=null;
-		ParserRuleReturnScope unaryExpression21 =null;
-		ParserRuleReturnScope unaryExpression23 =null;
+		Token MULT21=null;
+		Token MULT22=null;
+		ParserRuleReturnScope v1 =null;
+		ParserRuleReturnScope v2 =null;
 
-		CommonTree POW22_tree=null;
+		CommonTree MULT21_tree=null;
+		CommonTree MULT22_tree=null;
+		RewriteRuleTokenStream stream_MULT=new RewriteRuleTokenStream(adaptor,"token MULT");
+		RewriteRuleSubtreeStream stream_unaryExpression=new RewriteRuleSubtreeStream(adaptor,"rule unaryExpression");
 
 		try {
-			// RPGExpr.g:128:2: ( unaryExpression ( POW ^ unaryExpression )? )
-			// RPGExpr.g:128:4: unaryExpression ( POW ^ unaryExpression )?
+			// RPGExpr.g:129:2: ( (v1= unaryExpression -> unaryExpression ) ( ( MULT MULT v2= unaryExpression ) -> ^( POW $v1 $v2) )* )
+			// RPGExpr.g:129:4: (v1= unaryExpression -> unaryExpression ) ( ( MULT MULT v2= unaryExpression ) -> ^( POW $v1 $v2) )*
 			{
-			root_0 = (CommonTree)adaptor.nil();
-
-
-			pushFollow(FOLLOW_unaryExpression_in_powerExpression293);
-			unaryExpression21=unaryExpression();
+			// RPGExpr.g:129:4: (v1= unaryExpression -> unaryExpression )
+			// RPGExpr.g:129:5: v1= unaryExpression
+			{
+			pushFollow(FOLLOW_unaryExpression_in_powerExpression304);
+			v1=unaryExpression();
 			state._fsp--;
+			if (state.failed) return retval;
+			if ( state.backtracking==0 ) stream_unaryExpression.add(v1.getTree());
+			// AST REWRITE
+			// elements: unaryExpression
+			// token labels: 
+			// rule labels: retval
+			// token list labels: 
+			// rule list labels: 
+			// wildcard labels: 
+			if ( state.backtracking==0 ) {
+			retval.tree = root_0;
+			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
-			adaptor.addChild(root_0, unaryExpression21.getTree());
-
-			// RPGExpr.g:128:20: ( POW ^ unaryExpression )?
-			int alt7=2;
-			int LA7_0 = input.LA(1);
-			if ( (LA7_0==POW) ) {
-				alt7=1;
+			root_0 = (CommonTree)adaptor.nil();
+			// 129:24: -> unaryExpression
+			{
+				adaptor.addChild(root_0, stream_unaryExpression.nextTree());
 			}
-			switch (alt7) {
+
+
+			retval.tree = root_0;
+			}
+
+			}
+
+			// RPGExpr.g:129:44: ( ( MULT MULT v2= unaryExpression ) -> ^( POW $v1 $v2) )*
+			loop7:
+			while (true) {
+				int alt7=2;
+				int LA7_0 = input.LA(1);
+				if ( (LA7_0==MULT) ) {
+					int LA7_1 = input.LA(2);
+					if ( (LA7_1==MULT) ) {
+						int LA7_3 = input.LA(3);
+						if ( (LA7_3==SPECIAL) ) {
+							int LA7_4 = input.LA(4);
+							if ( (synpred14_RPGExpr()) ) {
+								alt7=1;
+							}
+
+						}
+						else if ( (LA7_3==BI_FUN||LA7_3==BOOLEAN||LA7_3==DATETIME||LA7_3==FLOAT||LA7_3==HEX||(LA7_3 >= IN && LA7_3 <= INTEGER)||LA7_3==MINUS||LA7_3==MULT||LA7_3==NOT||LA7_3==PLUS||LA7_3==STRING||LA7_3==TERM||LA7_3==74) ) {
+							alt7=1;
+						}
+
+					}
+
+				}
+
+				switch (alt7) {
 				case 1 :
-					// RPGExpr.g:128:22: POW ^ unaryExpression
+					// RPGExpr.g:129:45: ( MULT MULT v2= unaryExpression )
 					{
-					POW22=(Token)match(input,POW,FOLLOW_POW_in_powerExpression297); 
-					POW22_tree = (CommonTree)adaptor.create(POW22);
-					root_0 = (CommonTree)adaptor.becomeRoot(POW22_tree, root_0);
+					// RPGExpr.g:129:45: ( MULT MULT v2= unaryExpression )
+					// RPGExpr.g:129:47: MULT MULT v2= unaryExpression
+					{
+					MULT21=(Token)match(input,MULT,FOLLOW_MULT_in_powerExpression314); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_MULT.add(MULT21);
 
-					pushFollow(FOLLOW_unaryExpression_in_powerExpression300);
-					unaryExpression23=unaryExpression();
+					MULT22=(Token)match(input,MULT,FOLLOW_MULT_in_powerExpression316); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_MULT.add(MULT22);
+
+					pushFollow(FOLLOW_unaryExpression_in_powerExpression320);
+					v2=unaryExpression();
 					state._fsp--;
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) stream_unaryExpression.add(v2.getTree());
+					}
 
-					adaptor.addChild(root_0, unaryExpression23.getTree());
+					// AST REWRITE
+					// elements: v2, v1
+					// token labels: 
+					// rule labels: v1, retval, v2
+					// token list labels: 
+					// rule list labels: 
+					// wildcard labels: 
+					if ( state.backtracking==0 ) {
+					retval.tree = root_0;
+					RewriteRuleSubtreeStream stream_v1=new RewriteRuleSubtreeStream(adaptor,"rule v1",v1!=null?v1.getTree():null);
+					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
+					RewriteRuleSubtreeStream stream_v2=new RewriteRuleSubtreeStream(adaptor,"rule v2",v2!=null?v2.getTree():null);
+
+					root_0 = (CommonTree)adaptor.nil();
+					// 129:78: -> ^( POW $v1 $v2)
+					{
+						// RPGExpr.g:129:81: ^( POW $v1 $v2)
+						{
+						CommonTree root_1 = (CommonTree)adaptor.nil();
+						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(POW, "POW"), root_1);
+						adaptor.addChild(root_1, stream_v1.nextTree());
+						adaptor.addChild(root_1, stream_v2.nextTree());
+						adaptor.addChild(root_0, root_1);
+						}
+
+					}
+
+
+					retval.tree = root_0;
+					}
 
 					}
 					break;
 
+				default :
+					break loop7;
+				}
 			}
 
 			}
 
 			retval.stop = input.LT(-1);
 
+			if ( state.backtracking==0 ) {
 			retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
 			adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+			}
 		}
 
 		    catch (RecognitionException e) {
@@ -862,42 +970,46 @@ public class RPGExprParser extends Parser {
 
 
 	// $ANTLR start "unaryExpression"
-	// RPGExpr.g:131:1: unaryExpression : ( qualified | NOT ^ qualified | MINUS qualified -> ^( NEGATE qualified ) );
+	// RPGExpr.g:132:1: unaryExpression : ( qualified | NOT ^ qualified | MINUS qualified -> ^( SIGN_MINUS qualified ) | PLUS qualified -> ^( SIGN_PLUS qualified ) );
 	public final RPGExprParser.unaryExpression_return unaryExpression() throws RecognitionException {
 		RPGExprParser.unaryExpression_return retval = new RPGExprParser.unaryExpression_return();
 		retval.start = input.LT(1);
 
 		CommonTree root_0 = null;
 
-		Token NOT25=null;
-		Token MINUS27=null;
-		ParserRuleReturnScope qualified24 =null;
-		ParserRuleReturnScope qualified26 =null;
-		ParserRuleReturnScope qualified28 =null;
+		Token NOT24=null;
+		Token MINUS26=null;
+		Token PLUS28=null;
+		ParserRuleReturnScope qualified23 =null;
+		ParserRuleReturnScope qualified25 =null;
+		ParserRuleReturnScope qualified27 =null;
+		ParserRuleReturnScope qualified29 =null;
 
-		CommonTree NOT25_tree=null;
-		CommonTree MINUS27_tree=null;
+		CommonTree NOT24_tree=null;
+		CommonTree MINUS26_tree=null;
+		CommonTree PLUS28_tree=null;
+		RewriteRuleTokenStream stream_PLUS=new RewriteRuleTokenStream(adaptor,"token PLUS");
 		RewriteRuleTokenStream stream_MINUS=new RewriteRuleTokenStream(adaptor,"token MINUS");
 		RewriteRuleSubtreeStream stream_qualified=new RewriteRuleSubtreeStream(adaptor,"rule qualified");
 
 		try {
-			// RPGExpr.g:132:2: ( qualified | NOT ^ qualified | MINUS qualified -> ^( NEGATE qualified ) )
-			int alt8=3;
+			// RPGExpr.g:133:2: ( qualified | NOT ^ qualified | MINUS qualified -> ^( SIGN_MINUS qualified ) | PLUS qualified -> ^( SIGN_PLUS qualified ) )
+			int alt8=4;
 			switch ( input.LA(1) ) {
-			case ARRAY_INDICATOR:
 			case BI_FUN:
 			case BOOLEAN:
 			case DATETIME:
-			case FILLER:
 			case FLOAT:
 			case HEX:
-			case INDICATOR:
+			case IN:
+			case INNR:
+			case INNU:
 			case INTEGER:
 			case MULT:
 			case SPECIAL:
 			case STRING:
 			case TERM:
-			case 72:
+			case 74:
 				{
 				alt8=1;
 				}
@@ -912,55 +1024,63 @@ public class RPGExprParser extends Parser {
 				alt8=3;
 				}
 				break;
+			case PLUS:
+				{
+				alt8=4;
+				}
+				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 8, 0, input);
 				throw nvae;
 			}
 			switch (alt8) {
 				case 1 :
-					// RPGExpr.g:133:4: qualified
+					// RPGExpr.g:134:4: qualified
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_qualified_in_unaryExpression317);
-					qualified24=qualified();
+					pushFollow(FOLLOW_qualified_in_unaryExpression350);
+					qualified23=qualified();
 					state._fsp--;
-
-					adaptor.addChild(root_0, qualified24.getTree());
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, qualified23.getTree());
 
 					}
 					break;
 				case 2 :
-					// RPGExpr.g:134:8: NOT ^ qualified
+					// RPGExpr.g:135:8: NOT ^ qualified
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					NOT25=(Token)match(input,NOT,FOLLOW_NOT_in_unaryExpression326); 
-					NOT25_tree = (CommonTree)adaptor.create(NOT25);
-					root_0 = (CommonTree)adaptor.becomeRoot(NOT25_tree, root_0);
+					NOT24=(Token)match(input,NOT,FOLLOW_NOT_in_unaryExpression359); if (state.failed) return retval;
+					if ( state.backtracking==0 ) {
+					NOT24_tree = (CommonTree)adaptor.create(NOT24);
+					root_0 = (CommonTree)adaptor.becomeRoot(NOT24_tree, root_0);
+					}
 
-					pushFollow(FOLLOW_qualified_in_unaryExpression329);
-					qualified26=qualified();
+					pushFollow(FOLLOW_qualified_in_unaryExpression362);
+					qualified25=qualified();
 					state._fsp--;
-
-					adaptor.addChild(root_0, qualified26.getTree());
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, qualified25.getTree());
 
 					}
 					break;
 				case 3 :
-					// RPGExpr.g:135:8: MINUS qualified
+					// RPGExpr.g:136:8: MINUS qualified
 					{
-					MINUS27=(Token)match(input,MINUS,FOLLOW_MINUS_in_unaryExpression338);  
-					stream_MINUS.add(MINUS27);
+					MINUS26=(Token)match(input,MINUS,FOLLOW_MINUS_in_unaryExpression371); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_MINUS.add(MINUS26);
 
-					pushFollow(FOLLOW_qualified_in_unaryExpression340);
-					qualified28=qualified();
+					pushFollow(FOLLOW_qualified_in_unaryExpression373);
+					qualified27=qualified();
 					state._fsp--;
-
-					stream_qualified.add(qualified28.getTree());
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) stream_qualified.add(qualified27.getTree());
 					// AST REWRITE
 					// elements: qualified
 					// token labels: 
@@ -968,16 +1088,17 @@ public class RPGExprParser extends Parser {
 					// token list labels: 
 					// rule list labels: 
 					// wildcard labels: 
+					if ( state.backtracking==0 ) {
 					retval.tree = root_0;
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 135:24: -> ^( NEGATE qualified )
+					// 136:24: -> ^( SIGN_MINUS qualified )
 					{
-						// RPGExpr.g:135:27: ^( NEGATE qualified )
+						// RPGExpr.g:136:27: ^( SIGN_MINUS qualified )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
-						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(NEGATE, "NEGATE"), root_1);
+						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SIGN_MINUS, "SIGN_MINUS"), root_1);
 						adaptor.addChild(root_1, stream_qualified.nextTree());
 						adaptor.addChild(root_0, root_1);
 						}
@@ -986,6 +1107,48 @@ public class RPGExprParser extends Parser {
 
 
 					retval.tree = root_0;
+					}
+
+					}
+					break;
+				case 4 :
+					// RPGExpr.g:137:8: PLUS qualified
+					{
+					PLUS28=(Token)match(input,PLUS,FOLLOW_PLUS_in_unaryExpression390); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_PLUS.add(PLUS28);
+
+					pushFollow(FOLLOW_qualified_in_unaryExpression392);
+					qualified29=qualified();
+					state._fsp--;
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) stream_qualified.add(qualified29.getTree());
+					// AST REWRITE
+					// elements: qualified
+					// token labels: 
+					// rule labels: retval
+					// token list labels: 
+					// rule list labels: 
+					// wildcard labels: 
+					if ( state.backtracking==0 ) {
+					retval.tree = root_0;
+					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
+
+					root_0 = (CommonTree)adaptor.nil();
+					// 137:24: -> ^( SIGN_PLUS qualified )
+					{
+						// RPGExpr.g:137:27: ^( SIGN_PLUS qualified )
+						{
+						CommonTree root_1 = (CommonTree)adaptor.nil();
+						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SIGN_PLUS, "SIGN_PLUS"), root_1);
+						adaptor.addChild(root_1, stream_qualified.nextTree());
+						adaptor.addChild(root_0, root_1);
+						}
+
+					}
+
+
+					retval.tree = root_0;
+					}
 
 					}
 					break;
@@ -993,9 +1156,10 @@ public class RPGExprParser extends Parser {
 			}
 			retval.stop = input.LT(-1);
 
+			if ( state.backtracking==0 ) {
 			retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
 			adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+			}
 		}
 
 		    catch (RecognitionException e) {
@@ -1019,33 +1183,33 @@ public class RPGExprParser extends Parser {
 
 
 	// $ANTLR start "qualified"
-	// RPGExpr.g:138:1: qualified : (v= primaryExpression -> primaryExpression ) ( ( POINT vals+= primaryExpression ) -> ^( QUALIFIED[$qualified.text] $v ( $vals)+ ) )* ;
+	// RPGExpr.g:140:1: qualified : (v= primaryExpression -> primaryExpression ) ( ( POINT vals+= primaryExpression ) -> ^( QUALIFIED[$qualified.text] $v ( $vals)+ ) )* ;
 	public final RPGExprParser.qualified_return qualified() throws RecognitionException {
 		RPGExprParser.qualified_return retval = new RPGExprParser.qualified_return();
 		retval.start = input.LT(1);
 
 		CommonTree root_0 = null;
 
-		Token POINT29=null;
+		Token POINT30=null;
 		List<Object> list_vals=null;
 		ParserRuleReturnScope v =null;
 		RuleReturnScope vals = null;
-		CommonTree POINT29_tree=null;
+		CommonTree POINT30_tree=null;
 		RewriteRuleTokenStream stream_POINT=new RewriteRuleTokenStream(adaptor,"token POINT");
 		RewriteRuleSubtreeStream stream_primaryExpression=new RewriteRuleSubtreeStream(adaptor,"rule primaryExpression");
 
 		try {
-			// RPGExpr.g:139:2: ( (v= primaryExpression -> primaryExpression ) ( ( POINT vals+= primaryExpression ) -> ^( QUALIFIED[$qualified.text] $v ( $vals)+ ) )* )
-			// RPGExpr.g:140:3: (v= primaryExpression -> primaryExpression ) ( ( POINT vals+= primaryExpression ) -> ^( QUALIFIED[$qualified.text] $v ( $vals)+ ) )*
+			// RPGExpr.g:141:2: ( (v= primaryExpression -> primaryExpression ) ( ( POINT vals+= primaryExpression ) -> ^( QUALIFIED[$qualified.text] $v ( $vals)+ ) )* )
+			// RPGExpr.g:142:3: (v= primaryExpression -> primaryExpression ) ( ( POINT vals+= primaryExpression ) -> ^( QUALIFIED[$qualified.text] $v ( $vals)+ ) )*
 			{
-			// RPGExpr.g:140:3: (v= primaryExpression -> primaryExpression )
-			// RPGExpr.g:140:4: v= primaryExpression
+			// RPGExpr.g:142:3: (v= primaryExpression -> primaryExpression )
+			// RPGExpr.g:142:4: v= primaryExpression
 			{
-			pushFollow(FOLLOW_primaryExpression_in_qualified367);
+			pushFollow(FOLLOW_primaryExpression_in_qualified424);
 			v=primaryExpression();
 			state._fsp--;
-
-			stream_primaryExpression.add(v.getTree());
+			if (state.failed) return retval;
+			if ( state.backtracking==0 ) stream_primaryExpression.add(v.getTree());
 			// AST REWRITE
 			// elements: primaryExpression
 			// token labels: 
@@ -1053,21 +1217,23 @@ public class RPGExprParser extends Parser {
 			// token list labels: 
 			// rule list labels: 
 			// wildcard labels: 
+			if ( state.backtracking==0 ) {
 			retval.tree = root_0;
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 140:24: -> primaryExpression
+			// 142:24: -> primaryExpression
 			{
 				adaptor.addChild(root_0, stream_primaryExpression.nextTree());
 			}
 
 
 			retval.tree = root_0;
+			}
 
 			}
 
-			// RPGExpr.g:140:46: ( ( POINT vals+= primaryExpression ) -> ^( QUALIFIED[$qualified.text] $v ( $vals)+ ) )*
+			// RPGExpr.g:142:46: ( ( POINT vals+= primaryExpression ) -> ^( QUALIFIED[$qualified.text] $v ( $vals)+ ) )*
 			loop9:
 			while (true) {
 				int alt9=2;
@@ -1078,38 +1244,39 @@ public class RPGExprParser extends Parser {
 
 				switch (alt9) {
 				case 1 :
-					// RPGExpr.g:140:47: ( POINT vals+= primaryExpression )
+					// RPGExpr.g:142:47: ( POINT vals+= primaryExpression )
 					{
-					// RPGExpr.g:140:47: ( POINT vals+= primaryExpression )
-					// RPGExpr.g:140:48: POINT vals+= primaryExpression
+					// RPGExpr.g:142:47: ( POINT vals+= primaryExpression )
+					// RPGExpr.g:142:48: POINT vals+= primaryExpression
 					{
-					POINT29=(Token)match(input,POINT,FOLLOW_POINT_in_qualified376);  
-					stream_POINT.add(POINT29);
+					POINT30=(Token)match(input,POINT,FOLLOW_POINT_in_qualified433); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_POINT.add(POINT30);
 
-					pushFollow(FOLLOW_primaryExpression_in_qualified380);
+					pushFollow(FOLLOW_primaryExpression_in_qualified437);
 					vals=primaryExpression();
 					state._fsp--;
-
-					stream_primaryExpression.add(vals.getTree());
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) stream_primaryExpression.add(vals.getTree());
 					if (list_vals==null) list_vals=new ArrayList<Object>();
 					list_vals.add(vals.getTree());
 					}
 
 					// AST REWRITE
-					// elements: vals, v
+					// elements: v, vals
 					// token labels: 
 					// rule labels: v, retval
 					// token list labels: 
 					// rule list labels: vals
 					// wildcard labels: 
+					if ( state.backtracking==0 ) {
 					retval.tree = root_0;
 					RewriteRuleSubtreeStream stream_v=new RewriteRuleSubtreeStream(adaptor,"rule v",v!=null?v.getTree():null);
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 					RewriteRuleSubtreeStream stream_vals=new RewriteRuleSubtreeStream(adaptor,"token vals",list_vals);
 					root_0 = (CommonTree)adaptor.nil();
-					// 140:79: -> ^( QUALIFIED[$qualified.text] $v ( $vals)+ )
+					// 142:79: -> ^( QUALIFIED[$qualified.text] $v ( $vals)+ )
 					{
-						// RPGExpr.g:140:82: ^( QUALIFIED[$qualified.text] $v ( $vals)+ )
+						// RPGExpr.g:142:82: ^( QUALIFIED[$qualified.text] $v ( $vals)+ )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(QUALIFIED, input.toString(retval.start,input.LT(-1))), root_1);
@@ -1129,6 +1296,7 @@ public class RPGExprParser extends Parser {
 
 
 					retval.tree = root_0;
+					}
 
 					}
 					break;
@@ -1142,9 +1310,10 @@ public class RPGExprParser extends Parser {
 
 			retval.stop = input.LT(-1);
 
+			if ( state.backtracking==0 ) {
 			retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
 			adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+			}
 		}
 
 		    catch (RecognitionException e) {
@@ -1168,36 +1337,37 @@ public class RPGExprParser extends Parser {
 
 
 	// $ANTLR start "primaryExpression"
-	// RPGExpr.g:143:1: primaryExpression : ( '(' logicalExpression ')' -> ^( BLOCK[$primaryExpression.text] logicalExpression ) | value );
+	// RPGExpr.g:145:1: primaryExpression : ( '(' logicalExpression ')' -> ^( BLOCK[$primaryExpression.text] logicalExpression ) | value );
 	public final RPGExprParser.primaryExpression_return primaryExpression() throws RecognitionException {
 		RPGExprParser.primaryExpression_return retval = new RPGExprParser.primaryExpression_return();
 		retval.start = input.LT(1);
 
 		CommonTree root_0 = null;
 
-		Token char_literal30=null;
-		Token char_literal32=null;
-		ParserRuleReturnScope logicalExpression31 =null;
-		ParserRuleReturnScope value33 =null;
+		Token char_literal31=null;
+		Token char_literal33=null;
+		ParserRuleReturnScope logicalExpression32 =null;
+		ParserRuleReturnScope value34 =null;
 
-		CommonTree char_literal30_tree=null;
-		CommonTree char_literal32_tree=null;
-		RewriteRuleTokenStream stream_72=new RewriteRuleTokenStream(adaptor,"token 72");
-		RewriteRuleTokenStream stream_73=new RewriteRuleTokenStream(adaptor,"token 73");
+		CommonTree char_literal31_tree=null;
+		CommonTree char_literal33_tree=null;
+		RewriteRuleTokenStream stream_74=new RewriteRuleTokenStream(adaptor,"token 74");
+		RewriteRuleTokenStream stream_75=new RewriteRuleTokenStream(adaptor,"token 75");
 		RewriteRuleSubtreeStream stream_logicalExpression=new RewriteRuleSubtreeStream(adaptor,"rule logicalExpression");
 
 		try {
-			// RPGExpr.g:144:2: ( '(' logicalExpression ')' -> ^( BLOCK[$primaryExpression.text] logicalExpression ) | value )
+			// RPGExpr.g:146:2: ( '(' logicalExpression ')' -> ^( BLOCK[$primaryExpression.text] logicalExpression ) | value )
 			int alt10=2;
 			int LA10_0 = input.LA(1);
-			if ( (LA10_0==72) ) {
+			if ( (LA10_0==74) ) {
 				alt10=1;
 			}
-			else if ( (LA10_0==ARRAY_INDICATOR||LA10_0==BI_FUN||LA10_0==BOOLEAN||LA10_0==DATETIME||(LA10_0 >= FILLER && LA10_0 <= FLOAT)||LA10_0==HEX||(LA10_0 >= INDICATOR && LA10_0 <= INTEGER)||LA10_0==MULT||LA10_0==SPECIAL||LA10_0==STRING||LA10_0==TERM) ) {
+			else if ( (LA10_0==BI_FUN||LA10_0==BOOLEAN||LA10_0==DATETIME||LA10_0==FLOAT||LA10_0==HEX||(LA10_0 >= IN && LA10_0 <= INTEGER)||LA10_0==MULT||LA10_0==SPECIAL||LA10_0==STRING||LA10_0==TERM) ) {
 				alt10=2;
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 10, 0, input);
 				throw nvae;
@@ -1205,18 +1375,18 @@ public class RPGExprParser extends Parser {
 
 			switch (alt10) {
 				case 1 :
-					// RPGExpr.g:144:4: '(' logicalExpression ')'
+					// RPGExpr.g:146:4: '(' logicalExpression ')'
 					{
-					char_literal30=(Token)match(input,72,FOLLOW_72_in_primaryExpression408);  
-					stream_72.add(char_literal30);
+					char_literal31=(Token)match(input,74,FOLLOW_74_in_primaryExpression470); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_74.add(char_literal31);
 
-					pushFollow(FOLLOW_logicalExpression_in_primaryExpression410);
-					logicalExpression31=logicalExpression();
+					pushFollow(FOLLOW_logicalExpression_in_primaryExpression472);
+					logicalExpression32=logicalExpression();
 					state._fsp--;
-
-					stream_logicalExpression.add(logicalExpression31.getTree());
-					char_literal32=(Token)match(input,73,FOLLOW_73_in_primaryExpression412);  
-					stream_73.add(char_literal32);
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) stream_logicalExpression.add(logicalExpression32.getTree());
+					char_literal33=(Token)match(input,75,FOLLOW_75_in_primaryExpression474); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_75.add(char_literal33);
 
 					// AST REWRITE
 					// elements: logicalExpression
@@ -1225,13 +1395,14 @@ public class RPGExprParser extends Parser {
 					// token list labels: 
 					// rule list labels: 
 					// wildcard labels: 
+					if ( state.backtracking==0 ) {
 					retval.tree = root_0;
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 144:30: -> ^( BLOCK[$primaryExpression.text] logicalExpression )
+					// 146:30: -> ^( BLOCK[$primaryExpression.text] logicalExpression )
 					{
-						// RPGExpr.g:144:33: ^( BLOCK[$primaryExpression.text] logicalExpression )
+						// RPGExpr.g:146:33: ^( BLOCK[$primaryExpression.text] logicalExpression )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
 						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(BLOCK, input.toString(retval.start,input.LT(-1))), root_1);
@@ -1243,20 +1414,21 @@ public class RPGExprParser extends Parser {
 
 
 					retval.tree = root_0;
+					}
 
 					}
 					break;
 				case 2 :
-					// RPGExpr.g:146:3: value
+					// RPGExpr.g:148:3: value
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_value_in_primaryExpression429);
-					value33=value();
+					pushFollow(FOLLOW_value_in_primaryExpression491);
+					value34=value();
 					state._fsp--;
-
-					adaptor.addChild(root_0, value33.getTree());
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, value34.getTree());
 
 					}
 					break;
@@ -1264,9 +1436,10 @@ public class RPGExprParser extends Parser {
 			}
 			retval.stop = input.LT(-1);
 
+			if ( state.backtracking==0 ) {
 			retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
 			adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+			}
 		}
 
 		    catch (RecognitionException e) {
@@ -1290,42 +1463,40 @@ public class RPGExprParser extends Parser {
 
 
 	// $ANTLR start "value"
-	// RPGExpr.g:149:1: value : ( INTEGER | FLOAT | DATETIME | BOOLEAN | STRING | HEX | TERM | INDICATOR | ( SPECIAL -> TERM ) | filler | special | bi_function | usr_function | array_indicator );
+	// RPGExpr.g:151:1: value : ( INTEGER | FLOAT | DATETIME | BOOLEAN | STRING | HEX | TERM | ( SPECIAL -> TERM ) | filler | special | bi_function | usr_function | indicator );
 	public final RPGExprParser.value_return value() throws RecognitionException {
 		RPGExprParser.value_return retval = new RPGExprParser.value_return();
 		retval.start = input.LT(1);
 
 		CommonTree root_0 = null;
 
-		Token INTEGER34=null;
-		Token FLOAT35=null;
-		Token DATETIME36=null;
-		Token BOOLEAN37=null;
-		Token STRING38=null;
-		Token HEX39=null;
-		Token TERM40=null;
-		Token INDICATOR41=null;
+		Token INTEGER35=null;
+		Token FLOAT36=null;
+		Token DATETIME37=null;
+		Token BOOLEAN38=null;
+		Token STRING39=null;
+		Token HEX40=null;
+		Token TERM41=null;
 		Token SPECIAL42=null;
 		ParserRuleReturnScope filler43 =null;
 		ParserRuleReturnScope special44 =null;
 		ParserRuleReturnScope bi_function45 =null;
 		ParserRuleReturnScope usr_function46 =null;
-		ParserRuleReturnScope array_indicator47 =null;
+		ParserRuleReturnScope indicator47 =null;
 
-		CommonTree INTEGER34_tree=null;
-		CommonTree FLOAT35_tree=null;
-		CommonTree DATETIME36_tree=null;
-		CommonTree BOOLEAN37_tree=null;
-		CommonTree STRING38_tree=null;
-		CommonTree HEX39_tree=null;
-		CommonTree TERM40_tree=null;
-		CommonTree INDICATOR41_tree=null;
+		CommonTree INTEGER35_tree=null;
+		CommonTree FLOAT36_tree=null;
+		CommonTree DATETIME37_tree=null;
+		CommonTree BOOLEAN38_tree=null;
+		CommonTree STRING39_tree=null;
+		CommonTree HEX40_tree=null;
+		CommonTree TERM41_tree=null;
 		CommonTree SPECIAL42_tree=null;
 		RewriteRuleTokenStream stream_SPECIAL=new RewriteRuleTokenStream(adaptor,"token SPECIAL");
 
 		try {
-			// RPGExpr.g:150:2: ( INTEGER | FLOAT | DATETIME | BOOLEAN | STRING | HEX | TERM | INDICATOR | ( SPECIAL -> TERM ) | filler | special | bi_function | usr_function | array_indicator )
-			int alt11=14;
+			// RPGExpr.g:152:2: ( INTEGER | FLOAT | DATETIME | BOOLEAN | STRING | HEX | TERM | ( SPECIAL -> TERM ) | filler | special | bi_function | usr_function | indicator )
+			int alt11=13;
 			switch ( input.LA(1) ) {
 			case INTEGER:
 				{
@@ -1360,14 +1531,15 @@ public class RPGExprParser extends Parser {
 			case TERM:
 				{
 				int LA11_7 = input.LA(2);
-				if ( (LA11_7==EOF||LA11_7==AND||LA11_7==DIV||LA11_7==EQ||(LA11_7 >= GT && LA11_7 <= GTEQ)||(LA11_7 >= LT && LA11_7 <= LTEQ)||(LA11_7 >= MINUS && LA11_7 <= MULT)||LA11_7==NE||LA11_7==OR||(LA11_7 >= PLUS && LA11_7 <= POW)||(LA11_7 >= 73 && LA11_7 <= 74)) ) {
+				if ( (LA11_7==EOF||LA11_7==AND||LA11_7==DIV||LA11_7==EQ||(LA11_7 >= GT && LA11_7 <= GTEQ)||(LA11_7 >= LT && LA11_7 <= LTEQ)||(LA11_7 >= MINUS && LA11_7 <= MULT)||LA11_7==NE||LA11_7==OR||(LA11_7 >= PLUS && LA11_7 <= POINT)||(LA11_7 >= 75 && LA11_7 <= 76)) ) {
 					alt11=7;
 				}
-				else if ( (LA11_7==72) ) {
-					alt11=13;
+				else if ( (LA11_7==74) ) {
+					alt11=12;
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
@@ -1381,146 +1553,161 @@ public class RPGExprParser extends Parser {
 
 				}
 				break;
-			case INDICATOR:
+			case SPECIAL:
 				{
 				alt11=8;
 				}
 				break;
-			case SPECIAL:
-				{
-				alt11=9;
-				}
-				break;
-			case FILLER:
-				{
-				alt11=10;
-				}
-				break;
 			case MULT:
 				{
-				alt11=11;
+				int LA11_9 = input.LA(2);
+				if ( (LA11_9==ALL) ) {
+					alt11=9;
+				}
+				else if ( (LA11_9==SPECIAL) ) {
+					alt11=10;
+				}
+
+				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
+					int nvaeMark = input.mark();
+					try {
+						input.consume();
+						NoViableAltException nvae =
+							new NoViableAltException("", 11, 9, input);
+						throw nvae;
+					} finally {
+						input.rewind(nvaeMark);
+					}
+				}
+
 				}
 				break;
 			case BI_FUN:
 				{
-				alt11=12;
+				alt11=11;
 				}
 				break;
-			case ARRAY_INDICATOR:
+			case IN:
+			case INNR:
+			case INNU:
 				{
-				alt11=14;
+				alt11=13;
 				}
 				break;
 			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 11, 0, input);
 				throw nvae;
 			}
 			switch (alt11) {
 				case 1 :
-					// RPGExpr.g:151:3: INTEGER
+					// RPGExpr.g:153:3: INTEGER
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					INTEGER34=(Token)match(input,INTEGER,FOLLOW_INTEGER_in_value442); 
-					INTEGER34_tree = (CommonTree)adaptor.create(INTEGER34);
-					adaptor.addChild(root_0, INTEGER34_tree);
+					INTEGER35=(Token)match(input,INTEGER,FOLLOW_INTEGER_in_value506); if (state.failed) return retval;
+					if ( state.backtracking==0 ) {
+					INTEGER35_tree = (CommonTree)adaptor.create(INTEGER35);
+					adaptor.addChild(root_0, INTEGER35_tree);
+					}
 
 					}
 					break;
 				case 2 :
-					// RPGExpr.g:152:4: FLOAT
+					// RPGExpr.g:154:4: FLOAT
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					FLOAT35=(Token)match(input,FLOAT,FOLLOW_FLOAT_in_value447); 
-					FLOAT35_tree = (CommonTree)adaptor.create(FLOAT35);
-					adaptor.addChild(root_0, FLOAT35_tree);
+					FLOAT36=(Token)match(input,FLOAT,FOLLOW_FLOAT_in_value511); if (state.failed) return retval;
+					if ( state.backtracking==0 ) {
+					FLOAT36_tree = (CommonTree)adaptor.create(FLOAT36);
+					adaptor.addChild(root_0, FLOAT36_tree);
+					}
 
 					}
 					break;
 				case 3 :
-					// RPGExpr.g:153:5: DATETIME
+					// RPGExpr.g:155:5: DATETIME
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					DATETIME36=(Token)match(input,DATETIME,FOLLOW_DATETIME_in_value453); 
-					DATETIME36_tree = (CommonTree)adaptor.create(DATETIME36);
-					adaptor.addChild(root_0, DATETIME36_tree);
+					DATETIME37=(Token)match(input,DATETIME,FOLLOW_DATETIME_in_value517); if (state.failed) return retval;
+					if ( state.backtracking==0 ) {
+					DATETIME37_tree = (CommonTree)adaptor.create(DATETIME37);
+					adaptor.addChild(root_0, DATETIME37_tree);
+					}
 
 					}
 					break;
 				case 4 :
-					// RPGExpr.g:154:4: BOOLEAN
+					// RPGExpr.g:156:4: BOOLEAN
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					BOOLEAN37=(Token)match(input,BOOLEAN,FOLLOW_BOOLEAN_in_value458); 
-					BOOLEAN37_tree = (CommonTree)adaptor.create(BOOLEAN37);
-					adaptor.addChild(root_0, BOOLEAN37_tree);
+					BOOLEAN38=(Token)match(input,BOOLEAN,FOLLOW_BOOLEAN_in_value522); if (state.failed) return retval;
+					if ( state.backtracking==0 ) {
+					BOOLEAN38_tree = (CommonTree)adaptor.create(BOOLEAN38);
+					adaptor.addChild(root_0, BOOLEAN38_tree);
+					}
 
 					}
 					break;
 				case 5 :
-					// RPGExpr.g:155:4: STRING
+					// RPGExpr.g:157:4: STRING
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					STRING38=(Token)match(input,STRING,FOLLOW_STRING_in_value463); 
-					STRING38_tree = (CommonTree)adaptor.create(STRING38);
-					adaptor.addChild(root_0, STRING38_tree);
+					STRING39=(Token)match(input,STRING,FOLLOW_STRING_in_value527); if (state.failed) return retval;
+					if ( state.backtracking==0 ) {
+					STRING39_tree = (CommonTree)adaptor.create(STRING39);
+					adaptor.addChild(root_0, STRING39_tree);
+					}
 
 					}
 					break;
 				case 6 :
-					// RPGExpr.g:156:4: HEX
+					// RPGExpr.g:158:4: HEX
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					HEX39=(Token)match(input,HEX,FOLLOW_HEX_in_value468); 
-					HEX39_tree = (CommonTree)adaptor.create(HEX39);
-					adaptor.addChild(root_0, HEX39_tree);
+					HEX40=(Token)match(input,HEX,FOLLOW_HEX_in_value532); if (state.failed) return retval;
+					if ( state.backtracking==0 ) {
+					HEX40_tree = (CommonTree)adaptor.create(HEX40);
+					adaptor.addChild(root_0, HEX40_tree);
+					}
 
 					}
 					break;
 				case 7 :
-					// RPGExpr.g:157:4: TERM
+					// RPGExpr.g:159:4: TERM
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					TERM40=(Token)match(input,TERM,FOLLOW_TERM_in_value473); 
-					TERM40_tree = (CommonTree)adaptor.create(TERM40);
-					adaptor.addChild(root_0, TERM40_tree);
+					TERM41=(Token)match(input,TERM,FOLLOW_TERM_in_value537); if (state.failed) return retval;
+					if ( state.backtracking==0 ) {
+					TERM41_tree = (CommonTree)adaptor.create(TERM41);
+					adaptor.addChild(root_0, TERM41_tree);
+					}
 
 					}
 					break;
 				case 8 :
-					// RPGExpr.g:158:4: INDICATOR
+					// RPGExpr.g:160:4: ( SPECIAL -> TERM )
 					{
-					root_0 = (CommonTree)adaptor.nil();
-
-
-					INDICATOR41=(Token)match(input,INDICATOR,FOLLOW_INDICATOR_in_value478); 
-					INDICATOR41_tree = (CommonTree)adaptor.create(INDICATOR41);
-					adaptor.addChild(root_0, INDICATOR41_tree);
-
-					}
-					break;
-				case 9 :
-					// RPGExpr.g:159:4: ( SPECIAL -> TERM )
+					// RPGExpr.g:160:4: ( SPECIAL -> TERM )
+					// RPGExpr.g:160:5: SPECIAL
 					{
-					// RPGExpr.g:159:4: ( SPECIAL -> TERM )
-					// RPGExpr.g:159:5: SPECIAL
-					{
-					SPECIAL42=(Token)match(input,SPECIAL,FOLLOW_SPECIAL_in_value485);  
-					stream_SPECIAL.add(SPECIAL42);
+					SPECIAL42=(Token)match(input,SPECIAL,FOLLOW_SPECIAL_in_value543); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_SPECIAL.add(SPECIAL42);
 
 					// AST REWRITE
 					// elements: 
@@ -1529,89 +1716,91 @@ public class RPGExprParser extends Parser {
 					// token list labels: 
 					// rule list labels: 
 					// wildcard labels: 
+					if ( state.backtracking==0 ) {
 					retval.tree = root_0;
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 159:13: -> TERM
+					// 160:13: -> TERM
 					{
 						adaptor.addChild(root_0, (CommonTree)adaptor.create(TERM, "TERM"));
 					}
 
 
 					retval.tree = root_0;
+					}
 
 					}
+
+					}
+					break;
+				case 9 :
+					// RPGExpr.g:161:4: filler
+					{
+					root_0 = (CommonTree)adaptor.nil();
+
+
+					pushFollow(FOLLOW_filler_in_value553);
+					filler43=filler();
+					state._fsp--;
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, filler43.getTree());
 
 					}
 					break;
 				case 10 :
-					// RPGExpr.g:160:4: filler
+					// RPGExpr.g:162:4: special
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_filler_in_value495);
-					filler43=filler();
+					pushFollow(FOLLOW_special_in_value558);
+					special44=special();
 					state._fsp--;
-
-					adaptor.addChild(root_0, filler43.getTree());
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, special44.getTree());
 
 					}
 					break;
 				case 11 :
-					// RPGExpr.g:161:4: special
+					// RPGExpr.g:163:4: bi_function
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_special_in_value500);
-					special44=special();
+					pushFollow(FOLLOW_bi_function_in_value563);
+					bi_function45=bi_function();
 					state._fsp--;
-
-					adaptor.addChild(root_0, special44.getTree());
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, bi_function45.getTree());
 
 					}
 					break;
 				case 12 :
-					// RPGExpr.g:162:4: bi_function
+					// RPGExpr.g:164:4: usr_function
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_bi_function_in_value505);
-					bi_function45=bi_function();
+					pushFollow(FOLLOW_usr_function_in_value568);
+					usr_function46=usr_function();
 					state._fsp--;
-
-					adaptor.addChild(root_0, bi_function45.getTree());
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, usr_function46.getTree());
 
 					}
 					break;
 				case 13 :
-					// RPGExpr.g:163:4: usr_function
+					// RPGExpr.g:165:6: indicator
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_usr_function_in_value510);
-					usr_function46=usr_function();
+					pushFollow(FOLLOW_indicator_in_value575);
+					indicator47=indicator();
 					state._fsp--;
-
-					adaptor.addChild(root_0, usr_function46.getTree());
-
-					}
-					break;
-				case 14 :
-					// RPGExpr.g:164:6: array_indicator
-					{
-					root_0 = (CommonTree)adaptor.nil();
-
-
-					pushFollow(FOLLOW_array_indicator_in_value517);
-					array_indicator47=array_indicator();
-					state._fsp--;
-
-					adaptor.addChild(root_0, array_indicator47.getTree());
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, indicator47.getTree());
 
 					}
 					break;
@@ -1619,9 +1808,10 @@ public class RPGExprParser extends Parser {
 			}
 			retval.stop = input.LT(-1);
 
+			if ( state.backtracking==0 ) {
 			retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
 			adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+			}
 		}
 
 		    catch (RecognitionException e) {
@@ -1637,6 +1827,208 @@ public class RPGExprParser extends Parser {
 	// $ANTLR end "value"
 
 
+	public static class indicator_return extends ParserRuleReturnScope {
+		CommonTree tree;
+		@Override
+		public CommonTree getTree() { return tree; }
+	};
+
+
+	// $ANTLR start "indicator"
+	// RPGExpr.g:168:1: indicator : ( IN '(' logicalExpression ')' -> ^( BI_FUNCTION[\"*IN\"] logicalExpression ) | INNR -> ^( BI_FUNCTION[\"*IN\"] INTEGER[$INNR.text.substring(3)] ) | INNU -> ^( BI_FUNCTION[\"*IN\"] STRING[$INNU.text.substring(3)] ) );
+	public final RPGExprParser.indicator_return indicator() throws RecognitionException {
+		RPGExprParser.indicator_return retval = new RPGExprParser.indicator_return();
+		retval.start = input.LT(1);
+
+		CommonTree root_0 = null;
+
+		Token IN48=null;
+		Token char_literal49=null;
+		Token char_literal51=null;
+		Token INNR52=null;
+		Token INNU53=null;
+		ParserRuleReturnScope logicalExpression50 =null;
+
+		CommonTree IN48_tree=null;
+		CommonTree char_literal49_tree=null;
+		CommonTree char_literal51_tree=null;
+		CommonTree INNR52_tree=null;
+		CommonTree INNU53_tree=null;
+		RewriteRuleTokenStream stream_IN=new RewriteRuleTokenStream(adaptor,"token IN");
+		RewriteRuleTokenStream stream_INNR=new RewriteRuleTokenStream(adaptor,"token INNR");
+		RewriteRuleTokenStream stream_INNU=new RewriteRuleTokenStream(adaptor,"token INNU");
+		RewriteRuleTokenStream stream_74=new RewriteRuleTokenStream(adaptor,"token 74");
+		RewriteRuleTokenStream stream_75=new RewriteRuleTokenStream(adaptor,"token 75");
+		RewriteRuleSubtreeStream stream_logicalExpression=new RewriteRuleSubtreeStream(adaptor,"rule logicalExpression");
+
+		try {
+			// RPGExpr.g:169:2: ( IN '(' logicalExpression ')' -> ^( BI_FUNCTION[\"*IN\"] logicalExpression ) | INNR -> ^( BI_FUNCTION[\"*IN\"] INTEGER[$INNR.text.substring(3)] ) | INNU -> ^( BI_FUNCTION[\"*IN\"] STRING[$INNU.text.substring(3)] ) )
+			int alt12=3;
+			switch ( input.LA(1) ) {
+			case IN:
+				{
+				alt12=1;
+				}
+				break;
+			case INNR:
+				{
+				alt12=2;
+				}
+				break;
+			case INNU:
+				{
+				alt12=3;
+				}
+				break;
+			default:
+				if (state.backtracking>0) {state.failed=true; return retval;}
+				NoViableAltException nvae =
+					new NoViableAltException("", 12, 0, input);
+				throw nvae;
+			}
+			switch (alt12) {
+				case 1 :
+					// RPGExpr.g:170:3: IN '(' logicalExpression ')'
+					{
+					IN48=(Token)match(input,IN,FOLLOW_IN_in_indicator589); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_IN.add(IN48);
+
+					char_literal49=(Token)match(input,74,FOLLOW_74_in_indicator591); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_74.add(char_literal49);
+
+					pushFollow(FOLLOW_logicalExpression_in_indicator593);
+					logicalExpression50=logicalExpression();
+					state._fsp--;
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) stream_logicalExpression.add(logicalExpression50.getTree());
+					char_literal51=(Token)match(input,75,FOLLOW_75_in_indicator595); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_75.add(char_literal51);
+
+					// AST REWRITE
+					// elements: logicalExpression
+					// token labels: 
+					// rule labels: retval
+					// token list labels: 
+					// rule list labels: 
+					// wildcard labels: 
+					if ( state.backtracking==0 ) {
+					retval.tree = root_0;
+					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
+
+					root_0 = (CommonTree)adaptor.nil();
+					// 170:32: -> ^( BI_FUNCTION[\"*IN\"] logicalExpression )
+					{
+						// RPGExpr.g:170:35: ^( BI_FUNCTION[\"*IN\"] logicalExpression )
+						{
+						CommonTree root_1 = (CommonTree)adaptor.nil();
+						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(BI_FUNCTION, "*IN"), root_1);
+						adaptor.addChild(root_1, stream_logicalExpression.nextTree());
+						adaptor.addChild(root_0, root_1);
+						}
+
+					}
+
+
+					retval.tree = root_0;
+					}
+
+					}
+					break;
+				case 2 :
+					// RPGExpr.g:172:3: INNR
+					{
+					INNR52=(Token)match(input,INNR,FOLLOW_INNR_in_indicator615); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_INNR.add(INNR52);
+
+					// AST REWRITE
+					// elements: 
+					// token labels: 
+					// rule labels: retval
+					// token list labels: 
+					// rule list labels: 
+					// wildcard labels: 
+					if ( state.backtracking==0 ) {
+					retval.tree = root_0;
+					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
+
+					root_0 = (CommonTree)adaptor.nil();
+					// 172:8: -> ^( BI_FUNCTION[\"*IN\"] INTEGER[$INNR.text.substring(3)] )
+					{
+						// RPGExpr.g:172:11: ^( BI_FUNCTION[\"*IN\"] INTEGER[$INNR.text.substring(3)] )
+						{
+						CommonTree root_1 = (CommonTree)adaptor.nil();
+						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(BI_FUNCTION, "*IN"), root_1);
+						adaptor.addChild(root_1, (CommonTree)adaptor.create(INTEGER, (INNR52!=null?INNR52.getText():null).substring(3)));
+						adaptor.addChild(root_0, root_1);
+						}
+
+					}
+
+
+					retval.tree = root_0;
+					}
+
+					}
+					break;
+				case 3 :
+					// RPGExpr.g:174:3: INNU
+					{
+					INNU53=(Token)match(input,INNU,FOLLOW_INNU_in_indicator636); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_INNU.add(INNU53);
+
+					// AST REWRITE
+					// elements: 
+					// token labels: 
+					// rule labels: retval
+					// token list labels: 
+					// rule list labels: 
+					// wildcard labels: 
+					if ( state.backtracking==0 ) {
+					retval.tree = root_0;
+					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
+
+					root_0 = (CommonTree)adaptor.nil();
+					// 174:8: -> ^( BI_FUNCTION[\"*IN\"] STRING[$INNU.text.substring(3)] )
+					{
+						// RPGExpr.g:174:11: ^( BI_FUNCTION[\"*IN\"] STRING[$INNU.text.substring(3)] )
+						{
+						CommonTree root_1 = (CommonTree)adaptor.nil();
+						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(BI_FUNCTION, "*IN"), root_1);
+						adaptor.addChild(root_1, (CommonTree)adaptor.create(STRING, (INNU53!=null?INNU53.getText():null).substring(3)));
+						adaptor.addChild(root_0, root_1);
+						}
+
+					}
+
+
+					retval.tree = root_0;
+					}
+
+					}
+					break;
+
+			}
+			retval.stop = input.LT(-1);
+
+			if ( state.backtracking==0 ) {
+			retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
+			adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+			}
+		}
+
+		    catch (RecognitionException e) {
+		        RuntimeException re = createException(e);
+		        throw re;
+		    }
+
+		finally {
+			// do for sure before leaving
+		}
+		return retval;
+	}
+	// $ANTLR end "indicator"
+
+
 	public static class filler_return extends ParserRuleReturnScope {
 		CommonTree tree;
 		@Override
@@ -1645,45 +2037,70 @@ public class RPGExprParser extends Parser {
 
 
 	// $ANTLR start "filler"
-	// RPGExpr.g:167:1: filler : ( FILLER STRING -> ^( BI_FUNCTION[$FILLER.text] STRING ) | FILLER HEX -> ^( BI_FUNCTION[$FILLER.text] HEX ) );
+	// RPGExpr.g:177:1: filler : ( MULT ALL STRING -> ^( BI_FUNCTION[\"*ALL\"] STRING ) | MULT ALL HEX -> ^( BI_FUNCTION[\"*ALL\"] HEX ) );
 	public final RPGExprParser.filler_return filler() throws RecognitionException {
 		RPGExprParser.filler_return retval = new RPGExprParser.filler_return();
 		retval.start = input.LT(1);
 
 		CommonTree root_0 = null;
 
-		Token FILLER48=null;
-		Token STRING49=null;
-		Token FILLER50=null;
-		Token HEX51=null;
+		Token MULT54=null;
+		Token ALL55=null;
+		Token STRING56=null;
+		Token MULT57=null;
+		Token ALL58=null;
+		Token HEX59=null;
 
-		CommonTree FILLER48_tree=null;
-		CommonTree STRING49_tree=null;
-		CommonTree FILLER50_tree=null;
-		CommonTree HEX51_tree=null;
+		CommonTree MULT54_tree=null;
+		CommonTree ALL55_tree=null;
+		CommonTree STRING56_tree=null;
+		CommonTree MULT57_tree=null;
+		CommonTree ALL58_tree=null;
+		CommonTree HEX59_tree=null;
+		RewriteRuleTokenStream stream_MULT=new RewriteRuleTokenStream(adaptor,"token MULT");
 		RewriteRuleTokenStream stream_HEX=new RewriteRuleTokenStream(adaptor,"token HEX");
-		RewriteRuleTokenStream stream_FILLER=new RewriteRuleTokenStream(adaptor,"token FILLER");
+		RewriteRuleTokenStream stream_ALL=new RewriteRuleTokenStream(adaptor,"token ALL");
 		RewriteRuleTokenStream stream_STRING=new RewriteRuleTokenStream(adaptor,"token STRING");
 
 		try {
-			// RPGExpr.g:167:8: ( FILLER STRING -> ^( BI_FUNCTION[$FILLER.text] STRING ) | FILLER HEX -> ^( BI_FUNCTION[$FILLER.text] HEX ) )
-			int alt12=2;
-			int LA12_0 = input.LA(1);
-			if ( (LA12_0==FILLER) ) {
-				int LA12_1 = input.LA(2);
-				if ( (LA12_1==STRING) ) {
-					alt12=1;
-				}
-				else if ( (LA12_1==HEX) ) {
-					alt12=2;
+			// RPGExpr.g:177:8: ( MULT ALL STRING -> ^( BI_FUNCTION[\"*ALL\"] STRING ) | MULT ALL HEX -> ^( BI_FUNCTION[\"*ALL\"] HEX ) )
+			int alt13=2;
+			int LA13_0 = input.LA(1);
+			if ( (LA13_0==MULT) ) {
+				int LA13_1 = input.LA(2);
+				if ( (LA13_1==ALL) ) {
+					int LA13_2 = input.LA(3);
+					if ( (LA13_2==STRING) ) {
+						alt13=1;
+					}
+					else if ( (LA13_2==HEX) ) {
+						alt13=2;
+					}
+
+					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
+						int nvaeMark = input.mark();
+						try {
+							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
+								input.consume();
+							}
+							NoViableAltException nvae =
+								new NoViableAltException("", 13, 2, input);
+							throw nvae;
+						} finally {
+							input.rewind(nvaeMark);
+						}
+					}
+
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
 						NoViableAltException nvae =
-							new NoViableAltException("", 12, 1, input);
+							new NoViableAltException("", 13, 1, input);
 						throw nvae;
 					} finally {
 						input.rewind(nvaeMark);
@@ -1693,20 +2110,24 @@ public class RPGExprParser extends Parser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 12, 0, input);
+					new NoViableAltException("", 13, 0, input);
 				throw nvae;
 			}
 
-			switch (alt12) {
+			switch (alt13) {
 				case 1 :
-					// RPGExpr.g:168:3: FILLER STRING
+					// RPGExpr.g:178:3: MULT ALL STRING
 					{
-					FILLER48=(Token)match(input,FILLER,FOLLOW_FILLER_in_filler529);  
-					stream_FILLER.add(FILLER48);
+					MULT54=(Token)match(input,MULT,FOLLOW_MULT_in_filler671); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_MULT.add(MULT54);
 
-					STRING49=(Token)match(input,STRING,FOLLOW_STRING_in_filler531);  
-					stream_STRING.add(STRING49);
+					ALL55=(Token)match(input,ALL,FOLLOW_ALL_in_filler673); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_ALL.add(ALL55);
+
+					STRING56=(Token)match(input,STRING,FOLLOW_STRING_in_filler675); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_STRING.add(STRING56);
 
 					// AST REWRITE
 					// elements: STRING
@@ -1715,16 +2136,17 @@ public class RPGExprParser extends Parser {
 					// token list labels: 
 					// rule list labels: 
 					// wildcard labels: 
+					if ( state.backtracking==0 ) {
 					retval.tree = root_0;
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 168:17: -> ^( BI_FUNCTION[$FILLER.text] STRING )
+					// 178:19: -> ^( BI_FUNCTION[\"*ALL\"] STRING )
 					{
-						// RPGExpr.g:168:20: ^( BI_FUNCTION[$FILLER.text] STRING )
+						// RPGExpr.g:178:22: ^( BI_FUNCTION[\"*ALL\"] STRING )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
-						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(BI_FUNCTION, (FILLER48!=null?FILLER48.getText():null)), root_1);
+						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(BI_FUNCTION, "*ALL"), root_1);
 						adaptor.addChild(root_1, stream_STRING.nextNode());
 						adaptor.addChild(root_0, root_1);
 						}
@@ -1733,17 +2155,21 @@ public class RPGExprParser extends Parser {
 
 
 					retval.tree = root_0;
+					}
 
 					}
 					break;
 				case 2 :
-					// RPGExpr.g:170:3: FILLER HEX
+					// RPGExpr.g:180:3: MULT ALL HEX
 					{
-					FILLER50=(Token)match(input,FILLER,FOLLOW_FILLER_in_filler548);  
-					stream_FILLER.add(FILLER50);
+					MULT57=(Token)match(input,MULT,FOLLOW_MULT_in_filler692); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_MULT.add(MULT57);
 
-					HEX51=(Token)match(input,HEX,FOLLOW_HEX_in_filler550);  
-					stream_HEX.add(HEX51);
+					ALL58=(Token)match(input,ALL,FOLLOW_ALL_in_filler694); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_ALL.add(ALL58);
+
+					HEX59=(Token)match(input,HEX,FOLLOW_HEX_in_filler696); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_HEX.add(HEX59);
 
 					// AST REWRITE
 					// elements: HEX
@@ -1752,16 +2178,17 @@ public class RPGExprParser extends Parser {
 					// token list labels: 
 					// rule list labels: 
 					// wildcard labels: 
+					if ( state.backtracking==0 ) {
 					retval.tree = root_0;
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 170:14: -> ^( BI_FUNCTION[$FILLER.text] HEX )
+					// 180:16: -> ^( BI_FUNCTION[\"*ALL\"] HEX )
 					{
-						// RPGExpr.g:170:17: ^( BI_FUNCTION[$FILLER.text] HEX )
+						// RPGExpr.g:180:19: ^( BI_FUNCTION[\"*ALL\"] HEX )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
-						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(BI_FUNCTION, (FILLER50!=null?FILLER50.getText():null)), root_1);
+						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(BI_FUNCTION, "*ALL"), root_1);
 						adaptor.addChild(root_1, stream_HEX.nextNode());
 						adaptor.addChild(root_0, root_1);
 						}
@@ -1770,6 +2197,7 @@ public class RPGExprParser extends Parser {
 
 
 					retval.tree = root_0;
+					}
 
 					}
 					break;
@@ -1777,9 +2205,10 @@ public class RPGExprParser extends Parser {
 			}
 			retval.stop = input.LT(-1);
 
+			if ( state.backtracking==0 ) {
 			retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
 			adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+			}
 		}
 
 		    catch (RecognitionException e) {
@@ -1803,30 +2232,30 @@ public class RPGExprParser extends Parser {
 
 
 	// $ANTLR start "special"
-	// RPGExpr.g:173:1: special : MULT SPECIAL -> SP_VALUE[$MULT.text + $SPECIAL.text] ;
+	// RPGExpr.g:183:1: special : MULT SPECIAL -> SP_VALUE[$MULT.text + $SPECIAL.text] ;
 	public final RPGExprParser.special_return special() throws RecognitionException {
 		RPGExprParser.special_return retval = new RPGExprParser.special_return();
 		retval.start = input.LT(1);
 
 		CommonTree root_0 = null;
 
-		Token MULT52=null;
-		Token SPECIAL53=null;
+		Token MULT60=null;
+		Token SPECIAL61=null;
 
-		CommonTree MULT52_tree=null;
-		CommonTree SPECIAL53_tree=null;
+		CommonTree MULT60_tree=null;
+		CommonTree SPECIAL61_tree=null;
 		RewriteRuleTokenStream stream_MULT=new RewriteRuleTokenStream(adaptor,"token MULT");
 		RewriteRuleTokenStream stream_SPECIAL=new RewriteRuleTokenStream(adaptor,"token SPECIAL");
 
 		try {
-			// RPGExpr.g:173:9: ( MULT SPECIAL -> SP_VALUE[$MULT.text + $SPECIAL.text] )
-			// RPGExpr.g:174:3: MULT SPECIAL
+			// RPGExpr.g:183:9: ( MULT SPECIAL -> SP_VALUE[$MULT.text + $SPECIAL.text] )
+			// RPGExpr.g:184:3: MULT SPECIAL
 			{
-			MULT52=(Token)match(input,MULT,FOLLOW_MULT_in_special571);  
-			stream_MULT.add(MULT52);
+			MULT60=(Token)match(input,MULT,FOLLOW_MULT_in_special718); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_MULT.add(MULT60);
 
-			SPECIAL53=(Token)match(input,SPECIAL,FOLLOW_SPECIAL_in_special573);  
-			stream_SPECIAL.add(SPECIAL53);
+			SPECIAL61=(Token)match(input,SPECIAL,FOLLOW_SPECIAL_in_special720); if (state.failed) return retval; 
+			if ( state.backtracking==0 ) stream_SPECIAL.add(SPECIAL61);
 
 			// AST REWRITE
 			// elements: 
@@ -1835,25 +2264,28 @@ public class RPGExprParser extends Parser {
 			// token list labels: 
 			// rule list labels: 
 			// wildcard labels: 
+			if ( state.backtracking==0 ) {
 			retval.tree = root_0;
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 174:16: -> SP_VALUE[$MULT.text + $SPECIAL.text]
+			// 184:16: -> SP_VALUE[$MULT.text + $SPECIAL.text]
 			{
-				adaptor.addChild(root_0, (CommonTree)adaptor.create(SP_VALUE, (MULT52!=null?MULT52.getText():null) + (SPECIAL53!=null?SPECIAL53.getText():null)));
+				adaptor.addChild(root_0, (CommonTree)adaptor.create(SP_VALUE, (MULT60!=null?MULT60.getText():null) + (SPECIAL61!=null?SPECIAL61.getText():null)));
 			}
 
 
 			retval.tree = root_0;
+			}
 
 			}
 
 			retval.stop = input.LT(-1);
 
+			if ( state.backtracking==0 ) {
 			retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
 			adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+			}
 		}
 
 		    catch (RecognitionException e) {
@@ -1877,47 +2309,48 @@ public class RPGExprParser extends Parser {
 
 
 	// $ANTLR start "usr_function"
-	// RPGExpr.g:177:1: usr_function : ( TERM params -> ^( USER_FUNCTION[$TERM.text] params ) | TERM empty -> ^( USER_FUNCTION[$TERM.text] ) );
+	// RPGExpr.g:188:1: usr_function : ( TERM params -> ^( USER_FUNCTION[$TERM.text] params ) | TERM empty -> ^( USER_FUNCTION[$TERM.text] ) );
 	public final RPGExprParser.usr_function_return usr_function() throws RecognitionException {
 		RPGExprParser.usr_function_return retval = new RPGExprParser.usr_function_return();
 		retval.start = input.LT(1);
 
 		CommonTree root_0 = null;
 
-		Token TERM54=null;
-		Token TERM56=null;
-		ParserRuleReturnScope params55 =null;
-		ParserRuleReturnScope empty57 =null;
+		Token TERM62=null;
+		Token TERM64=null;
+		ParserRuleReturnScope params63 =null;
+		ParserRuleReturnScope empty65 =null;
 
-		CommonTree TERM54_tree=null;
-		CommonTree TERM56_tree=null;
+		CommonTree TERM62_tree=null;
+		CommonTree TERM64_tree=null;
 		RewriteRuleTokenStream stream_TERM=new RewriteRuleTokenStream(adaptor,"token TERM");
 		RewriteRuleSubtreeStream stream_empty=new RewriteRuleSubtreeStream(adaptor,"rule empty");
 		RewriteRuleSubtreeStream stream_params=new RewriteRuleSubtreeStream(adaptor,"rule params");
 
 		try {
-			// RPGExpr.g:178:2: ( TERM params -> ^( USER_FUNCTION[$TERM.text] params ) | TERM empty -> ^( USER_FUNCTION[$TERM.text] ) )
-			int alt13=2;
-			int LA13_0 = input.LA(1);
-			if ( (LA13_0==TERM) ) {
-				int LA13_1 = input.LA(2);
-				if ( (LA13_1==72) ) {
-					int LA13_2 = input.LA(3);
-					if ( (LA13_2==73) ) {
-						alt13=2;
+			// RPGExpr.g:189:2: ( TERM params -> ^( USER_FUNCTION[$TERM.text] params ) | TERM empty -> ^( USER_FUNCTION[$TERM.text] ) )
+			int alt14=2;
+			int LA14_0 = input.LA(1);
+			if ( (LA14_0==TERM) ) {
+				int LA14_1 = input.LA(2);
+				if ( (LA14_1==74) ) {
+					int LA14_2 = input.LA(3);
+					if ( (LA14_2==75) ) {
+						alt14=2;
 					}
-					else if ( (LA13_2==ARRAY_INDICATOR||LA13_2==BI_FUN||LA13_2==BOOLEAN||LA13_2==DATETIME||(LA13_2 >= FILLER && LA13_2 <= FLOAT)||LA13_2==HEX||(LA13_2 >= INDICATOR && LA13_2 <= INTEGER)||LA13_2==MINUS||LA13_2==MULT||LA13_2==NOT||LA13_2==SPECIAL||LA13_2==STRING||LA13_2==TERM||LA13_2==72) ) {
-						alt13=1;
+					else if ( (LA14_2==BI_FUN||LA14_2==BOOLEAN||LA14_2==DATETIME||LA14_2==FLOAT||LA14_2==HEX||(LA14_2 >= IN && LA14_2 <= INTEGER)||LA14_2==MINUS||LA14_2==MULT||LA14_2==NOT||LA14_2==PLUS||LA14_2==SPECIAL||LA14_2==STRING||LA14_2==TERM||LA14_2==74) ) {
+						alt14=1;
 					}
 
 					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						int nvaeMark = input.mark();
 						try {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
 								input.consume();
 							}
 							NoViableAltException nvae =
-								new NoViableAltException("", 13, 2, input);
+								new NoViableAltException("", 14, 2, input);
 							throw nvae;
 						} finally {
 							input.rewind(nvaeMark);
@@ -1927,11 +2360,12 @@ public class RPGExprParser extends Parser {
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
 						NoViableAltException nvae =
-							new NoViableAltException("", 13, 1, input);
+							new NoViableAltException("", 14, 1, input);
 						throw nvae;
 					} finally {
 						input.rewind(nvaeMark);
@@ -1941,23 +2375,24 @@ public class RPGExprParser extends Parser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 13, 0, input);
+					new NoViableAltException("", 14, 0, input);
 				throw nvae;
 			}
 
-			switch (alt13) {
+			switch (alt14) {
 				case 1 :
-					// RPGExpr.g:178:4: TERM params
+					// RPGExpr.g:189:4: TERM params
 					{
-					TERM54=(Token)match(input,TERM,FOLLOW_TERM_in_usr_function589);  
-					stream_TERM.add(TERM54);
+					TERM62=(Token)match(input,TERM,FOLLOW_TERM_in_usr_function737); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_TERM.add(TERM62);
 
-					pushFollow(FOLLOW_params_in_usr_function591);
-					params55=params();
+					pushFollow(FOLLOW_params_in_usr_function739);
+					params63=params();
 					state._fsp--;
-
-					stream_params.add(params55.getTree());
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) stream_params.add(params63.getTree());
 					// AST REWRITE
 					// elements: params
 					// token labels: 
@@ -1965,16 +2400,17 @@ public class RPGExprParser extends Parser {
 					// token list labels: 
 					// rule list labels: 
 					// wildcard labels: 
+					if ( state.backtracking==0 ) {
 					retval.tree = root_0;
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 178:17: -> ^( USER_FUNCTION[$TERM.text] params )
+					// 189:17: -> ^( USER_FUNCTION[$TERM.text] params )
 					{
-						// RPGExpr.g:178:20: ^( USER_FUNCTION[$TERM.text] params )
+						// RPGExpr.g:189:20: ^( USER_FUNCTION[$TERM.text] params )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
-						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(USER_FUNCTION, (TERM54!=null?TERM54.getText():null)), root_1);
+						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(USER_FUNCTION, (TERM62!=null?TERM62.getText():null)), root_1);
 						adaptor.addChild(root_1, stream_params.nextTree());
 						adaptor.addChild(root_0, root_1);
 						}
@@ -1983,20 +2419,21 @@ public class RPGExprParser extends Parser {
 
 
 					retval.tree = root_0;
+					}
 
 					}
 					break;
 				case 2 :
-					// RPGExpr.g:180:3: TERM empty
+					// RPGExpr.g:191:3: TERM empty
 					{
-					TERM56=(Token)match(input,TERM,FOLLOW_TERM_in_usr_function609);  
-					stream_TERM.add(TERM56);
+					TERM64=(Token)match(input,TERM,FOLLOW_TERM_in_usr_function757); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_TERM.add(TERM64);
 
-					pushFollow(FOLLOW_empty_in_usr_function611);
-					empty57=empty();
+					pushFollow(FOLLOW_empty_in_usr_function759);
+					empty65=empty();
 					state._fsp--;
-
-					stream_empty.add(empty57.getTree());
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) stream_empty.add(empty65.getTree());
 					// AST REWRITE
 					// elements: 
 					// token labels: 
@@ -2004,16 +2441,17 @@ public class RPGExprParser extends Parser {
 					// token list labels: 
 					// rule list labels: 
 					// wildcard labels: 
+					if ( state.backtracking==0 ) {
 					retval.tree = root_0;
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 180:14: -> ^( USER_FUNCTION[$TERM.text] )
+					// 191:14: -> ^( USER_FUNCTION[$TERM.text] )
 					{
-						// RPGExpr.g:180:17: ^( USER_FUNCTION[$TERM.text] )
+						// RPGExpr.g:191:17: ^( USER_FUNCTION[$TERM.text] )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
-						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(USER_FUNCTION, (TERM56!=null?TERM56.getText():null)), root_1);
+						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(USER_FUNCTION, (TERM64!=null?TERM64.getText():null)), root_1);
 						adaptor.addChild(root_0, root_1);
 						}
 
@@ -2021,6 +2459,7 @@ public class RPGExprParser extends Parser {
 
 
 					retval.tree = root_0;
+					}
 
 					}
 					break;
@@ -2028,9 +2467,10 @@ public class RPGExprParser extends Parser {
 			}
 			retval.stop = input.LT(-1);
 
+			if ( state.backtracking==0 ) {
 			retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
 			adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+			}
 		}
 
 		    catch (RecognitionException e) {
@@ -2054,51 +2494,52 @@ public class RPGExprParser extends Parser {
 
 
 	// $ANTLR start "bi_function"
-	// RPGExpr.g:183:1: bi_function : ( BI_FUN ( params )? -> ^( BI_FUNCTION[$BI_FUN.text] ( params )? ) | BI_FUN '(' ')' -> ^( BI_FUNCTION[$BI_FUN.text] ) );
+	// RPGExpr.g:193:1: bi_function : ( BI_FUN ( params )? -> ^( BI_FUNCTION[$BI_FUN.text] ( params )? ) | BI_FUN '(' ')' -> ^( BI_FUNCTION[$BI_FUN.text] ) );
 	public final RPGExprParser.bi_function_return bi_function() throws RecognitionException {
 		RPGExprParser.bi_function_return retval = new RPGExprParser.bi_function_return();
 		retval.start = input.LT(1);
 
 		CommonTree root_0 = null;
 
-		Token BI_FUN58=null;
-		Token BI_FUN60=null;
-		Token char_literal61=null;
-		Token char_literal62=null;
-		ParserRuleReturnScope params59 =null;
+		Token BI_FUN66=null;
+		Token BI_FUN68=null;
+		Token char_literal69=null;
+		Token char_literal70=null;
+		ParserRuleReturnScope params67 =null;
 
-		CommonTree BI_FUN58_tree=null;
-		CommonTree BI_FUN60_tree=null;
-		CommonTree char_literal61_tree=null;
-		CommonTree char_literal62_tree=null;
+		CommonTree BI_FUN66_tree=null;
+		CommonTree BI_FUN68_tree=null;
+		CommonTree char_literal69_tree=null;
+		CommonTree char_literal70_tree=null;
 		RewriteRuleTokenStream stream_BI_FUN=new RewriteRuleTokenStream(adaptor,"token BI_FUN");
-		RewriteRuleTokenStream stream_72=new RewriteRuleTokenStream(adaptor,"token 72");
-		RewriteRuleTokenStream stream_73=new RewriteRuleTokenStream(adaptor,"token 73");
+		RewriteRuleTokenStream stream_74=new RewriteRuleTokenStream(adaptor,"token 74");
+		RewriteRuleTokenStream stream_75=new RewriteRuleTokenStream(adaptor,"token 75");
 		RewriteRuleSubtreeStream stream_params=new RewriteRuleSubtreeStream(adaptor,"rule params");
 
 		try {
-			// RPGExpr.g:184:2: ( BI_FUN ( params )? -> ^( BI_FUNCTION[$BI_FUN.text] ( params )? ) | BI_FUN '(' ')' -> ^( BI_FUNCTION[$BI_FUN.text] ) )
-			int alt15=2;
-			int LA15_0 = input.LA(1);
-			if ( (LA15_0==BI_FUN) ) {
-				int LA15_1 = input.LA(2);
-				if ( (LA15_1==72) ) {
-					int LA15_2 = input.LA(3);
-					if ( (LA15_2==73) ) {
-						alt15=2;
+			// RPGExpr.g:194:2: ( BI_FUN ( params )? -> ^( BI_FUNCTION[$BI_FUN.text] ( params )? ) | BI_FUN '(' ')' -> ^( BI_FUNCTION[$BI_FUN.text] ) )
+			int alt16=2;
+			int LA16_0 = input.LA(1);
+			if ( (LA16_0==BI_FUN) ) {
+				int LA16_1 = input.LA(2);
+				if ( (LA16_1==74) ) {
+					int LA16_2 = input.LA(3);
+					if ( (LA16_2==75) ) {
+						alt16=2;
 					}
-					else if ( (LA15_2==ARRAY_INDICATOR||LA15_2==BI_FUN||LA15_2==BOOLEAN||LA15_2==DATETIME||(LA15_2 >= FILLER && LA15_2 <= FLOAT)||LA15_2==HEX||(LA15_2 >= INDICATOR && LA15_2 <= INTEGER)||LA15_2==MINUS||LA15_2==MULT||LA15_2==NOT||LA15_2==SPECIAL||LA15_2==STRING||LA15_2==TERM||LA15_2==72) ) {
-						alt15=1;
+					else if ( (LA16_2==BI_FUN||LA16_2==BOOLEAN||LA16_2==DATETIME||LA16_2==FLOAT||LA16_2==HEX||(LA16_2 >= IN && LA16_2 <= INTEGER)||LA16_2==MINUS||LA16_2==MULT||LA16_2==NOT||LA16_2==PLUS||LA16_2==SPECIAL||LA16_2==STRING||LA16_2==TERM||LA16_2==74) ) {
+						alt16=1;
 					}
 
 					else {
+						if (state.backtracking>0) {state.failed=true; return retval;}
 						int nvaeMark = input.mark();
 						try {
 							for (int nvaeConsume = 0; nvaeConsume < 3 - 1; nvaeConsume++) {
 								input.consume();
 							}
 							NoViableAltException nvae =
-								new NoViableAltException("", 15, 2, input);
+								new NoViableAltException("", 16, 2, input);
 							throw nvae;
 						} finally {
 							input.rewind(nvaeMark);
@@ -2106,16 +2547,17 @@ public class RPGExprParser extends Parser {
 					}
 
 				}
-				else if ( (LA15_1==EOF||LA15_1==AND||LA15_1==DIV||LA15_1==EQ||(LA15_1 >= GT && LA15_1 <= GTEQ)||(LA15_1 >= LT && LA15_1 <= LTEQ)||(LA15_1 >= MINUS && LA15_1 <= MULT)||LA15_1==NE||LA15_1==OR||(LA15_1 >= PLUS && LA15_1 <= POW)||(LA15_1 >= 73 && LA15_1 <= 74)) ) {
-					alt15=1;
+				else if ( (LA16_1==EOF||LA16_1==AND||LA16_1==DIV||LA16_1==EQ||(LA16_1 >= GT && LA16_1 <= GTEQ)||(LA16_1 >= LT && LA16_1 <= LTEQ)||(LA16_1 >= MINUS && LA16_1 <= MULT)||LA16_1==NE||LA16_1==OR||(LA16_1 >= PLUS && LA16_1 <= POINT)||(LA16_1 >= 75 && LA16_1 <= 76)) ) {
+					alt16=1;
 				}
 
 				else {
+					if (state.backtracking>0) {state.failed=true; return retval;}
 					int nvaeMark = input.mark();
 					try {
 						input.consume();
 						NoViableAltException nvae =
-							new NoViableAltException("", 15, 1, input);
+							new NoViableAltException("", 16, 1, input);
 						throw nvae;
 					} finally {
 						input.rewind(nvaeMark);
@@ -2125,33 +2567,34 @@ public class RPGExprParser extends Parser {
 			}
 
 			else {
+				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
-					new NoViableAltException("", 15, 0, input);
+					new NoViableAltException("", 16, 0, input);
 				throw nvae;
 			}
 
-			switch (alt15) {
+			switch (alt16) {
 				case 1 :
-					// RPGExpr.g:185:3: BI_FUN ( params )?
+					// RPGExpr.g:194:5: BI_FUN ( params )?
 					{
-					BI_FUN58=(Token)match(input,BI_FUN,FOLLOW_BI_FUN_in_bi_function633);  
-					stream_BI_FUN.add(BI_FUN58);
+					BI_FUN66=(Token)match(input,BI_FUN,FOLLOW_BI_FUN_in_bi_function777); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_BI_FUN.add(BI_FUN66);
 
-					// RPGExpr.g:185:10: ( params )?
-					int alt14=2;
-					int LA14_0 = input.LA(1);
-					if ( (LA14_0==72) ) {
-						alt14=1;
+					// RPGExpr.g:194:12: ( params )?
+					int alt15=2;
+					int LA15_0 = input.LA(1);
+					if ( (LA15_0==74) ) {
+						alt15=1;
 					}
-					switch (alt14) {
+					switch (alt15) {
 						case 1 :
-							// RPGExpr.g:185:11: params
+							// RPGExpr.g:194:13: params
 							{
-							pushFollow(FOLLOW_params_in_bi_function636);
-							params59=params();
+							pushFollow(FOLLOW_params_in_bi_function780);
+							params67=params();
 							state._fsp--;
-
-							stream_params.add(params59.getTree());
+							if (state.failed) return retval;
+							if ( state.backtracking==0 ) stream_params.add(params67.getTree());
 							}
 							break;
 
@@ -2164,17 +2607,18 @@ public class RPGExprParser extends Parser {
 					// token list labels: 
 					// rule list labels: 
 					// wildcard labels: 
+					if ( state.backtracking==0 ) {
 					retval.tree = root_0;
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 185:20: -> ^( BI_FUNCTION[$BI_FUN.text] ( params )? )
+					// 194:22: -> ^( BI_FUNCTION[$BI_FUN.text] ( params )? )
 					{
-						// RPGExpr.g:185:23: ^( BI_FUNCTION[$BI_FUN.text] ( params )? )
+						// RPGExpr.g:194:25: ^( BI_FUNCTION[$BI_FUN.text] ( params )? )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
-						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(BI_FUNCTION, (BI_FUN58!=null?BI_FUN58.getText():null)), root_1);
-						// RPGExpr.g:185:51: ( params )?
+						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(BI_FUNCTION, (BI_FUN66!=null?BI_FUN66.getText():null)), root_1);
+						// RPGExpr.g:194:53: ( params )?
 						if ( stream_params.hasNext() ) {
 							adaptor.addChild(root_1, stream_params.nextTree());
 						}
@@ -2187,20 +2631,21 @@ public class RPGExprParser extends Parser {
 
 
 					retval.tree = root_0;
+					}
 
 					}
 					break;
 				case 2 :
-					// RPGExpr.g:187:3: BI_FUN '(' ')'
+					// RPGExpr.g:196:3: BI_FUN '(' ')'
 					{
-					BI_FUN60=(Token)match(input,BI_FUN,FOLLOW_BI_FUN_in_bi_function658);  
-					stream_BI_FUN.add(BI_FUN60);
+					BI_FUN68=(Token)match(input,BI_FUN,FOLLOW_BI_FUN_in_bi_function802); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_BI_FUN.add(BI_FUN68);
 
-					char_literal61=(Token)match(input,72,FOLLOW_72_in_bi_function660);  
-					stream_72.add(char_literal61);
+					char_literal69=(Token)match(input,74,FOLLOW_74_in_bi_function804); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_74.add(char_literal69);
 
-					char_literal62=(Token)match(input,73,FOLLOW_73_in_bi_function662);  
-					stream_73.add(char_literal62);
+					char_literal70=(Token)match(input,75,FOLLOW_75_in_bi_function806); if (state.failed) return retval; 
+					if ( state.backtracking==0 ) stream_75.add(char_literal70);
 
 					// AST REWRITE
 					// elements: 
@@ -2209,16 +2654,17 @@ public class RPGExprParser extends Parser {
 					// token list labels: 
 					// rule list labels: 
 					// wildcard labels: 
+					if ( state.backtracking==0 ) {
 					retval.tree = root_0;
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 187:20: -> ^( BI_FUNCTION[$BI_FUN.text] )
+					// 196:20: -> ^( BI_FUNCTION[$BI_FUN.text] )
 					{
-						// RPGExpr.g:187:23: ^( BI_FUNCTION[$BI_FUN.text] )
+						// RPGExpr.g:196:23: ^( BI_FUNCTION[$BI_FUN.text] )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
-						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(BI_FUNCTION, (BI_FUN60!=null?BI_FUN60.getText():null)), root_1);
+						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(BI_FUNCTION, (BI_FUN68!=null?BI_FUN68.getText():null)), root_1);
 						adaptor.addChild(root_0, root_1);
 						}
 
@@ -2226,6 +2672,7 @@ public class RPGExprParser extends Parser {
 
 
 					retval.tree = root_0;
+					}
 
 					}
 					break;
@@ -2233,9 +2680,10 @@ public class RPGExprParser extends Parser {
 			}
 			retval.stop = input.LT(-1);
 
+			if ( state.backtracking==0 ) {
 			retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
 			adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+			}
 		}
 
 		    catch (RecognitionException e) {
@@ -2259,73 +2707,74 @@ public class RPGExprParser extends Parser {
 
 
 	// $ANTLR start "params"
-	// RPGExpr.g:190:1: params : '(' ! logicalExpression ( ':' ! logicalExpression )* ')' !;
+	// RPGExpr.g:199:1: params : '(' ! logicalExpression ( ':' ! logicalExpression )* ')' !;
 	public final RPGExprParser.params_return params() throws RecognitionException {
 		RPGExprParser.params_return retval = new RPGExprParser.params_return();
 		retval.start = input.LT(1);
 
 		CommonTree root_0 = null;
 
-		Token char_literal63=null;
-		Token char_literal65=null;
-		Token char_literal67=null;
-		ParserRuleReturnScope logicalExpression64 =null;
-		ParserRuleReturnScope logicalExpression66 =null;
+		Token char_literal71=null;
+		Token char_literal73=null;
+		Token char_literal75=null;
+		ParserRuleReturnScope logicalExpression72 =null;
+		ParserRuleReturnScope logicalExpression74 =null;
 
-		CommonTree char_literal63_tree=null;
-		CommonTree char_literal65_tree=null;
-		CommonTree char_literal67_tree=null;
+		CommonTree char_literal71_tree=null;
+		CommonTree char_literal73_tree=null;
+		CommonTree char_literal75_tree=null;
 
 		try {
-			// RPGExpr.g:191:2: ( '(' ! logicalExpression ( ':' ! logicalExpression )* ')' !)
-			// RPGExpr.g:191:4: '(' ! logicalExpression ( ':' ! logicalExpression )* ')' !
+			// RPGExpr.g:200:2: ( '(' ! logicalExpression ( ':' ! logicalExpression )* ')' !)
+			// RPGExpr.g:201:3: '(' ! logicalExpression ( ':' ! logicalExpression )* ')' !
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			char_literal63=(Token)match(input,72,FOLLOW_72_in_params682); 
-			pushFollow(FOLLOW_logicalExpression_in_params685);
-			logicalExpression64=logicalExpression();
+			char_literal71=(Token)match(input,74,FOLLOW_74_in_params831); if (state.failed) return retval;
+			pushFollow(FOLLOW_logicalExpression_in_params834);
+			logicalExpression72=logicalExpression();
 			state._fsp--;
+			if (state.failed) return retval;
+			if ( state.backtracking==0 ) adaptor.addChild(root_0, logicalExpression72.getTree());
 
-			adaptor.addChild(root_0, logicalExpression64.getTree());
-
-			// RPGExpr.g:191:27: ( ':' ! logicalExpression )*
-			loop16:
+			// RPGExpr.g:201:26: ( ':' ! logicalExpression )*
+			loop17:
 			while (true) {
-				int alt16=2;
-				int LA16_0 = input.LA(1);
-				if ( (LA16_0==74) ) {
-					alt16=1;
+				int alt17=2;
+				int LA17_0 = input.LA(1);
+				if ( (LA17_0==76) ) {
+					alt17=1;
 				}
 
-				switch (alt16) {
+				switch (alt17) {
 				case 1 :
-					// RPGExpr.g:191:28: ':' ! logicalExpression
+					// RPGExpr.g:201:27: ':' ! logicalExpression
 					{
-					char_literal65=(Token)match(input,74,FOLLOW_74_in_params688); 
-					pushFollow(FOLLOW_logicalExpression_in_params691);
-					logicalExpression66=logicalExpression();
+					char_literal73=(Token)match(input,76,FOLLOW_76_in_params837); if (state.failed) return retval;
+					pushFollow(FOLLOW_logicalExpression_in_params840);
+					logicalExpression74=logicalExpression();
 					state._fsp--;
-
-					adaptor.addChild(root_0, logicalExpression66.getTree());
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, logicalExpression74.getTree());
 
 					}
 					break;
 
 				default :
-					break loop16;
+					break loop17;
 				}
 			}
 
-			char_literal67=(Token)match(input,73,FOLLOW_73_in_params695); 
+			char_literal75=(Token)match(input,75,FOLLOW_75_in_params844); if (state.failed) return retval;
 			}
 
 			retval.stop = input.LT(-1);
 
+			if ( state.backtracking==0 ) {
 			retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
 			adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+			}
 		}
 
 		    catch (RecognitionException e) {
@@ -2349,41 +2798,46 @@ public class RPGExprParser extends Parser {
 
 
 	// $ANTLR start "empty"
-	// RPGExpr.g:194:1: empty : '(' ')' ;
+	// RPGExpr.g:204:1: empty : '(' ')' ;
 	public final RPGExprParser.empty_return empty() throws RecognitionException {
 		RPGExprParser.empty_return retval = new RPGExprParser.empty_return();
 		retval.start = input.LT(1);
 
 		CommonTree root_0 = null;
 
-		Token char_literal68=null;
-		Token char_literal69=null;
+		Token char_literal76=null;
+		Token char_literal77=null;
 
-		CommonTree char_literal68_tree=null;
-		CommonTree char_literal69_tree=null;
+		CommonTree char_literal76_tree=null;
+		CommonTree char_literal77_tree=null;
 
 		try {
-			// RPGExpr.g:195:2: ( '(' ')' )
-			// RPGExpr.g:196:2: '(' ')'
+			// RPGExpr.g:205:2: ( '(' ')' )
+			// RPGExpr.g:206:2: '(' ')'
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			char_literal68=(Token)match(input,72,FOLLOW_72_in_empty708); 
-			char_literal68_tree = (CommonTree)adaptor.create(char_literal68);
-			adaptor.addChild(root_0, char_literal68_tree);
+			char_literal76=(Token)match(input,74,FOLLOW_74_in_empty858); if (state.failed) return retval;
+			if ( state.backtracking==0 ) {
+			char_literal76_tree = (CommonTree)adaptor.create(char_literal76);
+			adaptor.addChild(root_0, char_literal76_tree);
+			}
 
-			char_literal69=(Token)match(input,73,FOLLOW_73_in_empty710); 
-			char_literal69_tree = (CommonTree)adaptor.create(char_literal69);
-			adaptor.addChild(root_0, char_literal69_tree);
+			char_literal77=(Token)match(input,75,FOLLOW_75_in_empty860); if (state.failed) return retval;
+			if ( state.backtracking==0 ) {
+			char_literal77_tree = (CommonTree)adaptor.create(char_literal77);
+			adaptor.addChild(root_0, char_literal77_tree);
+			}
 
 			}
 
 			retval.stop = input.LT(-1);
 
+			if ( state.backtracking==0 ) {
 			retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
 			adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
-
+			}
 		}
 
 		    catch (RecognitionException e) {
@@ -2398,170 +2852,134 @@ public class RPGExprParser extends Parser {
 	}
 	// $ANTLR end "empty"
 
-
-	public static class array_indicator_return extends ParserRuleReturnScope {
-		CommonTree tree;
-		@Override
-		public CommonTree getTree() { return tree; }
-	};
+	// $ANTLR start synpred14_RPGExpr
+	public final void synpred14_RPGExpr_fragment() throws RecognitionException {
+		ParserRuleReturnScope v2 =null;
 
 
-	// $ANTLR start "array_indicator"
-	// RPGExpr.g:199:1: array_indicator : ARRAY_INDICATOR logicalExpression ')' -> ^( BI_FUNCTION[\"*IN\"] logicalExpression ) ;
-	public final RPGExprParser.array_indicator_return array_indicator() throws RecognitionException {
-		RPGExprParser.array_indicator_return retval = new RPGExprParser.array_indicator_return();
-		retval.start = input.LT(1);
+		// RPGExpr.g:129:45: ( ( MULT MULT v2= unaryExpression ) )
+		// RPGExpr.g:129:45: ( MULT MULT v2= unaryExpression )
+		{
+		// RPGExpr.g:129:45: ( MULT MULT v2= unaryExpression )
+		// RPGExpr.g:129:47: MULT MULT v2= unaryExpression
+		{
+		match(input,MULT,FOLLOW_MULT_in_synpred14_RPGExpr314); if (state.failed) return;
 
-		CommonTree root_0 = null;
+		match(input,MULT,FOLLOW_MULT_in_synpred14_RPGExpr316); if (state.failed) return;
 
-		Token ARRAY_INDICATOR70=null;
-		Token char_literal72=null;
-		ParserRuleReturnScope logicalExpression71 =null;
-
-		CommonTree ARRAY_INDICATOR70_tree=null;
-		CommonTree char_literal72_tree=null;
-		RewriteRuleTokenStream stream_ARRAY_INDICATOR=new RewriteRuleTokenStream(adaptor,"token ARRAY_INDICATOR");
-		RewriteRuleTokenStream stream_73=new RewriteRuleTokenStream(adaptor,"token 73");
-		RewriteRuleSubtreeStream stream_logicalExpression=new RewriteRuleSubtreeStream(adaptor,"rule logicalExpression");
-
-		try {
-			// RPGExpr.g:200:2: ( ARRAY_INDICATOR logicalExpression ')' -> ^( BI_FUNCTION[\"*IN\"] logicalExpression ) )
-			// RPGExpr.g:201:3: ARRAY_INDICATOR logicalExpression ')'
-			{
-			ARRAY_INDICATOR70=(Token)match(input,ARRAY_INDICATOR,FOLLOW_ARRAY_INDICATOR_in_array_indicator724);  
-			stream_ARRAY_INDICATOR.add(ARRAY_INDICATOR70);
-
-			pushFollow(FOLLOW_logicalExpression_in_array_indicator727);
-			logicalExpression71=logicalExpression();
-			state._fsp--;
-
-			stream_logicalExpression.add(logicalExpression71.getTree());
-			char_literal72=(Token)match(input,73,FOLLOW_73_in_array_indicator729);  
-			stream_73.add(char_literal72);
-
-			// AST REWRITE
-			// elements: logicalExpression
-			// token labels: 
-			// rule labels: retval
-			// token list labels: 
-			// rule list labels: 
-			// wildcard labels: 
-			retval.tree = root_0;
-			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
-
-			root_0 = (CommonTree)adaptor.nil();
-			// 201:42: -> ^( BI_FUNCTION[\"*IN\"] logicalExpression )
-			{
-				// RPGExpr.g:201:45: ^( BI_FUNCTION[\"*IN\"] logicalExpression )
-				{
-				CommonTree root_1 = (CommonTree)adaptor.nil();
-				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(BI_FUNCTION, "*IN"), root_1);
-				adaptor.addChild(root_1, stream_logicalExpression.nextTree());
-				adaptor.addChild(root_0, root_1);
-				}
-
-			}
-
-
-			retval.tree = root_0;
-
-			}
-
-			retval.stop = input.LT(-1);
-
-			retval.tree = (CommonTree)adaptor.rulePostProcessing(root_0);
-			adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+		pushFollow(FOLLOW_unaryExpression_in_synpred14_RPGExpr320);
+		v2=unaryExpression();
+		state._fsp--;
+		if (state.failed) return;
 
 		}
 
-		    catch (RecognitionException e) {
-		        RuntimeException re = createException(e);
-		        throw re;
-		    }
-
-		finally {
-			// do for sure before leaving
 		}
-		return retval;
+
 	}
-	// $ANTLR end "array_indicator"
+	// $ANTLR end synpred14_RPGExpr
 
 	// Delegated rules
 
+	public final boolean synpred14_RPGExpr() {
+		state.backtracking++;
+		int start = input.mark();
+		try {
+			synpred14_RPGExpr_fragment(); // can never throw exception
+		} catch (RecognitionException re) {
+			System.err.println("impossible: "+re);
+		}
+		boolean success = !state.failed;
+		input.rewind(start);
+		state.backtracking--;
+		state.failed=false;
+		return success;
+	}
 
 
-	public static final BitSet FOLLOW_logicalExpression_in_expression132 = new BitSet(new long[]{0x0000000000000000L});
-	public static final BitSet FOLLOW_EOF_in_expression134 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_booleanAndExpression_in_logicalExpression146 = new BitSet(new long[]{0x0002000000000002L});
-	public static final BitSet FOLLOW_OR_in_logicalExpression149 = new BitSet(new long[]{0x54008A0321808940L,0x0000000000000100L});
-	public static final BitSet FOLLOW_booleanAndExpression_in_logicalExpression152 = new BitSet(new long[]{0x0002000000000002L});
-	public static final BitSet FOLLOW_equalityExpression_in_booleanAndExpression166 = new BitSet(new long[]{0x0000000000000022L});
-	public static final BitSet FOLLOW_AND_in_booleanAndExpression169 = new BitSet(new long[]{0x54008A0321808940L,0x0000000000000100L});
-	public static final BitSet FOLLOW_equalityExpression_in_booleanAndExpression172 = new BitSet(new long[]{0x0000000000000022L});
-	public static final BitSet FOLLOW_relationalExpression_in_equalityExpression186 = new BitSet(new long[]{0x0000200000100002L});
-	public static final BitSet FOLLOW_set_in_equalityExpression189 = new BitSet(new long[]{0x54008A0321808940L,0x0000000000000100L});
-	public static final BitSet FOLLOW_relationalExpression_in_equalityExpression196 = new BitSet(new long[]{0x0000200000100002L});
-	public static final BitSet FOLLOW_additiveExpression_in_relationalExpression209 = new BitSet(new long[]{0x000000C00C000002L});
-	public static final BitSet FOLLOW_set_in_relationalExpression213 = new BitSet(new long[]{0x54008A0321808940L,0x0000000000000100L});
-	public static final BitSet FOLLOW_additiveExpression_in_relationalExpression224 = new BitSet(new long[]{0x000000C00C000002L});
-	public static final BitSet FOLLOW_multiplicativeExpression_in_additiveExpression239 = new BitSet(new long[]{0x0008020000000002L});
-	public static final BitSet FOLLOW_set_in_additiveExpression243 = new BitSet(new long[]{0x54008A0321808940L,0x0000000000000100L});
-	public static final BitSet FOLLOW_multiplicativeExpression_in_additiveExpression250 = new BitSet(new long[]{0x0008020000000002L});
-	public static final BitSet FOLLOW_powerExpression_in_multiplicativeExpression266 = new BitSet(new long[]{0x00000C0000040002L});
-	public static final BitSet FOLLOW_set_in_multiplicativeExpression270 = new BitSet(new long[]{0x54008A0321808940L,0x0000000000000100L});
-	public static final BitSet FOLLOW_powerExpression_in_multiplicativeExpression279 = new BitSet(new long[]{0x00000C0000040002L});
-	public static final BitSet FOLLOW_unaryExpression_in_powerExpression293 = new BitSet(new long[]{0x0020000000000002L});
-	public static final BitSet FOLLOW_POW_in_powerExpression297 = new BitSet(new long[]{0x54008A0321808940L,0x0000000000000100L});
-	public static final BitSet FOLLOW_unaryExpression_in_powerExpression300 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_qualified_in_unaryExpression317 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NOT_in_unaryExpression326 = new BitSet(new long[]{0x5400080321808940L,0x0000000000000100L});
-	public static final BitSet FOLLOW_qualified_in_unaryExpression329 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_MINUS_in_unaryExpression338 = new BitSet(new long[]{0x5400080321808940L,0x0000000000000100L});
-	public static final BitSet FOLLOW_qualified_in_unaryExpression340 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_primaryExpression_in_qualified367 = new BitSet(new long[]{0x0010000000000002L});
-	public static final BitSet FOLLOW_POINT_in_qualified376 = new BitSet(new long[]{0x5400080321808940L,0x0000000000000100L});
-	public static final BitSet FOLLOW_primaryExpression_in_qualified380 = new BitSet(new long[]{0x0010000000000002L});
-	public static final BitSet FOLLOW_72_in_primaryExpression408 = new BitSet(new long[]{0x54008A0321808940L,0x0000000000000100L});
-	public static final BitSet FOLLOW_logicalExpression_in_primaryExpression410 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_73_in_primaryExpression412 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_value_in_primaryExpression429 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_INTEGER_in_value442 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_FLOAT_in_value447 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_DATETIME_in_value453 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BOOLEAN_in_value458 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_STRING_in_value463 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_HEX_in_value468 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TERM_in_value473 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_INDICATOR_in_value478 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_SPECIAL_in_value485 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_filler_in_value495 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_special_in_value500 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_bi_function_in_value505 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_usr_function_in_value510 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_array_indicator_in_value517 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_FILLER_in_filler529 = new BitSet(new long[]{0x1000000000000000L});
-	public static final BitSet FOLLOW_STRING_in_filler531 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_FILLER_in_filler548 = new BitSet(new long[]{0x0000000020000000L});
-	public static final BitSet FOLLOW_HEX_in_filler550 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_MULT_in_special571 = new BitSet(new long[]{0x0400000000000000L});
-	public static final BitSet FOLLOW_SPECIAL_in_special573 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TERM_in_usr_function589 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-	public static final BitSet FOLLOW_params_in_usr_function591 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TERM_in_usr_function609 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-	public static final BitSet FOLLOW_empty_in_usr_function611 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BI_FUN_in_bi_function633 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000100L});
-	public static final BitSet FOLLOW_params_in_bi_function636 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BI_FUN_in_bi_function658 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000100L});
-	public static final BitSet FOLLOW_72_in_bi_function660 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_73_in_bi_function662 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_72_in_params682 = new BitSet(new long[]{0x54008A0321808940L,0x0000000000000100L});
-	public static final BitSet FOLLOW_logicalExpression_in_params685 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000600L});
-	public static final BitSet FOLLOW_74_in_params688 = new BitSet(new long[]{0x54008A0321808940L,0x0000000000000100L});
-	public static final BitSet FOLLOW_logicalExpression_in_params691 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000600L});
-	public static final BitSet FOLLOW_73_in_params695 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_72_in_empty708 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_73_in_empty710 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ARRAY_INDICATOR_in_array_indicator724 = new BitSet(new long[]{0x54008A0321808940L,0x0000000000000100L});
-	public static final BitSet FOLLOW_logicalExpression_in_array_indicator727 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
-	public static final BitSet FOLLOW_73_in_array_indicator729 = new BitSet(new long[]{0x0000000000000002L});
+
+	public static final BitSet FOLLOW_logicalExpression_in_expression141 = new BitSet(new long[]{0x0000000000000000L});
+	public static final BitSet FOLLOW_EOF_in_expression143 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_booleanAndExpression_in_logicalExpression155 = new BitSet(new long[]{0x0002000000000002L});
+	public static final BitSet FOLLOW_OR_in_logicalExpression158 = new BitSet(new long[]{0x5008940790808900L,0x0000000000000401L});
+	public static final BitSet FOLLOW_booleanAndExpression_in_logicalExpression161 = new BitSet(new long[]{0x0002000000000002L});
+	public static final BitSet FOLLOW_equalityExpression_in_booleanAndExpression175 = new BitSet(new long[]{0x0000000000000042L});
+	public static final BitSet FOLLOW_AND_in_booleanAndExpression178 = new BitSet(new long[]{0x5008940790808900L,0x0000000000000401L});
+	public static final BitSet FOLLOW_equalityExpression_in_booleanAndExpression181 = new BitSet(new long[]{0x0000000000000042L});
+	public static final BitSet FOLLOW_relationalExpression_in_equalityExpression195 = new BitSet(new long[]{0x0000400000100002L});
+	public static final BitSet FOLLOW_set_in_equalityExpression198 = new BitSet(new long[]{0x5008940790808900L,0x0000000000000401L});
+	public static final BitSet FOLLOW_relationalExpression_in_equalityExpression205 = new BitSet(new long[]{0x0000400000100002L});
+	public static final BitSet FOLLOW_additiveExpression_in_relationalExpression218 = new BitSet(new long[]{0x0000018006000002L});
+	public static final BitSet FOLLOW_set_in_relationalExpression222 = new BitSet(new long[]{0x5008940790808900L,0x0000000000000401L});
+	public static final BitSet FOLLOW_additiveExpression_in_relationalExpression233 = new BitSet(new long[]{0x0000018006000002L});
+	public static final BitSet FOLLOW_multiplicativeExpression_in_additiveExpression248 = new BitSet(new long[]{0x0008040000000002L});
+	public static final BitSet FOLLOW_set_in_additiveExpression252 = new BitSet(new long[]{0x5008940790808900L,0x0000000000000401L});
+	public static final BitSet FOLLOW_multiplicativeExpression_in_additiveExpression259 = new BitSet(new long[]{0x0008040000000002L});
+	public static final BitSet FOLLOW_powerExpression_in_multiplicativeExpression275 = new BitSet(new long[]{0x0000180000040002L});
+	public static final BitSet FOLLOW_set_in_multiplicativeExpression279 = new BitSet(new long[]{0x5008940790808900L,0x0000000000000401L});
+	public static final BitSet FOLLOW_powerExpression_in_multiplicativeExpression288 = new BitSet(new long[]{0x0000180000040002L});
+	public static final BitSet FOLLOW_unaryExpression_in_powerExpression304 = new BitSet(new long[]{0x0000100000000002L});
+	public static final BitSet FOLLOW_MULT_in_powerExpression314 = new BitSet(new long[]{0x0000100000000000L});
+	public static final BitSet FOLLOW_MULT_in_powerExpression316 = new BitSet(new long[]{0x5008940790808900L,0x0000000000000401L});
+	public static final BitSet FOLLOW_unaryExpression_in_powerExpression320 = new BitSet(new long[]{0x0000100000000002L});
+	public static final BitSet FOLLOW_qualified_in_unaryExpression350 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NOT_in_unaryExpression359 = new BitSet(new long[]{0x5000100790808900L,0x0000000000000401L});
+	public static final BitSet FOLLOW_qualified_in_unaryExpression362 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_MINUS_in_unaryExpression371 = new BitSet(new long[]{0x5000100790808900L,0x0000000000000401L});
+	public static final BitSet FOLLOW_qualified_in_unaryExpression373 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_PLUS_in_unaryExpression390 = new BitSet(new long[]{0x5000100790808900L,0x0000000000000401L});
+	public static final BitSet FOLLOW_qualified_in_unaryExpression392 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_primaryExpression_in_qualified424 = new BitSet(new long[]{0x0010000000000002L});
+	public static final BitSet FOLLOW_POINT_in_qualified433 = new BitSet(new long[]{0x5000100790808900L,0x0000000000000401L});
+	public static final BitSet FOLLOW_primaryExpression_in_qualified437 = new BitSet(new long[]{0x0010000000000002L});
+	public static final BitSet FOLLOW_74_in_primaryExpression470 = new BitSet(new long[]{0x5008940790808900L,0x0000000000000401L});
+	public static final BitSet FOLLOW_logicalExpression_in_primaryExpression472 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+	public static final BitSet FOLLOW_75_in_primaryExpression474 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_value_in_primaryExpression491 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INTEGER_in_value506 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_FLOAT_in_value511 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_DATETIME_in_value517 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BOOLEAN_in_value522 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_STRING_in_value527 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_HEX_in_value532 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TERM_in_value537 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_SPECIAL_in_value543 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_filler_in_value553 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_special_in_value558 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_bi_function_in_value563 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_usr_function_in_value568 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_indicator_in_value575 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IN_in_indicator589 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_74_in_indicator591 = new BitSet(new long[]{0x5008940790808900L,0x0000000000000401L});
+	public static final BitSet FOLLOW_logicalExpression_in_indicator593 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+	public static final BitSet FOLLOW_75_in_indicator595 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INNR_in_indicator615 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INNU_in_indicator636 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_MULT_in_filler671 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_ALL_in_filler673 = new BitSet(new long[]{0x4000000000000000L});
+	public static final BitSet FOLLOW_STRING_in_filler675 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_MULT_in_filler692 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_ALL_in_filler694 = new BitSet(new long[]{0x0000000010000000L});
+	public static final BitSet FOLLOW_HEX_in_filler696 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_MULT_in_special718 = new BitSet(new long[]{0x1000000000000000L});
+	public static final BitSet FOLLOW_SPECIAL_in_special720 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TERM_in_usr_function737 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_params_in_usr_function739 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TERM_in_usr_function757 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_empty_in_usr_function759 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BI_FUN_in_bi_function777 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000400L});
+	public static final BitSet FOLLOW_params_in_bi_function780 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BI_FUN_in_bi_function802 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000400L});
+	public static final BitSet FOLLOW_74_in_bi_function804 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+	public static final BitSet FOLLOW_75_in_bi_function806 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_74_in_params831 = new BitSet(new long[]{0x5008940790808900L,0x0000000000000401L});
+	public static final BitSet FOLLOW_logicalExpression_in_params834 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001800L});
+	public static final BitSet FOLLOW_76_in_params837 = new BitSet(new long[]{0x5008940790808900L,0x0000000000000401L});
+	public static final BitSet FOLLOW_logicalExpression_in_params840 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001800L});
+	public static final BitSet FOLLOW_75_in_params844 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_74_in_empty858 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000800L});
+	public static final BitSet FOLLOW_75_in_empty860 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_MULT_in_synpred14_RPGExpr314 = new BitSet(new long[]{0x0000100000000000L});
+	public static final BitSet FOLLOW_MULT_in_synpred14_RPGExpr316 = new BitSet(new long[]{0x5008940790808900L,0x0000000000000401L});
+	public static final BitSet FOLLOW_unaryExpression_in_synpred14_RPGExpr320 = new BitSet(new long[]{0x0000000000000002L});
 }

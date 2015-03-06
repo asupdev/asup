@@ -16,7 +16,8 @@
     <eLiterals name="Divide" value="6" literal="DIV"/>
     <eLiterals name="Modular" value="7" literal="MOD"/>
     <eLiterals name="Power" value="8" literal="POW"/>
-    <eLiterals name="Negate" value="9" literal="NEG"/>
+    <eLiterals name="SignMinus" value="9" literal="SIGN_MINUS"/>
+    <eLiterals name="SignPlus" value="10" literal="SIGN_PLUS"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AssignmentExpression" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="leftOperand" lowerBound="1"

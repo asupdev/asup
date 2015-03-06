@@ -648,9 +648,12 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 		case MULT:
 			result = "*";
 			break;
-		case NEGATE:
+		case SIGN_MINUS:
 			result = "-";
 			break;
+		case SIGN_PLUS:
+			result = "+";
+			break;	
 		case PLUS:
 			result = "+";
 			break;

@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 CLExpr.g 2015-01-27 10:53:10
+// $ANTLR 3.5.1 CLExpr.g 2015-03-05 15:58:54
 
   package org.asup.il.expr.base.antlr.cl;
   
@@ -20,9 +20,9 @@ public class CLExprParser extends Parser {
 		"C", "CAT", "CHAR_SPECIAL", "CLOSE_BRACE", "D", "DIGIT", "DIGIT_SPECIAL", 
 		"DIV", "E", "EQ", "F", "FLOAT", "G", "GT", "GTEQ", "H", "I", "INTEGER", 
 		"J", "K", "L", "LETTER", "LT", "LTEQ", "M", "MINUS", "MULT", "N", "NE", 
-		"NEGATE", "NG", "NL", "NOT", "O", "OPEN_BRACE", "OR", "P", "PLUS", "Q", 
-		"R", "S", "SST_FUN", "STRING", "SWITCH_FUN", "SWITCH_VALUE", "T", "TCAT", 
-		"TERM", "U", "V", "VAR", "W", "WS", "X", "Y", "Z"
+		"NG", "NL", "NOT", "O", "OPEN_BRACE", "OR", "P", "PLUS", "Q", "R", "S", 
+		"SIGN_MINUS", "SIGN_PLUS", "SST_FUN", "STRING", "SWITCH_FUN", "SWITCH_VALUE", 
+		"T", "TCAT", "TERM", "U", "V", "VAR", "W", "WS", "X", "Y", "Z"
 	};
 	public static final int EOF=-1;
 	public static final int A=4;
@@ -59,33 +59,34 @@ public class CLExprParser extends Parser {
 	public static final int MULT=35;
 	public static final int N=36;
 	public static final int NE=37;
-	public static final int NEGATE=38;
-	public static final int NG=39;
-	public static final int NL=40;
-	public static final int NOT=41;
-	public static final int O=42;
-	public static final int OPEN_BRACE=43;
-	public static final int OR=44;
-	public static final int P=45;
-	public static final int PLUS=46;
-	public static final int Q=47;
-	public static final int R=48;
-	public static final int S=49;
-	public static final int SST_FUN=50;
-	public static final int STRING=51;
-	public static final int SWITCH_FUN=52;
-	public static final int SWITCH_VALUE=53;
-	public static final int T=54;
-	public static final int TCAT=55;
-	public static final int TERM=56;
-	public static final int U=57;
-	public static final int V=58;
-	public static final int VAR=59;
-	public static final int W=60;
-	public static final int WS=61;
-	public static final int X=62;
-	public static final int Y=63;
-	public static final int Z=64;
+	public static final int NG=38;
+	public static final int NL=39;
+	public static final int NOT=40;
+	public static final int O=41;
+	public static final int OPEN_BRACE=42;
+	public static final int OR=43;
+	public static final int P=44;
+	public static final int PLUS=45;
+	public static final int Q=46;
+	public static final int R=47;
+	public static final int S=48;
+	public static final int SIGN_MINUS=49;
+	public static final int SIGN_PLUS=50;
+	public static final int SST_FUN=51;
+	public static final int STRING=52;
+	public static final int SWITCH_FUN=53;
+	public static final int SWITCH_VALUE=54;
+	public static final int T=55;
+	public static final int TCAT=56;
+	public static final int TERM=57;
+	public static final int U=58;
+	public static final int V=59;
+	public static final int VAR=60;
+	public static final int W=61;
+	public static final int WS=62;
+	public static final int X=63;
+	public static final int Y=64;
+	public static final int Z=65;
 
 	// delegates
 	public Parser[] getDelegates() {
@@ -163,7 +164,7 @@ public class CLExprParser extends Parser {
 
 
 	// $ANTLR start "expression"
-	// CLExpr.g:101:1: expression : logicalExpression EOF !;
+	// CLExpr.g:102:1: expression : logicalExpression EOF !;
 	public final CLExprParser.expression_return expression() throws RecognitionException {
 		CLExprParser.expression_return retval = new CLExprParser.expression_return();
 		retval.start = input.LT(1);
@@ -176,19 +177,19 @@ public class CLExprParser extends Parser {
 		CommonTree EOF2_tree=null;
 
 		try {
-			// CLExpr.g:102:4: ( logicalExpression EOF !)
-			// CLExpr.g:103:4: logicalExpression EOF !
+			// CLExpr.g:103:4: ( logicalExpression EOF !)
+			// CLExpr.g:104:4: logicalExpression EOF !
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_logicalExpression_in_expression139);
+			pushFollow(FOLLOW_logicalExpression_in_expression143);
 			logicalExpression1=logicalExpression();
 			state._fsp--;
 
 			adaptor.addChild(root_0, logicalExpression1.getTree());
 
-			EOF2=(Token)match(input,EOF,FOLLOW_EOF_in_expression142); 
+			EOF2=(Token)match(input,EOF,FOLLOW_EOF_in_expression146); 
 			}
 
 			retval.stop = input.LT(-1);
@@ -219,7 +220,7 @@ public class CLExprParser extends Parser {
 
 
 	// $ANTLR start "logicalExpression"
-	// CLExpr.g:106:2: logicalExpression : booleanAndExpression ( OR ^ booleanAndExpression )* ;
+	// CLExpr.g:107:2: logicalExpression : booleanAndExpression ( OR ^ booleanAndExpression )* ;
 	public final CLExprParser.logicalExpression_return logicalExpression() throws RecognitionException {
 		CLExprParser.logicalExpression_return retval = new CLExprParser.logicalExpression_return();
 		retval.start = input.LT(1);
@@ -233,19 +234,19 @@ public class CLExprParser extends Parser {
 		CommonTree OR4_tree=null;
 
 		try {
-			// CLExpr.g:107:2: ( booleanAndExpression ( OR ^ booleanAndExpression )* )
-			// CLExpr.g:108:2: booleanAndExpression ( OR ^ booleanAndExpression )*
+			// CLExpr.g:108:2: ( booleanAndExpression ( OR ^ booleanAndExpression )* )
+			// CLExpr.g:109:2: booleanAndExpression ( OR ^ booleanAndExpression )*
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_booleanAndExpression_in_logicalExpression158);
+			pushFollow(FOLLOW_booleanAndExpression_in_logicalExpression162);
 			booleanAndExpression3=booleanAndExpression();
 			state._fsp--;
 
 			adaptor.addChild(root_0, booleanAndExpression3.getTree());
 
-			// CLExpr.g:108:23: ( OR ^ booleanAndExpression )*
+			// CLExpr.g:109:23: ( OR ^ booleanAndExpression )*
 			loop1:
 			while (true) {
 				int alt1=2;
@@ -256,13 +257,13 @@ public class CLExprParser extends Parser {
 
 				switch (alt1) {
 				case 1 :
-					// CLExpr.g:108:24: OR ^ booleanAndExpression
+					// CLExpr.g:109:24: OR ^ booleanAndExpression
 					{
-					OR4=(Token)match(input,OR,FOLLOW_OR_in_logicalExpression161); 
+					OR4=(Token)match(input,OR,FOLLOW_OR_in_logicalExpression165); 
 					OR4_tree = (CommonTree)adaptor.create(OR4);
 					root_0 = (CommonTree)adaptor.becomeRoot(OR4_tree, root_0);
 
-					pushFollow(FOLLOW_booleanAndExpression_in_logicalExpression164);
+					pushFollow(FOLLOW_booleanAndExpression_in_logicalExpression168);
 					booleanAndExpression5=booleanAndExpression();
 					state._fsp--;
 
@@ -306,7 +307,7 @@ public class CLExprParser extends Parser {
 
 
 	// $ANTLR start "booleanAndExpression"
-	// CLExpr.g:111:1: booleanAndExpression : equalityExpression ( AND ^ equalityExpression )* ;
+	// CLExpr.g:112:1: booleanAndExpression : equalityExpression ( AND ^ equalityExpression )* ;
 	public final CLExprParser.booleanAndExpression_return booleanAndExpression() throws RecognitionException {
 		CLExprParser.booleanAndExpression_return retval = new CLExprParser.booleanAndExpression_return();
 		retval.start = input.LT(1);
@@ -320,19 +321,19 @@ public class CLExprParser extends Parser {
 		CommonTree AND7_tree=null;
 
 		try {
-			// CLExpr.g:112:2: ( equalityExpression ( AND ^ equalityExpression )* )
-			// CLExpr.g:112:4: equalityExpression ( AND ^ equalityExpression )*
+			// CLExpr.g:113:2: ( equalityExpression ( AND ^ equalityExpression )* )
+			// CLExpr.g:113:4: equalityExpression ( AND ^ equalityExpression )*
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_equalityExpression_in_booleanAndExpression178);
+			pushFollow(FOLLOW_equalityExpression_in_booleanAndExpression182);
 			equalityExpression6=equalityExpression();
 			state._fsp--;
 
 			adaptor.addChild(root_0, equalityExpression6.getTree());
 
-			// CLExpr.g:112:23: ( AND ^ equalityExpression )*
+			// CLExpr.g:113:23: ( AND ^ equalityExpression )*
 			loop2:
 			while (true) {
 				int alt2=2;
@@ -343,13 +344,13 @@ public class CLExprParser extends Parser {
 
 				switch (alt2) {
 				case 1 :
-					// CLExpr.g:112:24: AND ^ equalityExpression
+					// CLExpr.g:113:24: AND ^ equalityExpression
 					{
-					AND7=(Token)match(input,AND,FOLLOW_AND_in_booleanAndExpression181); 
+					AND7=(Token)match(input,AND,FOLLOW_AND_in_booleanAndExpression185); 
 					AND7_tree = (CommonTree)adaptor.create(AND7);
 					root_0 = (CommonTree)adaptor.becomeRoot(AND7_tree, root_0);
 
-					pushFollow(FOLLOW_equalityExpression_in_booleanAndExpression184);
+					pushFollow(FOLLOW_equalityExpression_in_booleanAndExpression188);
 					equalityExpression8=equalityExpression();
 					state._fsp--;
 
@@ -393,7 +394,7 @@ public class CLExprParser extends Parser {
 
 
 	// $ANTLR start "equalityExpression"
-	// CLExpr.g:115:1: equalityExpression : relationalExpression ( ( EQ | NE ) ^ relationalExpression )* ;
+	// CLExpr.g:116:1: equalityExpression : relationalExpression ( ( EQ | NE ) ^ relationalExpression )* ;
 	public final CLExprParser.equalityExpression_return equalityExpression() throws RecognitionException {
 		CLExprParser.equalityExpression_return retval = new CLExprParser.equalityExpression_return();
 		retval.start = input.LT(1);
@@ -407,19 +408,19 @@ public class CLExprParser extends Parser {
 		CommonTree set10_tree=null;
 
 		try {
-			// CLExpr.g:116:2: ( relationalExpression ( ( EQ | NE ) ^ relationalExpression )* )
-			// CLExpr.g:116:4: relationalExpression ( ( EQ | NE ) ^ relationalExpression )*
+			// CLExpr.g:117:2: ( relationalExpression ( ( EQ | NE ) ^ relationalExpression )* )
+			// CLExpr.g:117:4: relationalExpression ( ( EQ | NE ) ^ relationalExpression )*
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_relationalExpression_in_equalityExpression197);
+			pushFollow(FOLLOW_relationalExpression_in_equalityExpression201);
 			relationalExpression9=relationalExpression();
 			state._fsp--;
 
 			adaptor.addChild(root_0, relationalExpression9.getTree());
 
-			// CLExpr.g:116:25: ( ( EQ | NE ) ^ relationalExpression )*
+			// CLExpr.g:117:25: ( ( EQ | NE ) ^ relationalExpression )*
 			loop3:
 			while (true) {
 				int alt3=2;
@@ -430,7 +431,7 @@ public class CLExprParser extends Parser {
 
 				switch (alt3) {
 				case 1 :
-					// CLExpr.g:116:26: ( EQ | NE ) ^ relationalExpression
+					// CLExpr.g:117:26: ( EQ | NE ) ^ relationalExpression
 					{
 					set10=input.LT(1);
 					set10=input.LT(1);
@@ -443,7 +444,7 @@ public class CLExprParser extends Parser {
 						MismatchedSetException mse = new MismatchedSetException(null,input);
 						throw mse;
 					}
-					pushFollow(FOLLOW_relationalExpression_in_equalityExpression207);
+					pushFollow(FOLLOW_relationalExpression_in_equalityExpression211);
 					relationalExpression11=relationalExpression();
 					state._fsp--;
 
@@ -487,7 +488,7 @@ public class CLExprParser extends Parser {
 
 
 	// $ANTLR start "relationalExpression"
-	// CLExpr.g:119:1: relationalExpression : concatExpression ( ( LT | LTEQ | GT | GTEQ | NG | NL ) ^ concatExpression )* ;
+	// CLExpr.g:120:1: relationalExpression : concatExpression ( ( LT | LTEQ | GT | GTEQ | NG | NL ) ^ concatExpression )* ;
 	public final CLExprParser.relationalExpression_return relationalExpression() throws RecognitionException {
 		CLExprParser.relationalExpression_return retval = new CLExprParser.relationalExpression_return();
 		retval.start = input.LT(1);
@@ -501,19 +502,19 @@ public class CLExprParser extends Parser {
 		CommonTree set13_tree=null;
 
 		try {
-			// CLExpr.g:120:2: ( concatExpression ( ( LT | LTEQ | GT | GTEQ | NG | NL ) ^ concatExpression )* )
-			// CLExpr.g:120:4: concatExpression ( ( LT | LTEQ | GT | GTEQ | NG | NL ) ^ concatExpression )*
+			// CLExpr.g:121:2: ( concatExpression ( ( LT | LTEQ | GT | GTEQ | NG | NL ) ^ concatExpression )* )
+			// CLExpr.g:121:4: concatExpression ( ( LT | LTEQ | GT | GTEQ | NG | NL ) ^ concatExpression )*
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_concatExpression_in_relationalExpression220);
+			pushFollow(FOLLOW_concatExpression_in_relationalExpression224);
 			concatExpression12=concatExpression();
 			state._fsp--;
 
 			adaptor.addChild(root_0, concatExpression12.getTree());
 
-			// CLExpr.g:120:21: ( ( LT | LTEQ | GT | GTEQ | NG | NL ) ^ concatExpression )*
+			// CLExpr.g:121:21: ( ( LT | LTEQ | GT | GTEQ | NG | NL ) ^ concatExpression )*
 			loop4:
 			while (true) {
 				int alt4=2;
@@ -524,7 +525,7 @@ public class CLExprParser extends Parser {
 
 				switch (alt4) {
 				case 1 :
-					// CLExpr.g:120:23: ( LT | LTEQ | GT | GTEQ | NG | NL ) ^ concatExpression
+					// CLExpr.g:121:23: ( LT | LTEQ | GT | GTEQ | NG | NL ) ^ concatExpression
 					{
 					set13=input.LT(1);
 					set13=input.LT(1);
@@ -537,7 +538,7 @@ public class CLExprParser extends Parser {
 						MismatchedSetException mse = new MismatchedSetException(null,input);
 						throw mse;
 					}
-					pushFollow(FOLLOW_concatExpression_in_relationalExpression239);
+					pushFollow(FOLLOW_concatExpression_in_relationalExpression243);
 					concatExpression14=concatExpression();
 					state._fsp--;
 
@@ -581,7 +582,7 @@ public class CLExprParser extends Parser {
 
 
 	// $ANTLR start "concatExpression"
-	// CLExpr.g:123:1: concatExpression : additiveExpression ( ( CAT | BCAT | TCAT ) ^ additiveExpression )* ;
+	// CLExpr.g:124:1: concatExpression : additiveExpression ( ( CAT | BCAT | TCAT ) ^ additiveExpression )* ;
 	public final CLExprParser.concatExpression_return concatExpression() throws RecognitionException {
 		CLExprParser.concatExpression_return retval = new CLExprParser.concatExpression_return();
 		retval.start = input.LT(1);
@@ -595,19 +596,19 @@ public class CLExprParser extends Parser {
 		CommonTree set16_tree=null;
 
 		try {
-			// CLExpr.g:124:2: ( additiveExpression ( ( CAT | BCAT | TCAT ) ^ additiveExpression )* )
-			// CLExpr.g:125:3: additiveExpression ( ( CAT | BCAT | TCAT ) ^ additiveExpression )*
+			// CLExpr.g:125:2: ( additiveExpression ( ( CAT | BCAT | TCAT ) ^ additiveExpression )* )
+			// CLExpr.g:126:3: additiveExpression ( ( CAT | BCAT | TCAT ) ^ additiveExpression )*
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_additiveExpression_in_concatExpression255);
+			pushFollow(FOLLOW_additiveExpression_in_concatExpression259);
 			additiveExpression15=additiveExpression();
 			state._fsp--;
 
 			adaptor.addChild(root_0, additiveExpression15.getTree());
 
-			// CLExpr.g:125:22: ( ( CAT | BCAT | TCAT ) ^ additiveExpression )*
+			// CLExpr.g:126:22: ( ( CAT | BCAT | TCAT ) ^ additiveExpression )*
 			loop5:
 			while (true) {
 				int alt5=2;
@@ -618,7 +619,7 @@ public class CLExprParser extends Parser {
 
 				switch (alt5) {
 				case 1 :
-					// CLExpr.g:125:24: ( CAT | BCAT | TCAT ) ^ additiveExpression
+					// CLExpr.g:126:24: ( CAT | BCAT | TCAT ) ^ additiveExpression
 					{
 					set16=input.LT(1);
 					set16=input.LT(1);
@@ -631,7 +632,7 @@ public class CLExprParser extends Parser {
 						MismatchedSetException mse = new MismatchedSetException(null,input);
 						throw mse;
 					}
-					pushFollow(FOLLOW_additiveExpression_in_concatExpression268);
+					pushFollow(FOLLOW_additiveExpression_in_concatExpression272);
 					additiveExpression17=additiveExpression();
 					state._fsp--;
 
@@ -675,7 +676,7 @@ public class CLExprParser extends Parser {
 
 
 	// $ANTLR start "additiveExpression"
-	// CLExpr.g:129:1: additiveExpression : multiplicativeExpression ( ( PLUS | MINUS ) ^ multiplicativeExpression )* ;
+	// CLExpr.g:130:1: additiveExpression : multiplicativeExpression ( ( PLUS | MINUS ) ^ multiplicativeExpression )* ;
 	public final CLExprParser.additiveExpression_return additiveExpression() throws RecognitionException {
 		CLExprParser.additiveExpression_return retval = new CLExprParser.additiveExpression_return();
 		retval.start = input.LT(1);
@@ -689,19 +690,19 @@ public class CLExprParser extends Parser {
 		CommonTree set19_tree=null;
 
 		try {
-			// CLExpr.g:130:2: ( multiplicativeExpression ( ( PLUS | MINUS ) ^ multiplicativeExpression )* )
-			// CLExpr.g:130:4: multiplicativeExpression ( ( PLUS | MINUS ) ^ multiplicativeExpression )*
+			// CLExpr.g:131:2: ( multiplicativeExpression ( ( PLUS | MINUS ) ^ multiplicativeExpression )* )
+			// CLExpr.g:131:4: multiplicativeExpression ( ( PLUS | MINUS ) ^ multiplicativeExpression )*
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_multiplicativeExpression_in_additiveExpression283);
+			pushFollow(FOLLOW_multiplicativeExpression_in_additiveExpression287);
 			multiplicativeExpression18=multiplicativeExpression();
 			state._fsp--;
 
 			adaptor.addChild(root_0, multiplicativeExpression18.getTree());
 
-			// CLExpr.g:130:29: ( ( PLUS | MINUS ) ^ multiplicativeExpression )*
+			// CLExpr.g:131:29: ( ( PLUS | MINUS ) ^ multiplicativeExpression )*
 			loop6:
 			while (true) {
 				int alt6=2;
@@ -712,7 +713,7 @@ public class CLExprParser extends Parser {
 
 				switch (alt6) {
 				case 1 :
-					// CLExpr.g:130:31: ( PLUS | MINUS ) ^ multiplicativeExpression
+					// CLExpr.g:131:31: ( PLUS | MINUS ) ^ multiplicativeExpression
 					{
 					set19=input.LT(1);
 					set19=input.LT(1);
@@ -725,7 +726,7 @@ public class CLExprParser extends Parser {
 						MismatchedSetException mse = new MismatchedSetException(null,input);
 						throw mse;
 					}
-					pushFollow(FOLLOW_multiplicativeExpression_in_additiveExpression294);
+					pushFollow(FOLLOW_multiplicativeExpression_in_additiveExpression298);
 					multiplicativeExpression20=multiplicativeExpression();
 					state._fsp--;
 
@@ -769,7 +770,7 @@ public class CLExprParser extends Parser {
 
 
 	// $ANTLR start "multiplicativeExpression"
-	// CLExpr.g:133:1: multiplicativeExpression : unaryExpression ( ( MULT | DIV ) ^ unaryExpression )* ;
+	// CLExpr.g:134:1: multiplicativeExpression : unaryExpression ( ( MULT | DIV ) ^ unaryExpression )* ;
 	public final CLExprParser.multiplicativeExpression_return multiplicativeExpression() throws RecognitionException {
 		CLExprParser.multiplicativeExpression_return retval = new CLExprParser.multiplicativeExpression_return();
 		retval.start = input.LT(1);
@@ -783,19 +784,19 @@ public class CLExprParser extends Parser {
 		CommonTree set22_tree=null;
 
 		try {
-			// CLExpr.g:134:2: ( unaryExpression ( ( MULT | DIV ) ^ unaryExpression )* )
-			// CLExpr.g:135:3: unaryExpression ( ( MULT | DIV ) ^ unaryExpression )*
+			// CLExpr.g:135:2: ( unaryExpression ( ( MULT | DIV ) ^ unaryExpression )* )
+			// CLExpr.g:136:3: unaryExpression ( ( MULT | DIV ) ^ unaryExpression )*
 			{
 			root_0 = (CommonTree)adaptor.nil();
 
 
-			pushFollow(FOLLOW_unaryExpression_in_multiplicativeExpression310);
+			pushFollow(FOLLOW_unaryExpression_in_multiplicativeExpression314);
 			unaryExpression21=unaryExpression();
 			state._fsp--;
 
 			adaptor.addChild(root_0, unaryExpression21.getTree());
 
-			// CLExpr.g:135:19: ( ( MULT | DIV ) ^ unaryExpression )*
+			// CLExpr.g:136:19: ( ( MULT | DIV ) ^ unaryExpression )*
 			loop7:
 			while (true) {
 				int alt7=2;
@@ -806,7 +807,7 @@ public class CLExprParser extends Parser {
 
 				switch (alt7) {
 				case 1 :
-					// CLExpr.g:135:21: ( MULT | DIV ) ^ unaryExpression
+					// CLExpr.g:136:21: ( MULT | DIV ) ^ unaryExpression
 					{
 					set22=input.LT(1);
 					set22=input.LT(1);
@@ -819,7 +820,7 @@ public class CLExprParser extends Parser {
 						MismatchedSetException mse = new MismatchedSetException(null,input);
 						throw mse;
 					}
-					pushFollow(FOLLOW_unaryExpression_in_multiplicativeExpression321);
+					pushFollow(FOLLOW_unaryExpression_in_multiplicativeExpression325);
 					unaryExpression23=unaryExpression();
 					state._fsp--;
 
@@ -863,7 +864,7 @@ public class CLExprParser extends Parser {
 
 
 	// $ANTLR start "unaryExpression"
-	// CLExpr.g:138:1: unaryExpression : ( primaryExpression | NOT ^ primaryExpression | MINUS primaryExpression -> ^( NEGATE primaryExpression ) );
+	// CLExpr.g:139:1: unaryExpression : ( primaryExpression | NOT ^ primaryExpression | MINUS primaryExpression -> ^( SIGN_MINUS primaryExpression ) | PLUS primaryExpression -> ^( SIGN_PLUS primaryExpression ) );
 	public final CLExprParser.unaryExpression_return unaryExpression() throws RecognitionException {
 		CLExprParser.unaryExpression_return retval = new CLExprParser.unaryExpression_return();
 		retval.start = input.LT(1);
@@ -872,18 +873,22 @@ public class CLExprParser extends Parser {
 
 		Token NOT25=null;
 		Token MINUS27=null;
+		Token PLUS29=null;
 		ParserRuleReturnScope primaryExpression24 =null;
 		ParserRuleReturnScope primaryExpression26 =null;
 		ParserRuleReturnScope primaryExpression28 =null;
+		ParserRuleReturnScope primaryExpression30 =null;
 
 		CommonTree NOT25_tree=null;
 		CommonTree MINUS27_tree=null;
+		CommonTree PLUS29_tree=null;
+		RewriteRuleTokenStream stream_PLUS=new RewriteRuleTokenStream(adaptor,"token PLUS");
 		RewriteRuleTokenStream stream_MINUS=new RewriteRuleTokenStream(adaptor,"token MINUS");
 		RewriteRuleSubtreeStream stream_primaryExpression=new RewriteRuleSubtreeStream(adaptor,"rule primaryExpression");
 
 		try {
-			// CLExpr.g:139:2: ( primaryExpression | NOT ^ primaryExpression | MINUS primaryExpression -> ^( NEGATE primaryExpression ) )
-			int alt8=3;
+			// CLExpr.g:140:2: ( primaryExpression | NOT ^ primaryExpression | MINUS primaryExpression -> ^( SIGN_MINUS primaryExpression ) | PLUS primaryExpression -> ^( SIGN_PLUS primaryExpression ) )
+			int alt8=4;
 			switch ( input.LA(1) ) {
 			case BINARY_FUN:
 			case FLOAT:
@@ -908,6 +913,11 @@ public class CLExprParser extends Parser {
 				alt8=3;
 				}
 				break;
+			case PLUS:
+				{
+				alt8=4;
+				}
+				break;
 			default:
 				NoViableAltException nvae =
 					new NoViableAltException("", 8, 0, input);
@@ -915,12 +925,12 @@ public class CLExprParser extends Parser {
 			}
 			switch (alt8) {
 				case 1 :
-					// CLExpr.g:140:4: primaryExpression
+					// CLExpr.g:141:4: primaryExpression
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_primaryExpression_in_unaryExpression338);
+					pushFollow(FOLLOW_primaryExpression_in_unaryExpression344);
 					primaryExpression24=primaryExpression();
 					state._fsp--;
 
@@ -929,16 +939,16 @@ public class CLExprParser extends Parser {
 					}
 					break;
 				case 2 :
-					// CLExpr.g:141:8: NOT ^ primaryExpression
+					// CLExpr.g:142:8: NOT ^ primaryExpression
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					NOT25=(Token)match(input,NOT,FOLLOW_NOT_in_unaryExpression347); 
+					NOT25=(Token)match(input,NOT,FOLLOW_NOT_in_unaryExpression353); 
 					NOT25_tree = (CommonTree)adaptor.create(NOT25);
 					root_0 = (CommonTree)adaptor.becomeRoot(NOT25_tree, root_0);
 
-					pushFollow(FOLLOW_primaryExpression_in_unaryExpression350);
+					pushFollow(FOLLOW_primaryExpression_in_unaryExpression356);
 					primaryExpression26=primaryExpression();
 					state._fsp--;
 
@@ -947,12 +957,12 @@ public class CLExprParser extends Parser {
 					}
 					break;
 				case 3 :
-					// CLExpr.g:142:8: MINUS primaryExpression
+					// CLExpr.g:143:8: MINUS primaryExpression
 					{
-					MINUS27=(Token)match(input,MINUS,FOLLOW_MINUS_in_unaryExpression359);  
+					MINUS27=(Token)match(input,MINUS,FOLLOW_MINUS_in_unaryExpression365);  
 					stream_MINUS.add(MINUS27);
 
-					pushFollow(FOLLOW_primaryExpression_in_unaryExpression361);
+					pushFollow(FOLLOW_primaryExpression_in_unaryExpression367);
 					primaryExpression28=primaryExpression();
 					state._fsp--;
 
@@ -968,12 +978,51 @@ public class CLExprParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (CommonTree)adaptor.nil();
-					// 142:32: -> ^( NEGATE primaryExpression )
+					// 143:32: -> ^( SIGN_MINUS primaryExpression )
 					{
-						// CLExpr.g:142:35: ^( NEGATE primaryExpression )
+						// CLExpr.g:143:35: ^( SIGN_MINUS primaryExpression )
 						{
 						CommonTree root_1 = (CommonTree)adaptor.nil();
-						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(NEGATE, "NEGATE"), root_1);
+						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SIGN_MINUS, "SIGN_MINUS"), root_1);
+						adaptor.addChild(root_1, stream_primaryExpression.nextTree());
+						adaptor.addChild(root_0, root_1);
+						}
+
+					}
+
+
+					retval.tree = root_0;
+
+					}
+					break;
+				case 4 :
+					// CLExpr.g:144:8: PLUS primaryExpression
+					{
+					PLUS29=(Token)match(input,PLUS,FOLLOW_PLUS_in_unaryExpression384);  
+					stream_PLUS.add(PLUS29);
+
+					pushFollow(FOLLOW_primaryExpression_in_unaryExpression386);
+					primaryExpression30=primaryExpression();
+					state._fsp--;
+
+					stream_primaryExpression.add(primaryExpression30.getTree());
+					// AST REWRITE
+					// elements: primaryExpression
+					// token labels: 
+					// rule labels: retval
+					// token list labels: 
+					// rule list labels: 
+					// wildcard labels: 
+					retval.tree = root_0;
+					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
+
+					root_0 = (CommonTree)adaptor.nil();
+					// 144:31: -> ^( SIGN_PLUS primaryExpression )
+					{
+						// CLExpr.g:144:34: ^( SIGN_PLUS primaryExpression )
+						{
+						CommonTree root_1 = (CommonTree)adaptor.nil();
+						root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SIGN_PLUS, "SIGN_PLUS"), root_1);
 						adaptor.addChild(root_1, stream_primaryExpression.nextTree());
 						adaptor.addChild(root_0, root_1);
 						}
@@ -1015,23 +1064,23 @@ public class CLExprParser extends Parser {
 
 
 	// $ANTLR start "primaryExpression"
-	// CLExpr.g:145:1: primaryExpression : ( '(' ! logicalExpression ')' !| value );
+	// CLExpr.g:147:1: primaryExpression : ( '(' ! logicalExpression ')' !| value );
 	public final CLExprParser.primaryExpression_return primaryExpression() throws RecognitionException {
 		CLExprParser.primaryExpression_return retval = new CLExprParser.primaryExpression_return();
 		retval.start = input.LT(1);
 
 		CommonTree root_0 = null;
 
-		Token char_literal29=null;
 		Token char_literal31=null;
-		ParserRuleReturnScope logicalExpression30 =null;
-		ParserRuleReturnScope value32 =null;
+		Token char_literal33=null;
+		ParserRuleReturnScope logicalExpression32 =null;
+		ParserRuleReturnScope value34 =null;
 
-		CommonTree char_literal29_tree=null;
 		CommonTree char_literal31_tree=null;
+		CommonTree char_literal33_tree=null;
 
 		try {
-			// CLExpr.g:146:2: ( '(' ! logicalExpression ')' !| value )
+			// CLExpr.g:148:2: ( '(' ! logicalExpression ')' !| value )
 			int alt9=2;
 			int LA9_0 = input.LA(1);
 			if ( (LA9_0==OPEN_BRACE) ) {
@@ -1049,32 +1098,32 @@ public class CLExprParser extends Parser {
 
 			switch (alt9) {
 				case 1 :
-					// CLExpr.g:146:4: '(' ! logicalExpression ')' !
+					// CLExpr.g:148:4: '(' ! logicalExpression ')' !
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					char_literal29=(Token)match(input,OPEN_BRACE,FOLLOW_OPEN_BRACE_in_primaryExpression386); 
-					pushFollow(FOLLOW_logicalExpression_in_primaryExpression389);
-					logicalExpression30=logicalExpression();
+					char_literal31=(Token)match(input,OPEN_BRACE,FOLLOW_OPEN_BRACE_in_primaryExpression408); 
+					pushFollow(FOLLOW_logicalExpression_in_primaryExpression411);
+					logicalExpression32=logicalExpression();
 					state._fsp--;
 
-					adaptor.addChild(root_0, logicalExpression30.getTree());
+					adaptor.addChild(root_0, logicalExpression32.getTree());
 
-					char_literal31=(Token)match(input,CLOSE_BRACE,FOLLOW_CLOSE_BRACE_in_primaryExpression391); 
+					char_literal33=(Token)match(input,CLOSE_BRACE,FOLLOW_CLOSE_BRACE_in_primaryExpression413); 
 					}
 					break;
 				case 2 :
-					// CLExpr.g:147:4: value
+					// CLExpr.g:149:4: value
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_value_in_primaryExpression397);
-					value32=value();
+					pushFollow(FOLLOW_value_in_primaryExpression419);
+					value34=value();
 					state._fsp--;
 
-					adaptor.addChild(root_0, value32.getTree());
+					adaptor.addChild(root_0, value34.getTree());
 
 					}
 					break;
@@ -1108,30 +1157,30 @@ public class CLExprParser extends Parser {
 
 
 	// $ANTLR start "value"
-	// CLExpr.g:151:1: value : ( VAR | STRING | TERM | INTEGER | FLOAT | binary_fun | sst_fun | switch_fun );
+	// CLExpr.g:153:1: value : ( VAR | STRING | TERM | INTEGER | FLOAT | binary_fun | sst_fun | switch_fun );
 	public final CLExprParser.value_return value() throws RecognitionException {
 		CLExprParser.value_return retval = new CLExprParser.value_return();
 		retval.start = input.LT(1);
 
 		CommonTree root_0 = null;
 
-		Token VAR33=null;
-		Token STRING34=null;
-		Token TERM35=null;
-		Token INTEGER36=null;
-		Token FLOAT37=null;
-		ParserRuleReturnScope binary_fun38 =null;
-		ParserRuleReturnScope sst_fun39 =null;
-		ParserRuleReturnScope switch_fun40 =null;
+		Token VAR35=null;
+		Token STRING36=null;
+		Token TERM37=null;
+		Token INTEGER38=null;
+		Token FLOAT39=null;
+		ParserRuleReturnScope binary_fun40 =null;
+		ParserRuleReturnScope sst_fun41 =null;
+		ParserRuleReturnScope switch_fun42 =null;
 
-		CommonTree VAR33_tree=null;
-		CommonTree STRING34_tree=null;
-		CommonTree TERM35_tree=null;
-		CommonTree INTEGER36_tree=null;
-		CommonTree FLOAT37_tree=null;
+		CommonTree VAR35_tree=null;
+		CommonTree STRING36_tree=null;
+		CommonTree TERM37_tree=null;
+		CommonTree INTEGER38_tree=null;
+		CommonTree FLOAT39_tree=null;
 
 		try {
-			// CLExpr.g:151:7: ( VAR | STRING | TERM | INTEGER | FLOAT | binary_fun | sst_fun | switch_fun )
+			// CLExpr.g:153:7: ( VAR | STRING | TERM | INTEGER | FLOAT | binary_fun | sst_fun | switch_fun )
 			int alt10=8;
 			switch ( input.LA(1) ) {
 			case VAR:
@@ -1181,104 +1230,104 @@ public class CLExprParser extends Parser {
 			}
 			switch (alt10) {
 				case 1 :
-					// CLExpr.g:153:2: VAR
+					// CLExpr.g:155:2: VAR
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					VAR33=(Token)match(input,VAR,FOLLOW_VAR_in_value410); 
-					VAR33_tree = (CommonTree)adaptor.create(VAR33);
-					adaptor.addChild(root_0, VAR33_tree);
+					VAR35=(Token)match(input,VAR,FOLLOW_VAR_in_value432); 
+					VAR35_tree = (CommonTree)adaptor.create(VAR35);
+					adaptor.addChild(root_0, VAR35_tree);
 
 					}
 					break;
 				case 2 :
-					// CLExpr.g:155:2: STRING
+					// CLExpr.g:157:2: STRING
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					STRING34=(Token)match(input,STRING,FOLLOW_STRING_in_value416); 
-					STRING34_tree = (CommonTree)adaptor.create(STRING34);
-					adaptor.addChild(root_0, STRING34_tree);
+					STRING36=(Token)match(input,STRING,FOLLOW_STRING_in_value438); 
+					STRING36_tree = (CommonTree)adaptor.create(STRING36);
+					adaptor.addChild(root_0, STRING36_tree);
 
 					}
 					break;
 				case 3 :
-					// CLExpr.g:157:2: TERM
+					// CLExpr.g:159:2: TERM
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					TERM35=(Token)match(input,TERM,FOLLOW_TERM_in_value422); 
-					TERM35_tree = (CommonTree)adaptor.create(TERM35);
-					adaptor.addChild(root_0, TERM35_tree);
+					TERM37=(Token)match(input,TERM,FOLLOW_TERM_in_value444); 
+					TERM37_tree = (CommonTree)adaptor.create(TERM37);
+					adaptor.addChild(root_0, TERM37_tree);
 
 					}
 					break;
 				case 4 :
-					// CLExpr.g:159:2: INTEGER
+					// CLExpr.g:161:2: INTEGER
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					INTEGER36=(Token)match(input,INTEGER,FOLLOW_INTEGER_in_value428); 
-					INTEGER36_tree = (CommonTree)adaptor.create(INTEGER36);
-					adaptor.addChild(root_0, INTEGER36_tree);
+					INTEGER38=(Token)match(input,INTEGER,FOLLOW_INTEGER_in_value450); 
+					INTEGER38_tree = (CommonTree)adaptor.create(INTEGER38);
+					adaptor.addChild(root_0, INTEGER38_tree);
 
 					}
 					break;
 				case 5 :
-					// CLExpr.g:161:2: FLOAT
+					// CLExpr.g:163:2: FLOAT
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					FLOAT37=(Token)match(input,FLOAT,FOLLOW_FLOAT_in_value434); 
-					FLOAT37_tree = (CommonTree)adaptor.create(FLOAT37);
-					adaptor.addChild(root_0, FLOAT37_tree);
+					FLOAT39=(Token)match(input,FLOAT,FOLLOW_FLOAT_in_value456); 
+					FLOAT39_tree = (CommonTree)adaptor.create(FLOAT39);
+					adaptor.addChild(root_0, FLOAT39_tree);
 
 					}
 					break;
 				case 6 :
-					// CLExpr.g:163:2: binary_fun
+					// CLExpr.g:165:2: binary_fun
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_binary_fun_in_value440);
-					binary_fun38=binary_fun();
+					pushFollow(FOLLOW_binary_fun_in_value462);
+					binary_fun40=binary_fun();
 					state._fsp--;
 
-					adaptor.addChild(root_0, binary_fun38.getTree());
+					adaptor.addChild(root_0, binary_fun40.getTree());
 
 					}
 					break;
 				case 7 :
-					// CLExpr.g:165:2: sst_fun
+					// CLExpr.g:167:2: sst_fun
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_sst_fun_in_value446);
-					sst_fun39=sst_fun();
+					pushFollow(FOLLOW_sst_fun_in_value468);
+					sst_fun41=sst_fun();
 					state._fsp--;
 
-					adaptor.addChild(root_0, sst_fun39.getTree());
+					adaptor.addChild(root_0, sst_fun41.getTree());
 
 					}
 					break;
 				case 8 :
-					// CLExpr.g:167:2: switch_fun
+					// CLExpr.g:169:2: switch_fun
 					{
 					root_0 = (CommonTree)adaptor.nil();
 
 
-					pushFollow(FOLLOW_switch_fun_in_value452);
-					switch_fun40=switch_fun();
+					pushFollow(FOLLOW_switch_fun_in_value474);
+					switch_fun42=switch_fun();
 					state._fsp--;
 
-					adaptor.addChild(root_0, switch_fun40.getTree());
+					adaptor.addChild(root_0, switch_fun42.getTree());
 
 					}
 					break;
@@ -1312,37 +1361,37 @@ public class CLExprParser extends Parser {
 
 
 	// $ANTLR start "binary_fun"
-	// CLExpr.g:170:1: binary_fun : BINARY_FUN '(' ( value )? ')' -> ^( BINARY_FUN[$BINARY_FUN.text] ( value )? ) ;
+	// CLExpr.g:172:1: binary_fun : BINARY_FUN '(' ( value )? ')' -> ^( BINARY_FUN[$BINARY_FUN.text] ( value )? ) ;
 	public final CLExprParser.binary_fun_return binary_fun() throws RecognitionException {
 		CLExprParser.binary_fun_return retval = new CLExprParser.binary_fun_return();
 		retval.start = input.LT(1);
 
 		CommonTree root_0 = null;
 
-		Token BINARY_FUN41=null;
-		Token char_literal42=null;
+		Token BINARY_FUN43=null;
 		Token char_literal44=null;
-		ParserRuleReturnScope value43 =null;
+		Token char_literal46=null;
+		ParserRuleReturnScope value45 =null;
 
-		CommonTree BINARY_FUN41_tree=null;
-		CommonTree char_literal42_tree=null;
+		CommonTree BINARY_FUN43_tree=null;
 		CommonTree char_literal44_tree=null;
+		CommonTree char_literal46_tree=null;
 		RewriteRuleTokenStream stream_CLOSE_BRACE=new RewriteRuleTokenStream(adaptor,"token CLOSE_BRACE");
 		RewriteRuleTokenStream stream_BINARY_FUN=new RewriteRuleTokenStream(adaptor,"token BINARY_FUN");
 		RewriteRuleTokenStream stream_OPEN_BRACE=new RewriteRuleTokenStream(adaptor,"token OPEN_BRACE");
 		RewriteRuleSubtreeStream stream_value=new RewriteRuleSubtreeStream(adaptor,"rule value");
 
 		try {
-			// CLExpr.g:171:2: ( BINARY_FUN '(' ( value )? ')' -> ^( BINARY_FUN[$BINARY_FUN.text] ( value )? ) )
-			// CLExpr.g:172:3: BINARY_FUN '(' ( value )? ')'
+			// CLExpr.g:173:2: ( BINARY_FUN '(' ( value )? ')' -> ^( BINARY_FUN[$BINARY_FUN.text] ( value )? ) )
+			// CLExpr.g:174:3: BINARY_FUN '(' ( value )? ')'
 			{
-			BINARY_FUN41=(Token)match(input,BINARY_FUN,FOLLOW_BINARY_FUN_in_binary_fun465);  
-			stream_BINARY_FUN.add(BINARY_FUN41);
+			BINARY_FUN43=(Token)match(input,BINARY_FUN,FOLLOW_BINARY_FUN_in_binary_fun487);  
+			stream_BINARY_FUN.add(BINARY_FUN43);
 
-			char_literal42=(Token)match(input,OPEN_BRACE,FOLLOW_OPEN_BRACE_in_binary_fun467);  
-			stream_OPEN_BRACE.add(char_literal42);
+			char_literal44=(Token)match(input,OPEN_BRACE,FOLLOW_OPEN_BRACE_in_binary_fun489);  
+			stream_OPEN_BRACE.add(char_literal44);
 
-			// CLExpr.g:172:18: ( value )?
+			// CLExpr.g:174:18: ( value )?
 			int alt11=2;
 			int LA11_0 = input.LA(1);
 			if ( (LA11_0==BINARY_FUN||LA11_0==FLOAT||LA11_0==INTEGER||(LA11_0 >= SST_FUN && LA11_0 <= SWITCH_FUN)||LA11_0==TERM||LA11_0==VAR) ) {
@@ -1350,23 +1399,23 @@ public class CLExprParser extends Parser {
 			}
 			switch (alt11) {
 				case 1 :
-					// CLExpr.g:172:18: value
+					// CLExpr.g:174:18: value
 					{
-					pushFollow(FOLLOW_value_in_binary_fun469);
-					value43=value();
+					pushFollow(FOLLOW_value_in_binary_fun491);
+					value45=value();
 					state._fsp--;
 
-					stream_value.add(value43.getTree());
+					stream_value.add(value45.getTree());
 					}
 					break;
 
 			}
 
-			char_literal44=(Token)match(input,CLOSE_BRACE,FOLLOW_CLOSE_BRACE_in_binary_fun472);  
-			stream_CLOSE_BRACE.add(char_literal44);
+			char_literal46=(Token)match(input,CLOSE_BRACE,FOLLOW_CLOSE_BRACE_in_binary_fun494);  
+			stream_CLOSE_BRACE.add(char_literal46);
 
 			// AST REWRITE
-			// elements: value, BINARY_FUN
+			// elements: BINARY_FUN, value
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1376,13 +1425,13 @@ public class CLExprParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 172:29: -> ^( BINARY_FUN[$BINARY_FUN.text] ( value )? )
+			// 174:29: -> ^( BINARY_FUN[$BINARY_FUN.text] ( value )? )
 			{
-				// CLExpr.g:172:32: ^( BINARY_FUN[$BINARY_FUN.text] ( value )? )
+				// CLExpr.g:174:32: ^( BINARY_FUN[$BINARY_FUN.text] ( value )? )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
-				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(BINARY_FUN, (BINARY_FUN41!=null?BINARY_FUN41.getText():null)), root_1);
-				// CLExpr.g:172:63: ( value )?
+				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(BINARY_FUN, (BINARY_FUN43!=null?BINARY_FUN43.getText():null)), root_1);
+				// CLExpr.g:174:63: ( value )?
 				if ( stream_value.hasNext() ) {
 					adaptor.addChild(root_1, stream_value.nextTree());
 				}
@@ -1426,58 +1475,58 @@ public class CLExprParser extends Parser {
 
 
 	// $ANTLR start "sst_fun"
-	// CLExpr.g:175:1: sst_fun : SST_FUN '(' value value value ')' -> ^( SST_FUN[\"\\%SST\"] value value value ) ;
+	// CLExpr.g:177:1: sst_fun : SST_FUN '(' value value value ')' -> ^( SST_FUN[\"\\%SST\"] value value value ) ;
 	public final CLExprParser.sst_fun_return sst_fun() throws RecognitionException {
 		CLExprParser.sst_fun_return retval = new CLExprParser.sst_fun_return();
 		retval.start = input.LT(1);
 
 		CommonTree root_0 = null;
 
-		Token SST_FUN45=null;
-		Token char_literal46=null;
-		Token char_literal50=null;
-		ParserRuleReturnScope value47 =null;
-		ParserRuleReturnScope value48 =null;
+		Token SST_FUN47=null;
+		Token char_literal48=null;
+		Token char_literal52=null;
 		ParserRuleReturnScope value49 =null;
+		ParserRuleReturnScope value50 =null;
+		ParserRuleReturnScope value51 =null;
 
-		CommonTree SST_FUN45_tree=null;
-		CommonTree char_literal46_tree=null;
-		CommonTree char_literal50_tree=null;
+		CommonTree SST_FUN47_tree=null;
+		CommonTree char_literal48_tree=null;
+		CommonTree char_literal52_tree=null;
 		RewriteRuleTokenStream stream_SST_FUN=new RewriteRuleTokenStream(adaptor,"token SST_FUN");
 		RewriteRuleTokenStream stream_CLOSE_BRACE=new RewriteRuleTokenStream(adaptor,"token CLOSE_BRACE");
 		RewriteRuleTokenStream stream_OPEN_BRACE=new RewriteRuleTokenStream(adaptor,"token OPEN_BRACE");
 		RewriteRuleSubtreeStream stream_value=new RewriteRuleSubtreeStream(adaptor,"rule value");
 
 		try {
-			// CLExpr.g:176:2: ( SST_FUN '(' value value value ')' -> ^( SST_FUN[\"\\%SST\"] value value value ) )
-			// CLExpr.g:177:3: SST_FUN '(' value value value ')'
+			// CLExpr.g:178:2: ( SST_FUN '(' value value value ')' -> ^( SST_FUN[\"\\%SST\"] value value value ) )
+			// CLExpr.g:179:3: SST_FUN '(' value value value ')'
 			{
-			SST_FUN45=(Token)match(input,SST_FUN,FOLLOW_SST_FUN_in_sst_fun496);  
-			stream_SST_FUN.add(SST_FUN45);
+			SST_FUN47=(Token)match(input,SST_FUN,FOLLOW_SST_FUN_in_sst_fun518);  
+			stream_SST_FUN.add(SST_FUN47);
 
-			char_literal46=(Token)match(input,OPEN_BRACE,FOLLOW_OPEN_BRACE_in_sst_fun498);  
-			stream_OPEN_BRACE.add(char_literal46);
+			char_literal48=(Token)match(input,OPEN_BRACE,FOLLOW_OPEN_BRACE_in_sst_fun520);  
+			stream_OPEN_BRACE.add(char_literal48);
 
-			pushFollow(FOLLOW_value_in_sst_fun500);
-			value47=value();
-			state._fsp--;
-
-			stream_value.add(value47.getTree());
-			pushFollow(FOLLOW_value_in_sst_fun502);
-			value48=value();
-			state._fsp--;
-
-			stream_value.add(value48.getTree());
-			pushFollow(FOLLOW_value_in_sst_fun504);
+			pushFollow(FOLLOW_value_in_sst_fun522);
 			value49=value();
 			state._fsp--;
 
 			stream_value.add(value49.getTree());
-			char_literal50=(Token)match(input,CLOSE_BRACE,FOLLOW_CLOSE_BRACE_in_sst_fun506);  
-			stream_CLOSE_BRACE.add(char_literal50);
+			pushFollow(FOLLOW_value_in_sst_fun524);
+			value50=value();
+			state._fsp--;
+
+			stream_value.add(value50.getTree());
+			pushFollow(FOLLOW_value_in_sst_fun526);
+			value51=value();
+			state._fsp--;
+
+			stream_value.add(value51.getTree());
+			char_literal52=(Token)match(input,CLOSE_BRACE,FOLLOW_CLOSE_BRACE_in_sst_fun528);  
+			stream_CLOSE_BRACE.add(char_literal52);
 
 			// AST REWRITE
-			// elements: value, SST_FUN, value, value
+			// elements: value, value, SST_FUN, value
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1487,9 +1536,9 @@ public class CLExprParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 177:37: -> ^( SST_FUN[\"\\%SST\"] value value value )
+			// 179:37: -> ^( SST_FUN[\"\\%SST\"] value value value )
 			{
-				// CLExpr.g:177:40: ^( SST_FUN[\"\\%SST\"] value value value )
+				// CLExpr.g:179:40: ^( SST_FUN[\"\\%SST\"] value value value )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
 				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SST_FUN, "%SST"), root_1);
@@ -1534,45 +1583,45 @@ public class CLExprParser extends Parser {
 
 
 	// $ANTLR start "switch_fun"
-	// CLExpr.g:180:1: switch_fun : SWITCH_FUN '(' SWITCH_VALUE ')' -> ^( SWITCH_FUN[$SWITCH_FUN.text] SWITCH_VALUE ) ;
+	// CLExpr.g:182:1: switch_fun : SWITCH_FUN '(' SWITCH_VALUE ')' -> ^( SWITCH_FUN[$SWITCH_FUN.text] SWITCH_VALUE ) ;
 	public final CLExprParser.switch_fun_return switch_fun() throws RecognitionException {
 		CLExprParser.switch_fun_return retval = new CLExprParser.switch_fun_return();
 		retval.start = input.LT(1);
 
 		CommonTree root_0 = null;
 
-		Token SWITCH_FUN51=null;
-		Token char_literal52=null;
-		Token SWITCH_VALUE53=null;
+		Token SWITCH_FUN53=null;
 		Token char_literal54=null;
+		Token SWITCH_VALUE55=null;
+		Token char_literal56=null;
 
-		CommonTree SWITCH_FUN51_tree=null;
-		CommonTree char_literal52_tree=null;
-		CommonTree SWITCH_VALUE53_tree=null;
+		CommonTree SWITCH_FUN53_tree=null;
 		CommonTree char_literal54_tree=null;
+		CommonTree SWITCH_VALUE55_tree=null;
+		CommonTree char_literal56_tree=null;
 		RewriteRuleTokenStream stream_CLOSE_BRACE=new RewriteRuleTokenStream(adaptor,"token CLOSE_BRACE");
 		RewriteRuleTokenStream stream_SWITCH_FUN=new RewriteRuleTokenStream(adaptor,"token SWITCH_FUN");
 		RewriteRuleTokenStream stream_SWITCH_VALUE=new RewriteRuleTokenStream(adaptor,"token SWITCH_VALUE");
 		RewriteRuleTokenStream stream_OPEN_BRACE=new RewriteRuleTokenStream(adaptor,"token OPEN_BRACE");
 
 		try {
-			// CLExpr.g:181:2: ( SWITCH_FUN '(' SWITCH_VALUE ')' -> ^( SWITCH_FUN[$SWITCH_FUN.text] SWITCH_VALUE ) )
-			// CLExpr.g:182:3: SWITCH_FUN '(' SWITCH_VALUE ')'
+			// CLExpr.g:183:2: ( SWITCH_FUN '(' SWITCH_VALUE ')' -> ^( SWITCH_FUN[$SWITCH_FUN.text] SWITCH_VALUE ) )
+			// CLExpr.g:184:3: SWITCH_FUN '(' SWITCH_VALUE ')'
 			{
-			SWITCH_FUN51=(Token)match(input,SWITCH_FUN,FOLLOW_SWITCH_FUN_in_switch_fun535);  
-			stream_SWITCH_FUN.add(SWITCH_FUN51);
+			SWITCH_FUN53=(Token)match(input,SWITCH_FUN,FOLLOW_SWITCH_FUN_in_switch_fun557);  
+			stream_SWITCH_FUN.add(SWITCH_FUN53);
 
-			char_literal52=(Token)match(input,OPEN_BRACE,FOLLOW_OPEN_BRACE_in_switch_fun537);  
-			stream_OPEN_BRACE.add(char_literal52);
+			char_literal54=(Token)match(input,OPEN_BRACE,FOLLOW_OPEN_BRACE_in_switch_fun559);  
+			stream_OPEN_BRACE.add(char_literal54);
 
-			SWITCH_VALUE53=(Token)match(input,SWITCH_VALUE,FOLLOW_SWITCH_VALUE_in_switch_fun539);  
-			stream_SWITCH_VALUE.add(SWITCH_VALUE53);
+			SWITCH_VALUE55=(Token)match(input,SWITCH_VALUE,FOLLOW_SWITCH_VALUE_in_switch_fun561);  
+			stream_SWITCH_VALUE.add(SWITCH_VALUE55);
 
-			char_literal54=(Token)match(input,CLOSE_BRACE,FOLLOW_CLOSE_BRACE_in_switch_fun541);  
-			stream_CLOSE_BRACE.add(char_literal54);
+			char_literal56=(Token)match(input,CLOSE_BRACE,FOLLOW_CLOSE_BRACE_in_switch_fun563);  
+			stream_CLOSE_BRACE.add(char_literal56);
 
 			// AST REWRITE
-			// elements: SWITCH_FUN, SWITCH_VALUE
+			// elements: SWITCH_VALUE, SWITCH_FUN
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1582,12 +1631,12 @@ public class CLExprParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (CommonTree)adaptor.nil();
-			// 182:35: -> ^( SWITCH_FUN[$SWITCH_FUN.text] SWITCH_VALUE )
+			// 184:35: -> ^( SWITCH_FUN[$SWITCH_FUN.text] SWITCH_VALUE )
 			{
-				// CLExpr.g:182:38: ^( SWITCH_FUN[$SWITCH_FUN.text] SWITCH_VALUE )
+				// CLExpr.g:184:38: ^( SWITCH_FUN[$SWITCH_FUN.text] SWITCH_VALUE )
 				{
 				CommonTree root_1 = (CommonTree)adaptor.nil();
-				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SWITCH_FUN, (SWITCH_FUN51!=null?SWITCH_FUN51.getText():null)), root_1);
+				root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SWITCH_FUN, (SWITCH_FUN53!=null?SWITCH_FUN53.getText():null)), root_1);
 				adaptor.addChild(root_1, stream_SWITCH_VALUE.nextNode());
 				adaptor.addChild(root_0, root_1);
 				}
@@ -1622,58 +1671,60 @@ public class CLExprParser extends Parser {
 
 
 
-	public static final BitSet FOLLOW_logicalExpression_in_expression139 = new BitSet(new long[]{0x0000000000000000L});
-	public static final BitSet FOLLOW_EOF_in_expression142 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_booleanAndExpression_in_logicalExpression158 = new BitSet(new long[]{0x0000100000000002L});
-	public static final BitSet FOLLOW_OR_in_logicalExpression161 = new BitSet(new long[]{0x091C0A0404100100L});
-	public static final BitSet FOLLOW_booleanAndExpression_in_logicalExpression164 = new BitSet(new long[]{0x0000100000000002L});
-	public static final BitSet FOLLOW_equalityExpression_in_booleanAndExpression178 = new BitSet(new long[]{0x0000000000000022L});
-	public static final BitSet FOLLOW_AND_in_booleanAndExpression181 = new BitSet(new long[]{0x091C0A0404100100L});
-	public static final BitSet FOLLOW_equalityExpression_in_booleanAndExpression184 = new BitSet(new long[]{0x0000000000000022L});
-	public static final BitSet FOLLOW_relationalExpression_in_equalityExpression197 = new BitSet(new long[]{0x0000002000040002L});
-	public static final BitSet FOLLOW_set_in_equalityExpression200 = new BitSet(new long[]{0x091C0A0404100100L});
-	public static final BitSet FOLLOW_relationalExpression_in_equalityExpression207 = new BitSet(new long[]{0x0000002000040002L});
-	public static final BitSet FOLLOW_concatExpression_in_relationalExpression220 = new BitSet(new long[]{0x0000018180C00002L});
-	public static final BitSet FOLLOW_set_in_relationalExpression224 = new BitSet(new long[]{0x091C0A0404100100L});
-	public static final BitSet FOLLOW_concatExpression_in_relationalExpression239 = new BitSet(new long[]{0x0000018180C00002L});
-	public static final BitSet FOLLOW_additiveExpression_in_concatExpression255 = new BitSet(new long[]{0x0080000000000482L});
-	public static final BitSet FOLLOW_set_in_concatExpression259 = new BitSet(new long[]{0x091C0A0404100100L});
-	public static final BitSet FOLLOW_additiveExpression_in_concatExpression268 = new BitSet(new long[]{0x0080000000000482L});
-	public static final BitSet FOLLOW_multiplicativeExpression_in_additiveExpression283 = new BitSet(new long[]{0x0000400400000002L});
-	public static final BitSet FOLLOW_set_in_additiveExpression287 = new BitSet(new long[]{0x091C0A0404100100L});
-	public static final BitSet FOLLOW_multiplicativeExpression_in_additiveExpression294 = new BitSet(new long[]{0x0000400400000002L});
-	public static final BitSet FOLLOW_unaryExpression_in_multiplicativeExpression310 = new BitSet(new long[]{0x0000000800010002L});
-	public static final BitSet FOLLOW_set_in_multiplicativeExpression314 = new BitSet(new long[]{0x091C0A0404100100L});
-	public static final BitSet FOLLOW_unaryExpression_in_multiplicativeExpression321 = new BitSet(new long[]{0x0000000800010002L});
-	public static final BitSet FOLLOW_primaryExpression_in_unaryExpression338 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NOT_in_unaryExpression347 = new BitSet(new long[]{0x091C080004100100L});
-	public static final BitSet FOLLOW_primaryExpression_in_unaryExpression350 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_MINUS_in_unaryExpression359 = new BitSet(new long[]{0x091C080004100100L});
-	public static final BitSet FOLLOW_primaryExpression_in_unaryExpression361 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_OPEN_BRACE_in_primaryExpression386 = new BitSet(new long[]{0x091C0A0404100100L});
-	public static final BitSet FOLLOW_logicalExpression_in_primaryExpression389 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_CLOSE_BRACE_in_primaryExpression391 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_value_in_primaryExpression397 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_VAR_in_value410 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_STRING_in_value416 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_TERM_in_value422 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_INTEGER_in_value428 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_FLOAT_in_value434 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_binary_fun_in_value440 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_sst_fun_in_value446 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_switch_fun_in_value452 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BINARY_FUN_in_binary_fun465 = new BitSet(new long[]{0x0000080000000000L});
-	public static final BitSet FOLLOW_OPEN_BRACE_in_binary_fun467 = new BitSet(new long[]{0x091C000004101100L});
-	public static final BitSet FOLLOW_value_in_binary_fun469 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_CLOSE_BRACE_in_binary_fun472 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_SST_FUN_in_sst_fun496 = new BitSet(new long[]{0x0000080000000000L});
-	public static final BitSet FOLLOW_OPEN_BRACE_in_sst_fun498 = new BitSet(new long[]{0x091C000004100100L});
-	public static final BitSet FOLLOW_value_in_sst_fun500 = new BitSet(new long[]{0x091C000004100100L});
-	public static final BitSet FOLLOW_value_in_sst_fun502 = new BitSet(new long[]{0x091C000004100100L});
-	public static final BitSet FOLLOW_value_in_sst_fun504 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_CLOSE_BRACE_in_sst_fun506 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_SWITCH_FUN_in_switch_fun535 = new BitSet(new long[]{0x0000080000000000L});
-	public static final BitSet FOLLOW_OPEN_BRACE_in_switch_fun537 = new BitSet(new long[]{0x0020000000000000L});
-	public static final BitSet FOLLOW_SWITCH_VALUE_in_switch_fun539 = new BitSet(new long[]{0x0000000000001000L});
-	public static final BitSet FOLLOW_CLOSE_BRACE_in_switch_fun541 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_logicalExpression_in_expression143 = new BitSet(new long[]{0x0000000000000000L});
+	public static final BitSet FOLLOW_EOF_in_expression146 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_booleanAndExpression_in_logicalExpression162 = new BitSet(new long[]{0x0000080000000002L});
+	public static final BitSet FOLLOW_OR_in_logicalExpression165 = new BitSet(new long[]{0x1238250404100100L});
+	public static final BitSet FOLLOW_booleanAndExpression_in_logicalExpression168 = new BitSet(new long[]{0x0000080000000002L});
+	public static final BitSet FOLLOW_equalityExpression_in_booleanAndExpression182 = new BitSet(new long[]{0x0000000000000022L});
+	public static final BitSet FOLLOW_AND_in_booleanAndExpression185 = new BitSet(new long[]{0x1238250404100100L});
+	public static final BitSet FOLLOW_equalityExpression_in_booleanAndExpression188 = new BitSet(new long[]{0x0000000000000022L});
+	public static final BitSet FOLLOW_relationalExpression_in_equalityExpression201 = new BitSet(new long[]{0x0000002000040002L});
+	public static final BitSet FOLLOW_set_in_equalityExpression204 = new BitSet(new long[]{0x1238250404100100L});
+	public static final BitSet FOLLOW_relationalExpression_in_equalityExpression211 = new BitSet(new long[]{0x0000002000040002L});
+	public static final BitSet FOLLOW_concatExpression_in_relationalExpression224 = new BitSet(new long[]{0x000000C180C00002L});
+	public static final BitSet FOLLOW_set_in_relationalExpression228 = new BitSet(new long[]{0x1238250404100100L});
+	public static final BitSet FOLLOW_concatExpression_in_relationalExpression243 = new BitSet(new long[]{0x000000C180C00002L});
+	public static final BitSet FOLLOW_additiveExpression_in_concatExpression259 = new BitSet(new long[]{0x0100000000000482L});
+	public static final BitSet FOLLOW_set_in_concatExpression263 = new BitSet(new long[]{0x1238250404100100L});
+	public static final BitSet FOLLOW_additiveExpression_in_concatExpression272 = new BitSet(new long[]{0x0100000000000482L});
+	public static final BitSet FOLLOW_multiplicativeExpression_in_additiveExpression287 = new BitSet(new long[]{0x0000200400000002L});
+	public static final BitSet FOLLOW_set_in_additiveExpression291 = new BitSet(new long[]{0x1238250404100100L});
+	public static final BitSet FOLLOW_multiplicativeExpression_in_additiveExpression298 = new BitSet(new long[]{0x0000200400000002L});
+	public static final BitSet FOLLOW_unaryExpression_in_multiplicativeExpression314 = new BitSet(new long[]{0x0000000800010002L});
+	public static final BitSet FOLLOW_set_in_multiplicativeExpression318 = new BitSet(new long[]{0x1238250404100100L});
+	public static final BitSet FOLLOW_unaryExpression_in_multiplicativeExpression325 = new BitSet(new long[]{0x0000000800010002L});
+	public static final BitSet FOLLOW_primaryExpression_in_unaryExpression344 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NOT_in_unaryExpression353 = new BitSet(new long[]{0x1238040004100100L});
+	public static final BitSet FOLLOW_primaryExpression_in_unaryExpression356 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_MINUS_in_unaryExpression365 = new BitSet(new long[]{0x1238040004100100L});
+	public static final BitSet FOLLOW_primaryExpression_in_unaryExpression367 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_PLUS_in_unaryExpression384 = new BitSet(new long[]{0x1238040004100100L});
+	public static final BitSet FOLLOW_primaryExpression_in_unaryExpression386 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_OPEN_BRACE_in_primaryExpression408 = new BitSet(new long[]{0x1238250404100100L});
+	public static final BitSet FOLLOW_logicalExpression_in_primaryExpression411 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_CLOSE_BRACE_in_primaryExpression413 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_value_in_primaryExpression419 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_VAR_in_value432 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_STRING_in_value438 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_TERM_in_value444 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INTEGER_in_value450 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_FLOAT_in_value456 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_binary_fun_in_value462 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_sst_fun_in_value468 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_switch_fun_in_value474 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BINARY_FUN_in_binary_fun487 = new BitSet(new long[]{0x0000040000000000L});
+	public static final BitSet FOLLOW_OPEN_BRACE_in_binary_fun489 = new BitSet(new long[]{0x1238000004101100L});
+	public static final BitSet FOLLOW_value_in_binary_fun491 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_CLOSE_BRACE_in_binary_fun494 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_SST_FUN_in_sst_fun518 = new BitSet(new long[]{0x0000040000000000L});
+	public static final BitSet FOLLOW_OPEN_BRACE_in_sst_fun520 = new BitSet(new long[]{0x1238000004100100L});
+	public static final BitSet FOLLOW_value_in_sst_fun522 = new BitSet(new long[]{0x1238000004100100L});
+	public static final BitSet FOLLOW_value_in_sst_fun524 = new BitSet(new long[]{0x1238000004100100L});
+	public static final BitSet FOLLOW_value_in_sst_fun526 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_CLOSE_BRACE_in_sst_fun528 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_SWITCH_FUN_in_switch_fun557 = new BitSet(new long[]{0x0000040000000000L});
+	public static final BitSet FOLLOW_OPEN_BRACE_in_switch_fun559 = new BitSet(new long[]{0x0040000000000000L});
+	public static final BitSet FOLLOW_SWITCH_VALUE_in_switch_fun561 = new BitSet(new long[]{0x0000000000001000L});
+	public static final BitSet FOLLOW_CLOSE_BRACE_in_switch_fun563 = new BitSet(new long[]{0x0000000000000002L});
 }

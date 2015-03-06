@@ -901,7 +901,8 @@ public class IntegratedLanguageExpressionPackageImpl extends EPackageImpl implem
 		addEEnumLiteral(arithmeticOperatorEEnum, ArithmeticOperator.DIVIDE);
 		addEEnumLiteral(arithmeticOperatorEEnum, ArithmeticOperator.MODULAR);
 		addEEnumLiteral(arithmeticOperatorEEnum, ArithmeticOperator.POWER);
-		addEEnumLiteral(arithmeticOperatorEEnum, ArithmeticOperator.NEGATE);
+		addEEnumLiteral(arithmeticOperatorEEnum, ArithmeticOperator.SIGN_MINUS);
+		addEEnumLiteral(arithmeticOperatorEEnum, ArithmeticOperator.SIGN_PLUS);
 
 		initEEnum(assignmentOperatorEEnum, AssignmentOperator.class, "AssignmentOperator");
 		addEEnumLiteral(assignmentOperatorEEnum, AssignmentOperator.ASSIGN);

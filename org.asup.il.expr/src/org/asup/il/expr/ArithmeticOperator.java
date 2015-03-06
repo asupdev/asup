@@ -84,14 +84,22 @@ public enum ArithmeticOperator implements Enumerator {
 	POWER(8, "Power", "POW"),
 
 	/**
-	 * The '<em><b>Negate</b></em>' literal object.
+	 * The '<em><b>Sign Minus</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #NEGATE_VALUE
+	 * @see #SIGN_MINUS_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	NEGATE(9, "Negate", "NEG");
+	SIGN_MINUS(9, "SignMinus", "SIGN_MINUS"), /**
+	 * The '<em><b>Sign Plus</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SIGN_PLUS_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	SIGN_PLUS(10, "SignPlus", "SIGN_PLUS");
 
 	/**
 	 * The '<em><b>Plus</b></em>' literal value.
@@ -184,19 +192,34 @@ public enum ArithmeticOperator implements Enumerator {
 	public static final int POWER_VALUE = 8;
 
 	/**
-	 * The '<em><b>Negate</b></em>' literal value.
+	 * The '<em><b>Sign Minus</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>Negate</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>Sign Minus</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #NEGATE
-	 * @model name="Negate" literal="NEG"
+	 * @see #SIGN_MINUS
+	 * @model name="SignMinus" literal="SIGN_MINUS"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int NEGATE_VALUE = 9;
+	public static final int SIGN_MINUS_VALUE = 9;
+
+	/**
+	 * The '<em><b>Sign Plus</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Sign Plus</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #SIGN_PLUS
+	 * @model name="SignPlus" literal="SIGN_PLUS"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int SIGN_PLUS_VALUE = 10;
 
 	/**
 	 * An array of all the '<em><b>Arithmetic Operator</b></em>' enumerators.
@@ -212,7 +235,8 @@ public enum ArithmeticOperator implements Enumerator {
 			DIVIDE,
 			MODULAR,
 			POWER,
-			NEGATE,
+			SIGN_MINUS,
+			SIGN_PLUS,
 		};
 
 	/**
@@ -269,7 +293,8 @@ public enum ArithmeticOperator implements Enumerator {
 			case DIVIDE_VALUE: return DIVIDE;
 			case MODULAR_VALUE: return MODULAR;
 			case POWER_VALUE: return POWER;
-			case NEGATE_VALUE: return NEGATE;
+			case SIGN_MINUS_VALUE: return SIGN_MINUS;
+			case SIGN_PLUS_VALUE: return SIGN_PLUS;
 		}
 		return null;
 	}

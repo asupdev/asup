@@ -27,7 +27,8 @@ public class RPJArithmeticExpressionAnalyzer extends ExpressionVisitorImpl {
 	private int minusCount = 0;
 	private int modularCount = 0;
 	private int multCount = 0;
-	private int negateCount = 0;
+	private int signMinusCount = 0;
+	private int signPlusCount = 0;
 	private int plusCount = 0;
 	private int powerCount = 0;
 
@@ -49,9 +50,12 @@ public class RPJArithmeticExpressionAnalyzer extends ExpressionVisitorImpl {
 		case MULT:
 			this.minusCount++;
 			break;
-		case NEGATE:
-			this.negateCount++;
+		case SIGN_MINUS:
+			this.signMinusCount++;
 			break;
+		case SIGN_PLUS:
+			this.signPlusCount++;
+			break;	
 		case PLUS:
 			this.plusCount++;
 			break;
@@ -168,7 +172,11 @@ public class RPJArithmeticExpressionAnalyzer extends ExpressionVisitorImpl {
 	}
 
 	public int getNegateCount() {
-		return negateCount;
+		return signMinusCount;
+	}
+	
+	public int getPositiveCount() {
+		return signPlusCount;
 	}
 
 	public int getPlusCount() {
@@ -185,7 +193,7 @@ public class RPJArithmeticExpressionAnalyzer extends ExpressionVisitorImpl {
 
 	public boolean isStringConcatExpression() {
 
-		if (divideCount == 0 && minusCount == 0 && modularCount == 0 && multCount == 0 && negateCount == 0 && plusCount > 0 && powerCount == 0) {
+		if (divideCount == 0 && minusCount == 0 && modularCount == 0 && multCount == 0 && signMinusCount == 0 && signPlusCount == 0 && plusCount > 0 && powerCount == 0) {
 
 			for (Class<?> klass : getClasses()) {
 				
