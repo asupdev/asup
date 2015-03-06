@@ -16,17 +16,12 @@ import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.net.URI;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
-import org.antlr.runtime.tree.CommonTree;
 import org.asup.il.expr.base.antlr.rpg.RPGExprLexer;
 import org.asup.il.expr.base.antlr.rpg.RPGExprParser;
-import org.osgi.framework.FrameworkUtil;
 
 public class TestRPGParser {
 
@@ -59,7 +54,7 @@ public class TestRPGParser {
 					CommonTokenStream tokens = new CommonTokenStream(lex);
 					RPGExprParser parser = new RPGExprParser(tokens);
 	
-					CommonTree tree = parser.expression().getTree();
+					parser.expression().getTree();
 	
 					parsed++;
 				} catch (Exception vExc) {

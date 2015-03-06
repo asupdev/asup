@@ -20,7 +20,6 @@ import java.net.URL;
 
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
-import org.antlr.runtime.tree.CommonTree;
 import org.asup.il.expr.base.antlr.cl.CLExprLexer;
 import org.asup.il.expr.base.antlr.cl.CLExprParser;
 
@@ -55,7 +54,7 @@ public class TestCLParser {
 					CommonTokenStream tokens = new CommonTokenStream(lex);
 					CLExprParser parser = new CLExprParser(tokens);
 	
-					CommonTree tree = parser.expression().getTree();
+					parser.expression().getTree();
 	
 					parsed++;
 				} catch (Exception vExc) {
