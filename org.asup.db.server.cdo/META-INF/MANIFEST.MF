@@ -5,13 +5,16 @@ Bundle-SymbolicName: org.asup.db.server.cdo
 Bundle-Version: 0.5.4.qualifier
 Bundle-Vendor: www.smeup.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: org.eclipse.emf.cdo.net4j;bundle-version="4.1.101",
- org.eclipse.net4j.jvm;bundle-version="4.1.100",
+Require-Bundle: org.eclipse.net4j.jvm;bundle-version="4.1.100",
  org.eclipse.net4j.tcp;bundle-version="4.1.100",
+ org.eclipse.emf.cdo.net4j;bundle-version="4.1.101",
  org.eclipse.emf.cdo.server;bundle-version="4.2.1",
  org.eclipse.emf.cdo.server.net4j;bundle-version="4.1.1",
  org.eclipse.emf.cdo.server.db;bundle-version="4.2.1",
+ org.eclipse.emf.cdo.server.mongodb;bundle-version="4.0.300",
  org.asup.db.core,
  org.asup.db.core.mysql,
  org.asup.os.core.cdo,
- org.asup.co.core
+ org.asup.co.core,
+ org.eclipse.orbit.mongodb;bundle-version="2.10.1"
+Bundle-ClassPath: .

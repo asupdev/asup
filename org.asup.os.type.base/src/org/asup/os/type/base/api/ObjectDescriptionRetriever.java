@@ -94,6 +94,8 @@ public class ObjectDescriptionRetriever {
 			@ToDo @DataDef(length = 10) QCharacter cLVarForJRNRCVLIB10,
 			@ToDo @DataDef(length = 10) QCharacter cLVarForRCVLIBASP10,
 			@ToDo @DataDef(length = 10) QCharacter cLVarForRCVLIBGRP10) {
+		
+		"".toCharArray();
 	}
 
 	public static class Object extends QDataStructWrapper {

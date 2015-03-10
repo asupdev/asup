@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<store:User
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:store="http://www.asup.org/store"
+    xsi:schemaLocation="http://www.asup.org/store store-test.ecore"
+    name="Franco"
+    text="Franco Lombardo">
+  <workstation
+      model="HP"
+      operatingSystem="LIN"/>
+</store:User>

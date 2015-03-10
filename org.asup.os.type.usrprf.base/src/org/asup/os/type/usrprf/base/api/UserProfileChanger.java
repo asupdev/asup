@@ -19,8 +19,6 @@ import org.asup.os.core.OperatingSystemRuntimeException;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.jobs.QJobLogManager;
 import org.asup.os.core.resources.QResourceWriter;
-import org.asup.os.type.QTypedReference;
-import org.asup.os.type.impl.OperatingSystemTypeFactoryImpl;
 import org.asup.os.type.usrprf.QUserProfile;
 import org.asup.os.type.usrprf.QUserProfileManager;
 

@@ -53,7 +53,9 @@ public class CDOStoreActivatorHook extends ServiceImpl {
 		OMPlatform.INSTANCE.addTraceHandler(org.eclipse.net4j.util.om.trace.PrintTraceHandler.CONSOLE); 
 		
 		Net4jUtil.prepareContainer(IPluginContainer.INSTANCE); // Prepare the Net4j kernel
-	    TCPUtil.prepareContainer(IPluginContainer.INSTANCE); // Prepare the TCP support
+	    
+		TCPUtil.prepareContainer(IPluginContainer.INSTANCE); // Prepare the TCP support
+	    
 	    CDONet4jServerUtil.prepareContainer(IPluginContainer.INSTANCE); // Prepare the CDO server
 
 	    
