@@ -139,4 +139,9 @@ public class BaseCallableProgramDelegator extends CallableProgramImpl implements
 	public Object getDelegate() {
 		return delegate;
 	}
+
+	@Override
+	public Object getRawProgram() {
+		return getDelegate();
+	}
 }

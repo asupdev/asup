@@ -182,6 +182,17 @@ public abstract class CallableProgramImpl extends MinimalEObjectImpl.Container i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Object getRawProgram() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public boolean isOpen() {
@@ -204,6 +215,7 @@ public abstract class CallableProgramImpl extends MinimalEObjectImpl.Container i
 	 */
 	public void open() throws OperatingSystemRuntimeException {
 	}
+
 
 	/**
 	 * <!-- begin-user-doc -->

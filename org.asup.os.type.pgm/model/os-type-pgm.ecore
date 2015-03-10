@@ -30,6 +30,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CallableProgram" abstract="true" eSuperTypes="../../org.asup.os.core/model/os-core.ecore#//Callable">
     <eOperations name="close"/>
+    <eOperations name="getRawProgram" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     <eOperations name="isOpen" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="isStateless" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eOperations name="open" eExceptions="ecore:EDataType ../../org.asup.os.core/model/os-core.ecore#//OperatingSystemRuntimeException"/>
@@ -91,6 +92,10 @@
     <eOperations name="getCaller" eType="#//CallableProgram">
       <eParameters name="contextID" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
       <eParameters name="context" lowerBound="1" eType="#//CallableProgram"/>
+    </eOperations>
+    <eOperations name="getCaller" eType="#//CallableProgram">
+      <eParameters name="contextID" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+      <eParameters name="rawProgram" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eOperations>
     <eOperations name="getProgramStack" eType="#//ProgramStack">
       <eParameters name="contextID" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>

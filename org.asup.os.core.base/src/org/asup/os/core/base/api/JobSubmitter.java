@@ -11,6 +11,10 @@
  */
 package org.asup.os.core.base.api;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -20,6 +24,7 @@ import org.asup.il.data.BinaryType;
 import org.asup.il.data.DatetimeType;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
+import org.asup.il.data.QData;
 import org.asup.il.data.QDataStructWrapper;
 import org.asup.il.data.QDatetime;
 import org.asup.il.data.QEnum;
@@ -35,6 +40,8 @@ import org.asup.os.core.jobs.QJobLogManager;
 import org.asup.os.core.jobs.QJobManager;
 import org.asup.os.type.cmd.QCallableCommand;
 import org.asup.os.type.cmd.QCommandManager;
+import org.asup.os.type.pgm.QCallableProgram;
+import org.asup.os.type.pgm.QProgramManager;
 
 @Program(name = "QWTCCSBJ")
 public class JobSubmitter {
@@ -47,6 +54,8 @@ public class JobSubmitter {
 	private QJobLogManager jobLogManager;
 	@Inject
 	private QCommandManager commandManager;
+	@Inject
+	private QProgramManager programManager;
 
 	@Entry
 	public void main(@ToDo @DataDef(length = 20000) QCharacter commandToRun, @ToDo @DataDef(length = 10) QEnum<JobNameEnum, QCharacter> jobName,
@@ -72,12 +81,7 @@ public class JobSubmitter {
 			@ToDo @DataDef(length = 1) QEnum<CopyEnvironmentVariablesEnum, QCharacter> copyEnvironmentVariables,
 			@ToDo @DataDef(length = 1) QEnum<AllowMultipleThreadsEnum, QCharacter> allowMultipleThreads, @ToDo @DataDef(length = 10) QEnum<SpooledFileActionEnum, QCharacter> spooledFileAction) {
 
-		Map<String, Object> variables = null;
-		// QCallableProgram caller = programManager.getCaller(job,
-		// programStatus.getCallableProgram());
-
-		// if (caller != null)
-		// variables = null; // caller.getVariables();
+		QCallableProgram caller = programManager.getCaller(job, this);
 
 		try {
 			// Job spawn
@@ -90,6 +94,7 @@ public class JobSubmitter {
 			case OTHER:
 				if (!jobName.isEmpty())
 					childJob.setJobName(jobName.asData().trimR());
+				
 				break;
 			}
 
@@ -97,7 +102,7 @@ public class JobSubmitter {
 			job.getMessages().add(Integer.toString(childJob.getJobNumber()));
 
 			// Submit command
-			new SubmittedCommand(childJob, commandToRun.trimR(), variables).start();
+			new SubmittedCommand(childJob, commandToRun.trimR(), caller).start();
 
 			jobLogManager.info(job, "Job submitted:" + childJob);
 
@@ -110,18 +115,47 @@ public class JobSubmitter {
 
 		private QJob qJob;
 		private String commandString;
-		private Map<String, Object> variables;
+		private Object caller;
 
-		protected SubmittedCommand(QJob qJob, String commandString, Map<String, Object> variables) {
+		protected SubmittedCommand(QJob qJob, String commandString, Object caller) {
 			this.qJob = qJob;
 			this.commandString = commandString;
-			this.variables = variables;
+			this.caller = caller;
 		}
 
 		@Override
 		public void run() {
 
 			try {
+				
+				
+				Map<String, Object> variables = new HashMap<String, Object>();
+				
+				for(Field field: caller.getClass().getFields()) {
+
+
+					Type type = field.getGenericType();
+
+					Class<?> fieldKlass = null;
+
+					if (type instanceof ParameterizedType) {
+						fieldKlass = (Class<?>) ((ParameterizedType) type).getRawType();
+					} else
+						fieldKlass = (Class<?>) type;
+
+					if(QData.class.isAssignableFrom(fieldKlass)) {
+						Object variable;
+						try {
+							variable = field.get(caller);
+							variables.put(field.getName(), variable);
+						} catch (IllegalArgumentException | IllegalAccessException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+
+					}
+				}
+				
 				// execute command
 				QCallableCommand callableCommand = commandManager.prepareCommand(qJob, commandString, variables, true);
 				commandManager.executeCommand(qJob, callableCommand);

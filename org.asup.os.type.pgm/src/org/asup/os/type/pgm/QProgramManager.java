@@ -51,6 +51,14 @@ public interface QProgramManager extends QTypedManager<QProgram> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model rawProgramRequired="true"
+	 * @generated
+	 */
+	QCallableProgram getCaller(QContextID contextID, Object rawProgram);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model
 	 * @generated
 	 */
