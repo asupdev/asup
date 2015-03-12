@@ -126,15 +126,22 @@ public class NIOBinaryImpl extends NIONumericImpl implements QBinary {
 	@Override
 	public int compareNumber(Number value) {
 
-		switch (_type) {
-		case BYTE:
-			return ((Byte)getBuffer().get(getPosition())).compareTo((Byte) value);
-		case SHORT:
-			return ((Short)getBuffer().getShort(getPosition())).compareTo((Short) value); 
-		case INTEGER:
-			return ((Integer)getBuffer().getInt(getPosition())).compareTo((Integer) value);
-		case LONG:
-			return ((Long)getBuffer().getLong(getPosition())).compareTo((Long) value);
+		try {
+		
+			switch (_type) {
+			case BYTE:
+				return ((Byte)getBuffer().get(getPosition())).compareTo((Byte) value);
+			case SHORT:
+				return ((Short)getBuffer().getShort(getPosition())).compareTo((Short) value); 
+			case INTEGER:
+				return ((Integer)getBuffer().getInt(getPosition())).compareTo((Integer) value);
+			case LONG:
+				return ((Long)getBuffer().getLong(getPosition())).compareTo((Long) value);
+			}
+		}
+		catch(ClassCastException e) {
+			System.err.println(e.getMessage());
+			return -1;
 		}
 
 		throw new FrameworkCoreRuntimeException("Unexpected condition");		
