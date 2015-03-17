@@ -14,5 +14,6 @@ Require-Bundle: org.asup.fw.test,
  org.eclipse.emf.cdo.net4j,
  org.eclipse.net4j.tcp,
  org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.asup.os.type.cmd;bundle-version="0.5.4"
 Bundle-ActivationPolicy: lazy

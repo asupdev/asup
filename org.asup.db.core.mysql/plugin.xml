@@ -4,7 +4,7 @@
    <extension
          point="org.eclipse.net4j.db.dbAdapters">
       <dbAdapter
-            class="org.eclipse.net4j.db.mysql.MYSQLAdapter"
+            class="org.asup.db.core.mysql.MySQLAdapter"
             name="MySQL"
             version="5.1.13">
       </dbAdapter>

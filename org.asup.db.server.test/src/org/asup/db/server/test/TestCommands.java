@@ -1,22 +1,34 @@
 package org.asup.db.server.test;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.Collections;
 import java.util.Map.Entry;
 
 import org.asup.db.server.store.OperatingSystem;
 import org.asup.db.server.store.QStoreFactory;
 import org.asup.db.server.store.QUser;
 import org.asup.db.server.store.QWorkstation;
+import org.asup.os.type.cmd.CommandOrder;
+import org.asup.os.type.cmd.QCommand;
+import org.asup.os.type.cmd.QCommandContainer;
+import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.cdo.eresource.CDOResource;
 import org.eclipse.emf.cdo.net4j.CDONet4jSession;
 import org.eclipse.emf.cdo.net4j.CDONet4jSessionConfiguration;
 import org.eclipse.emf.cdo.net4j.CDONet4jUtil;
 import org.eclipse.emf.cdo.session.CDOSession;
 import org.eclipse.emf.cdo.transaction.CDOTransaction;
+import org.eclipse.emf.cdo.util.CDOUtil;
 import org.eclipse.emf.cdo.util.CommitException;
 import org.eclipse.emf.cdo.view.CDOQuery;
 import org.eclipse.emf.cdo.view.CDOView;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.net4j.Net4jUtil;
 import org.eclipse.net4j.connector.IConnector;
 import org.eclipse.net4j.tcp.TCPUtil;
@@ -24,8 +36,89 @@ import org.eclipse.net4j.util.container.ContainerUtil;
 import org.eclipse.net4j.util.container.IManagedContainer;
 import org.eclipse.net4j.util.lifecycle.LifecycleUtil;
 import org.eclipse.osgi.framework.console.CommandInterpreter;
+import org.osgi.framework.Bundle;
+import org.osgi.framework.FrameworkUtil;
 
-public class ConnectionCommands extends AbstractCommandProviderImpl {
+public class TestCommands extends AbstractCommandProviderImpl {
+
+	
+	public void _writeCommands(CommandInterpreter interpreter) {
+		
+		String fileName = interpreter.nextArgument();
+		
+		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
+
+		URL url = bundle.getEntry("/ASUP-INF/"+fileName+".xmi");
+
+		System.out.println(url);
+		
+		QCommandContainer commandContainer = load(url);
+
+		CDOSession session = getSession();
+		
+		
+		for(QCommand command: commandContainer.getCommands(CommandOrder.NAME)) {
+						
+			System.out.println(command.getName());
+			
+			CDOObject cdoObject = CDOUtil.getCDOObject((EObject)command);
+			System.out.println(cdoObject.cdoID());
+			
+			CDOTransaction transaction = session.openTransaction();
+			CDOResource resource  = transaction.getOrCreateResource("commands");
+			
+			try {
+				resource.getContents().add((EObject)command);
+				transaction.commit();
+			} 
+			catch (CommitException e) {
+				e.printStackTrace();
+			}
+			finally {
+				transaction.close();
+			}
+			
+			
+		}		
+		
+		session.close();
+
+	}
+	
+	public void _readCommands(CommandInterpreter interpreter) {
+		
+		CDOSession session = getSession();
+		
+		CDOView view = session.openView();
+		
+		CDOQuery query = view.createQuery("sql", "select * from asup_os_type_cmd_command");
+		
+		for(QCommand command: query.getResult(QCommand.class)) {
+						
+			CDOObject cdoObject = CDOUtil.getCDOObject((EObject)command);
+			System.out.println(cdoObject.cdoID());
+
+			
+			System.out.println(command);
+		}
+		
+		session.close();		
+	}
+	
+	private QCommandContainer load(URL url) {
+
+		ResourceSet resourceSet = new ResourceSetImpl();
+		Resource resource = resourceSet.createResource(URI.createURI(url.toString()));
+		try {
+			resource.load(Collections.EMPTY_MAP);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		EObject eObject = resource.getContents().get(0);
+		
+		return (QCommandContainer) eObject;
+	}
 
 	public void _read(CommandInterpreter interpreter) {
 		

@@ -48,60 +48,67 @@ public class CDOStoreActivatorHook extends ServiceImpl {
 	@LevelStarted
 	public void start(DataSourceFactory dataSourceFactory) throws SQLException {
 		
-		OMPlatform.INSTANCE.setDebugging(true); 
-		OMPlatform.INSTANCE.addLogHandler(org.eclipse.net4j.util.om.log.PrintLogHandler.CONSOLE); 
-		OMPlatform.INSTANCE.addTraceHandler(org.eclipse.net4j.util.om.trace.PrintTraceHandler.CONSOLE); 
-		
-		Net4jUtil.prepareContainer(IPluginContainer.INSTANCE); // Prepare the Net4j kernel
-	    
-		TCPUtil.prepareContainer(IPluginContainer.INSTANCE); // Prepare the TCP support
-	    
-	    CDONet4jServerUtil.prepareContainer(IPluginContainer.INSTANCE); // Prepare the CDO server
-
-	    
-		CDOStoreConfig storeConfig = (CDOStoreConfig) getConfig();
-	    
-		// adapter
-		IDBAdapter adapter = DBUtil.getDBAdapter(storeConfig.getAdapter());
-
-		// provider
-		Properties dataSourceProps = new Properties();
-		dataSourceProps.put("class", storeConfig.getDriver());
-		dataSourceProps.put("url", storeConfig.getUrl());
-		dataSourceProps.put("user", storeConfig.getCredentials().getUser());
-		dataSourceProps.put("password", storeConfig.getCredentials().getPassword());
-		
-		// TODO retrieve dataFactory by adapter 
-		DataSource dataSource = dataSourceFactory.createDataSource(dataSourceProps);		
-		IDBConnectionProvider provider = DBUtil.createConnectionProvider(dataSource); 
-
-		// store 		
-		Map<String, String> databaseProps = new HashMap<String, String>();
-		databaseProps.put("readerPoolCapacity", "10");
-		databaseProps.put("writerPoolCapacity", "10");
+		try {
+			OMPlatform.INSTANCE.setDebugging(true); 
+			OMPlatform.INSTANCE.addLogHandler(org.eclipse.net4j.util.om.log.PrintLogHandler.CONSOLE); 
+			OMPlatform.INSTANCE.addTraceHandler(org.eclipse.net4j.util.om.trace.PrintTraceHandler.CONSOLE); 
 			
-		// strategy 
-		IMappingStrategy strategy = new InternalMappingStrategy(); 
-		Map<String, String> mappingProps = new HashMap<String, String>();
-		mappingProps.put("toManyReferences", "ONE_TABLE_PER_CLASS"); 
-		mappingProps.put("qualifiedNames", "false");
-
-		strategy.setProperties(mappingProps);
+			Net4jUtil.prepareContainer(IPluginContainer.INSTANCE); // Prepare the Net4j kernel
+		    
+			TCPUtil.prepareContainer(IPluginContainer.INSTANCE); // Prepare the TCP support
+		    
+		    CDONet4jServerUtil.prepareContainer(IPluginContainer.INSTANCE); // Prepare the CDO server
+	
+		    
+			CDOStoreConfig storeConfig = (CDOStoreConfig) getConfig();
+		    
+			// adapter
+			IDBAdapter adapter = DBUtil.getDBAdapter(storeConfig.getAdapter());
+	
+			// provider
+			Properties dataSourceProps = new Properties();
+			dataSourceProps.put("class", storeConfig.getDriver());
+			dataSourceProps.put("url", storeConfig.getUrl());
+			dataSourceProps.put("user", storeConfig.getCredentials().getUser());
+			dataSourceProps.put("password", storeConfig.getCredentials().getPassword());
 			
-		IDBStore store = CDODBUtil.createStore(strategy, adapter, provider, databaseProps);		
-		strategy.setStore(store); 
-
-		// repository 
-		Map<String, String> repositoryProps = new HashMap<String, String>(); 
-		repositoryProps.put("overrideUUID", "");
-		repositoryProps.put("supportingAudits", "false");
-		repositoryProps.put("supportingBranches", "false");
-		IRepository repository = CDOServerUtil.createRepository(storeConfig.getRepository(), store, repositoryProps); 
-		CDOServerUtil.addRepository(IPluginContainer.INSTANCE, repository); 
-		
-		
-		QServerSocketConfig socketConfig = storeConfig.getSocketConfig();
-		Net4jUtil.getAcceptor(IPluginContainer.INSTANCE, "tcp", socketConfig.getAddress()+":"+socketConfig.getPort());
+			// TODO retrieve dataFactory by adapter 
+			DataSource dataSource = dataSourceFactory.createDataSource(dataSourceProps);		
+			IDBConnectionProvider provider = DBUtil.createConnectionProvider(dataSource); 
+	
+			// store 		
+			Map<String, String> databaseProps = new HashMap<String, String>();
+			databaseProps.put("readerPoolCapacity", "10");
+			databaseProps.put("writerPoolCapacity", "10");
+				
+			// strategy 
+			IMappingStrategy strategy = new InternalMappingStrategy(); 
+			Map<String, String> mappingProps = new HashMap<String, String>();
+			mappingProps.put("toManyReferences", "ONE_TABLE_PER_CLASS"); 
+			mappingProps.put("qualifiedNames", "false");
+	
+			strategy.setProperties(mappingProps);
+				
+			IDBStore store = CDODBUtil.createStore(strategy, adapter, provider, databaseProps);		
+			strategy.setStore(store); 
+	
+			// repository 
+			Map<String, String> repositoryProps = new HashMap<String, String>(); 
+			repositoryProps.put("overrideUUID", "");
+			repositoryProps.put("supportingAudits", "false");
+			repositoryProps.put("supportingBranches", "false");
+			IRepository repository = CDOServerUtil.createRepository(storeConfig.getRepository(), store, repositoryProps); 
+			CDOServerUtil.addRepository(IPluginContainer.INSTANCE, repository); 
+			
+			
+			QServerSocketConfig socketConfig = storeConfig.getSocketConfig();
+			Net4jUtil.getAcceptor(IPluginContainer.INSTANCE, "tcp", socketConfig.getAddress()+":"+socketConfig.getPort());
+			
+			System.out.println("CDO activated");
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private class InternalMappingStrategy extends HorizontalNonAuditMappingStrategy {
