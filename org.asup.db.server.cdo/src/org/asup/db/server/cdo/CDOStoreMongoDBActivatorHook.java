@@ -34,28 +34,35 @@ public class CDOStoreMongoDBActivatorHook extends ServiceImpl {
 	
 	@LevelStarted
 	public void start(DataSourceFactory dataSourceFactory) throws SQLException {
-		
-		OMPlatform.INSTANCE.setDebugging(true); 
-		OMPlatform.INSTANCE.addLogHandler(org.eclipse.net4j.util.om.log.PrintLogHandler.CONSOLE); 
-		OMPlatform.INSTANCE.addTraceHandler(org.eclipse.net4j.util.om.trace.PrintTraceHandler.CONSOLE); 
-		
-		Net4jUtil.prepareContainer(IPluginContainer.INSTANCE); // Prepare the Net4j kernel
-	    TCPUtil.prepareContainer(IPluginContainer.INSTANCE); // Prepare the TCP support
-	    CDONet4jServerUtil.prepareContainer(IPluginContainer.INSTANCE); // Prepare the CDO server
+		try {
+			System.out.println("Connecting to Mongo...");
+			
+			OMPlatform.INSTANCE.setDebugging(true); 
+			OMPlatform.INSTANCE.addLogHandler(org.eclipse.net4j.util.om.log.PrintLogHandler.CONSOLE); 
+			OMPlatform.INSTANCE.addTraceHandler(org.eclipse.net4j.util.om.trace.PrintTraceHandler.CONSOLE); 
+			
+			Net4jUtil.prepareContainer(IPluginContainer.INSTANCE); // Prepare the Net4j kernel
+			TCPUtil.prepareContainer(IPluginContainer.INSTANCE); // Prepare the TCP support
+			CDONet4jServerUtil.prepareContainer(IPluginContainer.INSTANCE); // Prepare the CDO server
 
-		CDOStoreConfig storeConfig = (CDOStoreConfig) getConfig();
+			CDOStoreConfig storeConfig = (CDOStoreConfig) getConfig();
 
-	    IStore store = CDOMongoDBUtil.createStore("localhost", "ASUP_CDO");
-	    
-		// repository 
-		Map<String, String> repositoryProps = new HashMap<String, String>(); 
-		repositoryProps.put("overrideUUID", "");
-		repositoryProps.put("supportingAudits", "false");
-		repositoryProps.put("supportingBranches", "false");
-		IRepository repository = CDOServerUtil.createRepository("AS400A", store, repositoryProps); 
-		CDOServerUtil.addRepository(IPluginContainer.INSTANCE, repository); 
-				
-		QServerSocketConfig socketConfig = storeConfig.getSocketConfig();
-		Net4jUtil.getAcceptor(IPluginContainer.INSTANCE, "tcp", socketConfig.getAddress()+":"+socketConfig.getPort());
+			IStore store = CDOMongoDBUtil.createStore("mongodb://172.16.3.27", "ASUP_CDO");
+			
+			// repository 
+			Map<String, String> repositoryProps = new HashMap<String, String>(); 
+			repositoryProps.put("overrideUUID", "");
+			repositoryProps.put("supportingAudits", "false");
+			repositoryProps.put("supportingBranches", "false");
+			IRepository repository = CDOServerUtil.createRepository("AS400A", store, repositoryProps); 
+			CDOServerUtil.addRepository(IPluginContainer.INSTANCE, repository); 
+					
+			QServerSocketConfig socketConfig = storeConfig.getSocketConfig();
+			Net4jUtil.getAcceptor(IPluginContainer.INSTANCE, "tcp", socketConfig.getAddress()+":"+socketConfig.getPort());
+			
+			System.out.println("...connection to Mongo completed");
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
 	}
 }
