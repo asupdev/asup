@@ -82,7 +82,10 @@ public class CDOStoreActivatorHook extends ServiceImpl {
 			databaseProps.put("writerPoolCapacity", "10");
 				
 			// strategy 
-			IMappingStrategy strategy = new InternalMappingStrategy(); 
+			IMappingStrategy strategy = CDODBUtil.createMappingStrategy("horizontal"); 
+					
+					
+					 
 			Map<String, String> mappingProps = new HashMap<String, String>();
 			mappingProps.put("toManyReferences", "ONE_TABLE_PER_CLASS"); 
 			mappingProps.put("qualifiedNames", "false");

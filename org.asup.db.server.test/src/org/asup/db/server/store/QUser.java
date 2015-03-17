@@ -59,7 +59,7 @@ public interface QUser {
 	 * @return the value of the '<em>Text</em>' attribute.
 	 * @see #setText(String)
 	 * @see org.asup.db.server.store.QStorePackage#getUser_Text()
-	 * @model
+	 * @model annotation="http://www.eclipse.org/CDO/DBStore columnType='VARCHAR' columnLength='255'"
 	 * @generated
 	 */
 	String getText();

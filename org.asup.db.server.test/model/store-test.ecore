@@ -3,7 +3,12 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="store" nsURI="http://www.asup.org/store" nsPrefix="store">
   <eClassifiers xsi:type="ecore:EClass" name="User">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/CDO/DBStore">
+        <details key="columnType" value="VARCHAR"/>
+        <details key="columnLength" value="255"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="workstation" lowerBound="1"
         eType="#//Workstation" containment="true"/>
   </eClassifiers>

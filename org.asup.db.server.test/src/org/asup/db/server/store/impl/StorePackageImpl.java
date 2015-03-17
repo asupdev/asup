@@ -264,6 +264,27 @@ public class StorePackageImpl extends EPackageImpl implements QStorePackage {
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/CDO/DBStore
+		createDBStoreAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/CDO/DBStore</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createDBStoreAnnotations() {
+		String source = "http://www.eclipse.org/CDO/DBStore";	
+		addAnnotation
+		  (getUser_Text(), 
+		   source, 
+		   new String[] {
+			 "columnType", "VARCHAR",
+			 "columnLength", "255"
+		   });
 	}
 
 } //StorePackageImpl
