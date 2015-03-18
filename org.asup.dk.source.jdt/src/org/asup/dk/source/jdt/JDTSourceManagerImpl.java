@@ -223,11 +223,12 @@ public class JDTSourceManagerImpl extends SourceManagerImpl {
 		return libraries;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public <T extends QObjectNameable> List<QSourceEntry> listObjectEntries(QJob job, String library, Class<T> type, String nameFilter) {
 		QSourceEntry libraryEntry = getLibraryEntry(job, library);
 		if (libraryEntry == null)
-			return null;
+			return (List<QSourceEntry>) Collections.EMPTY_LIST;
 
 		return listChildEntries(job, libraryEntry, type, nameFilter);
 	}

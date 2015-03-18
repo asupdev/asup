@@ -58,6 +58,11 @@ public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 	@Override
 	public void eval(String value) {
 
+		if(value == null) {
+			clear();
+			return;
+		}
+		
 		this.length = (value.length() > getSize() ? (short) getSize() : (short) value.length());
 
 		super.eval(value);
