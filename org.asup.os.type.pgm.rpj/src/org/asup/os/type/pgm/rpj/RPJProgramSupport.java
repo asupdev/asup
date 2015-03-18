@@ -699,7 +699,8 @@ public class RPJProgramSupport {
 			numElements = list.capacity();
 
 		for (int i = startIndex; i <= numElements; i++) {
-			if (list.get(i).eq(argument))
+//			if (list.get(i).eq(argument))
+			if (list.get(i).toString().trim().equals(argument.toString().trim()))
 				return qBox(i);
 		}
 
