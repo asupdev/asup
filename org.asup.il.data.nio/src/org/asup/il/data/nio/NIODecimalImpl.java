@@ -84,7 +84,7 @@ public class NIODecimalImpl extends NIONumericImpl implements QDecimal {
 			result = zoned.toDouble(asBytes());
 		} catch (Exception e) {
 			// TODO
-//			System.err.println("Unexpected condition vv6666eqw5rqvcrqv: " + e);
+			System.err.println("Unexpected condition vv6666eqw5rqvcrqv: " + e);
 		}
 
 		return result;
