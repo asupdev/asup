@@ -16,6 +16,7 @@ import java.util.Date;
 
 import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.il.core.QNamedNode;
+import org.asup.il.core.QTerm;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.QMultipleAtomicDataTerm;
 import org.asup.il.data.QPointerDef;
@@ -25,8 +26,11 @@ import org.asup.il.expr.QBooleanExpression;
 import org.asup.il.expr.QCompoundTermExpression;
 import org.asup.il.expr.QExpression;
 import org.asup.il.expr.QExpressionParser;
+import org.asup.il.flow.QCallableUnit;
 import org.asup.il.flow.QPrototype;
+import org.asup.il.isam.QDataSetTerm;
 import org.asup.il.isam.QKeyListTerm;
+import org.asup.os.type.file.QExternalFile;
 
 public class CompilationContextHelper {
 
@@ -258,7 +262,8 @@ public class CompilationContextHelper {
 
 	public static boolean containsArray(QExpressionParser expressionParser, QKeyListTerm keyList) {
 		
-		boolean result = false;
+//		boolean result = false;
+		boolean result = true;
 
 		for (String keyField : keyList.getKeyFields()) {
 
@@ -270,5 +275,56 @@ public class CompilationContextHelper {
 		}
 
 		return result;
+	}
+	
+	public static QTerm getPrimaryRecord(QCallableUnit callableUnit, QDataSetTerm dataSetTerm) {
+		
+		if(dataSetTerm.getFacet(QExternalFile.class) == null)
+			System.out.println("Unexpected condition: pxnqt9r87webr87we");
+		
+		QTerm primaryRecord = null;
+		
+		// search on external dataStructure
+		if(callableUnit.getDataSection() != null) {
+			
+			for(QDataTerm<?> dataTerm: callableUnit.getDataSection().getDatas()) {
+				if(dataTerm.getFacet(QExternalFile.class) != null) {
+					QExternalFile externalFile = dataTerm.getFacet(QExternalFile.class);
+					
+					if(dataSetTerm.getFacet(QExternalFile.class).getFormat().equalsIgnoreCase(externalFile.getFormat())) {
+						primaryRecord = dataTerm;
+						break;
+					}
+					else
+						continue;
+				}				
+			}
+		}
+		
+		if(primaryRecord != null)
+			return primaryRecord;
+
+		// search on dataSet
+		if(callableUnit.getFileSection() != null) {
+			for(QDataSetTerm dst: callableUnit.getFileSection().getDataSets()) {
+		
+				if(dst.getFacet(QExternalFile.class) != null) {
+					QExternalFile externalFile = dst.getFacet(QExternalFile.class);
+					if(dataSetTerm.getFacet(QExternalFile.class).getFormat().equalsIgnoreCase(externalFile.getFormat())) {
+						primaryRecord = dst;
+						break;
+					}
+					else
+						continue;				}
+				else
+					System.out.println("Unexpected condition: pxnqt9r87x93q46t");
+			}
+		}
+				
+		if(primaryRecord != null)
+			return primaryRecord;
+		
+		
+		return primaryRecord;
 	}
 }

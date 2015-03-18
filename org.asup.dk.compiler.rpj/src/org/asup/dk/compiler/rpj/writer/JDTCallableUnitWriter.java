@@ -609,6 +609,24 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 					if (dataSetTerm.getRecord() == null)
 						continue;
 
+					QTerm primaryRecord = CompilationContextHelper.getPrimaryRecord(callableUnit, dataSetTerm);
+					if(!dataSetTerm.equals(primaryRecord)) {
+						
+						System.out.println(primaryRecord);
+						
+						MethodInvocation methodInvocation = getAST().newMethodInvocation();
+						methodInvocation.setName(getAST().newSimpleName("assign"));
+						methodInvocation.setExpression(buildExpression(getCompilationUnit().getQualifiedName(primaryRecord)));
+						
+						methodInvocation.arguments().add(buildExpression(getCompilationUnit().getQualifiedName(dataSetTerm)+".get()"));
+						ExpressionStatement expressionStatement = getAST().newExpressionStatement(methodInvocation);
+						block.statements().add(expressionStatement);
+						
+					}
+					else
+						"".toCharArray();
+					
+					// remap
 					for (QDataTerm<?> element : dataSetTerm.getRecord().getElements()) {
 						QRemap remap = element.getFacet(QRemap.class);
 						if (remap == null)
