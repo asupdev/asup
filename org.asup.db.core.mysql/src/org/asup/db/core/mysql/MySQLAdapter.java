@@ -17,6 +17,7 @@ public class MySQLAdapter extends MYSQLAdapter {
 		super();
 	}
 
+	@Override
 	protected void createTable(Connection connection, IDBTable table, IDBTableDelta delta)
 	{
 	    CheckUtil.checkArg(delta.getChangeKind() == ChangeKind.ADD, "Not added: " + delta.getName());
