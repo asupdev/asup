@@ -62,7 +62,7 @@ public class CDOStoreActivatorHook extends ServiceImpl {
 		    
 			CDOStoreConfig storeConfig = (CDOStoreConfig) getConfig();
 		    
-			// adapter
+			// adapter -> Adapter definito in db-core-cdo.xmi (per es. MySQLAdapter)
 			IDBAdapter adapter = DBUtil.getDBAdapter(storeConfig.getAdapter());
 	
 			// provider
@@ -82,9 +82,7 @@ public class CDOStoreActivatorHook extends ServiceImpl {
 			databaseProps.put("writerPoolCapacity", "10");
 				
 			// strategy 
-			IMappingStrategy strategy = CDODBUtil.createMappingStrategy("horizontal"); 
-					
-					
+			IMappingStrategy strategy = createMappingStrategy(); 
 					 
 			Map<String, String> mappingProps = new HashMap<String, String>();
 			mappingProps.put("toManyReferences", "ONE_TABLE_PER_CLASS"); 
@@ -114,8 +112,12 @@ public class CDOStoreActivatorHook extends ServiceImpl {
 		}
 	}
 	
-	private class InternalMappingStrategy extends HorizontalNonAuditMappingStrategy {
+	private IMappingStrategy createMappingStrategy() {
+		//Oppure: CDODBUtil.createMappingStrategy("horizontal")
+		return new InternalMappingStrategy();
+	}
 
+	private class InternalMappingStrategy extends HorizontalNonAuditMappingStrategy {
 		@Override
 		public String getTableName(ENamedElement element) {
 			EClass eClass = null;
@@ -139,6 +141,5 @@ public class CDOStoreActivatorHook extends ServiceImpl {
 			else
 				return super.getTableName(eClass, feature);
 		}
-
 	}
 }

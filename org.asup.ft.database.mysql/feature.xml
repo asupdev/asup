@@ -21,6 +21,16 @@
          id="org.asup.ft.database"
          version="0.0.0"/>
 
+   <requires>
+      <import plugin="org.asup.db.core"/>
+      <import plugin="org.asup.db.core.base"/>
+      <import plugin="org.eclipse.net4j.db"/>
+      <import plugin="org.asup.fw.core"/>
+      <import plugin="org.asup.db.syntax"/>
+      <import plugin="org.asup.db.syntax.base"/>
+      <import plugin="org.eclipse.net4j.db" version="4.0.0" match="compatible"/>
+   </requires>
+
    <plugin
          id="org.asup.db.core.mysql"
          download-size="0"

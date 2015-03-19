@@ -11,10 +11,8 @@ Require-Bundle: org.eclipse.net4j.jvm;bundle-version="4.1.100",
  org.eclipse.emf.cdo.server;bundle-version="4.2.1",
  org.eclipse.emf.cdo.server.net4j;bundle-version="4.1.1",
  org.eclipse.emf.cdo.server.db;bundle-version="4.2.1",
- org.eclipse.emf.cdo.server.mongodb;bundle-version="4.0.300",
  org.asup.db.core,
  org.asup.db.core.mysql,
  org.asup.os.core.cdo,
- org.asup.co.core,
- org.eclipse.orbit.mongodb;bundle-version="2.10.1"
+ org.asup.co.core
 Bundle-ClassPath: .
