@@ -36,20 +36,18 @@
       <genOperations ecoreOperation="os-core.ecore#//Callable/call"/>
     </genClasses>
     <genClasses image="false" ecoreClass="os-core.ecore#//Container">
-      <genTypeParameters ecoreTypeParameter="os-core.ecore#//Container/T"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-core.ecore#//Container/content"/>
+      <genTypeParameters ecoreTypeParameter="os-core.ecore#//Container/C"/>
+      <genOperations ecoreOperation="os-core.ecore#//Container/getContent"/>
     </genClasses>
     <genClasses image="false" ecoreClass="os-core.ecore#//ContentLockable">
       <genTypeParameters ecoreTypeParameter="os-core.ecore#//ContentLockable/T"/>
-      <genTypeParameters ecoreTypeParameter="os-core.ecore#//ContentLockable/K"/>
-      <genOperations ecoreOperation="os-core.ecore#//ContentLockable/getContainLocker"/>
+      <genOperations ecoreOperation="os-core.ecore#//ContentLockable/getContentLocker"/>
     </genClasses>
     <genClasses ecoreClass="os-core.ecore#//ContentLock">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-core.ecore#//ContentLock/type"/>
     </genClasses>
     <genClasses image="false" ecoreClass="os-core.ecore#//ContentLocker">
       <genTypeParameters ecoreTypeParameter="os-core.ecore#//ContentLocker/T"/>
-      <genTypeParameters ecoreTypeParameter="os-core.ecore#//ContentLocker/K"/>
       <genOperations ecoreOperation="os-core.ecore#//ContentLocker/lock">
         <genParameters ecoreParameter="os-core.ecore#//ContentLocker/lock/job"/>
         <genParameters ecoreParameter="os-core.ecore#//ContentLocker/lock/object"/>
@@ -100,7 +98,7 @@
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="os-core.ecore#//ObjectContent">
-      <genTypeParameters ecoreTypeParameter="os-core.ecore#//ObjectContent/T"/>
+      <genTypeParameters ecoreTypeParameter="os-core.ecore#//ObjectContent/C"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-core.ecore#//ObjectContent/entries"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-core.ecore#//ObjectContent/readLock"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference os-core.ecore#//ObjectContent/writeLock"/>
@@ -183,6 +181,9 @@
         </genOperations>
       </genClasses>
       <genClasses image="false" ecoreClass="os-core.ecore#//jobs/JobManager">
+        <genOperations ecoreOperation="os-core.ecore#//jobs/JobManager/close">
+          <genParameters ecoreParameter="os-core.ecore#//jobs/JobManager/close/job"/>
+        </genOperations>
         <genOperations ecoreOperation="os-core.ecore#//jobs/JobManager/create">
           <genParameters ecoreParameter="os-core.ecore#//jobs/JobManager/create/user"/>
           <genParameters ecoreParameter="os-core.ecore#//jobs/JobManager/create/password"/>
@@ -337,8 +338,8 @@
         <genOperations ecoreOperation="os-core.ecore#//resources/ResourceReader/find">
           <genParameters ecoreParameter="os-core.ecore#//resources/ResourceReader/find/nameFilter"/>
         </genOperations>
-        <genOperations ecoreOperation="os-core.ecore#//resources/ResourceReader/iterate">
-          <genParameters ecoreParameter="os-core.ecore#//resources/ResourceReader/iterate/filter"/>
+        <genOperations ecoreOperation="os-core.ecore#//resources/ResourceReader/findByExpression">
+          <genParameters ecoreParameter="os-core.ecore#//resources/ResourceReader/findByExpression/filter"/>
         </genOperations>
         <genOperations ecoreOperation="os-core.ecore#//resources/ResourceReader/lookup">
           <genParameters ecoreParameter="os-core.ecore#//resources/ResourceReader/lookup/name"/>
@@ -348,15 +349,15 @@
         <genTypeParameters ecoreTypeParameter="os-core.ecore#//resources/ResourceSetReader/T"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute os-core.ecore#//resources/ResourceSetReader/containers"/>
         <genOperations ecoreOperation="os-core.ecore#//resources/ResourceSetReader/exists">
-          <genParameters ecoreParameter="os-core.ecore#//resources/ResourceSetReader/exists/library"/>
+          <genParameters ecoreParameter="os-core.ecore#//resources/ResourceSetReader/exists/container"/>
           <genParameters ecoreParameter="os-core.ecore#//resources/ResourceSetReader/exists/name"/>
         </genOperations>
         <genOperations ecoreOperation="os-core.ecore#//resources/ResourceSetReader/find">
-          <genParameters ecoreParameter="os-core.ecore#//resources/ResourceSetReader/find/library"/>
+          <genParameters ecoreParameter="os-core.ecore#//resources/ResourceSetReader/find/container"/>
           <genParameters ecoreParameter="os-core.ecore#//resources/ResourceSetReader/find/nameFilter"/>
         </genOperations>
         <genOperations ecoreOperation="os-core.ecore#//resources/ResourceSetReader/lookup">
-          <genParameters ecoreParameter="os-core.ecore#//resources/ResourceSetReader/lookup/library"/>
+          <genParameters ecoreParameter="os-core.ecore#//resources/ResourceSetReader/lookup/container"/>
           <genParameters ecoreParameter="os-core.ecore#//resources/ResourceSetReader/lookup/name"/>
         </genOperations>
       </genClasses>

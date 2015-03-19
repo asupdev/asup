@@ -277,6 +277,7 @@ public interface QJob extends QObjectNameable, QContextID, QContextProvider {
 	 * @see #setCreationInfo(QCreationInfo)
 	 * @see org.asup.os.core.jobs.QOperatingSystemJobsPackage#getJob_CreationInfo()
 	 * @model containment="true" required="true"
+	 *        annotation="il-data length='30'"
 	 * @generated
 	 */
 	QCreationInfo getCreationInfo();

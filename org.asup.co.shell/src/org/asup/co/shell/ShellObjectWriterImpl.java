@@ -29,6 +29,7 @@ import org.asup.il.data.QString;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.output.QObjectWriter;
 import org.asup.os.data.QOperatingSystemDataHelper;
+import org.asup.os.omac.QCreationInfo;
 import org.asup.os.omac.QObject;
 import org.asup.os.omac.QObjectNameable;
 import org.eclipse.emf.common.util.Enumerator;
@@ -94,6 +95,11 @@ public class ShellObjectWriterImpl implements QObjectWriter {
 				data.clear();
 				streamWrite(data + "|");
 			} 
+			else if(value instanceof QCreationInfo) {
+				QCreationInfo qCreationInfo = (QCreationInfo)value;
+				data.accept(dataWriter.set(qCreationInfo.getCreationDate()));
+				streamWrite(data + "|");
+			}
 			else if (value instanceof QObjectNameable) {
 				QObjectNameable qValue = (QObjectNameable) value;
 				data.accept(dataWriter.set(qValue.getName()));
