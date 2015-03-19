@@ -174,6 +174,7 @@ public interface QTypedObject extends QObjectNameable {
 	 * @see #setCreationInfo(QCreationInfo)
 	 * @see org.asup.os.type.QOperatingSystemTypePackage#getTypedObject_CreationInfo()
 	 * @model containment="true"
+	 *        annotation="il-data length='30'"
 	 * @generated
 	 */
 	QCreationInfo getCreationInfo();

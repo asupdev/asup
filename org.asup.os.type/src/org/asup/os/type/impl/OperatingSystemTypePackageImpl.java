@@ -627,6 +627,15 @@ public class OperatingSystemTypePackageImpl extends EPackageImpl implements QOpe
 			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
 		   });	
 		addAnnotation
+		  (getTypedObject_CreationInfo(), 
+		   source, 
+		   new String[] {
+			 "length", "30"
+		   },
+		   new URI[] {
+			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
+		   });	
+		addAnnotation
 		  (getTypedReference_Library(), 
 		   source, 
 		   new String[] {

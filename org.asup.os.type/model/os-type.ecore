@@ -93,7 +93,11 @@
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="creationInfo" eType="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//CreationInfo"
-        containment="true"/>
+        containment="true">
+      <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">
+        <details key="length" value="30"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="memoryInfo" eType="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//MemoryInfo"
         containment="true"/>
   </eClassifiers>
