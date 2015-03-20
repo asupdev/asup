@@ -11,18 +11,12 @@
  */
 package org.asup.os.type.pgm.rpj;
 
-import java.io.StringReader;
-
 import javax.inject.Inject;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataFactory;
 import org.asup.il.data.QDecimal;
 import org.asup.il.data.QIndicator;
-import org.w3c.dom.Document;
-import org.xml.sax.InputSource;
 
 public class RPJServiceSupport {
 
