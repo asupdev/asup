@@ -654,11 +654,11 @@ public class OperatingSystemProgramPackageImpl extends EPackageImpl implements Q
 
 		op = addEOperation(programManagerEClass, this.getCallableProgram(), "getCaller", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFrameworkCorePackage.getContextID(), "contextID", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getCallableProgram(), "context", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCallableProgram(), "program", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(programManagerEClass, this.getCallableProgram(), "getCaller", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFrameworkCorePackage.getContextID(), "contextID", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEJavaObject(), "rawProgram", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "program", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(programManagerEClass, this.getProgramStack(), "getProgramStack", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, theFrameworkCorePackage.getContextID(), "contextID", 0, 1, IS_UNIQUE, IS_ORDERED);

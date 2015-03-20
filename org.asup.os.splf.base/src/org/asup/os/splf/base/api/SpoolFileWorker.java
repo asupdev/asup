@@ -36,17 +36,30 @@ public @ToDo @Program(name = "QSPWRKF") class SpoolFileWorker {
 	public static enum QCPFMSG {
 	}
 
+	// TODO export from english
 	public @Entry void main(
 			@ToDo SCELTAFILEPER sceltaFilePer,
 			@DataDef(qualified = true) QEnum<NOMELAVOROEnum, NOMELAVORO> nomeLavoro,
 			PERIODODITEMPO periodoDiTempo,
 			@DataDef(length = 10) QEnum<UNITAASPEnum, QCharacter> unitaASP,
-			@DataDef(length = 1) QEnum<EMISSIONEEnum, QCharacter> emissione,
+			@DataDef(length = 1) QEnum<EMISSIONEEnum, QCharacter> output,
 			@DataDef(length = 7) QEnum<FORMATOVIDEOEnum, QCharacter> formatoVideo,
 			@DataDef(length = 10) QEnum<LIVELLODIASSISTENZAEnum, QCharacter> livelloDiAssistenza) {
 		
 		QResourceReader<QSpoolFile> spoolFileReader = resourceFactory.getResourceReader(job, QSpoolFile.class, job.getSystem().getSystemLibrary());
-		QObjectWriter objectWriter = outputManager.getObjectWriter(job, emissione.asData().trimR());
+
+		
+		QObjectWriter objectWriter = null;
+		
+		switch (output.asEnum()) {
+		case PRINT:
+			objectWriter = outputManager.getObjectWriter(job, "P"); 			
+			break;
+		case TERM_STAR:
+			objectWriter = outputManager.getDefaultWriter(job);
+			break;
+		}
+
 		
 		objectWriter.initialize();
 		

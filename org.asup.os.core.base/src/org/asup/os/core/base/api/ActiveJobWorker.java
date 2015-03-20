@@ -53,7 +53,17 @@ public class ActiveJobWorker {
 			@ToDo @DataDef(qualified = true) JobName jobName,
 			@ToDo @DataDef(precision = 3) QEnum<AutomaticRefreshIntervalEnum, QDecimal> automaticRefreshInterval) {
 	
-		QObjectWriter objectWriter = outputManager.getObjectWriter(job, output.asData().trimR());
+		QObjectWriter objectWriter = null;
+		
+		switch (output.asEnum()) {
+		case PRINT:
+			objectWriter = outputManager.getObjectWriter(job, "P"); 			
+			break;
+		case TERM_STAR:
+			objectWriter = outputManager.getDefaultWriter(job);
+			break;
+		}
+				
 		objectWriter.initialize();
 		
 		for (QJob qJob : jobManager.getActiveJobs()) {
