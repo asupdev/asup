@@ -15,6 +15,7 @@ import javax.inject.Inject;
 
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataFactory;
+import org.asup.il.data.QDecimal;
 import org.asup.il.data.QIndicator;
 
 public class RPJServiceSupport {
@@ -126,6 +127,45 @@ public class RPJServiceSupport {
 			return value; 
 		}
 		value.eval("");
+		return value; 
+	}
+	public QCharacter p_rxval(String arg0, String arg1){
+		QCharacter value = qDF.createCharacter(32766, true, true);
+
+		String variable = arg1.trim()+"=\"";
+		int len = variable.length();
+		int posIni = arg0.indexOf(variable);
+		int posFin = arg0.indexOf("\"", posIni+len);
+		if(posIni<=0 || posFin<=0 ){
+			value.eval("");
+			return value;
+		}
+		String result = arg0.substring(posIni+len, posFin);
+		value.eval(result);
+
+		return value; 
+	}
+	public QCharacter p_rxele(String arg0, String arg1, Integer arg2,
+			QCharacter arg3, QDecimal arg4, QDecimal arg5, QCharacter arg6) {
+		QCharacter value = qDF.createCharacter(32766, true, true);
+		value.eval("");
+		
+		String start = "<"+arg0.trim();
+		String stop = "</"+arg0.trim()+">";
+		int stopLen = stop.length(); 
+		
+		int posIni = arg3.trimR().indexOf(start);
+		int posFin = arg3.trimR().indexOf(stop);
+		if(posFin<=0){
+			stop = "/>";
+			posFin = arg3.trimR().indexOf(stop, posIni);
+			stopLen = stop.length();
+		}
+		
+		String result = arg3.trimR().substring(posIni, posFin+stopLen);
+		
+		value.eval(result);
+		
 		return value; 
 	}
 }

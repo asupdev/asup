@@ -40,11 +40,14 @@ import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 
 public class TestCommands extends AbstractCommandProviderImpl {
-
 	
 	public void _writeCommands(CommandInterpreter interpreter) {
-		
 		String fileName = interpreter.nextArgument();
+		
+		if (fileName == null || "".equals(fileName.trim())) {
+			System.out.println("Occorre immettere il nome del file della cartella ASUP-INF");
+			return;
+		}
 		
 		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
 
@@ -56,13 +59,11 @@ public class TestCommands extends AbstractCommandProviderImpl {
 
 		CDOSession session = getSession();
 		
-		
 		for(QCommand command: commandContainer.getCommands(CommandOrder.NAME)) {
-						
-			System.out.println(command.getName());
+			System.out.println("Command name: " + command.getName());
 			
 			CDOObject cdoObject = CDOUtil.getCDOObject((EObject)command);
-			System.out.println(cdoObject.cdoID());
+			System.out.println("Command id:   " + cdoObject.cdoID());
 			
 			CDOTransaction transaction = session.openTransaction();
 			CDOResource resource  = transaction.getOrCreateResource("commands");
@@ -77,28 +78,22 @@ public class TestCommands extends AbstractCommandProviderImpl {
 			finally {
 				transaction.close();
 			}
-			
-			
 		}		
 		
 		session.close();
-
 	}
 	
 	public void _readCommands(CommandInterpreter interpreter) {
-		
 		CDOSession session = getSession();
 		
 		CDOView view = session.openView();
 		
-		CDOQuery query = view.createQuery("sql", "select * from asup_os_type_cmd_command");
+		CDOQuery query = view.createQuery("sql", "SELECT * FROM ASUP_OS_TYPE_CMD_COMMAND");
 		
 		for(QCommand command: query.getResult(QCommand.class)) {
-						
 			CDOObject cdoObject = CDOUtil.getCDOObject((EObject)command);
 			System.out.println(cdoObject.cdoID());
 
-			
 			System.out.println(command);
 		}
 		
@@ -106,7 +101,6 @@ public class TestCommands extends AbstractCommandProviderImpl {
 	}
 	
 	private QCommandContainer load(URL url) {
-
 		ResourceSet resourceSet = new ResourceSetImpl();
 		Resource resource = resourceSet.createResource(URI.createURI(url.toString()));
 		try {
@@ -121,12 +115,10 @@ public class TestCommands extends AbstractCommandProviderImpl {
 	}
 
 	public void _read(CommandInterpreter interpreter) {
-		
 		CDOSession session = getSession();
 		
 		CDOView view = session.openView();
-		
-		CDOQuery query = view.createQuery("sql", "select * from asup_store_user");
+		CDOQuery query = view.createQuery("sql", "SELECT * FROM ASUP_STORE_USER");
 		
 		for(QUser user: query.getResult(QUser.class)) {
 			System.out.println(user);
@@ -136,7 +128,6 @@ public class TestCommands extends AbstractCommandProviderImpl {
 	}
 	
 	public void _write(CommandInterpreter interpreter) {
-		
 		String name = interpreter.nextArgument();
 		String text = interpreter.nextArgument();
 		
@@ -149,16 +140,12 @@ public class TestCommands extends AbstractCommandProviderImpl {
 		workstation.setOperatingSystem(OperatingSystem.LINUX);
 		
 		user.setWorkstation(workstation);
-		
 
 		CDOSession session = getSession();
 		
 		CDOTransaction transaction = session.openTransaction();
-		
 		CDOResource resource  = transaction.getOrCreateResource("users");
-		
 		resource.getContents().add((EObject)user);
-		
 		try {
 			transaction.commit();
 		} 
@@ -173,17 +160,12 @@ public class TestCommands extends AbstractCommandProviderImpl {
 	}
 	
 	private CDOSession getSession() {
-				
 		CDONet4jSession session = openSession("asup-db1:2036", "AS400A");
 		session.options().getNet4jProtocol().setTimeout(60000);
-		
 		return session;
 	}
 	
-	
-    
 	public CDONet4jSession openSession(String description, String repository) {
-
 		// Create connector
 	    IConnector connector = TCPUtil.getConnector(createClientContainer(), description);
 
@@ -203,9 +185,7 @@ public class TestCommands extends AbstractCommandProviderImpl {
 	    return session;
 	}
 	
-	
 	private IManagedContainer createClientContainer() {
-    	
 		IManagedContainer container = ContainerUtil.createContainer();
     	Net4jUtil.prepareContainer(container);
 
