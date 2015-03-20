@@ -99,9 +99,9 @@ public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 	public void move(String value, boolean clear) {
 
 		try {
-			NIOBufferHelper.move(getBuffer(), getPosition(), getLength(), value.getBytes(ENCODING), clear, INIT);
+			NIOBufferHelper.move(getBuffer(), getPosition(), getLength(), value.getBytes(getEncoding()), clear, getFiller());
 		} catch (UnsupportedEncodingException e) {
-			NIOBufferHelper.move(getBuffer(), getPosition(), getLength(), value.getBytes(), clear, INIT);
+			NIOBufferHelper.move(getBuffer(), getPosition(), getLength(), value.getBytes(), clear, getFiller());
 		}
 	}
 
@@ -126,16 +126,16 @@ public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 	@Override
 	public void movel(QBufferedData value, boolean clear) {
 
-		NIOBufferHelper.movel(getBuffer(), getPosition(), getLength(), value.asBytes(), clear, INIT);
+		NIOBufferHelper.movel(getBuffer(), getPosition(), getLength(), value.asBytes(), clear, getFiller());
 	}
 
 	@Override
 	public void movel(String value, boolean clear) {
 		
 		try {
-			NIOBufferHelper.movel(getBuffer(), getPosition(), getLength(), value.getBytes(ENCODING), clear, INIT);
+			NIOBufferHelper.movel(getBuffer(), getPosition(), getLength(), value.getBytes(getEncoding()), clear, getFiller());
 		} catch (UnsupportedEncodingException e) {
-			NIOBufferHelper.movel(getBuffer(), getPosition(), getLength(), value.getBytes(), clear, INIT);
+			NIOBufferHelper.movel(getBuffer(), getPosition(), getLength(), value.getBytes(), clear, getFiller());
 		}
 	}
 
@@ -309,11 +309,7 @@ public class NIOCharacterVaryingImpl extends NIOCharacterImpl {
 
 	@Override
 	public String asString() {
-		try {
-			return new String(asBytes(), ENCODING);
-		} catch (UnsupportedEncodingException e) {
-			return new String(asBytes());
-		}
+		return super.asString();
 	}
 
 	@Override

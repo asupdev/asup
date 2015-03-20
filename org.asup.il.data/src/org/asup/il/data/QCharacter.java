@@ -46,4 +46,20 @@ public interface QCharacter extends QString {
 	 * @generated
 	 */
 	boolean le(QHexadecimal value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	void move(QDecimal value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model clearRequired="true"
+	 * @generated
+	 */
+	void move(QDecimal value, boolean clear);
 }

@@ -40,7 +40,7 @@ public class NIOHexadecimalImpl extends NIOBufferedDataImpl implements QHexadeci
 
 	@Override
 	public void eval(QBufferedData value) {
-		eval(value.asString());
+		eval(value.toString());
 	}
 
 	@Override

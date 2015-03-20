@@ -101,7 +101,7 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 			throw new FrameworkCoreRuntimeException("Unexpected condition: dmn8432m75n031");
 
 		nioBufferedData._parent = this;
-		nioBufferedData._buffer = null;
+		nioBufferedData._buffer = null;			
 		nioBufferedData._position = position;
 
 		// System.out.println(nioBufferedData._position);
@@ -320,7 +320,7 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 			if (dataWriterImpl.object instanceof QBufferedData)
 				return asString().equals(((QBufferedData) dataWriterImpl.object).asString());
 			else
-				return asString().equals(dataWriterImpl.object.toString());
+				return toString().equals(dataWriterImpl.object.toString());
 		} else
 			return false;
 	}
@@ -328,7 +328,6 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 	@Override
 	public void eval(QDataWriter value) {
 		// TODO Auto-generated method stub
-		value.toString();
 	}
 
 	@Override
@@ -364,13 +363,11 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 	@Override
 	public void move(QDataWriter value) {
 		// TODO Auto-generated method stub
-		value.toString();
 	}
 
 	@Override
 	public void move(QDataWriter value, boolean clear) {
 		// TODO Auto-generated method stub
-		value.toString();
 	}
 
 	@Override
@@ -381,12 +378,11 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 	@Override
 	public void movel(QDataWriter value, boolean clear) {
 		// TODO Auto-generated method stub
-		value.toString();
 	}
 
 	@Override
 	public String s() {
-		return asString();
+		return toString();
 	}
 
 	@Override

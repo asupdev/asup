@@ -91,11 +91,11 @@
     </eOperations>
     <eOperations name="getCaller" eType="#//CallableProgram">
       <eParameters name="contextID" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
-      <eParameters name="context" lowerBound="1" eType="#//CallableProgram"/>
+      <eParameters name="program" lowerBound="1" eType="#//CallableProgram"/>
     </eOperations>
     <eOperations name="getCaller" eType="#//CallableProgram">
       <eParameters name="contextID" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
-      <eParameters name="rawProgram" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      <eParameters name="program" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eOperations>
     <eOperations name="getProgramStack" eType="#//ProgramStack">
       <eParameters name="contextID" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>

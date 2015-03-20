@@ -51,7 +51,6 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected DataWriterImpl() {
@@ -60,7 +59,6 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -192,7 +190,7 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 
 	@Override
 	public boolean visit(QIndicator data) {
-		visitStringData(data);
+		visitIndicatorData(data);
 		return false;
 	}
 
@@ -200,6 +198,29 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 	public boolean visit(QPointer data) {
 		// TODO Auto-generated method stub
 		return super.visit(data);
+	}
+
+	@SuppressWarnings("unchecked")
+	private <E extends Enum<E>> void visitIndicatorData(QIndicator indicator) {
+
+		if (object instanceof QString) {
+			indicator.eval((QString) object);
+		}
+		else if (object instanceof Enum<?>) {
+			indicator.eval((E)object);
+		} 
+		else if (object instanceof String) {
+			if(object.toString().equalsIgnoreCase("*OFF"))
+				indicator.eval(false);
+			else if(object.toString().equalsIgnoreCase("*ON"))
+				indicator.eval(true);
+			else
+				indicator.eval(object.toString());
+		} 
+		else {
+			indicator.eval(!object.toString().equals("0"));
+		}
+
 	}
 
 	@SuppressWarnings("unchecked")
@@ -243,9 +264,6 @@ public class DataWriterImpl extends DataVisitorImpl implements QDataWriter {
 			string.eval((E)object);
 		} 
 		else {
-			if (object.toString().startsWith("*"))
-				object.toString();
-
 			string.eval(object.toString());
 		}
 

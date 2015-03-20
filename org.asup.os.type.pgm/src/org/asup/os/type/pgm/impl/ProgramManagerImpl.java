@@ -86,7 +86,7 @@ public abstract class ProgramManagerImpl extends TypedManagerImpl<QProgram> impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QCallableProgram getCaller(QContextID contextID, QCallableProgram context) {
+	public QCallableProgram getCaller(QContextID contextID, QCallableProgram program) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -97,7 +97,7 @@ public abstract class ProgramManagerImpl extends TypedManagerImpl<QProgram> impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QCallableProgram getCaller(QContextID contextID, Object rawProgram) {
+	public QCallableProgram getCaller(QContextID contextID, Object program) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

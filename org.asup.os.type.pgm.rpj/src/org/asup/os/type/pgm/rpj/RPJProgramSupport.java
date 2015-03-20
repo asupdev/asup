@@ -441,7 +441,8 @@ public class RPJProgramSupport {
 	}
 
 	public QArray<?> qSubarr(QArray<?> array, int start, int elements) {
-		return null;
+		
+		return array;
 	}
 
 	public QNumeric qTime(QDatetime datetime) {
@@ -500,7 +501,7 @@ public class RPJProgramSupport {
 
 	public QString qCat(QString string1, QString string2) {
 
-		String str = string1.trimR() + " " + string2.asString();
+		String str = string1.trimR() + " " + string2.toString();
 		int length = str.length();
 		QCharacter character = dataFactory.createCharacter(length, false, true);
 		character.eval(str);
@@ -514,7 +515,7 @@ public class RPJProgramSupport {
 
 	public QString qBcat(QString string1, QString string2) {
 
-		String str = string1.trimR() + " " + string2.asString();
+		String str = string1.trimR() + " " + string2.toString();
 		int length = str.length();
 		QCharacter character = dataFactory.createCharacter(length, false, true);
 		character.eval(str);
@@ -529,7 +530,7 @@ public class RPJProgramSupport {
 
 	public QString qTcat(QString string1, QString string2) {
 
-		String str = string1.trimR() + string2.asString();
+		String str = string1.trimR() + string2.toString();
 		int length = str.length();
 		QCharacter character = dataFactory.createCharacter(length, false, true);
 		character.eval(str);
@@ -639,7 +640,7 @@ public class RPJProgramSupport {
 	}
 
 	public QNumeric qLookup(QDataStruct argument, QStroller<? extends QBufferedData> list, Integer startIndex, Integer numElements) {
-		return qLookup(LookupOperator.EQ, argument.asString(), list, startIndex, numElements);
+		return qLookup(LookupOperator.EQ, argument.toString(), list, startIndex, numElements);
 	}
 
 	public QNumeric qLookuplt(Specials argument, QList<? extends QBufferedData> list, Integer startIndex, Integer numElements) {
@@ -741,9 +742,9 @@ public class RPJProgramSupport {
 		int position = 0;
 
 		if (length != null)
-			position = qSubst(source, 1, length).asString().indexOf(argument, start - 1) + 1;
+			position = qSubst(source, 1, length).toString().indexOf(argument, start - 1) + 1;
 		else
-			position = source.asString().indexOf(argument, start - 1) + 1;
+			position = source.toString().indexOf(argument, start - 1) + 1;
 
 		return qBox(position);
 	}
@@ -764,16 +765,16 @@ public class RPJProgramSupport {
 		int position = 0;
 
 		if (length != null)
-			position = qSubst(source, 1, length).asString().indexOf(argument, start - 1) + 1;
+			position = qSubst(source, 1, length).toString().indexOf(argument, start - 1) + 1;
 		else
-			position = source.asString().indexOf(argument, start - 1) + 1;
+			position = source.toString().indexOf(argument, start - 1) + 1;
 
 		return qBox(position);
 	}
 
 	/* Substring */
 	public QCharacter qSubst(QArray<QCharacter> source, Integer startIndex) {
-		return qSubst(source.asString(), startIndex, null);
+		return qSubst(source.toString(), startIndex, null);
 	}
 
 	public QCharacter qSubst(QArray<QCharacter> source, Integer startIndex, Integer length) {

@@ -32,7 +32,7 @@ public class JDBCDataWriterImpl extends DataWriterImpl {
 			
 				if(bufferedData instanceof QString) {
 					QString string = (QString) bufferedData;
-					resultSet.updateString(c, string.asString());
+					resultSet.updateString(c, string.toString());
 				}
 				else if(bufferedData instanceof QDecimal) {
 					QDecimal decimal = (QDecimal) bufferedData;

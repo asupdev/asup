@@ -8,6 +8,7 @@
 package org.asup.il.data;
 
 import java.lang.Enum;
+import java.lang.String;
 
 
 /**
@@ -20,7 +21,7 @@ import java.lang.Enum;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface QIndicator extends QString {
+public interface QIndicator extends QBufferedData {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -68,6 +69,30 @@ public interface QIndicator extends QString {
 	 * @generated
 	 */
 	<E extends Enum<E>> boolean eq(E value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model valueRequired="true"
+	 * @generated
+	 */
+	boolean eq(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model valueRequired="true"
+	 * @generated
+	 */
+	void eval(boolean value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model valueRequired="true"
+	 * @generated
+	 */
+	void eval(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

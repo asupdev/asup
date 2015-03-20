@@ -61,6 +61,7 @@ public class NIOScrollerImpl<D extends QBufferedData> extends NIOBufferedListImp
 		
 		int size = _model.getSize();
 		int position = size * (index - 1);
+		
 		slice(_model, position);
 
 		_lastIndex = index;
@@ -110,7 +111,7 @@ public class NIOScrollerImpl<D extends QBufferedData> extends NIOBufferedListImp
 
 	@Override
 	public String asString() {
-		return toString();
+		return asString();
 	}
 
 	@Override

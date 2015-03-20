@@ -35,7 +35,7 @@ public class NIOEnumImpl<E extends Enum<E>, D extends QBufferedData> extends NIO
 	@Override
 	public E asEnum() {
 		
-		String value = asString().trim();
+		String value = toString().trim();
 
 		for(Field field: _klass.getFields()) {
 			Special special = field.getAnnotation(Special.class); 

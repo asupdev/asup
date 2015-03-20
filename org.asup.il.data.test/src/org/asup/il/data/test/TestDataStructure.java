@@ -51,15 +51,15 @@ public class TestDataStructure {
 		testAsserter.assertNotNull("DataStructure creation", dataStruct);
 
 		dataStruct.alfa.eval("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-		testAsserter.assertEquals("Read first 10 chars", "ABCDEFGHIJ", dataStruct.alfa.asString());
+		testAsserter.assertEquals("Read first 10 chars", "ABCDEFGHIJ", dataStruct.alfa.toString());
 		
 		dataStruct.decimal.eval(123);
 		testAsserter.assertEquals("Read decimal", 123, dataStruct.decimal.asInteger());
 		
 		dataStruct.multiple.get(1).eval("A");
 		dataStruct.multiple.get(2).eval("B");
-		testAsserter.assertEquals("Read array element[1]", "A", dataStruct.multiple.get(1).asString().trim());
-		testAsserter.assertEquals("Read array element[2]", "B", dataStruct.multiple.get(2).asString().trim());
+		testAsserter.assertEquals("Read array element[1]", "A", dataStruct.multiple.get(1).toString().trim());
+		testAsserter.assertEquals("Read array element[2]", "B", dataStruct.multiple.get(2).toString().trim());
 
 		int c = 0;		
 		for(@SuppressWarnings("unused") QCharacter multElement: dataStruct.multiple) {

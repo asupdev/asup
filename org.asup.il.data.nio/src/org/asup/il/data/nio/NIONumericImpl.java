@@ -95,7 +95,12 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 
 	@Override
 	public void eval(int value) {
-		writeNumber(value);		
+		try {
+			writeNumber(value);
+		}
+		catch(Exception e) {
+			System.out.println("Unexpcted condition: bq5804q956943534");
+		}
 	}
 
 	/*public void eval(Object value) {

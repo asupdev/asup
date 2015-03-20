@@ -80,7 +80,7 @@ public class NIOArrayImpl<D extends NIOBufferedDataImpl> extends NIOBufferedList
 
 	@Override
 	public String asString() {
-		return toString();
+		return asString();
 	}
 
 	@Override

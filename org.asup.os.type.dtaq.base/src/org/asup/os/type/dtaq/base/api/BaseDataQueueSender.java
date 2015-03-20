@@ -39,7 +39,7 @@ public class BaseDataQueueSender {
 			@DataDef(precision = 5, packed = true) QDecimal dataLength,
 			QPointer data) {
 		try {
-			dataQueueManager.writeDataQueue(job, library.trimR(), name.trimR(), null, data.getTarget().asString());
+			dataQueueManager.writeDataQueue(job, library.trimR(), name.trimR(), null, data.getTarget().toString());
 		} catch (OperatingSystemException e) {
 			throw new OperatingSystemRuntimeException(e);
 		}

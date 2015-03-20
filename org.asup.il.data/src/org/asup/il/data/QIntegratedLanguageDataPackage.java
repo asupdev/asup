@@ -2145,7 +2145,7 @@ public interface QIntegratedLanguageDataPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INDICATOR_FEATURE_COUNT = STRING_FEATURE_COUNT + 0;
+	int INDICATOR_FEATURE_COUNT = BUFFERED_DATA_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Formulas</b></em>' attribute list.

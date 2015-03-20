@@ -595,6 +595,63 @@
   </contents>
   <contents
       xsi:type="os-type-cmd:Command"
+      name="RCLACTGRP"
+      text="Reclaim Activation Group"
+      program="QWVCCDLA"
+      status="TODO">
+    <parameters
+        allowVariable="true"
+        name="ACTGRP"
+        position="1"
+        status="TODO">
+      <dataTerm
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="activationGroup"
+          mandatory="true">
+        <facets
+            xsi:type="il-core:Format"
+            type="NAME"/>
+        <facets
+            xsi:type="il-core:Special">
+          <elements
+              name="*ELIGIBLE"
+              value="*ELIGIBLE"/>
+        </facets>
+        <definition
+            xsi:type="il-data:CharacterDef"
+            length="10"/>
+      </dataTerm>
+    </parameters>
+    <parameters
+        allowVariable="true"
+        name="OPTION"
+        position="2"
+        status="TODO">
+      <dataTerm
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="closeOption"
+          restricted="true"
+          default="*NORMAL">
+        <facets
+            xsi:type="il-core:Special">
+          <elements
+              name="*NORMAL"
+              value="N"/>
+          <elements
+              name="*ABNORMAL"
+              value="A"/>
+        </facets>
+        <definition
+            xsi:type="il-data:CharacterDef"
+            length="1"/>
+      </dataTerm>
+    </parameters>
+    <source
+        type="CMD"
+        content="&#xA;&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?>&#xA;&lt;QcdCLCmd DTDVersion=&quot;1.0&quot;>&lt;Cmd CmdName=&quot;RCLACTGRP&quot; CmdLib=&quot;__LIBL&quot; CCSID=&quot;37&quot; HlpPnlGrp=&quot;QHWVCMD&quot; HlpPnlGrpLib=&quot;__LIBL&quot; HlpID=&quot;RCLACTGRP&quot; MaxPos=&quot;99&quot; Prompt=&quot;Reclaim Activation Group&quot; MsgF=&quot;QCPFMSG&quot; MsgFLib=&quot;__LIBL&quot; ExecBatch=&quot;YES&quot; ChgCmdExit=&quot;NO&quot; RtvCmdExit=&quot;NO&quot;>&lt;Parm Kwd=&quot;ACTGRP&quot; PosNbr=&quot;1&quot; KeyParm=&quot;NO&quot; Type=&quot;NAME&quot; Min=&quot;1&quot; Max=&quot;1&quot; Prompt=&quot;Activation group&quot; Len=&quot;10&quot; Rstd=&quot;NO&quot; AlwUnprt=&quot;YES&quot; AlwVar=&quot;YES&quot; Expr=&quot;YES&quot; Full=&quot;NO&quot; DspInput=&quot;YES&quot; Choice=&quot;__PGM&quot; ChoicePgm=&quot;QLERCLAG&quot; ChoiceLib=&quot;QSYS&quot;>&lt;SpcVal>&lt;Value Val=&quot;*ELIGIBLE&quot; MapTo=&quot;*ELIGIBLE&quot;/>&lt;/SpcVal>&lt;ChoicePgmText Text= &quot;Name&quot;>&lt;/ChoicePgmText>&lt;/Parm>&lt;Parm Kwd=&quot;OPTION&quot; PosNbr=&quot;2&quot; KeyParm=&quot;NO&quot; Type=&quot;CHAR&quot; Min=&quot;0&quot; Max=&quot;1&quot; Prompt=&quot;Close option&quot; Len=&quot;1&quot; Rstd=&quot;YES&quot; Dft=&quot;*NORMAL&quot; AlwUnprt=&quot;YES&quot; AlwVar=&quot;YES&quot; Expr=&quot;YES&quot; Full=&quot;NO&quot; DspInput=&quot;YES&quot; Choice=&quot;*NORMAL, *ABNORMAL&quot; >&lt;SpcVal>&lt;Value Val=&quot;*NORMAL&quot; MapTo=&quot;N&quot;/>&lt;Value Val=&quot;*ABNORMAL&quot; MapTo=&quot;A&quot;/>&lt;/SpcVal>&lt;/Parm>&lt;/Cmd>&lt;/QcdCLCmd>&#xA;"/>
+  </contents>
+  <contents
+      xsi:type="os-type-cmd:Command"
       name="RCLRSC"
       text="Reclaim Resources"
       program="QWCCRCRC"

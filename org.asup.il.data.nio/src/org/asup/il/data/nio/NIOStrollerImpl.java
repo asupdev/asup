@@ -5,6 +5,7 @@ import java.util.List;
 import org.asup.il.data.QArray;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QDataStruct;
+import org.asup.il.data.QDecimal;
 import org.asup.il.data.QHexadecimal;
 import org.asup.il.data.QNumeric;
 import org.asup.il.data.QString;
@@ -231,6 +232,17 @@ public class NIOStrollerImpl<D extends QDataStruct> extends NIOScrollerImpl<D> i
 	@Override
 	public void move(boolean value) {
 		current().move(value);
+	}
+
+	@Override
+	public void move(QDecimal value) {
+		move(value, false);
+	}
+
+	@Override
+	public void move(QDecimal value, boolean clear) {
+		NIOBufferedDataImpl bufferedData = (NIOBufferedDataImpl) current();
+		NIOBufferHelper.move(getBuffer(), bufferedData.getPosition(), bufferedData.getLength(), value.asBytes(), true, (byte)64);		
 	}
 
 	@Override

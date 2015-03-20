@@ -623,8 +623,6 @@ public abstract class JDTCallableUnitWriter extends JDTUnitWriter {
 						block.statements().add(expressionStatement);
 						
 					}
-					else
-						"".toCharArray();
 					
 					// remap
 					for (QDataTerm<?> element : dataSetTerm.getRecord().getElements()) {

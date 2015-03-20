@@ -551,4 +551,12 @@ public abstract class QDataStructWrapper implements QDataStruct, QBufferedDataDe
 	public boolean ne(QBufferedData value) {
 		return delegate.ne(value);
 	}
+
+	public void move(QDecimal value) {
+		delegate.move(value);
+	}
+
+	public void move(QDecimal value, boolean clear) {
+		delegate.move(value, clear);
+	}
 }

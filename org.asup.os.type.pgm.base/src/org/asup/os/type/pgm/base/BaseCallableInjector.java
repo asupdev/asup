@@ -220,6 +220,10 @@ public class BaseCallableInjector {
 			// Data
 			else if (QData.class.isAssignableFrom(fieldKlass)) {
 
+				
+				if(field.getName().equalsIgnoreCase("£mu_b£oav0_1"))
+					fieldKlass.toString();
+				
 				QDataDef<?> dataType = dataFactory.createDataDef(type, Arrays.asList(field.getAnnotations()));
 				QData data = dataFactory.createData(dataType, true);
 

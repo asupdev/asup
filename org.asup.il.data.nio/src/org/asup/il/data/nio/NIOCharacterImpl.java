@@ -17,6 +17,7 @@ import java.util.Arrays;
 import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QCharacter;
 import org.asup.il.data.QDataVisitor;
+import org.asup.il.data.QDecimal;
 import org.asup.il.data.QHexadecimal;
 import org.asup.il.data.QNumeric;
 import org.asup.il.data.QString;
@@ -24,8 +25,8 @@ import org.asup.il.data.QString;
 public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter {
 
 	private static final long serialVersionUID = 1L;
-	protected static final byte INIT = (byte) 32;
-	protected static final String ENCODING = "ISO-8859-1";
+	private static final byte INIT = (byte) 64; //32;
+	private static final String ENCODING = "IBM-280";//"ISO-8859-1";
 
 	protected int _length;
 
@@ -67,7 +68,17 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 	public void move(boolean value) {
 		NIOBufferHelper.move(getBuffer(), getPosition(), _length, new byte[] { 49 }, true, (byte) 49);
 	}
-	
+
+	@Override
+	public void move(QDecimal value) {
+		move(value, false);
+	}
+
+	@Override
+	public void move(QDecimal value, boolean clear) {
+		NIOBufferHelper.move(getBuffer(), getPosition(), _length, value.asBytes(), true, INIT);		
+	}
+
 	@Override
 	public void move(String value, boolean clear) {
 
@@ -110,6 +121,11 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 	}
 
 	@Override
+	public String asString() {
+		return new String(asBytes());
+	}
+
+	@Override
 	public String toString() {
 		try {
 			return new String(asBytes(), ENCODING);
@@ -120,24 +136,24 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 
 	@Override
 	public String trim() {
-		return asString().trim();
+		return toString().trim();
 	}
 
 	@Override
 	public String trimL() {
-		return trimL(asString());
+		return trimL(toString());
 	}
 
 	@Override
 	public String trimR() {
-		return trimR(asString());
+		return trimR(toString());
 	}
 
 
 	/* cat */
 	@Override
 	public void cat(QString factor1) {
-		eval(trimR()+factor1.asString());			
+		eval(trimR()+factor1.toString());			
 	}
 	
 	@Override
@@ -147,17 +163,17 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 
 	@Override
 	public void cat(String factor1, QString factor2) {
-		eval(factor1+factor2.asString());
+		eval(factor1+factor2.toString());
 	}
 
 	@Override
 	public void cat(QString factor1, QString factor2) {
-		eval(factor1.trimR()+factor2.asString());
+		eval(factor1.trimR()+factor2.toString());
 	}
 
 	@Override
 	public void cat(QString factor1, String factor2) {
-		eval(factor1.asString()+factor2);
+		eval(factor1.toString()+factor2);
 	}
 
 	@Override
@@ -169,79 +185,66 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 	@Override
 	public void cat(QString factor1, Number space) {
 		// TODO Auto-generated method stub
-		factor1.toString();
 	}
 
 	@Override
 	public void cat(String factor1, Number space) {
 		// TODO Auto-generated method stub
-		factor1.toString();		
 	}
 
 	@Override
 	public void cat(QString factor1, QNumeric space) {
 		// TODO Auto-generated method stub
-		factor1.toString();
 	}
 
 	@Override
 	public void cat(String factor1, QNumeric space) {
 		// TODO Auto-generated method stub
-		factor1.toString();
 	}
 
 	@Override
 	public void cat(String factor1, String factor2, int space) {
 		// TODO Auto-generated method stub
-		factor1.toString();
 	}
 	
 	@Override
 	public void cat(String factor1, String factor2, QNumeric space) {
 		// TODO Auto-generated method stub
-		factor1.toString();
 	}
 
 	@Override
 	public void cat(String factor1, QString factor2, int space) {
 		// TODO Auto-generated method stub
-		factor1.toString();
 	}
 
 	@Override
 	public void cat(String factor1, QString factor2, QNumeric space) {
 		// TODO Auto-generated method stub
-		factor1.toString();
 	}
 
 	@Override
 	public void cat(QString factor1, QString factor2, int space) {
 		// TODO Auto-generated method stub
-		factor1.toString();
 	}
 
 	@Override
 	public void cat(QString factor1, QString factor2, QNumeric space) {
 		// TODO Auto-generated method stub
-		factor1.toString();
 	}
 
 	@Override
 	public void cat(QString factor1, String factor2, int space) {
 		// TODO Auto-generated method stub
-		factor1.toString();
 	}
 
 	@Override
 	public void cat(QString factor1, QString factor2, Number space) {
 		// TODO Auto-generated method stub
-		factor1.toString();
 	}
 
 	@Override
 	public void cat(QString factor1, String factor2, Number space) {
 		// TODO Auto-generated method stub
-		factor1.toString();
 	}
 
 	@Override
@@ -294,32 +297,32 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 
 	@Override
 	public boolean eq(QString value) {
-		return eq(value.asString());
+		return eq(value.toString());
 	}
 
 	@Override
 	public boolean ge(QString value) {
-		return ge(value.asString());
+		return ge(value.toString());
 	}
 
 	@Override
 	public boolean gt(QString value) {
-		return gt(value.asString());
+		return gt(value.toString());
 	}
 
 	@Override
 	public boolean le(QString value) {
-		return le(value.asString());
+		return le(value.toString());
 	}
 
 	@Override
 	public boolean lt(QString value) {
-		return lt(value.asString());
+		return lt(value.toString());
 	}
 
 	@Override
 	public boolean ne(QString value) {
-		return ne(value.asString());
+		return ne(value.toString());
 	}
 
 
@@ -331,15 +334,6 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 	@Override
 	public <E extends Enum<E>> void movel(E value, boolean clear) {
 		movel(getPrimitive(value), clear);		
-	}
-
-	@Override
-	public String asString() {
-		try {
-			return new String(asBytes(), ENCODING);
-		} catch (UnsupportedEncodingException e) {
-			return new String(asBytes());
-		}
 	}
 
 	@Override
@@ -439,6 +433,10 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 		return INIT;
 	}
 
+	protected String getEncoding() {
+		return ENCODING;
+	}
+	
 	@Override
 	public void xlate(QString from, QString to, QString target) {
 		// TODO Auto-generated method stub

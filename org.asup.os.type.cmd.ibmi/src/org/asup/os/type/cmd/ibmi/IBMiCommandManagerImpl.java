@@ -479,7 +479,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 
 				// assignValue(struct.getElement(j), assignValue.toString());
 				if (assignValue instanceof QString)
-					structValue = ((QString) assignValue).asString() + structValue;
+					structValue = ((QString) assignValue).toString() + structValue;
 				else
 					structValue = assignValue.toString() + structValue;
 			}
@@ -508,7 +508,7 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 				// Recursive Call
 				QData assignValue = assignValue(elementIterator.next(), dataContext, writer, tmpValue, variables, defaults);
 				if (assignValue instanceof QString)
-					structValue += ((QString) assignValue).asString();
+					structValue += ((QString) assignValue).toString();
 				else
 					structValue += assignValue.toString();
 			}

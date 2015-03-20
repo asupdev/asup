@@ -11,22 +11,23 @@
  */
 package org.asup.il.data.nio;
 
+import org.asup.il.data.QBufferedData;
 import org.asup.il.data.QIndicator;
 
-public class NIOIndicatorImpl extends NIOCharacterImpl implements QIndicator {
+public class NIOIndicatorImpl extends NIOBufferedDataImpl implements QIndicator {
 
 	private static final long serialVersionUID = 1L;
-	protected static byte OFF = (byte) 32;
-	protected static byte ON = (byte) 49;
+	protected static byte OFF = (byte) -16;
+	protected static byte ON = (byte) -15;
 	
 	public NIOIndicatorImpl() {
-		super(1);
+		super();
 	}
 
 	@Override
 	public boolean asBoolean() {
 		byte byte_ = asBytes()[0];
-		return byte_ != OFF && byte_ != NIODecimalImpl.ZERO;
+		return byte_ != OFF && byte_ != (byte)48;
 	}
 
 	@Override
@@ -73,5 +74,43 @@ public class NIOIndicatorImpl extends NIOCharacterImpl implements QIndicator {
 	@Override
 	public boolean b() {
 		return asBoolean();
+	}
+
+	@Override
+	public void eval(QBufferedData value) {
+		NIOBufferHelper.movel(getBuffer(), getPosition(), 1, value.asBytes(), true, OFF);		
+	}
+
+	@Override
+	public int getLength() {
+		return 1;
+	}
+
+	@Override
+	public int getSize() {
+		return 1;
+	}
+
+	@Override
+	public boolean eq(String value) {
+		return toString().equals(value);
+	}
+
+	@Override
+	public void eval(boolean value) {
+		if(value)
+			NIOBufferHelper.movel(getBuffer(), getPosition(), 1, new byte[]{ON}, true, OFF);
+		else
+			NIOBufferHelper.movel(getBuffer(), getPosition(), 1, new byte[]{OFF}, true, OFF);
+	}
+
+	@Override
+	public void eval(String value) {
+		eval(!value.equals("0"));
+	}
+
+	@Override
+	protected byte getFiller() {
+		return OFF;
 	}
 }

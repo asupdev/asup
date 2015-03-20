@@ -157,12 +157,13 @@ public class BaseProgramManagerImpl extends ProgramManagerImpl {
 	}
 
 	@Override
-	public QCallableProgram getCaller(QContextID contextID, QCallableProgram context) {
+	public QCallableProgram getCaller(QContextID contextID, QCallableProgram program) {
+		
 		QProgramStack programStack = getProgramStack(contextID);
 		QCallableProgram caller = null;
 		for(QCallableProgram level: programStack.list()) {
 			// looking for this
-			if(level.equals(context))
+			if(level.equals(program))
 				return caller;
 			// set caller
 			caller = level;						
@@ -170,7 +171,22 @@ public class BaseProgramManagerImpl extends ProgramManagerImpl {
 		return null;
 	}
 
-	
+	@Override
+	public QCallableProgram getCaller(QContextID contextID, Object program) {
+
+		QProgramStack programStack = getProgramStack(contextID);
+		QCallableProgram caller = null;
+		for(QCallableProgram level: programStack.list()) {
+			// looking for this
+			if(level.getRawProgram().equals(program))
+				return caller;
+			// set caller
+			caller = level;						
+		}
+		return null;
+
+	}
+
 	private void callProgram(QJob job, QCallableProgram callableProgram, QData[] params) throws OperatingSystemRuntimeProgramException {
 
 		synchronized (callableProgram) {
