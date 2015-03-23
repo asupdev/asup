@@ -257,7 +257,6 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 			nextObject = null;
 			while (iterator.hasNext()) {
 				T object = iterator.next();
-
 				ExpressionVisitor expressionVisitor = new ExpressionVisitor((EObject) object);
 				filter.accept(expressionVisitor);
 
@@ -265,6 +264,7 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 					continue;
 
 				nextObject = object;
+				break;
 			}
 		}
 	}
@@ -327,7 +327,7 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 				break;
 			}
 			
-			return super.visit(expression);
+			return result;
 		}
 
 	}
