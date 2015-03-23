@@ -28,7 +28,7 @@ public class MySQLAdapter extends MYSQLAdapter {
 	    builder.append(" ("); //$NON-NLS-1$
 	    appendFieldDefs(builder, table, createFieldDefinitions(table));
 	    builder.append(")"); //$NON-NLS-1$
-	    //
+	    //See bug https://bugs.eclipse.org/bugs/show_bug.cgi?id=439772
 	    builder.append(" ENGINE=InnoDB ROW_FORMAT=COMPRESSED");
 	    
 	    DBUtil.execute(connection, builder);
