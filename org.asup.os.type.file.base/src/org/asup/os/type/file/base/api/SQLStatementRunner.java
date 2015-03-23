@@ -71,7 +71,17 @@ public class SQLStatementRunner {
 			DECIMALRESULTOPTIONS decimalResultOptions,
 			@DataDef(length = 1) QEnum<OUTPUTEnum, QCharacter> output) {
 
-		QObjectWriter objectWriter = outputManager.getObjectWriter(job,  output.asData().trimR());
+		QObjectWriter objectWriter = null;
+		
+		switch (output.asEnum()) {
+		case PRINT:
+			objectWriter = outputManager.getObjectWriter(job, "P"); 			
+			break;
+		case TERM_STAR:
+			objectWriter = outputManager.getDefaultWriter(job);
+			break;
+		}
+
 		objectWriter.initialize();
 
 		QConnection databaseConnection = job.getContext().getAdapter(job, QConnection.class);
