@@ -32,6 +32,7 @@ tokens
 	//NOT
 	QUALIFIED;
 	BLOCK;
+	INDICATOR;
 }
 
 @parser::header {
@@ -171,7 +172,7 @@ indicator
 		|
 		INNR ->	^(BI_FUNCTION["*IN"] INTEGER[$INNR.text.substring(3)])	 	// Caso *INnn
 		|
-		INNU -> ^(BI_FUNCTION["*IN"] STRING[$INNU.text.substring(3)])	        // Caso *INU0 - *INU8
+		INNU -> ^(INDICATOR[$INNU.text])				        // Caso *INU0 - *INU8
 	;		
 	
 filler	:	

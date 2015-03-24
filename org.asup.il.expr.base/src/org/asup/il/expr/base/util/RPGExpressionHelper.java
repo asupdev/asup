@@ -63,7 +63,8 @@ public class RPGExpressionHelper implements ExpressionHelper {
 		case RPGExprLexer.BI_FUNCTION:
 			return ExpressionType.COMPOUND;
 
-		case RPGExprLexer.SP_VALUE:		
+		case RPGExprLexer.SP_VALUE:	
+		case RPGExprLexer.INDICATOR:
 		case RPGExprLexer.TERM:
 		case RPGExprLexer.INTEGER:
 		case RPGExprLexer.FLOAT:
@@ -170,6 +171,8 @@ public class RPGExpressionHelper implements ExpressionHelper {
 	public AtomicType getTermType(Tree node) {
 
 		switch (node.getType()) {		
+		case RPGExprLexer.INDICATOR:
+			return AtomicType.INDICATOR;
 		case RPGExprLexer.SP_VALUE:
 			return AtomicType.SPECIAL;
 		case RPGExprLexer.TERM:
