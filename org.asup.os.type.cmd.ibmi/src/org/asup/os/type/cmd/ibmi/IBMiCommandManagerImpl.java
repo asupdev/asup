@@ -352,6 +352,17 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 				if (value.startsWith("(") && value.endsWith(")")) {
 					value = value.substring(1, value.length() - 1);
 				}
+				
+				//TODO: uncomment next (or not)?
+				/*
+				Class<?> javaClass = unaryAtomicDataTerm.getDefinition().getJavaClass();
+				
+				if (javaClass.isAssignableFrom(String.class)) {
+					if (!value.startsWith("'") || ! value.endsWith("'")) {
+						value = "'" + value + "'";
+					}			
+				}
+				*/
 
 				try {
 
@@ -368,14 +379,22 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 					throw new OperatingSystemException(exc);
 				}
 
-				QFormat format = dataTerm.getFacet(QFormat.class);
-				if (format != null && format.getType() == FormatType.COMMAND_STRING) {
-					// Manage values in command string format (not detected by AntLR parser)
-					tokValue = paramComp.getText();
-					
-				} else { 
-					tokValue = buildParameterValue(unaryAtomicDataTerm, paramComp.getChilds().getFirst().getChilds().getFirst());
-				}				
+				
+				
+					QFormat format = dataTerm.getFacet(QFormat.class);
+					if (format != null && format.getType() == FormatType.COMMAND_STRING) {
+						// Manage value without ' delimiters in parameters with COMMAND format (not detected by AntLR parser)
+						tokValue = paramComp.getText();
+						
+					} else { 						
+						if (paramComp.getChilds().size() == 1 ) {
+							tokValue = buildParameterValue(unaryAtomicDataTerm, paramComp.getChilds().getFirst().getChilds().getFirst());
+						} else {
+							// Error: received a list of values in an unary parameter
+							throw new OperatingSystemException("Invalid value for parameter " + unaryAtomicDataTerm.getName().toUpperCase());
+						}							
+					}	
+				
 			} else {
 				tokValue = value;
 			}

@@ -187,7 +187,25 @@ public class IBMiCommandDecoder {
 		
 		if (hasSpecialValue(atomicDataTerm, value)) {
 			value = encodeSpecialValue(atomicDataTerm, value);
-		}		
+		} else {
+		
+			// Manage String single values: enclosing string in ' chars and duplicate intermediate ' chars.
+			Class<?> javaClass = atomicDataTerm.getDefinition().getJavaClass();
+					
+			if (javaClass.isAssignableFrom(String.class)) {
+				
+				String tmpValue = null;
+				if (value.startsWith("'") && value.endsWith("'")){
+					tmpValue = value.substring(1, value.length()-1);
+				} else {
+					tmpValue = value;
+				}
+				
+				// Duplicate internal ' characters
+				tmpValue = tmpValue.replaceAll("'", "''");			
+				value = "'" + tmpValue + "'";			
+			}
+		}
 		
 		if (value != null && value.length()>0) {
 			result += value.trim();
