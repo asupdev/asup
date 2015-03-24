@@ -190,9 +190,11 @@ public class IBMiCommandDecoder {
 		} else {
 		
 			// Manage String single values: enclosing string in ' chars and duplicate intermediate ' chars.
-			Class<?> javaClass = atomicDataTerm.getDefinition().getJavaClass();
-					
+			Class<?> javaClass = atomicDataTerm.getDefinition().getJavaClass();					
+			
+			/*
 			if (javaClass.isAssignableFrom(String.class)) {
+				//TODO: gestione facets TYPE (vedi esempio DSPJOBLOG)
 				
 				String tmpValue = null;
 				if (value.startsWith("'") && value.endsWith("'")){
@@ -205,6 +207,7 @@ public class IBMiCommandDecoder {
 				tmpValue = tmpValue.replaceAll("'", "''");			
 				value = "'" + tmpValue + "'";			
 			}
+			*/
 		}
 		
 		if (value != null && value.length()>0) {
