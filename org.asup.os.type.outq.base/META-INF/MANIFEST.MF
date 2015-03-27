@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: As.UP Operating System OutQueue Base
+Bundle-SymbolicName: org.asup.os.type.outq.base
+Bundle-Version: 0.5.4.qualifier
+Bundle-Vendor: www.smeup.com
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.asup.os.type.outq;bundle-version="0.5.4"
