@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ASCII"?>
+<os-type-outq:OutQueue
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:os-type-outq="http://www.asup.org/os/type/outq"
+    xsi:schemaLocation="http://www.asup.org/os/type/outq os-type-outq.ecore"
+    library="QSYS"
+    name="QPRINT"
+    text="Coda di emissione stampante predefinita"/>

@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link org.asup.os.type.usrprf.impl.UserProfileImpl#getJobDescription <em>Job Description</em>}</li>
  *   <li>{@link org.asup.os.type.usrprf.impl.UserProfileImpl#getInitialProgram <em>Initial Program</em>}</li>
  *   <li>{@link org.asup.os.type.usrprf.impl.UserProfileImpl#getMessageQueue <em>Message Queue</em>}</li>
+ *   <li>{@link org.asup.os.type.usrprf.impl.UserProfileImpl#getOutQueue <em>Out Queue</em>}</li>
  * </ul>
  * </p>
  *
@@ -94,6 +95,26 @@ public class UserProfileImpl extends TypedObjectImpl implements QUserProfile {
 	 * @ordered
 	 */
 	protected String messageQueue = MESSAGE_QUEUE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getOutQueue() <em>Out Queue</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutQueue()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String OUT_QUEUE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getOutQueue() <em>Out Queue</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutQueue()
+	 * @generated
+	 * @ordered
+	 */
+	protected String outQueue = OUT_QUEUE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -182,6 +203,27 @@ public class UserProfileImpl extends TypedObjectImpl implements QUserProfile {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getOutQueue() {
+		return outQueue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOutQueue(String newOutQueue) {
+		String oldOutQueue = outQueue;
+		outQueue = newOutQueue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemUserProfilePackage.USER_PROFILE__OUT_QUEUE, oldOutQueue, outQueue));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -191,6 +233,8 @@ public class UserProfileImpl extends TypedObjectImpl implements QUserProfile {
 				return getInitialProgram();
 			case QOperatingSystemUserProfilePackage.USER_PROFILE__MESSAGE_QUEUE:
 				return getMessageQueue();
+			case QOperatingSystemUserProfilePackage.USER_PROFILE__OUT_QUEUE:
+				return getOutQueue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -211,6 +255,9 @@ public class UserProfileImpl extends TypedObjectImpl implements QUserProfile {
 				return;
 			case QOperatingSystemUserProfilePackage.USER_PROFILE__MESSAGE_QUEUE:
 				setMessageQueue((String)newValue);
+				return;
+			case QOperatingSystemUserProfilePackage.USER_PROFILE__OUT_QUEUE:
+				setOutQueue((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -233,6 +280,9 @@ public class UserProfileImpl extends TypedObjectImpl implements QUserProfile {
 			case QOperatingSystemUserProfilePackage.USER_PROFILE__MESSAGE_QUEUE:
 				setMessageQueue(MESSAGE_QUEUE_EDEFAULT);
 				return;
+			case QOperatingSystemUserProfilePackage.USER_PROFILE__OUT_QUEUE:
+				setOutQueue(OUT_QUEUE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -251,6 +301,8 @@ public class UserProfileImpl extends TypedObjectImpl implements QUserProfile {
 				return INITIAL_PROGRAM_EDEFAULT == null ? initialProgram != null : !INITIAL_PROGRAM_EDEFAULT.equals(initialProgram);
 			case QOperatingSystemUserProfilePackage.USER_PROFILE__MESSAGE_QUEUE:
 				return MESSAGE_QUEUE_EDEFAULT == null ? messageQueue != null : !MESSAGE_QUEUE_EDEFAULT.equals(messageQueue);
+			case QOperatingSystemUserProfilePackage.USER_PROFILE__OUT_QUEUE:
+				return OUT_QUEUE_EDEFAULT == null ? outQueue != null : !OUT_QUEUE_EDEFAULT.equals(outQueue);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -271,6 +323,8 @@ public class UserProfileImpl extends TypedObjectImpl implements QUserProfile {
 		result.append(initialProgram);
 		result.append(", messageQueue: ");
 		result.append(messageQueue);
+		result.append(", outQueue: ");
+		result.append(outQueue);
 		result.append(')');
 		return result.toString();
 	}

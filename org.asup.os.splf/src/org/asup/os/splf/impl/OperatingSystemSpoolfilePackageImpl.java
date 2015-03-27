@@ -161,7 +161,7 @@ public class OperatingSystemSpoolfilePackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSpoolFile_SpoolID() {
+	public EAttribute getSpoolFile_OutQueue() {
 		return (EAttribute)spoolFileEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -170,8 +170,17 @@ public class OperatingSystemSpoolfilePackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSpoolFile_SpoolID() {
+		return (EAttribute)spoolFileEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getSpoolFile_UserData() {
-		return (EAttribute)spoolFileEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)spoolFileEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -180,7 +189,7 @@ public class OperatingSystemSpoolfilePackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	public EReference getSpoolFile_Rows() {
-		return (EReference)spoolFileEClass.getEStructuralFeatures().get(6);
+		return (EReference)spoolFileEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -243,9 +252,10 @@ public class OperatingSystemSpoolfilePackageImpl extends EPackageImpl implements
 		createEAttribute(spoolFileEClass, SPOOL_FILE__JOB_NAME);
 		createEAttribute(spoolFileEClass, SPOOL_FILE__JOB_NUMBER);
 		createEAttribute(spoolFileEClass, SPOOL_FILE__JOB_USER);
+		createEAttribute(spoolFileEClass, SPOOL_FILE__OUT_QUEUE);
+		createEReference(spoolFileEClass, SPOOL_FILE__ROWS);
 		createEAttribute(spoolFileEClass, SPOOL_FILE__SPOOL_ID);
 		createEAttribute(spoolFileEClass, SPOOL_FILE__USER_DATA);
-		createEReference(spoolFileEClass, SPOOL_FILE__ROWS);
 
 		spoolFileRowEClass = createEClass(SPOOL_FILE_ROW);
 		createEReference(spoolFileRowEClass, SPOOL_FILE_ROW__SPOOL_FILE);
@@ -292,9 +302,10 @@ public class OperatingSystemSpoolfilePackageImpl extends EPackageImpl implements
 		initEAttribute(getSpoolFile_JobName(), ecorePackage.getEString(), "jobName", null, 0, 1, QSpoolFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSpoolFile_JobNumber(), ecorePackage.getEInt(), "jobNumber", null, 0, 1, QSpoolFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSpoolFile_JobUser(), ecorePackage.getEString(), "jobUser", null, 0, 1, QSpoolFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpoolFile_OutQueue(), ecorePackage.getEString(), "outQueue", null, 0, 1, QSpoolFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSpoolFile_Rows(), this.getSpoolFileRow(), this.getSpoolFileRow_SpoolFile(), "rows", null, 0, -1, QSpoolFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSpoolFile_SpoolID(), ecorePackage.getEString(), "spoolID", null, 1, 1, QSpoolFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSpoolFile_UserData(), ecorePackage.getEString(), "userData", null, 0, 1, QSpoolFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSpoolFile_Rows(), this.getSpoolFileRow(), this.getSpoolFileRow_SpoolFile(), "rows", null, 0, -1, QSpoolFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(spoolFileRowEClass, QSpoolFileRow.class, "SpoolFileRow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSpoolFileRow_SpoolFile(), this.getSpoolFile(), this.getSpoolFile_Rows(), "spoolFile", null, 1, 1, QSpoolFileRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -336,6 +347,15 @@ public class OperatingSystemSpoolfilePackageImpl extends EPackageImpl implements
 		   });	
 		addAnnotation
 		  (getSpoolFile_JobUser(), 
+		   source, 
+		   new String[] {
+			 "length", "10"
+		   },
+		   new URI[] {
+			 URI.createURI(QIntegratedLanguageDataPackage.eNS_URI).appendFragment("//CharacterDef")
+		   });	
+		addAnnotation
+		  (getSpoolFile_OutQueue(), 
 		   source, 
 		   new String[] {
 			 "length", "10"

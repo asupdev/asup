@@ -109,22 +109,13 @@ public interface QOperatingSystemSpoolfilePackage extends EPackage {
 	int SPOOL_FILE__JOB_USER = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Spool ID</b></em>' attribute.
+	 * The feature id for the '<em><b>Out Queue</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPOOL_FILE__SPOOL_ID = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>User Data</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPOOL_FILE__USER_DATA = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 5;
+	int SPOOL_FILE__OUT_QUEUE = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Rows</b></em>' containment reference list.
@@ -133,7 +124,25 @@ public interface QOperatingSystemSpoolfilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPOOL_FILE__ROWS = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 6;
+	int SPOOL_FILE__ROWS = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Spool ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPOOL_FILE__SPOOL_ID = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>User Data</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPOOL_FILE__USER_DATA = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Spool File</em>' class.
@@ -142,7 +151,7 @@ public interface QOperatingSystemSpoolfilePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPOOL_FILE_FEATURE_COUNT = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 7;
+	int SPOOL_FILE_FEATURE_COUNT = QOperatingSystemOmacPackage.OBJECT_NAMEABLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.splf.impl.SpoolFileRowImpl <em>Spool File Row</em>}' class.
@@ -235,6 +244,17 @@ public interface QOperatingSystemSpoolfilePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getSpoolFile_JobUser();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.asup.os.splf.QSpoolFile#getOutQueue <em>Out Queue</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Out Queue</em>'.
+	 * @see org.asup.os.splf.QSpoolFile#getOutQueue()
+	 * @see #getSpoolFile()
+	 * @generated
+	 */
+	EAttribute getSpoolFile_OutQueue();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.asup.os.splf.QSpoolFile#getSpoolID <em>Spool ID</em>}'.
@@ -364,6 +384,14 @@ public interface QOperatingSystemSpoolfilePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SPOOL_FILE__JOB_USER = eINSTANCE.getSpoolFile_JobUser();
+
+		/**
+		 * The meta object literal for the '<em><b>Out Queue</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SPOOL_FILE__OUT_QUEUE = eINSTANCE.getSpoolFile_OutQueue();
 
 		/**
 		 * The meta object literal for the '<em><b>Spool ID</b></em>' attribute feature.

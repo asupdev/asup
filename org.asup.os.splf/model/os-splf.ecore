@@ -18,6 +18,13 @@
         <details key="length" value="10"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="outQueue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">
+        <details key="length" value="10"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rows" upperBound="-1" eType="#//SpoolFileRow"
+        containment="true" eOpposite="#//SpoolFileRow/spoolFile"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="spoolID" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true">
       <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">
@@ -29,8 +36,6 @@
         <details key="length" value="48"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rows" upperBound="-1" eType="#//SpoolFileRow"
-        containment="true" eOpposite="#//SpoolFileRow/spoolFile"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SpoolFileRow" eSuperTypes="../../org.asup.os.omac/model/os-omac.ecore#//Object">
     <eStructuralFeatures xsi:type="ecore:EReference" name="spoolFile" lowerBound="1"

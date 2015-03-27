@@ -144,6 +144,15 @@ public class OperatingSystemUserProfilePackageImpl extends EPackageImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getUserProfile_OutQueue() {
+		return (EAttribute)userProfileEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUserProfileManager() {
 		return userProfileManagerEClass;
 	}
@@ -180,6 +189,7 @@ public class OperatingSystemUserProfilePackageImpl extends EPackageImpl implemen
 		createEAttribute(userProfileEClass, USER_PROFILE__JOB_DESCRIPTION);
 		createEAttribute(userProfileEClass, USER_PROFILE__INITIAL_PROGRAM);
 		createEAttribute(userProfileEClass, USER_PROFILE__MESSAGE_QUEUE);
+		createEAttribute(userProfileEClass, USER_PROFILE__OUT_QUEUE);
 
 		userProfileManagerEClass = createEClass(USER_PROFILE_MANAGER);
 	}
@@ -226,6 +236,7 @@ public class OperatingSystemUserProfilePackageImpl extends EPackageImpl implemen
 		initEAttribute(getUserProfile_JobDescription(), ecorePackage.getEString(), "jobDescription", null, 0, 1, QUserProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUserProfile_InitialProgram(), ecorePackage.getEString(), "initialProgram", null, 0, 1, QUserProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUserProfile_MessageQueue(), ecorePackage.getEString(), "messageQueue", null, 0, 1, QUserProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getUserProfile_OutQueue(), ecorePackage.getEString(), "outQueue", null, 0, 1, QUserProfile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(userProfileManagerEClass, QUserProfileManager.class, "UserProfileManager", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -20,6 +20,7 @@ import org.asup.os.type.QTypedObject;
  *   <li>{@link org.asup.os.type.usrprf.QUserProfile#getJobDescription <em>Job Description</em>}</li>
  *   <li>{@link org.asup.os.type.usrprf.QUserProfile#getInitialProgram <em>Initial Program</em>}</li>
  *   <li>{@link org.asup.os.type.usrprf.QUserProfile#getMessageQueue <em>Message Queue</em>}</li>
+ *   <li>{@link org.asup.os.type.usrprf.QUserProfile#getOutQueue <em>Out Queue</em>}</li>
  * </ul>
  * </p>
  *
@@ -105,5 +106,31 @@ public interface QUserProfile extends QTypedObject {
 	 * @generated
 	 */
 	void setMessageQueue(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Out Queue</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Out Queue</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Out Queue</em>' attribute.
+	 * @see #setOutQueue(String)
+	 * @see org.asup.os.type.usrprf.QOperatingSystemUserProfilePackage#getUserProfile_OutQueue()
+	 * @model
+	 * @generated
+	 */
+	String getOutQueue();
+
+	/**
+	 * Sets the value of the '{@link org.asup.os.type.usrprf.QUserProfile#getOutQueue <em>Out Queue</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Out Queue</em>' attribute.
+	 * @see #getOutQueue()
+	 * @generated
+	 */
+	void setOutQueue(String value);
 
 } // QUserProfile

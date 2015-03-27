@@ -152,13 +152,22 @@ public interface QOperatingSystemUserProfilePackage extends EPackage {
 	int USER_PROFILE__MESSAGE_QUEUE = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Out Queue</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER_PROFILE__OUT_QUEUE = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>User Profile</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_PROFILE_FEATURE_COUNT = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 3;
+	int USER_PROFILE_FEATURE_COUNT = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.type.usrprf.impl.UserProfileManagerImpl <em>User Profile Manager</em>}' class.
@@ -268,6 +277,17 @@ public interface QOperatingSystemUserProfilePackage extends EPackage {
 	EAttribute getUserProfile_MessageQueue();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.asup.os.type.usrprf.QUserProfile#getOutQueue <em>Out Queue</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Out Queue</em>'.
+	 * @see org.asup.os.type.usrprf.QUserProfile#getOutQueue()
+	 * @see #getUserProfile()
+	 * @generated
+	 */
+	EAttribute getUserProfile_OutQueue();
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.os.type.usrprf.QUserProfileManager <em>User Profile Manager</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -332,6 +352,14 @@ public interface QOperatingSystemUserProfilePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute USER_PROFILE__MESSAGE_QUEUE = eINSTANCE.getUserProfile_MessageQueue();
+
+		/**
+		 * The meta object literal for the '<em><b>Out Queue</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute USER_PROFILE__OUT_QUEUE = eINSTANCE.getUserProfile_OutQueue();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.os.type.usrprf.impl.UserProfileManagerImpl <em>User Profile Manager</em>}' class.

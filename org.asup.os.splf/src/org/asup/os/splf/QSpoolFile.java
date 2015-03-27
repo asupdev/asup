@@ -22,9 +22,10 @@ import org.asup.os.omac.QObjectNameable;
  *   <li>{@link org.asup.os.splf.QSpoolFile#getJobName <em>Job Name</em>}</li>
  *   <li>{@link org.asup.os.splf.QSpoolFile#getJobNumber <em>Job Number</em>}</li>
  *   <li>{@link org.asup.os.splf.QSpoolFile#getJobUser <em>Job User</em>}</li>
+ *   <li>{@link org.asup.os.splf.QSpoolFile#getOutQueue <em>Out Queue</em>}</li>
+ *   <li>{@link org.asup.os.splf.QSpoolFile#getRows <em>Rows</em>}</li>
  *   <li>{@link org.asup.os.splf.QSpoolFile#getSpoolID <em>Spool ID</em>}</li>
  *   <li>{@link org.asup.os.splf.QSpoolFile#getUserData <em>User Data</em>}</li>
- *   <li>{@link org.asup.os.splf.QSpoolFile#getRows <em>Rows</em>}</li>
  * </ul>
  * </p>
  *
@@ -136,6 +137,32 @@ public interface QSpoolFile extends QObjectNameable {
 	 * @generated
 	 */
 	void setJobUser(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Out Queue</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Out Queue</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Out Queue</em>' attribute.
+	 * @see #setOutQueue(String)
+	 * @see org.asup.os.splf.QOperatingSystemSpoolfilePackage#getSpoolFile_OutQueue()
+	 * @model annotation="il-data length='10'"
+	 * @generated
+	 */
+	String getOutQueue();
+
+	/**
+	 * Sets the value of the '{@link org.asup.os.splf.QSpoolFile#getOutQueue <em>Out Queue</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Out Queue</em>' attribute.
+	 * @see #getOutQueue()
+	 * @generated
+	 */
+	void setOutQueue(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Spool ID</b></em>' attribute.
