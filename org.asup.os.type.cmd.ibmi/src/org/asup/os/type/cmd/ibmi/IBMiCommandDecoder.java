@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 import org.asup.fw.core.QContextID;
+import org.asup.il.core.QFormat;
 import org.asup.il.core.QSpecial;
 import org.asup.il.core.QSpecialElement;
 import org.asup.il.data.QAtomicDataTerm;
@@ -144,9 +145,12 @@ public class IBMiCommandDecoder {
 				QDataTerm<?> element = listIterator.previous();
 				
 				QData elementData = ((QDataStruct) data).getElement(element.getName());
+				
+				int length = result.length();
+				
 				result = writeDataTermString(result, element, elementData);
 				
-				if (counter > 0) {
+				if (counter > 0 && result.length()>length) {
 					result += "/";														
 				}
 				
@@ -178,6 +182,8 @@ public class IBMiCommandDecoder {
 		
 		if (parenthesis) result += ")";
 		
+		
+		
 		return result;
 	}
 
@@ -191,23 +197,30 @@ public class IBMiCommandDecoder {
 		
 			// Manage String single values: enclosing string in ' chars and duplicate intermediate ' chars.
 			Class<?> javaClass = atomicDataTerm.getDefinition().getJavaClass();					
-			
-			/*
+	
 			if (javaClass.isAssignableFrom(String.class)) {
-				//TODO: gestione facets TYPE (vedi esempio DSPJOBLOG)
 				
-				String tmpValue = null;
-				if (value.startsWith("'") && value.endsWith("'")){
-					tmpValue = value.substring(1, value.length()-1);
+				QFormat format = atomicDataTerm.getFacet(QFormat.class);
+				
+				if (format == null) {				
+					value = enclosingString(value);
 				} else {
-					tmpValue = value;
+					switch (format.getType()) {
+					case PATH_NAME:
+						value = enclosingString(value);					
+					case COMMAND_STRING:
+					case COMMUNICATIONS_NAME:
+					case GENERIC:
+					case NAME:					
+					case REGULAR_EXPRESSION:
+					case SIMPLE_NAME:
+						
+					default:
+						break;
+					}
 				}
-				
-				// Duplicate internal ' characters
-				tmpValue = tmpValue.replaceAll("'", "''");			
-				value = "'" + tmpValue + "'";			
 			}
-			*/
+			
 		}
 		
 		if (value != null && value.length()>0) {
@@ -216,6 +229,32 @@ public class IBMiCommandDecoder {
 		
 		return result;
 		
+	}
+	
+	/**
+	 * Control and manage string formats.
+	 * 
+	 * 1) Insert delimiters (' character) if value contains a space
+	 * 2) Duplicate inner ' 
+	 * 
+	 * @param value
+	 * @return
+	 */
+	private static String enclosingString(String value) {
+		String tmpValue = null;		
+		if (value.startsWith("'") && value.endsWith("'")){
+			tmpValue = value.substring(1, value.length()-1);
+		} else {
+			tmpValue = value;
+		}
+		
+		// Duplicate internal ' characters
+		tmpValue = tmpValue.replaceAll("'", "''");
+		
+		if (tmpValue.indexOf(" ") > 0) {		
+			value = "'" + tmpValue + "'";
+		}
+		return value;
 	}
 
 	/**
