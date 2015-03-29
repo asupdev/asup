@@ -402,7 +402,7 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 		else if(value.name().equals("ON"))
 			return "1";
 		else if(value.name().equals("OFF"))
-			return " ";
+			return "0";
 		
 		return null;
 	}	

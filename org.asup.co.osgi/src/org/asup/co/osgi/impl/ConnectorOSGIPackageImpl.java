@@ -8,12 +8,15 @@
 package org.asup.co.osgi.impl;
 
 import org.asup.co.osgi.QBaseConfig;
+import org.asup.co.osgi.QCommunicationManager;
 import org.asup.co.osgi.QConnectorOSGIFactory;
 import org.asup.co.osgi.QConnectorOSGIPackage;
 
+import org.asup.co.osgi.QEndPoint;
 import org.asup.fw.core.QFrameworkCorePackage;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -31,6 +34,19 @@ public class ConnectorOSGIPackageImpl extends EPackageImpl implements QConnector
 	 * @generated
 	 */
 	private EClass baseConfigEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass communicationManagerEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass endPointEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -110,6 +126,24 @@ public class ConnectorOSGIPackageImpl extends EPackageImpl implements QConnector
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCommunicationManager() {
+		return communicationManagerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEndPoint() {
+		return endPointEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QConnectorOSGIFactory getConnectorOSGIFactory() {
 		return (QConnectorOSGIFactory)getEFactoryInstance();
 	}
@@ -134,6 +168,10 @@ public class ConnectorOSGIPackageImpl extends EPackageImpl implements QConnector
 
 		// Create classes and their features
 		baseConfigEClass = createEClass(BASE_CONFIG);
+
+		communicationManagerEClass = createEClass(COMMUNICATION_MANAGER);
+
+		endPointEClass = createEClass(END_POINT);
 	}
 
 	/**
@@ -168,9 +206,30 @@ public class ConnectorOSGIPackageImpl extends EPackageImpl implements QConnector
 
 		// Add supertypes to classes
 		baseConfigEClass.getESuperTypes().add(theFrameworkCorePackage.getServiceConfig());
+		communicationManagerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(baseConfigEClass, QBaseConfig.class, "BaseConfig", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(communicationManagerEClass, QCommunicationManager.class, "CommunicationManager", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		EOperation op = addEOperation(communicationManagerEClass, this.getEndPoint(), "find", 0, -1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFrameworkCorePackage.getContextID(), "contextID", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(communicationManagerEClass, this.getEndPoint(), "lookup", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "endPointID", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(endPointEClass, QEndPoint.class, "EndPoint", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		addEOperation(endPointEClass, ecorePackage.getEString(), "getApplicationID", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(endPointEClass, ecorePackage.getEString(), "getEndPointID", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(endPointEClass, ecorePackage.getEString(), "getInterfaces", 1, -1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(endPointEClass, ecorePackage.getEStringToStringMapEntry(), "getProperties", 1, -1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(endPointEClass, ecorePackage.getELong(), "getServiceID", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

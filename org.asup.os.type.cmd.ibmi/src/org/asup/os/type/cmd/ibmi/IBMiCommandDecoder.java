@@ -190,6 +190,7 @@ public class IBMiCommandDecoder {
 		} else {
 		
 			// Manage String single values: enclosing string in ' chars and duplicate intermediate ' chars.
+			@SuppressWarnings("unused")
 			Class<?> javaClass = atomicDataTerm.getDefinition().getJavaClass();					
 			
 			/*

@@ -9,8 +9,5 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="containerId" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ECFClientContainerConfig" eSuperTypes="#//ECFContainerConfig">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="clientContainerType" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ECFCommunicationManager" eSuperTypes="../../org.asup.co.osgi/model/co-osgi.ecore#//CommunicationManager"/>
 </ecore:EPackage>

@@ -81,6 +81,53 @@ public interface QConnectorOSGIPackage extends EPackage {
 	int BASE_CONFIG_FEATURE_COUNT = QFrameworkCorePackage.SERVICE_CONFIG_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.asup.co.osgi.impl.CommunicationManagerImpl <em>Communication Manager</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.co.osgi.impl.CommunicationManagerImpl
+	 * @see org.asup.co.osgi.impl.ConnectorOSGIPackageImpl#getCommunicationManager()
+	 * @generated
+	 */
+	int COMMUNICATION_MANAGER = 1;
+
+	/**
+	 * The feature id for the '<em><b>Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_MANAGER__CONFIG = QFrameworkCorePackage.SERVICE__CONFIG;
+
+	/**
+	 * The number of structural features of the '<em>Communication Manager</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_MANAGER_FEATURE_COUNT = QFrameworkCorePackage.SERVICE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.asup.co.osgi.QEndPoint <em>End Point</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.co.osgi.QEndPoint
+	 * @see org.asup.co.osgi.impl.ConnectorOSGIPackageImpl#getEndPoint()
+	 * @generated
+	 */
+	int END_POINT = 2;
+
+	/**
+	 * The number of structural features of the '<em>End Point</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int END_POINT_FEATURE_COUNT = 0;
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.co.osgi.QBaseConfig <em>Base Config</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -89,6 +136,26 @@ public interface QConnectorOSGIPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBaseConfig();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.co.osgi.QCommunicationManager <em>Communication Manager</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Communication Manager</em>'.
+	 * @see org.asup.co.osgi.QCommunicationManager
+	 * @generated
+	 */
+	EClass getCommunicationManager();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.co.osgi.QEndPoint <em>End Point</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>End Point</em>'.
+	 * @see org.asup.co.osgi.QEndPoint
+	 * @generated
+	 */
+	EClass getEndPoint();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -122,6 +189,24 @@ public interface QConnectorOSGIPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BASE_CONFIG = eINSTANCE.getBaseConfig();
+		/**
+		 * The meta object literal for the '{@link org.asup.co.osgi.impl.CommunicationManagerImpl <em>Communication Manager</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.co.osgi.impl.CommunicationManagerImpl
+		 * @see org.asup.co.osgi.impl.ConnectorOSGIPackageImpl#getCommunicationManager()
+		 * @generated
+		 */
+		EClass COMMUNICATION_MANAGER = eINSTANCE.getCommunicationManager();
+		/**
+		 * The meta object literal for the '{@link org.asup.co.osgi.QEndPoint <em>End Point</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.co.osgi.QEndPoint
+		 * @see org.asup.co.osgi.impl.ConnectorOSGIPackageImpl#getEndPoint()
+		 * @generated
+		 */
+		EClass END_POINT = eINSTANCE.getEndPoint();
 
 	}
 

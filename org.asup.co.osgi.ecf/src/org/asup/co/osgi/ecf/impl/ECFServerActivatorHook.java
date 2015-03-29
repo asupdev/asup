@@ -9,7 +9,7 @@
  * Contributors: 
  *   Mattia Rocchi - Initial API and implementation 
  */
-package org.asup.co.osgi.ecf.hook;
+package org.asup.co.osgi.ecf.impl;
 
 import java.util.Dictionary;
 
@@ -21,9 +21,10 @@ import org.asup.fw.core.annotation.ServiceRegistration;
 import org.asup.fw.core.impl.ServiceImpl;
 import org.eclipse.ecf.osgi.services.distribution.IDistributionConstants;
 
-@SuppressWarnings("restriction")
-public class ServiceActivatorHook extends ServiceImpl {
+@SuppressWarnings({ "restriction"})
+public class ECFServerActivatorHook extends ServiceImpl {
 
+	
 	@ServiceRegistration
 	public void completeRegistration(
 			@Named("org.asup.fw.core.service.name") String name,
@@ -32,6 +33,7 @@ public class ServiceActivatorHook extends ServiceImpl {
 			@Named("org.asup.fw.core.service.remoteExport") boolean remoteExport) {
 
 		if(remoteExport) {
+			
 			ECFServerContainerConfig config = (ECFServerContainerConfig) getConfig();
 			properties.put(IDistributionConstants.SERVICE_EXPORTED_INTERFACES, IDistributionConstants.SERVICE_EXPORTED_INTERFACES_WILDCARD);
 			properties.put(IDistributionConstants.SERVICE_EXPORTED_CONFIGS, config.getServerContainerType());

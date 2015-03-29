@@ -8,7 +8,7 @@
 package org.asup.co.osgi.ecf.impl;
 
 import org.asup.co.osgi.QConnectorOSGIPackage;
-import org.asup.co.osgi.ecf.ECFClientContainerConfig;
+import org.asup.co.osgi.ecf.ECFCommunicationManager;
 import org.asup.co.osgi.ecf.ECFConnectorOSGIFactory;
 import org.asup.co.osgi.ecf.ECFConnectorOSGIPackage;
 import org.asup.co.osgi.ecf.ECFContainerConfig;
@@ -44,7 +44,7 @@ public class ECFConnectorOSGIPackageImpl extends EPackageImpl implements ECFConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass ecfClientContainerConfigEClass = null;
+	private EClass ecfCommunicationManagerEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -151,17 +151,8 @@ public class ECFConnectorOSGIPackageImpl extends EPackageImpl implements ECFConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getECFClientContainerConfig() {
-		return ecfClientContainerConfigEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getECFClientContainerConfig_ClientContainerType() {
-		return (EAttribute)ecfClientContainerConfigEClass.getEStructuralFeatures().get(0);
+	public EClass getECFCommunicationManager() {
+		return ecfCommunicationManagerEClass;
 	}
 
 	/**
@@ -198,8 +189,7 @@ public class ECFConnectorOSGIPackageImpl extends EPackageImpl implements ECFConn
 		createEAttribute(ecfServerContainerConfigEClass, ECF_SERVER_CONTAINER_CONFIG__SERVER_CONTAINER_TYPE);
 		createEAttribute(ecfServerContainerConfigEClass, ECF_SERVER_CONTAINER_CONFIG__CONTAINER_ID);
 
-		ecfClientContainerConfigEClass = createEClass(ECF_CLIENT_CONTAINER_CONFIG);
-		createEAttribute(ecfClientContainerConfigEClass, ECF_CLIENT_CONTAINER_CONFIG__CLIENT_CONTAINER_TYPE);
+		ecfCommunicationManagerEClass = createEClass(ECF_COMMUNICATION_MANAGER);
 	}
 
 	/**
@@ -235,7 +225,7 @@ public class ECFConnectorOSGIPackageImpl extends EPackageImpl implements ECFConn
 		// Add supertypes to classes
 		ecfContainerConfigEClass.getESuperTypes().add(theConnectorOSGIPackage.getBaseConfig());
 		ecfServerContainerConfigEClass.getESuperTypes().add(this.getECFContainerConfig());
-		ecfClientContainerConfigEClass.getESuperTypes().add(this.getECFContainerConfig());
+		ecfCommunicationManagerEClass.getESuperTypes().add(theConnectorOSGIPackage.getCommunicationManager());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(ecfContainerConfigEClass, ECFContainerConfig.class, "ECFContainerConfig", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -244,8 +234,7 @@ public class ECFConnectorOSGIPackageImpl extends EPackageImpl implements ECFConn
 		initEAttribute(getECFServerContainerConfig_ServerContainerType(), ecorePackage.getEString(), "serverContainerType", null, 1, 1, ECFServerContainerConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getECFServerContainerConfig_ContainerId(), ecorePackage.getEString(), "containerId", null, 1, 1, ECFServerContainerConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(ecfClientContainerConfigEClass, ECFClientContainerConfig.class, "ECFClientContainerConfig", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getECFClientContainerConfig_ClientContainerType(), ecorePackage.getEString(), "clientContainerType", null, 1, 1, ECFClientContainerConfig.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(ecfCommunicationManagerEClass, ECFCommunicationManager.class, "ECFCommunicationManager", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -353,9 +353,11 @@ public class E4BundleManagerImpl extends BundleManagerImpl {
 		for(String resource: bundleWiring.listResources(basePackage.replace('.', '/'), null, BundleWiring.LISTRESOURCES_LOCAL)) {
 			Class<?> klass = null;
 			try {
-				klass = bundle.loadClass(resource.replace(".class", "").replace('/', '.'));
+				String resourceURI = resource.replace(".class", "").replace('/', '.');
+				if(resourceURI.contains("$"))
+					continue;
+				klass = bundle.loadClass(resourceURI);
 			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
 				continue;
 			}
 			if(QCallableProgram.class.isAssignableFrom(klass) || klass.getAnnotation(Program.class) != null)

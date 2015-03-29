@@ -119,32 +119,32 @@ public interface ECFConnectorOSGIPackage extends EPackage {
 	int ECF_SERVER_CONTAINER_CONFIG_FEATURE_COUNT = ECF_CONTAINER_CONFIG_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.asup.co.osgi.ecf.impl.ECFClientContainerConfigImpl <em>ECF Client Container Config</em>}' class.
+	 * The meta object id for the '{@link org.asup.co.osgi.ecf.impl.ECFCommunicationManagerImpl <em>ECF Communication Manager</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.asup.co.osgi.ecf.impl.ECFClientContainerConfigImpl
-	 * @see org.asup.co.osgi.ecf.impl.ECFConnectorOSGIPackageImpl#getECFClientContainerConfig()
+	 * @see org.asup.co.osgi.ecf.impl.ECFCommunicationManagerImpl
+	 * @see org.asup.co.osgi.ecf.impl.ECFConnectorOSGIPackageImpl#getECFCommunicationManager()
 	 * @generated
 	 */
-	int ECF_CLIENT_CONTAINER_CONFIG = 2;
+	int ECF_COMMUNICATION_MANAGER = 2;
 
 	/**
-	 * The feature id for the '<em><b>Client Container Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Config</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ECF_CLIENT_CONTAINER_CONFIG__CLIENT_CONTAINER_TYPE = ECF_CONTAINER_CONFIG_FEATURE_COUNT + 0;
+	int ECF_COMMUNICATION_MANAGER__CONFIG = QConnectorOSGIPackage.COMMUNICATION_MANAGER__CONFIG;
 
 	/**
-	 * The number of structural features of the '<em>ECF Client Container Config</em>' class.
+	 * The number of structural features of the '<em>ECF Communication Manager</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ECF_CLIENT_CONTAINER_CONFIG_FEATURE_COUNT = ECF_CONTAINER_CONFIG_FEATURE_COUNT + 1;
+	int ECF_COMMUNICATION_MANAGER_FEATURE_COUNT = QConnectorOSGIPackage.COMMUNICATION_MANAGER_FEATURE_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.co.osgi.ecf.ECFContainerConfig <em>ECF Container Config</em>}'.
@@ -189,25 +189,14 @@ public interface ECFConnectorOSGIPackage extends EPackage {
 	EAttribute getECFServerContainerConfig_ContainerId();
 
 	/**
-	 * Returns the meta object for class '{@link org.asup.co.osgi.ecf.ECFClientContainerConfig <em>ECF Client Container Config</em>}'.
+	 * Returns the meta object for class '{@link org.asup.co.osgi.ecf.ECFCommunicationManager <em>ECF Communication Manager</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>ECF Client Container Config</em>'.
-	 * @see org.asup.co.osgi.ecf.ECFClientContainerConfig
+	 * @return the meta object for class '<em>ECF Communication Manager</em>'.
+	 * @see org.asup.co.osgi.ecf.ECFCommunicationManager
 	 * @generated
 	 */
-	EClass getECFClientContainerConfig();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.co.osgi.ecf.ECFClientContainerConfig#getClientContainerType <em>Client Container Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Client Container Type</em>'.
-	 * @see org.asup.co.osgi.ecf.ECFClientContainerConfig#getClientContainerType()
-	 * @see #getECFClientContainerConfig()
-	 * @generated
-	 */
-	EAttribute getECFClientContainerConfig_ClientContainerType();
+	EClass getECFCommunicationManager();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -269,22 +258,14 @@ public interface ECFConnectorOSGIPackage extends EPackage {
 		EAttribute ECF_SERVER_CONTAINER_CONFIG__CONTAINER_ID = eINSTANCE.getECFServerContainerConfig_ContainerId();
 
 		/**
-		 * The meta object literal for the '{@link org.asup.co.osgi.ecf.impl.ECFClientContainerConfigImpl <em>ECF Client Container Config</em>}' class.
+		 * The meta object literal for the '{@link org.asup.co.osgi.ecf.impl.ECFCommunicationManagerImpl <em>ECF Communication Manager</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see org.asup.co.osgi.ecf.impl.ECFClientContainerConfigImpl
-		 * @see org.asup.co.osgi.ecf.impl.ECFConnectorOSGIPackageImpl#getECFClientContainerConfig()
+		 * @see org.asup.co.osgi.ecf.impl.ECFCommunicationManagerImpl
+		 * @see org.asup.co.osgi.ecf.impl.ECFConnectorOSGIPackageImpl#getECFCommunicationManager()
 		 * @generated
 		 */
-		EClass ECF_CLIENT_CONTAINER_CONFIG = eINSTANCE.getECFClientContainerConfig();
-
-		/**
-		 * The meta object literal for the '<em><b>Client Container Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ECF_CLIENT_CONTAINER_CONFIG__CLIENT_CONTAINER_TYPE = eINSTANCE.getECFClientContainerConfig_ClientContainerType();
+		EClass ECF_COMMUNICATION_MANAGER = eINSTANCE.getECFCommunicationManager();
 
 	}
 

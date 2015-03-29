@@ -62,7 +62,7 @@ public class ECFConnectorOSGIFactoryImpl extends EFactoryImpl implements ECFConn
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ECFConnectorOSGIPackage.ECF_SERVER_CONTAINER_CONFIG: return (EObject)createECFServerContainerConfig();
-			case ECFConnectorOSGIPackage.ECF_CLIENT_CONTAINER_CONFIG: return (EObject)createECFClientContainerConfig();
+			case ECFConnectorOSGIPackage.ECF_COMMUNICATION_MANAGER: return (EObject)createECFCommunicationManager();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -83,9 +83,9 @@ public class ECFConnectorOSGIFactoryImpl extends EFactoryImpl implements ECFConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ECFClientContainerConfig createECFClientContainerConfig() {
-		ECFClientContainerConfigImpl ecfClientContainerConfig = new ECFClientContainerConfigImpl();
-		return ecfClientContainerConfig;
+	public ECFCommunicationManager createECFCommunicationManager() {
+		ECFCommunicationManagerImpl ecfCommunicationManager = new ECFCommunicationManagerImpl();
+		return ecfCommunicationManager;
 	}
 
 	/**

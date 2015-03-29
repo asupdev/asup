@@ -87,5 +87,4 @@ public interface QResourceReader<T extends QObjectNameable> extends QResource<T>
 	 * @generated
 	 */
 	T lookup(String name);
-
 } // QResource

@@ -168,8 +168,9 @@ public class BaseCallableInjector {
 	private void injectFieldsData(Class<?> klass, Object callable, QDataFactory dataFactory, QContext jobContext, QActivationGroup activationGroup, Map<String, Object> sharedModules)
 			throws IllegalArgumentException, IllegalAccessException, InstantiationException {
 
-		if (klass.getName().startsWith("com.smeup.erp.ovr.pgm"))
+		if(klass.getSuperclass().getAnnotation(Program.class) != null)
 			injectFieldsData(klass.getSuperclass(), callable, dataFactory, jobContext, activationGroup, sharedModules);
+			
 
 		for (Field field : klass.getDeclaredFields()) {
 

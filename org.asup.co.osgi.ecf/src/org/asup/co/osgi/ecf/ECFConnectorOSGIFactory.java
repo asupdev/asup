@@ -36,13 +36,13 @@ public interface ECFConnectorOSGIFactory extends EFactory {
 	ECFServerContainerConfig createECFServerContainerConfig();
 
 	/**
-	 * Returns a new object of class '<em>ECF Client Container Config</em>'.
+	 * Returns a new object of class '<em>ECF Communication Manager</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>ECF Client Container Config</em>'.
+	 * @return a new object of class '<em>ECF Communication Manager</em>'.
 	 * @generated
 	 */
-	ECFClientContainerConfig createECFClientContainerConfig();
+	ECFCommunicationManager createECFCommunicationManager();
 
 	/**
 	 * Returns the package supported by this factory.
