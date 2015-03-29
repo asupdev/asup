@@ -379,21 +379,24 @@ public class IBMiCommandManagerImpl extends BaseCommandManagerImpl {
 					throw new OperatingSystemException(exc);
 				}
 
+				Class<?> javaClass = dataTerm.getDefinition().getJavaClass();					
 				
-				
-					QFormat format = dataTerm.getFacet(QFormat.class);
-					if (format != null && format.getType() == FormatType.COMMAND_STRING) {
-						// Manage value without ' delimiters in parameters with COMMAND format (not detected by AntLR parser)
-						tokValue = paramComp.getText();
-						
-					} else { 						
-						if (paramComp.getChilds().size() == 1 ) {
-							tokValue = buildParameterValue(unaryAtomicDataTerm, paramComp.getChilds().getFirst().getChilds().getFirst());
-						} else {
-							// Error: received a list of values in an unary parameter
-							throw new OperatingSystemException("Invalid value for parameter " + unaryAtomicDataTerm.getName().toUpperCase());
-						}							
-					}	
+				if (javaClass.isAssignableFrom(String.class)) {
+					
+				}
+								
+				QFormat format = dataTerm.getFacet(QFormat.class);
+				if (format != null && format.getType() == FormatType.COMMAND_STRING) {
+					// Manage value without ' delimiters in parameters with COMMAND format (not detected by AntLR parser)
+					tokValue = paramComp.getText();					
+				} else { 											
+					if (paramComp.getChilds().size() == 1 ) {
+						tokValue = buildParameterValue(unaryAtomicDataTerm, paramComp.getChilds().getFirst().getChilds().getFirst());
+					} else {
+						// Error: received a list of values in an unary parameter
+						throw new OperatingSystemException("Invalid value for parameter " + unaryAtomicDataTerm.getName().toUpperCase());
+					}
+				}	
 				
 			} else {
 				tokValue = value;

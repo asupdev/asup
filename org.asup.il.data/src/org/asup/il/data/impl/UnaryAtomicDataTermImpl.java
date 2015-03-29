@@ -61,5 +61,6 @@ public class UnaryAtomicDataTermImpl<DD extends QUnaryAtomicDataDef<?>> extends 
 	 */
 	public void accept(QDataTermVisitor visitor) {
 		visitor.visit(this);
+		visitor.endVisit(this);
 	}
 } //UnaryDataTermImpl

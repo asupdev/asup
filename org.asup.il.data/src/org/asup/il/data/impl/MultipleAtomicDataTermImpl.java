@@ -60,5 +60,6 @@ public class MultipleAtomicDataTermImpl<DD extends QMultipleAtomicDataDef<?>> ex
 	 */
 	public void accept(QDataTermVisitor visitor) {
 		visitor.visit(this);
+		visitor.endVisit(this);
 	}
 } //MultipleAtomicDataTermImpl

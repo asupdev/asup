@@ -137,8 +137,9 @@ public class ConsoleRequestHandler {
 						outputStreamWriter.flush();
 						
 					} catch (OperatingSystemException | IOException e) {
-						e.printStackTrace();
+//						e.printStackTrace();
 //						jobLogManager.error(qJob, e.getMessage());
+						return new Status(Status.ERROR, "unknown", 1, e.getMessage(), e);
 					}
 
 		        return Status.OK_STATUS;
