@@ -7,6 +7,7 @@
  */
 package org.asup.os.splf.impl;
 
+import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.il.data.QIntegratedLanguageDataPackage;
 
 import org.asup.os.omac.QOperatingSystemOmacPackage;
@@ -16,10 +17,12 @@ import org.asup.os.splf.QOperatingSystemSpoolfilePackage;
 import org.asup.os.splf.QSpoolFile;
 import org.asup.os.splf.QSpoolFileRow;
 
+import org.asup.os.splf.QSpoolFileWriter;
 import org.eclipse.emf.common.util.URI;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -45,6 +48,13 @@ public class OperatingSystemSpoolfilePackageImpl extends EPackageImpl implements
 	 * @generated
 	 */
 	private EClass spoolFileRowEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass spoolFileWriterEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -224,6 +234,15 @@ public class OperatingSystemSpoolfilePackageImpl extends EPackageImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSpoolFileWriter() {
+		return spoolFileWriterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public QOperatingSystemSpoolfileFactory getOperatingSystemSpoolfileFactory() {
 		return (QOperatingSystemSpoolfileFactory)getEFactoryInstance();
 	}
@@ -260,6 +279,8 @@ public class OperatingSystemSpoolfilePackageImpl extends EPackageImpl implements
 		spoolFileRowEClass = createEClass(SPOOL_FILE_ROW);
 		createEReference(spoolFileRowEClass, SPOOL_FILE_ROW__SPOOL_FILE);
 		createEAttribute(spoolFileRowEClass, SPOOL_FILE_ROW__CONTENT);
+
+		spoolFileWriterEClass = createEClass(SPOOL_FILE_WRITER);
 	}
 
 	/**
@@ -287,6 +308,7 @@ public class OperatingSystemSpoolfilePackageImpl extends EPackageImpl implements
 
 		// Obtain other dependent packages
 		QOperatingSystemOmacPackage theOperatingSystemOmacPackage = (QOperatingSystemOmacPackage)EPackage.Registry.INSTANCE.getEPackage(QOperatingSystemOmacPackage.eNS_URI);
+		QFrameworkCorePackage theFrameworkCorePackage = (QFrameworkCorePackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkCorePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -295,6 +317,7 @@ public class OperatingSystemSpoolfilePackageImpl extends EPackageImpl implements
 		// Add supertypes to classes
 		spoolFileEClass.getESuperTypes().add(theOperatingSystemOmacPackage.getObjectNameable());
 		spoolFileRowEClass.getESuperTypes().add(theOperatingSystemOmacPackage.getObject());
+		spoolFileWriterEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(spoolFileEClass, QSpoolFile.class, "SpoolFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -310,6 +333,12 @@ public class OperatingSystemSpoolfilePackageImpl extends EPackageImpl implements
 		initEClass(spoolFileRowEClass, QSpoolFileRow.class, "SpoolFileRow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSpoolFileRow_SpoolFile(), this.getSpoolFile(), this.getSpoolFile_Rows(), "spoolFile", null, 1, 1, QSpoolFileRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSpoolFileRow_Content(), ecorePackage.getEString(), "content", null, 1, 1, QSpoolFileRow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(spoolFileWriterEClass, QSpoolFileWriter.class, "SpoolFileWriter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		EOperation op = addEOperation(spoolFileWriterEClass, null, "writeSpoolFile", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFrameworkCorePackage.getContextID(), "contextID", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getSpoolFile(), "spoolFile", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

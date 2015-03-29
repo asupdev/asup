@@ -7,6 +7,7 @@
  */
 package org.asup.os.splf;
 
+import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.os.omac.QOperatingSystemOmacPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -192,6 +193,35 @@ public interface QOperatingSystemSpoolfilePackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.asup.os.splf.impl.SpoolFileWriterImpl <em>Spool File Writer</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.os.splf.impl.SpoolFileWriterImpl
+	 * @see org.asup.os.splf.impl.OperatingSystemSpoolfilePackageImpl#getSpoolFileWriter()
+	 * @generated
+	 */
+	int SPOOL_FILE_WRITER = 2;
+
+	/**
+	 * The feature id for the '<em><b>Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPOOL_FILE_WRITER__CONFIG = QFrameworkCorePackage.SERVICE__CONFIG;
+
+	/**
+	 * The number of structural features of the '<em>Spool File Writer</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPOOL_FILE_WRITER_FEATURE_COUNT = QFrameworkCorePackage.SERVICE_FEATURE_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.os.splf.QSpoolFile <em>Spool File</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -322,6 +352,16 @@ public interface QOperatingSystemSpoolfilePackage extends EPackage {
 	EAttribute getSpoolFileRow_Content();
 
 	/**
+	 * Returns the meta object for class '{@link org.asup.os.splf.QSpoolFileWriter <em>Spool File Writer</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Spool File Writer</em>'.
+	 * @see org.asup.os.splf.QSpoolFileWriter
+	 * @generated
+	 */
+	EClass getSpoolFileWriter();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -442,6 +482,16 @@ public interface QOperatingSystemSpoolfilePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute SPOOL_FILE_ROW__CONTENT = eINSTANCE.getSpoolFileRow_Content();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.os.splf.impl.SpoolFileWriterImpl <em>Spool File Writer</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.os.splf.impl.SpoolFileWriterImpl
+		 * @see org.asup.os.splf.impl.OperatingSystemSpoolfilePackageImpl#getSpoolFileWriter()
+		 * @generated
+		 */
+		EClass SPOOL_FILE_WRITER = eINSTANCE.getSpoolFileWriter();
 
 	}
 

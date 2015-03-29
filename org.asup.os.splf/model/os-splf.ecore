@@ -43,4 +43,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpoolFileWriter" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
+    <eOperations name="writeSpoolFile">
+      <eParameters name="contextID" lowerBound="1" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+      <eParameters name="spoolFile" lowerBound="1" eType="#//SpoolFile"/>
+    </eOperations>
+  </eClassifiers>
 </ecore:EPackage>
