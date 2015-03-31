@@ -75,6 +75,14 @@ public interface QJobManager extends QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model contextIDRequired="true" jobIDRequired="true"
+	 * @generated
+	 */
+	QJob lookupActiveJob(QContextID contextID, String jobID);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model contextIDRequired="true"
 	 * @generated
 	 */

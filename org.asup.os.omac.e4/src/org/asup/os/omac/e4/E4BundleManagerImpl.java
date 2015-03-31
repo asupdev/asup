@@ -32,7 +32,6 @@ import org.asup.os.omac.QBundleVisitor;
 import org.asup.os.omac.QObject;
 import org.asup.os.omac.QObjectContainer;
 import org.asup.os.omac.impl.BundleManagerImpl;
-import org.asup.os.type.cmd.CommandStatus;
 import org.asup.os.type.cmd.QCommand;
 import org.asup.os.type.cmd.QCommandContainer;
 import org.asup.os.type.module.QModule;
@@ -208,8 +207,11 @@ public class E4BundleManagerImpl extends BundleManagerImpl {
 				
 				for(QCommand command: commands) {
 					try {
-						if(command.getStatus() == CommandStatus.SUPPORTED ||
-						   command.getStatus() == CommandStatus.TODO)
+//						if(command.getStatus() == CommandStatus.SUPPORTED ||
+//						   command.getStatus() == CommandStatus.TODO)
+						
+							command.setAddress(entry.toString());
+							command.setType(commandContainer.getType());
 							commandWriter.save(command, true);
 							
 					} catch (OperatingSystemException e) {

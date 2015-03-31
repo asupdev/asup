@@ -43,7 +43,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.EcorePackage;
 
-@Program(name = "QSQSCHEM")
+@Program(name = "QSQSCHEM", text="Run SQL Statement")
 public class SQLStatementRunner {
 
 	@Inject

@@ -39,17 +39,39 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link org.asup.os.type.cmd.impl.CommandImpl#getAddress <em>Address</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.impl.CommandImpl#isAllowBatch <em>Allow Batch</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.impl.CommandImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.impl.CommandImpl#getProgram <em>Program</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.impl.CommandImpl#getSource <em>Source</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.impl.CommandImpl#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.asup.os.type.cmd.impl.CommandImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class CommandImpl extends TypedObjectImpl implements QCommand {
+	/**
+	 * The default value of the '{@link #getAddress() <em>Address</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAddress()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ADDRESS_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getAddress() <em>Address</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAddress()
+	 * @generated
+	 * @ordered
+	 */
+	protected String address = ADDRESS_EDEFAULT;
+
 	/**
 	 * The default value of the '{@link #isAllowBatch() <em>Allow Batch</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -136,6 +158,26 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 	protected CommandStatus status = STATUS_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TYPE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getType()
+	 * @generated
+	 * @ordered
+	 */
+	protected String type = TYPE_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -152,6 +194,27 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 	@Override
 	protected EClass eStaticClass() {
 		return QOperatingSystemCommandPackage.Literals.COMMAND;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getAddress() {
+		return address;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAddress(String newAddress) {
+		String oldAddress = address;
+		address = newAddress;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemCommandPackage.COMMAND__ADDRESS, oldAddress, address));
 	}
 
 	/**
@@ -275,6 +338,27 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getType() {
+		return type;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setType(String newType) {
+		String oldType = type;
+		type = newType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemCommandPackage.COMMAND__TYPE, oldType, type));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public QCommandParameter getParameter(String name) {
@@ -342,6 +426,8 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case QOperatingSystemCommandPackage.COMMAND__ADDRESS:
+				return getAddress();
 			case QOperatingSystemCommandPackage.COMMAND__ALLOW_BATCH:
 				return isAllowBatch();
 			case QOperatingSystemCommandPackage.COMMAND__PARAMETERS:
@@ -352,6 +438,8 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 				return getSource();
 			case QOperatingSystemCommandPackage.COMMAND__STATUS:
 				return getStatus();
+			case QOperatingSystemCommandPackage.COMMAND__TYPE:
+				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -365,6 +453,9 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case QOperatingSystemCommandPackage.COMMAND__ADDRESS:
+				setAddress((String)newValue);
+				return;
 			case QOperatingSystemCommandPackage.COMMAND__ALLOW_BATCH:
 				setAllowBatch((Boolean)newValue);
 				return;
@@ -381,6 +472,9 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 			case QOperatingSystemCommandPackage.COMMAND__STATUS:
 				setStatus((CommandStatus)newValue);
 				return;
+			case QOperatingSystemCommandPackage.COMMAND__TYPE:
+				setType((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -393,6 +487,9 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case QOperatingSystemCommandPackage.COMMAND__ADDRESS:
+				setAddress(ADDRESS_EDEFAULT);
+				return;
 			case QOperatingSystemCommandPackage.COMMAND__ALLOW_BATCH:
 				setAllowBatch(ALLOW_BATCH_EDEFAULT);
 				return;
@@ -408,6 +505,9 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 			case QOperatingSystemCommandPackage.COMMAND__STATUS:
 				setStatus(STATUS_EDEFAULT);
 				return;
+			case QOperatingSystemCommandPackage.COMMAND__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -420,6 +520,8 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case QOperatingSystemCommandPackage.COMMAND__ADDRESS:
+				return ADDRESS_EDEFAULT == null ? address != null : !ADDRESS_EDEFAULT.equals(address);
 			case QOperatingSystemCommandPackage.COMMAND__ALLOW_BATCH:
 				return allowBatch != ALLOW_BATCH_EDEFAULT;
 			case QOperatingSystemCommandPackage.COMMAND__PARAMETERS:
@@ -430,6 +532,8 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 				return source != null;
 			case QOperatingSystemCommandPackage.COMMAND__STATUS:
 				return status != STATUS_EDEFAULT;
+			case QOperatingSystemCommandPackage.COMMAND__TYPE:
+				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -444,12 +548,16 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (allowBatch: ");
+		result.append(" (address: ");
+		result.append(address);
+		result.append(", allowBatch: ");
 		result.append(allowBatch);
 		result.append(", program: ");
 		result.append(program);
 		result.append(", status: ");
 		result.append(status);
+		result.append(", type: ");
+		result.append(type);
 		result.append(')');
 		return result.toString();
 	}

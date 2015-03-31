@@ -100,6 +100,10 @@
     <eOperations name="getProgramStack" eType="#//ProgramStack">
       <eParameters name="contextID" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
     </eOperations>
+    <eOperations name="getProgramStack" eType="#//ProgramStack">
+      <eParameters name="contextID" eType="ecore:EClass ../../org.asup.fw.core/model/fw-core.ecore#//ContextID"/>
+      <eParameters name="jobID" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eOperations name="loadProgram" eType="#//CallableProgram" eExceptions="#//OperatingSystemRuntimeProgramException">
       <eParameters name="job" eType="ecore:EClass ../../org.asup.os.core/model/os-core.ecore#//jobs/Job"/>
       <eParameters name="program" lowerBound="1" eType="#//Program"/>

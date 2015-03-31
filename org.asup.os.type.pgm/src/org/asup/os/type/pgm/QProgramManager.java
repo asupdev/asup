@@ -67,6 +67,14 @@ public interface QProgramManager extends QTypedManager<QProgram> {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model jobIDRequired="true"
+	 * @generated
+	 */
+	QProgramStack getProgramStack(QContextID contextID, String jobID);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model exceptions="org.asup.os.type.pgm.OperatingSystemRuntimeProgramException" programRequired="true"
 	 * @generated
 	 */

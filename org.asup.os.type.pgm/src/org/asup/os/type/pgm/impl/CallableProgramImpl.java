@@ -220,7 +220,7 @@ public abstract class CallableProgramImpl extends MinimalEObjectImpl.Container i
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public QData[] call() {
 		// TODO: implement this method
