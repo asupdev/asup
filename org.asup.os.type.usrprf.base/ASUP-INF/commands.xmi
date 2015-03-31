@@ -6,7 +6,8 @@
     xmlns:il-core="http://www.asup.org/il/core"
     xmlns:il-data="http://www.asup.org/il/data"
     xmlns:os-type-cmd="http://www.asup.org/os/type/cmd"
-    name="os-type-usrprf-command">
+    name="os-type-usrprf-command"
+    type="*USRPRF">
   <contents
       xsi:type="os-type-cmd:Command"
       name="CHGUSRPRF"

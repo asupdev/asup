@@ -24,6 +24,11 @@
     <eOperations name="getParameters" lowerBound="1" upperBound="-1" eType="#//CommandParameter">
       <eParameters name="order" lowerBound="1" eType="#//CommandParameterOrder"/>
     </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">
+        <details key="length" value="128"/>
+      </eAnnotations>
+    </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowBatch" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
@@ -39,6 +44,11 @@
         defaultValueLiteral="SUP">
       <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">
         <details key="length" value="10"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="il-data" references="../../org.asup.il.data/model/il-data.ecore#//CharacterDef">
+        <details key="length" value="128"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

@@ -76,6 +76,23 @@ public class E4JobManagerImpl extends JobManagerImpl {
 	}
 
 	@Override
+	public QJob lookupActiveJob(QContextID contextID, String jobID) {
+
+//		QJob jobCaller = lookup(contextID);
+
+		QJob job = null;
+		for(QJob activeJob: getActiveJobs()) {
+			
+			if(activeJob.getID().equals(jobID)) {
+				job = activeJob;
+				break;
+			}			
+		}
+		
+		return job;
+	}
+
+	@Override
 	public QJob lookup(QContextID contextID, String name, String user, int number) {
 
 		QJob jobCaller = lookup(contextID);

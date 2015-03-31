@@ -43,173 +43,177 @@ public class CDOJobManagerImpl extends JobManagerImpl {
 
 	private CDOSystemManagerImpl systemManager;
 	private QResourceFactory resourceFactory;
-	
-	private static final String CDO_RESOURCE = "os/core"; 
-	
+
+	private static final String CDO_RESOURCE = "os/core";
+
 	private Map<String, QJob> activeJobs;
-	
+
 	@Inject
 	public CDOJobManagerImpl(QSystemManager systemManager, QResourceFactory resourceFactory) {
-		
-		this.systemManager = (CDOSystemManagerImpl) systemManager;	
+
+		this.systemManager = (CDOSystemManagerImpl) systemManager;
 		this.resourceFactory = resourceFactory;
 		this.activeJobs = new HashMap<String, QJob>();
-		
+
 		new CDOJobCloser(this).start();
 	}
-	
+
 	@Override
 	public QJob create(String user, String password) throws OperatingSystemException {
-		
+
 		QJob startupJob = systemManager.getStartupJob();
 		QResourceReader<QUserProfile> userResource = resourceFactory.getResourceReader(startupJob, QUserProfile.class, systemManager.getSystem().getSystemLibrary());
-		
+
 		// check credential
-    	QUserProfile userProfile = userResource.lookup(user);
-		
-    	if(userProfile == null) 
-    		throw new OperatingSystemException("User "+user+" not found");
+		QUserProfile userProfile = userResource.lookup(user);
 
-    	// lock system
+		if (userProfile == null)
+			throw new OperatingSystemException("User " + user + " not found");
+
+		// lock system
 		// acquire system lock
-		while(!systemManager.getLocker().tryLock(startupJob, systemManager.getTransactionSystem(), QSystem.LOCK_TIMEOUT, LockType.EXCLUSIVE)); 
-//			System.out.print("Retry lock system "+systemManager.getSystem().getName());
-		
+		while (!systemManager.getLocker().tryLock(startupJob, systemManager.getTransactionSystem(), QSystem.LOCK_TIMEOUT, LockType.EXCLUSIVE))
+			;
+		// System.out.print("Retry lock system "+systemManager.getSystem().getName());
 
-	    try {
-//			System.out.println("lock system "+systemManager.getSystem().getName()+" jobManager");
-	    	
-	    	QJob job = systemManager.createJob(JobType.BATCH, userProfile.getName());
-	    	   	
-		    // add job description libraries
-		    if(userProfile.getJobDescription() != null) {
-			    QResourceReader<QJobDescription> jobDescriptionResource = resourceFactory.getResourceReader(startupJob, QJobDescription.class, Scope.ALL);
-			    QJobDescription jobDescription = jobDescriptionResource.lookup(userProfile.getJobDescription());
-		    	if(jobDescription != null) {
-			    	for(String library: jobDescription.getLibraries()) {
-			    		job.getLibraries().add(library);
-			    	}
-		    	}
-		    }    	    
-		    
-	    	// save job
+		try {
+			// System.out.println("lock system "+systemManager.getSystem().getName()+" jobManager");
+
+			QJob job = systemManager.createJob(JobType.BATCH, userProfile.getName());
+
+			// add job description libraries
+			if (userProfile.getJobDescription() != null) {
+				QResourceReader<QJobDescription> jobDescriptionResource = resourceFactory.getResourceReader(startupJob, QJobDescription.class, Scope.ALL);
+				QJobDescription jobDescription = jobDescriptionResource.lookup(userProfile.getJobDescription());
+				if (jobDescription != null) {
+					for (String library : jobDescription.getLibraries()) {
+						job.getLibraries().add(library);
+					}
+				}
+			}
+
+			// save job
 			CDOResource resource = systemManager.getTransaction().getOrCreateResource(CDO_RESOURCE);
-			resource.getContents().add((EObject)job);
+			resource.getContents().add((EObject) job);
 			systemManager.getTransaction().commit();
-		    
-		    activeJobs.put(job.getID(), job);
-		    
-	    	return job;
-		}
-	    catch (CommitException e) {
+
+			activeJobs.put(job.getID(), job);
+
+			return job;
+		} catch (CommitException e) {
 			throw new OperatingSystemException(e);
-		}
-	    finally {
+		} finally {
 			systemManager.getLocker().unlock(startupJob, systemManager.getTransactionSystem());
-//			System.out.println("unlock system "+systemManager.getSystem().getName()+" jobManager");
-	    }
+			// System.out.println("unlock system "+systemManager.getSystem().getName()+" jobManager");
+		}
 	}
 
 	@Override
 	public QJob create(QJob credential) throws OperatingSystemException {
-		return create(credential.getJobUser(), "*SAME");		
+		return create(credential.getJobUser(), "*SAME");
 	}
 
 	@Override
 	public QJob lookup(QContextID contextID, String name, String user, int number) {
-				
-		StringBuffer queryString = new StringBuffer();
-		queryString.append("select * from "+CDOResourceUtil.getTableName(QJob.class));
-		queryString.append(" where jobName=:jobName and jobUser=:jobUser and jobNumber=:jobNumber");		
-	    
-		CDOQuery query = systemManager.getView().createQuery("sql", queryString.toString());	    
-	    query.setParameter("jobName", name);
-	    query.setParameter("jobUser", user);
-	    query.setParameter("jobNumber", number);
 
-	    QJob qJob = query.getResultValue(QJob.class);
-	    
-	    if(qJob== null)
-	    	throw new OperatingSystemRuntimeException("Job not found: "+qJob);
+		StringBuffer queryString = new StringBuffer();
+		queryString.append("select * from " + CDOResourceUtil.getTableName(QJob.class));
+		queryString.append(" where jobName=:jobName and jobUser=:jobUser and jobNumber=:jobNumber");
+
+		CDOQuery query = systemManager.getView().createQuery("sql", queryString.toString());
+		query.setParameter("jobName", name);
+		query.setParameter("jobUser", user);
+		query.setParameter("jobNumber", number);
+
+		QJob qJob = query.getResultValue(QJob.class);
+
+		if (qJob == null)
+			throw new OperatingSystemRuntimeException("Job not found: " + qJob);
 
 		return qJob;
 	}
 
 	@Override
 	public List<QJob> getActiveJobs() {
-		
+
 		StringBuffer queryString = new StringBuffer();
-		queryString.append("select * from "+CDOResourceUtil.getTableName(QJob.class));
-		queryString.append(" where jobStatus<>:end");		
-	    
+		queryString.append("select * from " + CDOResourceUtil.getTableName(QJob.class));
+		queryString.append(" where jobStatus<>:end");
+
 		CDOQuery query = systemManager.getView().createQuery("sql", queryString.toString());
-	    
-	    query.setParameter("end", JobStatus.END_VALUE);
-	    
-		List<QJob> jobs = query.getResult(QJob.class) ;		
+
+		query.setParameter("end", JobStatus.END_VALUE);
+
+		List<QJob> jobs = query.getResult(QJob.class);
 		return jobs;
 	}
 
 	@Override
 	public QJob lookup(QContextID contextID) {
-		
+
 		QJob job = null;
 
-		if(contextID instanceof QJob) {
-			job = (QJob)contextID;
-			
+		if (contextID instanceof QJob) {
+			job = (QJob) contextID;
+
 			// not active reference
-			if(job.getContext() == null)
+			if (job.getContext() == null)
 				job = activeJobs.get(contextID.getID());
-		}
-		else
+		} else
 			job = activeJobs.get(contextID.getID());
 
-		if(job != null)
+		if (job != null)
 			return job;
-		
-		StringBuffer queryString = new StringBuffer();
-		queryString.append("select * from "+CDOResourceUtil.getTableName(QJob.class));
-		queryString.append(" where jobID=:jobID");		
-	    
-		CDOQuery query = systemManager.getView().createQuery("sql", queryString.toString());	    
-	    query.setParameter("jobID", contextID);
 
-	    QJob qJob = query.getResultValue(QJob.class);
-	    
-	    if(qJob== null)
-	    	throw new OperatingSystemRuntimeException("Job not found: "+qJob);
-	    
-	    if(qJob.getJobStatus().equals(JobStatus.END))
-	    	throw new OperatingSystemRuntimeException("Job not active: "+qJob);
+		StringBuffer queryString = new StringBuffer();
+		queryString.append("select * from " + CDOResourceUtil.getTableName(QJob.class));
+		queryString.append(" where jobID=:jobID");
+
+		CDOQuery query = systemManager.getView().createQuery("sql", queryString.toString());
+		query.setParameter("jobID", contextID);
+
+		QJob qJob = query.getResultValue(QJob.class);
+
+		if (qJob == null)
+			throw new OperatingSystemRuntimeException("Job not found: " + qJob);
+
+		if (qJob.getJobStatus().equals(JobStatus.END))
+			throw new OperatingSystemRuntimeException("Job not active: " + qJob);
 
 		return qJob;
 	}
-	
+
+	@Override
+	public QJob lookupActiveJob(QContextID contextID, String jobID) {
+
+		QJob job = this.activeJobs.get(jobID);
+
+		return job;
+	}
+
 	protected CDOTransaction getTransaction() {
 		return systemManager.getTransaction();
 	}
-	
+
 	@Override
 	public void updateStatus(QJob job, JobStatus status) throws OperatingSystemException {
-	    try {
-	    	// save job
+		try {
+			// save job
 			CDOResource resource = systemManager.getTransaction().getOrCreateResource(CDO_RESOURCE);
 			job.setJobStatus(status);
-			resource.getContents().add((EObject)job);
-			systemManager.getTransaction().commit();			
-		}
-	    catch (CommitException e) {
+			resource.getContents().add((EObject) job);
+			systemManager.getTransaction().commit();
+		} catch (CommitException e) {
 			throw new OperatingSystemException(e);
-		}		
+		}
 	}
 
 	@Override
 	public void close(QJob job) throws OperatingSystemException {
 		QJob activeJob = this.activeJobs.get(job.getJobID());
-		if(activeJob != null)
+		if (activeJob != null)
 			this.activeJobs.remove(activeJob);
-		
+
 		job.getContext().close();
 	}
 }

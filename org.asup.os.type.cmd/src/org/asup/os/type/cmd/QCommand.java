@@ -19,11 +19,13 @@ import org.asup.os.type.QTypedObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link org.asup.os.type.cmd.QCommand#getAddress <em>Address</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.QCommand#isAllowBatch <em>Allow Batch</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.QCommand#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.QCommand#getProgram <em>Program</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.QCommand#getSource <em>Source</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.QCommand#getStatus <em>Status</em>}</li>
+ *   <li>{@link org.asup.os.type.cmd.QCommand#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,6 +34,32 @@ import org.asup.os.type.QTypedObject;
  * @generated
  */
 public interface QCommand extends QTypedObject {
+	/**
+	 * Returns the value of the '<em><b>Address</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Address</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Address</em>' attribute.
+	 * @see #setAddress(String)
+	 * @see org.asup.os.type.cmd.QOperatingSystemCommandPackage#getCommand_Address()
+	 * @model annotation="il-data length='128'"
+	 * @generated
+	 */
+	String getAddress();
+
+	/**
+	 * Sets the value of the '{@link org.asup.os.type.cmd.QCommand#getAddress <em>Address</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Address</em>' attribute.
+	 * @see #getAddress()
+	 * @generated
+	 */
+	void setAddress(String value);
+
 	/**
 	 * Returns the value of the '<em><b>Allow Batch</b></em>' attribute.
 	 * The default value is <code>"true"</code>.
@@ -157,6 +185,32 @@ public interface QCommand extends QTypedObject {
 	 * @generated
 	 */
 	void setStatus(CommandStatus value);
+
+	/**
+	 * Returns the value of the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Type</em>' attribute.
+	 * @see #setType(String)
+	 * @see org.asup.os.type.cmd.QOperatingSystemCommandPackage#getCommand_Type()
+	 * @model annotation="il-data length='128'"
+	 * @generated
+	 */
+	String getType();
+
+	/**
+	 * Sets the value of the '{@link org.asup.os.type.cmd.QCommand#getType <em>Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Type</em>' attribute.
+	 * @see #getType()
+	 * @generated
+	 */
+	void setType(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

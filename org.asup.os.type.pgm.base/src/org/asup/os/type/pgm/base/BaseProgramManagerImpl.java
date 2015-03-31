@@ -10,6 +10,7 @@
 package org.asup.os.type.pgm.base;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.WeakHashMap;
 import java.util.concurrent.TimeUnit;
@@ -52,13 +53,13 @@ public class BaseProgramManagerImpl extends ProgramManagerImpl {
 
 	private BaseProgramCallableHelper baseCallableHelper;
 	private Map<Thread, QResourceSetReader<QProgram>> programReaders ;
-	private Map<Thread, QProgramStack> programStacks;
+	private Map<String, QProgramStack> programStacks;
 
 	@PostConstruct
 	private void init() {
 		this.baseCallableHelper = new BaseProgramCallableHelper(activationGroupManager);
 		this.programReaders = new WeakHashMap<Thread, QResourceSetReader<QProgram>>();
-		this.programStacks = new WeakHashMap<Thread, QProgramStack>();
+		this.programStacks = new HashMap<String, QProgramStack>();
 	}
 	
 	
@@ -148,11 +149,19 @@ public class BaseProgramManagerImpl extends ProgramManagerImpl {
 	@Override
 	public QProgramStack getProgramStack(QContextID contextID) {
 
-		QProgramStack programStack = programStacks.get(Thread.currentThread());
+		QProgramStack programStack = programStacks.get(contextID.getID());
 		if(programStack == null) {
 			programStack = QOperatingSystemProgramFactory.eINSTANCE.createProgramStack();
-			programStacks.put(Thread.currentThread(), programStack);
+			programStacks.put(contextID.getID(), programStack);
 		}
+		return programStack;
+	}
+
+	@Override
+	public QProgramStack getProgramStack(QContextID contextID, String jobID) {
+		
+		QProgramStack programStack = programStacks.get(jobID);
+		
 		return programStack;
 	}
 
