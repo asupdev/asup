@@ -8,7 +8,5 @@ asupdb2create $1
 
 db2 -tvf  $2/$1_create.sql
 
-db2move $1 load -lo replace -l $2 
-
-echo "Import of $1 terminated"
+echo "Import of DDL for $1 terminated"
 

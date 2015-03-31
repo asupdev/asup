@@ -5,8 +5,7 @@ if [ $# -lt 2 ]; then
     exit 1
 fi
 
-db2look -d $1  -e -l -x -o $2/$1_create.sql
-db2move $1 export
+db2look -d $1  -o $2/$1_create.sql -l -e -x
 
-echo "Export of $1 terminated"
+echo "Export of DDL for $1 terminated"
 
