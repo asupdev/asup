@@ -51,6 +51,13 @@
     <eLiterals name="RegularExpression" value="70" literal="REGEXP"/>
     <eLiterals name="SimpleName" value="20" literal="SNAME"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Frame" abstract="true" interface="true"
+      eSuperTypes="#//Nameable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FrameManager" abstract="true" interface="true">
+    <eOperations name="getFrame" lowerBound="1" eType="#//Frame">
+      <eParameters name="object" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    </eOperations>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MultipleTerm" abstract="true" eSuperTypes="#//Term"/>
   <eClassifiers xsi:type="ecore:EClass" name="NamedNode" abstract="true" eSuperTypes="#//Node #//Nameable">
     <eOperations name="getFacet">

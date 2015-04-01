@@ -19,6 +19,8 @@ import org.asup.il.core.QDictionary;
 import org.asup.il.core.QDomain;
 import org.asup.il.core.QFacet;
 import org.asup.il.core.QFormat;
+import org.asup.il.core.QFrame;
+import org.asup.il.core.QFrameManager;
 import org.asup.il.core.QIntegratedLanguageCoreFactory;
 import org.asup.il.core.QIntegratedLanguageCorePackage;
 import org.asup.il.core.QMultipleTerm;
@@ -114,6 +116,20 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	private EClass formatEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass frameEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass frameManagerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -460,6 +476,24 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 */
 	public EAttribute getFormat_Type() {
 		return (EAttribute)formatEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFrame() {
+		return frameEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFrameManager() {
+		return frameManagerEClass;
 	}
 
 	/**
@@ -825,9 +859,9 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		createEAttribute(formatEClass, FORMAT__EXPRESSION);
 		createEAttribute(formatEClass, FORMAT__TYPE);
 
-		overlayEClass = createEClass(OVERLAY);
-		createEAttribute(overlayEClass, OVERLAY__NAME);
-		createEAttribute(overlayEClass, OVERLAY__POSITION);
+		frameEClass = createEClass(FRAME);
+
+		frameManagerEClass = createEClass(FRAME_MANAGER);
 
 		multipleTermEClass = createEClass(MULTIPLE_TERM);
 
@@ -835,6 +869,10 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		createEReference(namedNodeEClass, NAMED_NODE__FACETS);
 
 		nodeEClass = createEClass(NODE);
+
+		overlayEClass = createEClass(OVERLAY);
+		createEAttribute(overlayEClass, OVERLAY__NAME);
+		createEAttribute(overlayEClass, OVERLAY__POSITION);
 
 		rangeEClass = createEClass(RANGE);
 		createEAttribute(rangeEClass, RANGE__MAX);
@@ -924,10 +962,11 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		domainEClass.getESuperTypes().add(this.getFacet());
 		facetEClass.getESuperTypes().add(this.getNode());
 		formatEClass.getESuperTypes().add(this.getFacet());
-		overlayEClass.getESuperTypes().add(this.getFacet());
+		frameEClass.getESuperTypes().add(this.getNameable());
 		multipleTermEClass.getESuperTypes().add(this.getTerm());
 		namedNodeEClass.getESuperTypes().add(this.getNode());
 		namedNodeEClass.getESuperTypes().add(this.getNameable());
+		overlayEClass.getESuperTypes().add(this.getFacet());
 		rangeEClass.getESuperTypes().add(this.getFacet());
 		remapEClass.getESuperTypes().add(this.getFacet());
 		specialEClass.getESuperTypes().add(this.getFacet());
@@ -971,16 +1010,19 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		initEAttribute(getFormat_Expression(), ecorePackage.getEString(), "expression", null, 0, 1, QFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFormat_Type(), this.getFormatType(), "type", null, 1, 1, QFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(overlayEClass, QOverlay.class, "Overlay", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOverlay_Name(), ecorePackage.getEString(), "name", null, 1, 1, QOverlay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getOverlay_Position(), ecorePackage.getEString(), "position", null, 1, 1, QOverlay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(frameEClass, QFrame.class, "Frame", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(frameManagerEClass, QFrameManager.class, "FrameManager", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		EOperation op = addEOperation(frameManagerEClass, this.getFrame(), "getFrame", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEJavaObject(), "object", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(multipleTermEClass, QMultipleTerm.class, "MultipleTerm", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(namedNodeEClass, QNamedNode.class, "NamedNode", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNamedNode_Facets(), this.getFacet(), null, "facets", null, 0, -1, QNamedNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		EOperation op = addEOperation(namedNodeEClass, null, "getFacet", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(namedNodeEClass, null, "getFacet", 0, 1, IS_UNIQUE, IS_ORDERED);
 		ETypeParameter t1 = addETypeParameter(op, "F");
 		g1 = createEGenericType(this.getFacet());
 		t1.getEBounds().add(g1);
@@ -996,6 +1038,10 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		addEOperation(nodeEClass, this.getNode(), "getParent", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(nodeEClass, ecorePackage.getEBoolean(), "isChild", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(overlayEClass, QOverlay.class, "Overlay", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOverlay_Name(), ecorePackage.getEString(), "name", null, 0, 1, QOverlay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getOverlay_Position(), ecorePackage.getEString(), "position", null, 1, 1, QOverlay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rangeEClass, QRange.class, "Range", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRange_Max(), ecorePackage.getEString(), "max", "1", 1, 1, QRange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

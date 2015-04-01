@@ -38,7 +38,7 @@ public interface QOverlay extends QFacet {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see org.asup.il.core.QIntegratedLanguageCorePackage#getOverlay_Name()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	String getName();
