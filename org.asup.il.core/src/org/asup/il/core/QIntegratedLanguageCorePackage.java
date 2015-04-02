@@ -574,7 +574,111 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	int FORMAT_FEATURE_COUNT = FACET_FEATURE_COUNT + 2;
 
 	/**
+<<<<<<< HEAD
 	 * The feature id for the '<em><b>Slots</b></em>' reference list.
+=======
+	 * The meta object id for the '{@link org.asup.il.core.QFrame <em>Frame</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.QFrame
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getFrame()
+	 * @generated
+	 */
+	int FRAME = 9;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.core.QFrameManager <em>Frame Manager</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.QFrameManager
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getFrameManager()
+	 * @generated
+	 */
+	int FRAME_MANAGER = 10;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.core.impl.RangeImpl <em>Range</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.impl.RangeImpl
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getRange()
+	 * @generated
+	 */
+	int RANGE = 15;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.core.impl.RemapImpl <em>Remap</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.impl.RemapImpl
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getRemap()
+	 * @generated
+	 */
+	int REMAP = 16;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.core.impl.SpecialImpl <em>Special</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.impl.SpecialImpl
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getSpecial()
+	 * @generated
+	 */
+	int SPECIAL = 18;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.core.impl.SpecialElementImpl <em>Special Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.impl.SpecialElementImpl
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getSpecialElement()
+	 * @generated
+	 */
+	int SPECIAL_ELEMENT = 19;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.core.impl.SubjectImpl <em>Subject</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.impl.SubjectImpl
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getSubject()
+	 * @generated
+	 */
+	int SUBJECT = 20;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.core.impl.VerbImpl <em>Verb</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.impl.VerbImpl
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getVerb()
+	 * @generated
+	 */
+	int VERB = 23;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.core.impl.UnaryTermImpl <em>Unary Term</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.impl.UnaryTermImpl
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getUnaryTerm()
+	 * @generated
+	 */
+	int UNARY_TERM = 24;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.core.QNameable <em>Nameable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.QNameable
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getNameable()
+	 * @generated
+	 */
+	int NAMEABLE = 25;
+
+	/**
+	 * The number of structural features of the '<em>Nameable</em>' class.
+>>>>>>> branch 'master' of https://github.com/asupdev/asup.git
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

@@ -654,6 +654,24 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSlot() {
+		return slotEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSlot_Cardinality() {
+		return (EReference)slotEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getRange_Max() {
 		return (EAttribute)rangeEClass.getEStructuralFeatures().get(0);
 	}
@@ -918,6 +936,9 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		remapEClass = createEClass(REMAP);
 		createEAttribute(remapEClass, REMAP__NAME);
 		createEAttribute(remapEClass, REMAP__INDEX);
+
+		slotEClass = createEClass(SLOT);
+		createEReference(slotEClass, SLOT__CARDINALITY);
 
 		slotEClass = createEClass(SLOT);
 		createEReference(slotEClass, SLOT__CARDINALITY);
