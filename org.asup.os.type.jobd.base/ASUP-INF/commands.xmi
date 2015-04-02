@@ -7,7 +7,7 @@
     xmlns:il-data="http://www.asup.org/il/data"
     xmlns:os-type-cmd="http://www.asup.org/os/type/cmd"
     name="org.asup.os.type.jobd.base"
-    type="*JOBD">
+    typeName="*JOBD">
   <contents
       xsi:type="os-type-cmd:Command"
       name="CHGJOBD"
