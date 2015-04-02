@@ -299,8 +299,13 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 			// TODO
 			QTermExpression leftOperand = (QTermExpression) expression.getLeftOperand();			
 			String feature = leftOperand.getValue();			
-			EStructuralFeature eFeature = eObject.eClass().getEStructuralFeature(feature);			
-			String eValue = eObject.eGet(eFeature).toString();
+			EStructuralFeature eFeature = eObject.eClass().getEStructuralFeature(feature);
+			Object object = eObject.eGet(eFeature);
+			String eValue = null;
+			if(object == null)
+				eValue = eFeature.getDefaultValueLiteral();
+			else
+				eValue = object.toString();
 			
 			// TODO
 			QTermExpression rightOperand = (QTermExpression) expression.getRightOperand();
