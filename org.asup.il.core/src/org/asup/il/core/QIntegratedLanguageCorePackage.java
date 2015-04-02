@@ -90,7 +90,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getTermContainer()
 	 * @generated
 	 */
-	int TERM_CONTAINER = 21;
+	int TERM_CONTAINER = 22;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.impl.DictionaryImpl <em>Dictionary</em>}' class.
@@ -110,7 +110,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getTerm()
 	 * @generated
 	 */
-	int TERM = 20;
+	int TERM = 21;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.impl.AtomicTermImpl <em>Atomic Term</em>}' class.
@@ -512,7 +512,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getSpecial()
 	 * @generated
 	 */
-	int SPECIAL = 17;
+	int SPECIAL = 18;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.impl.SpecialElementImpl <em>Special Element</em>}' class.
@@ -522,7 +522,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getSpecialElement()
 	 * @generated
 	 */
-	int SPECIAL_ELEMENT = 18;
+	int SPECIAL_ELEMENT = 19;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.impl.SubjectImpl <em>Subject</em>}' class.
@@ -532,7 +532,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getSubject()
 	 * @generated
 	 */
-	int SUBJECT = 19;
+	int SUBJECT = 20;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.impl.VerbImpl <em>Verb</em>}' class.
@@ -542,7 +542,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getVerb()
 	 * @generated
 	 */
-	int VERB = 22;
+	int VERB = 23;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.impl.UnaryTermImpl <em>Unary Term</em>}' class.
@@ -552,7 +552,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getUnaryTerm()
 	 * @generated
 	 */
-	int UNARY_TERM = 23;
+	int UNARY_TERM = 24;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.QNameable <em>Nameable</em>}' class.
@@ -562,7 +562,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getNameable()
 	 * @generated
 	 */
-	int NAMEABLE = 24;
+	int NAMEABLE = 25;
 
 	/**
 	 * The number of structural features of the '<em>Nameable</em>' class.
@@ -698,6 +698,34 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @ordered
 	 */
 	int REMAP_FEATURE_COUNT = FACET_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.core.QSlot <em>Slot</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.QSlot
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getSlot()
+	 * @generated
+	 */
+	int SLOT = 17;
+
+	/**
+	 * The feature id for the '<em><b>Cardinality</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOT__CARDINALITY = NAMEABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Slot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOT_FEATURE_COUNT = NAMEABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Class Delegate</b></em>' attribute.
@@ -878,7 +906,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getConversionStatus()
 	 * @generated
 	 */
-	int CONVERSION_STATUS = 25;
+	int CONVERSION_STATUS = 26;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.FormatType <em>Format Type</em>}' enum.
@@ -888,7 +916,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getFormatType()
 	 * @generated
 	 */
-	int FORMAT_TYPE = 26;
+	int FORMAT_TYPE = 27;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.il.core.QAtomicTerm <em>Atomic Term</em>}'.
@@ -1246,6 +1274,27 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRemap_Index();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.il.core.QSlot <em>Slot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Slot</em>'.
+	 * @see org.asup.il.core.QSlot
+	 * @generated
+	 */
+	EClass getSlot();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.asup.il.core.QSlot#getCardinality <em>Cardinality</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Cardinality</em>'.
+	 * @see org.asup.il.core.QSlot#getCardinality()
+	 * @see #getSlot()
+	 * @generated
+	 */
+	EReference getSlot_Cardinality();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.asup.il.core.QRange#getMax <em>Max</em>}'.
@@ -1795,6 +1844,24 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute REMAP__INDEX = eINSTANCE.getRemap_Index();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.il.core.QSlot <em>Slot</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.il.core.QSlot
+		 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getSlot()
+		 * @generated
+		 */
+		EClass SLOT = eINSTANCE.getSlot();
+
+		/**
+		 * The meta object literal for the '<em><b>Cardinality</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SLOT__CARDINALITY = eINSTANCE.getSlot_Cardinality();
 
 		/**
 		 * The meta object literal for the '<em><b>Max</b></em>' attribute feature.

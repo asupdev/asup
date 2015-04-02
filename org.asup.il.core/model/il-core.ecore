@@ -93,6 +93,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Slot" abstract="true" interface="true"
+      eSuperTypes="#//Nameable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cardinality" lowerBound="1"
+        eType="#//Cardinality"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Special" eSuperTypes="#//Facet">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="classDelegate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
