@@ -100,6 +100,7 @@
       eSuperTypes="#//Nameable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="cardinality" lowerBound="1"
         eType="#//Cardinality"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Special" eSuperTypes="#//Facet">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="classDelegate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

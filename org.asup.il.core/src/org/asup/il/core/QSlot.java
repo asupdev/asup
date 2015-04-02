@@ -17,6 +17,7 @@ package org.asup.il.core;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.asup.il.core.QSlot#getCardinality <em>Cardinality</em>}</li>
+ *   <li>{@link org.asup.il.core.QSlot#getDefaultValue <em>Default Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,4 +52,30 @@ public interface QSlot extends QNameable {
 	 * @generated
 	 */
 	void setCardinality(QCardinality value);
+
+	/**
+	 * Returns the value of the '<em><b>Default Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Default Value</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Default Value</em>' attribute.
+	 * @see #setDefaultValue(String)
+	 * @see org.asup.il.core.QIntegratedLanguageCorePackage#getSlot_DefaultValue()
+	 * @model
+	 * @generated
+	 */
+	String getDefaultValue();
+
+	/**
+	 * Sets the value of the '{@link org.asup.il.core.QSlot#getDefaultValue <em>Default Value</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Value</em>' attribute.
+	 * @see #getDefaultValue()
+	 * @generated
+	 */
+	void setDefaultValue(String value);
 } // QSlot

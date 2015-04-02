@@ -26,4 +26,14 @@ public class E4SlotAdapter implements QSlot {
 	public void setCardinality(QCardinality value) {
 		throw new UnsupportedOperationException();
 	}
+
+	@Override
+	public String getDefaultValue() {
+		return this.structuralFeature.getDefaultValueLiteral();
+	}
+
+	@Override
+	public void setDefaultValue(String value) {
+		throw new UnsupportedOperationException();
+	}
 }

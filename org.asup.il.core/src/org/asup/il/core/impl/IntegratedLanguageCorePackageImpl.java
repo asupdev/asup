@@ -8,7 +8,9 @@
 package org.asup.il.core.impl;
 
 import org.asup.fw.core.QFrameworkCorePackage;
+
 import org.asup.fw.java.QFrameworkJavaPackage;
+
 import org.asup.il.core.ConversionStatus;
 import org.asup.il.core.FormatType;
 import org.asup.il.core.QAtomicTerm;
@@ -39,6 +41,7 @@ import org.asup.il.core.QTerm;
 import org.asup.il.core.QTermContainer;
 import org.asup.il.core.QUnaryTerm;
 import org.asup.il.core.QVerb;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -47,6 +50,7 @@ import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.ETypeParameter;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -138,13 +142,6 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass overlayEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass multipleTermEClass = null;
 
 	/**
@@ -160,6 +157,13 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	private EClass nodeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass overlayEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -339,6 +343,15 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCardinality_Max() {
+		return (EAttribute)cardinalityEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getCardinality_Min() {
 		return (EAttribute)cardinalityEClass.getEStructuralFeatures().get(1);
 	}
@@ -377,15 +390,6 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 */
 	public EClass getDerived() {
 		return derivedEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getCardinality_Max() {
-		return (EAttribute)cardinalityEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -483,6 +487,15 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getFormat_Expression() {
+		return (EAttribute)formatEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EAttribute getFormat_Type() {
 		return (EAttribute)formatEClass.getEStructuralFeatures().get(1);
 	}
@@ -512,42 +525,6 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 */
 	public EClass getFrameManager() {
 		return frameManagerEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFormat_Expression() {
-		return (EAttribute)formatEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getOverlay() {
-		return overlayEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOverlay_Name() {
-		return (EAttribute)overlayEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getOverlay_Position() {
-		return (EAttribute)overlayEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -591,8 +568,44 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getOverlay() {
+		return overlayEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOverlay_Name() {
+		return (EAttribute)overlayEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOverlay_Position() {
+		return (EAttribute)overlayEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRange() {
 		return rangeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getRange_Max() {
+		return (EAttribute)rangeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -654,26 +667,8 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSlot() {
-		return slotEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSlot_Cardinality() {
-		return (EReference)slotEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getRange_Max() {
-		return (EAttribute)rangeEClass.getEStructuralFeatures().get(0);
+	public EAttribute getSlot_DefaultValue() {
+		return (EAttribute)slotEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -939,9 +934,7 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 
 		slotEClass = createEClass(SLOT);
 		createEReference(slotEClass, SLOT__CARDINALITY);
-
-		slotEClass = createEClass(SLOT);
-		createEReference(slotEClass, SLOT__CARDINALITY);
+		createEAttribute(slotEClass, SLOT__DEFAULT_VALUE);
 
 		specialEClass = createEClass(SPECIAL);
 		createEAttribute(specialEClass, SPECIAL__CLASS_DELEGATE);
@@ -1118,6 +1111,7 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 
 		initEClass(slotEClass, QSlot.class, "Slot", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSlot_Cardinality(), this.getCardinality(), null, "cardinality", null, 1, 1, QSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSlot_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 0, 1, QSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(specialEClass, QSpecial.class, "Special", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSpecial_ClassDelegate(), ecorePackage.getEString(), "classDelegate", null, 0, 1, QSpecial.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
