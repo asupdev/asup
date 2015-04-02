@@ -19373,7 +19373,8 @@
       name="CRTDSPF"
       text="Create Display File"
       program="QDDCDPF"
-      status="TODO">
+      status="TODO"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="FILE"
@@ -20178,7 +20179,8 @@
       name="CRTJRN"
       text="Create Journal"
       program="QJOCRTJN"
-      status="POS">
+      status="POS"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="JRN"
@@ -20661,7 +20663,8 @@
       name="CRTLF"
       text="Create Logical File"
       program="QDDCLF"
-      status="TODO">
+      status="TODO"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="FILE"
@@ -21537,7 +21540,8 @@
       name="CRTPF"
       text="Create Physical File"
       program="QDDCPF"
-      status="TODO">
+      status="TODO"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="FILE"
@@ -22619,7 +22623,8 @@
       name="CRTPRTF"
       text="Create Printer File"
       program="QDDCDPF"
-      status="POS">
+      status="POS"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="FILE"
@@ -26487,7 +26492,8 @@
       name="CRTQMQRY"
       text="Create Query Management Query"
       program="QQXCLIMX"
-      status="POS">
+      status="POS"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="QMQRY"
@@ -26783,7 +26789,8 @@
       text="Create Q/A Database"
       allowBatch="false"
       program="QQA0MAIN"
-      status="POS">
+      status="POS"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="QSTDB"
@@ -26839,7 +26846,8 @@
       name="CRTSRCPF"
       text="Create Source Physical File"
       program="QDDCPF"
-      status="TODO">
+      status="TODO"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="FILE"
@@ -53200,7 +53208,8 @@
       text="Work with DB Files using IDDU"
       allowBatch="false"
       program="QIDIN"
-      status="POS">
+      status="POS"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="LIB"
@@ -53236,7 +53245,8 @@
       name="WRKDDMF"
       text="Work with DDM Files"
       program="QTSWKDDM"
-      status="POS">
+      status="POS"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="FILE"
@@ -53332,7 +53342,8 @@
       text="Work with Files"
       allowBatch="false"
       program="QMNWRKXX"
-      status="TODO">
+      status="TODO"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="FILE"
@@ -53488,7 +53499,8 @@
       text="Work with Journal"
       allowBatch="false"
       program="QJOJNMNU"
-      status="POS">
+      status="POS"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="JRN"
@@ -53556,7 +53568,8 @@
       name="WRKJRNA"
       text="Work with Journal Attributes"
       program="QJODSPJA"
-      status="POS">
+      status="POS"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="JRN"
@@ -53830,7 +53843,8 @@
       text="Work with Members Using PDM"
       allowBatch="false"
       program=""
-      status="POS">
+      status="POS"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="FILE"
@@ -54140,7 +54154,8 @@
       text="Work with PF Constraints"
       allowBatch="false"
       program="QDBWRKCT"
-      status="POS">
+      status="POS"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="FILE"
@@ -54242,7 +54257,8 @@
       text="Work with PF DataLinks"
       allowBatch="false"
       program="QDBDLWRK"
-      status="POS">
+      status="POS"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="FILE"
@@ -54335,7 +54351,8 @@
       text="Work with Query Mgmt Queries"
       allowBatch="false"
       program="QMNWRKXX"
-      status="POS">
+      status="POS"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="QMQRY"
@@ -54403,11 +54420,13 @@
   </contents>
   <contents
       xsi:type="os-type-cmd:Command"
+      library=""
       name="WRKQRY"
       text="Work With Queries"
       allowBatch="false"
       program=""
-      status="POS">
+      status="POS"
+      classCMD="true">
     <source
         type="CMD"
         content="&#xA;&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?>&#xA;&lt;QcdCLCmd DTDVersion=&quot;1.0&quot;>&lt;Cmd CmdName=&quot;WRKQRY&quot; CmdLib=&quot;QQRYLIB&quot; CCSID=&quot;37&quot; HlpPnlGrp=&quot;QHQU&quot; HlpPnlGrpLib=&quot;__LIBL&quot; HlpID=&quot;WRKQRY&quot; MaxPos=&quot;0&quot; PrdLib=&quot;QQRYLIB&quot; Prompt=&quot;Work With Queries&quot; MsgF=&quot;QQRYMSG&quot; MsgFLib=&quot;__LIBL&quot; ExecBatch=&quot;NO&quot; ChgCmdExit=&quot;NO&quot; RtvCmdExit=&quot;NO&quot;>&lt;/Cmd>&lt;/QcdCLCmd>&#xA;"/>

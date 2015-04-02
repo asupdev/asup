@@ -637,7 +637,9 @@
       name="CRTLIB"
       text="Create Library"
       program="QLICRLIB"
-      status="TODO">
+      status="TODO"
+      typeName=""
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="LIB"
@@ -3537,11 +3539,13 @@
   </contents>
   <contents
       xsi:type="os-type-cmd:Command"
+      application=""
       name="WRKLIB"
       text="Work with Libraries"
       allowBatch="false"
       program="QMNWRKXX"
-      status="POS">
+      status="POS"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="LIB"

@@ -21,6 +21,7 @@ import org.asup.os.type.QTypedObject;
  * <ul>
  *   <li>{@link org.asup.os.type.cmd.QCommand#getAddress <em>Address</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.QCommand#isAllowBatch <em>Allow Batch</em>}</li>
+ *   <li>{@link org.asup.os.type.cmd.QCommand#isClassCMD <em>Class CMD</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.QCommand#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.QCommand#getProgram <em>Program</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.QCommand#getSource <em>Source</em>}</li>
@@ -211,6 +212,33 @@ public interface QCommand extends QTypedObject {
 	 * @generated
 	 */
 	void setTypeName(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Class CMD</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Class CMD</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Class CMD</em>' attribute.
+	 * @see #setClassCMD(boolean)
+	 * @see org.asup.os.type.cmd.QOperatingSystemCommandPackage#getCommand_ClassCMD()
+	 * @model default="false"
+	 * @generated
+	 */
+	boolean isClassCMD();
+
+	/**
+	 * Sets the value of the '{@link org.asup.os.type.cmd.QCommand#isClassCMD <em>Class CMD</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Class CMD</em>' attribute.
+	 * @see #isClassCMD()
+	 * @generated
+	 */
+	void setClassCMD(boolean value);
 
 	/**
 	 * <!-- begin-user-doc -->

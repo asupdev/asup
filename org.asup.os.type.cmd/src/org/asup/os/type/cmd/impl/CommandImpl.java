@@ -41,6 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link org.asup.os.type.cmd.impl.CommandImpl#getAddress <em>Address</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.impl.CommandImpl#isAllowBatch <em>Allow Batch</em>}</li>
+ *   <li>{@link org.asup.os.type.cmd.impl.CommandImpl#isClassCMD <em>Class CMD</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.impl.CommandImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.impl.CommandImpl#getProgram <em>Program</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.impl.CommandImpl#getSource <em>Source</em>}</li>
@@ -96,6 +97,26 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
+	/**
+	 * The default value of the '{@link #isClassCMD() <em>Class CMD</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isClassCMD()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean CLASS_CMD_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isClassCMD() <em>Class CMD</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isClassCMD()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean classCMD = CLASS_CMD_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
@@ -359,6 +380,27 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isClassCMD() {
+		return classCMD;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setClassCMD(boolean newClassCMD) {
+		boolean oldClassCMD = classCMD;
+		classCMD = newClassCMD;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemCommandPackage.COMMAND__CLASS_CMD, oldClassCMD, classCMD));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	public QCommandParameter getParameter(String name) {
@@ -430,6 +472,8 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 				return getAddress();
 			case QOperatingSystemCommandPackage.COMMAND__ALLOW_BATCH:
 				return isAllowBatch();
+			case QOperatingSystemCommandPackage.COMMAND__CLASS_CMD:
+				return isClassCMD();
 			case QOperatingSystemCommandPackage.COMMAND__PARAMETERS:
 				return getParameters();
 			case QOperatingSystemCommandPackage.COMMAND__PROGRAM:
@@ -458,6 +502,9 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 				return;
 			case QOperatingSystemCommandPackage.COMMAND__ALLOW_BATCH:
 				setAllowBatch((Boolean)newValue);
+				return;
+			case QOperatingSystemCommandPackage.COMMAND__CLASS_CMD:
+				setClassCMD((Boolean)newValue);
 				return;
 			case QOperatingSystemCommandPackage.COMMAND__PARAMETERS:
 				getParameters().clear();
@@ -493,6 +540,9 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 			case QOperatingSystemCommandPackage.COMMAND__ALLOW_BATCH:
 				setAllowBatch(ALLOW_BATCH_EDEFAULT);
 				return;
+			case QOperatingSystemCommandPackage.COMMAND__CLASS_CMD:
+				setClassCMD(CLASS_CMD_EDEFAULT);
+				return;
 			case QOperatingSystemCommandPackage.COMMAND__PARAMETERS:
 				getParameters().clear();
 				return;
@@ -524,6 +574,8 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 				return ADDRESS_EDEFAULT == null ? address != null : !ADDRESS_EDEFAULT.equals(address);
 			case QOperatingSystemCommandPackage.COMMAND__ALLOW_BATCH:
 				return allowBatch != ALLOW_BATCH_EDEFAULT;
+			case QOperatingSystemCommandPackage.COMMAND__CLASS_CMD:
+				return classCMD != CLASS_CMD_EDEFAULT;
 			case QOperatingSystemCommandPackage.COMMAND__PARAMETERS:
 				return parameters != null && !parameters.isEmpty();
 			case QOperatingSystemCommandPackage.COMMAND__PROGRAM:
@@ -552,6 +604,8 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 		result.append(address);
 		result.append(", allowBatch: ");
 		result.append(allowBatch);
+		result.append(", classCMD: ");
+		result.append(classCMD);
 		result.append(", program: ");
 		result.append(program);
 		result.append(", status: ");

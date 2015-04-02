@@ -13,7 +13,8 @@
       name="CRTDTAQ"
       text="Create Data Queue"
       program="QMHQCRTQ"
-      status="TODO">
+      status="TODO"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="DTAQ"
@@ -589,7 +590,8 @@
       name="WRKDTAQ"
       text="Work with Data Queues"
       allowBatch="false"
-      program="QMNWRKXX">
+      program="QMNWRKXX"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="DTAQ"

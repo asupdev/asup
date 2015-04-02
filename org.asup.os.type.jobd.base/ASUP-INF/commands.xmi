@@ -978,7 +978,8 @@
       name="CRTJOBD"
       text="Create Job Description"
       program="QWDCCRG"
-      status="TODO">
+      status="TODO"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="JOBD"
@@ -2092,7 +2093,8 @@
       text="Work with Job Descriptions"
       allowBatch="false"
       program="QMNWRKXX"
-      status="POS">
+      status="POS"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="JOBD"

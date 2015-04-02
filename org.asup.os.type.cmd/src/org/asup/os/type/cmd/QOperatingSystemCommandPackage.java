@@ -202,13 +202,22 @@ public interface QOperatingSystemCommandPackage extends EPackage {
 	int COMMAND__ALLOW_BATCH = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Class CMD</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND__CLASS_CMD = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND__PARAMETERS = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 2;
+	int COMMAND__PARAMETERS = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Program</b></em>' attribute.
@@ -217,7 +226,7 @@ public interface QOperatingSystemCommandPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND__PROGRAM = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 3;
+	int COMMAND__PROGRAM = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' containment reference.
@@ -226,7 +235,7 @@ public interface QOperatingSystemCommandPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND__SOURCE = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 4;
+	int COMMAND__SOURCE = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
@@ -235,7 +244,7 @@ public interface QOperatingSystemCommandPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND__STATUS = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 5;
+	int COMMAND__STATUS = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Type Name</b></em>' attribute.
@@ -244,7 +253,7 @@ public interface QOperatingSystemCommandPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND__TYPE_NAME = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 6;
+	int COMMAND__TYPE_NAME = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Command</em>' class.
@@ -253,7 +262,7 @@ public interface QOperatingSystemCommandPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND_FEATURE_COUNT = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 7;
+	int COMMAND_FEATURE_COUNT = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.type.cmd.impl.CommandContainerImpl <em>Command Container</em>}' class.
@@ -677,6 +686,17 @@ public interface QOperatingSystemCommandPackage extends EPackage {
 	EAttribute getCommand_TypeName();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.asup.os.type.cmd.QCommand#isClassCMD <em>Class CMD</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Class CMD</em>'.
+	 * @see org.asup.os.type.cmd.QCommand#isClassCMD()
+	 * @see #getCommand()
+	 * @generated
+	 */
+	EAttribute getCommand_ClassCMD();
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.os.type.cmd.QCommandContainer <em>Command Container</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -975,6 +995,14 @@ public interface QOperatingSystemCommandPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMMAND__TYPE_NAME = eINSTANCE.getCommand_TypeName();
+
+		/**
+		 * The meta object literal for the '<em><b>Class CMD</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMAND__CLASS_CMD = eINSTANCE.getCommand_ClassCMD();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.os.type.cmd.impl.CommandContainerImpl <em>Command Container</em>}' class.

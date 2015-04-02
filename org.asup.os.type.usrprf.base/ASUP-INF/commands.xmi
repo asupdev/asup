@@ -1741,7 +1741,8 @@
       name="CRTUSRPRF"
       text="Create User Profile"
       program="QSYUP"
-      status="TODO">
+      status="TODO"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="USRPRF"
@@ -5205,7 +5206,8 @@
       text="Work with User Profiles"
       allowBatch="false"
       program="QMNWRKXX"
-      status="POS">
+      status="POS"
+      classCMD="true">
     <parameters
         allowVariable="true"
         name="USRPRF"

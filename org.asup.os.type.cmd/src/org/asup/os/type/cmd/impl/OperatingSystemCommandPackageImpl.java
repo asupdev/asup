@@ -248,7 +248,7 @@ public class OperatingSystemCommandPackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	public EReference getCommand_Parameters() {
-		return (EReference)commandEClass.getEStructuralFeatures().get(2);
+		return (EReference)commandEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -257,7 +257,7 @@ public class OperatingSystemCommandPackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	public EAttribute getCommand_Program() {
-		return (EAttribute)commandEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)commandEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -266,7 +266,7 @@ public class OperatingSystemCommandPackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	public EReference getCommand_Source() {
-		return (EReference)commandEClass.getEStructuralFeatures().get(4);
+		return (EReference)commandEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -275,7 +275,7 @@ public class OperatingSystemCommandPackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	public EAttribute getCommand_Status() {
-		return (EAttribute)commandEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)commandEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -284,7 +284,16 @@ public class OperatingSystemCommandPackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	public EAttribute getCommand_TypeName() {
-		return (EAttribute)commandEClass.getEStructuralFeatures().get(6);
+		return (EAttribute)commandEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCommand_ClassCMD() {
+		return (EAttribute)commandEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -468,6 +477,7 @@ public class OperatingSystemCommandPackageImpl extends EPackageImpl implements Q
 		commandEClass = createEClass(COMMAND);
 		createEAttribute(commandEClass, COMMAND__ADDRESS);
 		createEAttribute(commandEClass, COMMAND__ALLOW_BATCH);
+		createEAttribute(commandEClass, COMMAND__CLASS_CMD);
 		createEReference(commandEClass, COMMAND__PARAMETERS);
 		createEAttribute(commandEClass, COMMAND__PROGRAM);
 		createEReference(commandEClass, COMMAND__SOURCE);
@@ -560,6 +570,7 @@ public class OperatingSystemCommandPackageImpl extends EPackageImpl implements Q
 		initEClass(commandEClass, QCommand.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCommand_Address(), ecorePackage.getEString(), "address", null, 0, 1, QCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCommand_AllowBatch(), ecorePackage.getEBoolean(), "allowBatch", "true", 0, 1, QCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommand_ClassCMD(), ecorePackage.getEBoolean(), "classCMD", "false", 0, 1, QCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCommand_Parameters(), this.getCommandParameter(), null, "parameters", null, 0, -1, QCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCommand_Program(), ecorePackage.getEString(), "program", null, 0, 1, QCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCommand_Source(), this.getCommandSource(), null, "source", null, 0, 1, QCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
