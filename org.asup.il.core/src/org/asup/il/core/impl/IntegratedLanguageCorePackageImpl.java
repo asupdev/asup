@@ -7,6 +7,7 @@
  */
 package org.asup.il.core.impl;
 
+import org.asup.fw.core.QFrameworkCorePackage;
 import org.asup.fw.java.QFrameworkJavaPackage;
 import org.asup.il.core.ConversionStatus;
 import org.asup.il.core.FormatType;
@@ -290,7 +291,7 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		isInited = true;
 
 		// Initialize simple dependencies
-		QFrameworkJavaPackage.eINSTANCE.eClass();
+		QFrameworkCorePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theIntegratedLanguageCorePackage.createPackageContents();
@@ -938,6 +939,7 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 
 		// Obtain other dependent packages
 		QFrameworkJavaPackage theFrameworkJavaPackage = (QFrameworkJavaPackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkJavaPackage.eNS_URI);
+		QFrameworkCorePackage theFrameworkCorePackage = (QFrameworkCorePackage)EPackage.Registry.INSTANCE.getEPackage(QFrameworkCorePackage.eNS_URI);
 
 		// Create type parameters
 		ETypeParameter dictionaryEClass_T = addETypeParameter(dictionaryEClass, "T");
@@ -963,6 +965,7 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		facetEClass.getESuperTypes().add(this.getNode());
 		formatEClass.getESuperTypes().add(this.getFacet());
 		frameEClass.getESuperTypes().add(this.getNameable());
+		frameManagerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
 		multipleTermEClass.getESuperTypes().add(this.getTerm());
 		namedNodeEClass.getESuperTypes().add(this.getNode());
 		namedNodeEClass.getESuperTypes().add(this.getNameable());

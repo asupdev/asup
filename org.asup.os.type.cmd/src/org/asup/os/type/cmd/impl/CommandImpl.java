@@ -45,7 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.asup.os.type.cmd.impl.CommandImpl#getProgram <em>Program</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.impl.CommandImpl#getSource <em>Source</em>}</li>
  *   <li>{@link org.asup.os.type.cmd.impl.CommandImpl#getStatus <em>Status</em>}</li>
- *   <li>{@link org.asup.os.type.cmd.impl.CommandImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.asup.os.type.cmd.impl.CommandImpl#getTypeName <em>Type Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -158,24 +158,24 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 	protected CommandStatus status = STATUS_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The default value of the '{@link #getTypeName() <em>Type Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getTypeName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TYPE_EDEFAULT = null;
+	protected static final String TYPE_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The cached value of the '{@link #getTypeName() <em>Type Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getTypeName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String type = TYPE_EDEFAULT;
+	protected String typeName = TYPE_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -340,8 +340,8 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getType() {
-		return type;
+	public String getTypeName() {
+		return typeName;
 	}
 
 	/**
@@ -349,11 +349,11 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(String newType) {
-		String oldType = type;
-		type = newType;
+	public void setTypeName(String newTypeName) {
+		String oldTypeName = typeName;
+		typeName = newTypeName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemCommandPackage.COMMAND__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemCommandPackage.COMMAND__TYPE_NAME, oldTypeName, typeName));
 	}
 
 	/**
@@ -438,8 +438,8 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 				return getSource();
 			case QOperatingSystemCommandPackage.COMMAND__STATUS:
 				return getStatus();
-			case QOperatingSystemCommandPackage.COMMAND__TYPE:
-				return getType();
+			case QOperatingSystemCommandPackage.COMMAND__TYPE_NAME:
+				return getTypeName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -472,8 +472,8 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 			case QOperatingSystemCommandPackage.COMMAND__STATUS:
 				setStatus((CommandStatus)newValue);
 				return;
-			case QOperatingSystemCommandPackage.COMMAND__TYPE:
-				setType((String)newValue);
+			case QOperatingSystemCommandPackage.COMMAND__TYPE_NAME:
+				setTypeName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -505,8 +505,8 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 			case QOperatingSystemCommandPackage.COMMAND__STATUS:
 				setStatus(STATUS_EDEFAULT);
 				return;
-			case QOperatingSystemCommandPackage.COMMAND__TYPE:
-				setType(TYPE_EDEFAULT);
+			case QOperatingSystemCommandPackage.COMMAND__TYPE_NAME:
+				setTypeName(TYPE_NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -532,8 +532,8 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 				return source != null;
 			case QOperatingSystemCommandPackage.COMMAND__STATUS:
 				return status != STATUS_EDEFAULT;
-			case QOperatingSystemCommandPackage.COMMAND__TYPE:
-				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+			case QOperatingSystemCommandPackage.COMMAND__TYPE_NAME:
+				return TYPE_NAME_EDEFAULT == null ? typeName != null : !TYPE_NAME_EDEFAULT.equals(typeName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -556,8 +556,8 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 		result.append(program);
 		result.append(", status: ");
 		result.append(status);
-		result.append(", type: ");
-		result.append(type);
+		result.append(", typeName: ");
+		result.append(typeName);
 		result.append(')');
 		return result.toString();
 	}

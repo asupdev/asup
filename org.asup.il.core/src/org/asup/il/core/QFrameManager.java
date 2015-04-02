@@ -7,6 +7,8 @@
  */
 package org.asup.il.core;
 
+import org.asup.fw.core.QService;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -18,7 +20,7 @@ package org.asup.il.core;
  * @model interface="true" abstract="true"
  * @generated
  */
-public interface QFrameManager {
+public interface QFrameManager extends QService {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

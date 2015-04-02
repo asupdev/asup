@@ -7,6 +7,7 @@
  */
 package org.asup.il.core;
 
+import org.asup.fw.core.QFrameworkCorePackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -582,13 +583,22 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	int FRAME_FEATURE_COUNT = NAMEABLE_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Config</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FRAME_MANAGER__CONFIG = QFrameworkCorePackage.SERVICE__CONFIG;
+
+	/**
 	 * The number of structural features of the '<em>Frame Manager</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FRAME_MANAGER_FEATURE_COUNT = 0;
+	int FRAME_MANAGER_FEATURE_COUNT = QFrameworkCorePackage.SERVICE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.

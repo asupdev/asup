@@ -57,7 +57,7 @@ public class E4JobManagerImpl extends JobManagerImpl {
 
 	@PostConstruct
 	public void init(QExpressionParserRegistry expressionParserRegistry) {
-		this.expressionParser = expressionParserRegistry.lookup("ASUP");
+		this.expressionParser = expressionParserRegistry.lookup(QExpressionParserRegistry.DEFAULT_PARSER);
 	}
 
 	@Override

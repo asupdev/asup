@@ -53,7 +53,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Frame" abstract="true" interface="true"
       eSuperTypes="#//Nameable"/>
-  <eClassifiers xsi:type="ecore:EClass" name="FrameManager" abstract="true" interface="true">
+  <eClassifiers xsi:type="ecore:EClass" name="FrameManager" abstract="true" interface="true"
+      eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
     <eOperations name="getFrame" lowerBound="1" eType="#//Frame">
       <eParameters name="object" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
     </eOperations>

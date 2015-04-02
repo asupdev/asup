@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.os.type.cmd.impl.CommandContainerImpl#getType <em>Type</em>}</li>
+ *   <li>{@link org.asup.os.type.cmd.impl.CommandContainerImpl#getTypeName <em>Type Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,24 +36,23 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class CommandContainerImpl extends TypedContainerImpl<QCommand> implements QCommandContainer {
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The default value of the '{@link #getTypeName() <em>Type Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getTypeName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TYPE_EDEFAULT = null;
+	protected static final String TYPE_NAME_EDEFAULT = null;
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The cached value of the '{@link #getTypeName() <em>Type Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getTypeName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String type = TYPE_EDEFAULT;
-
+	protected String typeName = TYPE_NAME_EDEFAULT;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,8 +77,8 @@ public class CommandContainerImpl extends TypedContainerImpl<QCommand> implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getType() {
-		return type;
+	public String getTypeName() {
+		return typeName;
 	}
 
 	/**
@@ -87,11 +86,11 @@ public class CommandContainerImpl extends TypedContainerImpl<QCommand> implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(String newType) {
-		String oldType = type;
-		type = newType;
+	public void setTypeName(String newTypeName) {
+		String oldTypeName = typeName;
+		typeName = newTypeName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemCommandPackage.COMMAND_CONTAINER__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemCommandPackage.COMMAND_CONTAINER__TYPE_NAME, oldTypeName, typeName));
 	}
 
 	/**
@@ -125,8 +124,8 @@ public class CommandContainerImpl extends TypedContainerImpl<QCommand> implement
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QOperatingSystemCommandPackage.COMMAND_CONTAINER__TYPE:
-				return getType();
+			case QOperatingSystemCommandPackage.COMMAND_CONTAINER__TYPE_NAME:
+				return getTypeName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -139,8 +138,8 @@ public class CommandContainerImpl extends TypedContainerImpl<QCommand> implement
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QOperatingSystemCommandPackage.COMMAND_CONTAINER__TYPE:
-				setType((String)newValue);
+			case QOperatingSystemCommandPackage.COMMAND_CONTAINER__TYPE_NAME:
+				setTypeName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -154,8 +153,8 @@ public class CommandContainerImpl extends TypedContainerImpl<QCommand> implement
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QOperatingSystemCommandPackage.COMMAND_CONTAINER__TYPE:
-				setType(TYPE_EDEFAULT);
+			case QOperatingSystemCommandPackage.COMMAND_CONTAINER__TYPE_NAME:
+				setTypeName(TYPE_NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -169,8 +168,8 @@ public class CommandContainerImpl extends TypedContainerImpl<QCommand> implement
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QOperatingSystemCommandPackage.COMMAND_CONTAINER__TYPE:
-				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+			case QOperatingSystemCommandPackage.COMMAND_CONTAINER__TYPE_NAME:
+				return TYPE_NAME_EDEFAULT == null ? typeName != null : !TYPE_NAME_EDEFAULT.equals(typeName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -185,8 +184,8 @@ public class CommandContainerImpl extends TypedContainerImpl<QCommand> implement
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (type: ");
-		result.append(type);
+		result.append(" (typeName: ");
+		result.append(typeName);
 		result.append(')');
 		return result.toString();
 	}

@@ -20,4 +20,7 @@ import org.asup.fw.core.QPluginRegistry;
  * @generated
  */
 public interface QExpressionParserRegistry extends QPluginRegistry<QExpressionParser> {
+	
+	public static String DEFAULT_PARSER = "ASUP";
+	
 } // QExpressionParserRegistry

@@ -211,7 +211,7 @@ public class E4BundleManagerImpl extends BundleManagerImpl {
 //						   command.getStatus() == CommandStatus.TODO)
 						
 							command.setAddress(entry.toString());
-							command.setType(commandContainer.getType());
+							command.setTypeName(commandContainer.getTypeName());
 							commandWriter.save(command, true);
 							
 					} catch (OperatingSystemException e) {

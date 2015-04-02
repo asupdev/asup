@@ -7,11 +7,17 @@
     rootImplementsInterface="" suppressEMFTypes="true" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="7.0" suppressGenModelAnnotations="false" copyrightFields="false"
     editPluginID="org.asup.il.core.edit" editorPluginID="org.asup.il.core.editor"
-    language="EN" usedGenPackages="../../org.asup.fw.java/model/fw-java.genmodel#//java"
+    language="EN" usedGenPackages="../../org.asup.fw.core/model/fw-core.genmodel#//core ../../org.asup.fw.java/model/fw-java.genmodel#//java"
     interfaceNamePattern="Q{0}" classNamePattern="">
   <foreignModel>il-core.ecore</foreignModel>
   <genPackages prefix="IntegratedLanguageCore" basePackage="org.asup.il" disposableProviderFactory="true"
       adapterFactory="false" ecorePackage="il-core.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="il-core.ecore#//ConversionStatus">
+      <genEnumLiterals ecoreEnumLiteral="il-core.ecore#//ConversionStatus/Possible"/>
+      <genEnumLiterals ecoreEnumLiteral="il-core.ecore#//ConversionStatus/Supported"/>
+      <genEnumLiterals ecoreEnumLiteral="il-core.ecore#//ConversionStatus/Unsupported"/>
+      <genEnumLiterals ecoreEnumLiteral="il-core.ecore#//ConversionStatus/Todo"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="il-core.ecore#//FormatType">
       <genEnumLiterals ecoreEnumLiteral="il-core.ecore#//FormatType/CommunicationsName"/>
       <genEnumLiterals ecoreEnumLiteral="il-core.ecore#//FormatType/CommandString"/>
@@ -29,6 +35,10 @@
       <genOperations ecoreOperation="il-core.ecore#//Cardinality/isMultiple"/>
     </genClasses>
     <genClasses image="false" ecoreClass="il-core.ecore#//CompoundTerm"/>
+    <genClasses ecoreClass="il-core.ecore#//Conversion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Conversion/status"/>
+    </genClasses>
+    <genClasses ecoreClass="il-core.ecore#//Derived"/>
     <genClasses ecoreClass="il-core.ecore#//Dictionary">
       <genTypeParameters ecoreTypeParameter="il-core.ecore#//Dictionary/T"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Dictionary/name"/>
@@ -45,14 +55,35 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Format/expression"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Format/type"/>
     </genClasses>
-    <genClasses ecoreClass="il-core.ecore#//Overlay">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Overlay/overlay"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Overlay/position"/>
+    <genClasses image="false" ecoreClass="il-core.ecore#//Frame"/>
+    <genClasses image="false" ecoreClass="il-core.ecore#//FrameManager">
+      <genOperations ecoreOperation="il-core.ecore#//FrameManager/getFrame">
+        <genParameters ecoreParameter="il-core.ecore#//FrameManager/getFrame/object"/>
+      </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="il-core.ecore#//MultipleTerm"/>
+    <genClasses image="false" ecoreClass="il-core.ecore#//NamedNode">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference il-core.ecore#//NamedNode/facets"/>
+      <genOperations ecoreOperation="il-core.ecore#//NamedNode/getFacet">
+        <genParameters ecoreParameter="il-core.ecore#//NamedNode/getFacet/klass"/>
+        <genTypeParameters ecoreTypeParameter="il-core.ecore#//NamedNode/getFacet/F"/>
+      </genOperations>
+    </genClasses>
+    <genClasses image="false" ecoreClass="il-core.ecore#//Node">
+      <genOperations ecoreOperation="il-core.ecore#//Node/getParent"/>
+      <genOperations ecoreOperation="il-core.ecore#//Node/isChild"/>
+    </genClasses>
+    <genClasses ecoreClass="il-core.ecore#//Overlay">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Overlay/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Overlay/position"/>
+    </genClasses>
     <genClasses ecoreClass="il-core.ecore#//Range">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Range/max"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Range/min"/>
+    </genClasses>
+    <genClasses ecoreClass="il-core.ecore#//Remap">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Remap/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Remap/index"/>
     </genClasses>
     <genClasses ecoreClass="il-core.ecore#//Special">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Special/classDelegate"/>
@@ -61,6 +92,7 @@
     <genClasses ecoreClass="il-core.ecore#//SpecialElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//SpecialElement/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//SpecialElement/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//SpecialElement/unary"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//SpecialElement/value"/>
     </genClasses>
     <genClasses ecoreClass="il-core.ecore#//Subject">
@@ -68,23 +100,20 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Subject/text"/>
     </genClasses>
     <genClasses image="false" ecoreClass="il-core.ecore#//Term">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference il-core.ecore#//Term/facets"/>
-      <genOperations ecoreOperation="il-core.ecore#//Term/getName"/>
       <genOperations ecoreOperation="il-core.ecore#//Term/getText"/>
       <genOperations ecoreOperation="il-core.ecore#//Term/getURI"/>
-      <genOperations ecoreOperation="il-core.ecore#//Term/getFacet">
-        <genParameters ecoreParameter="il-core.ecore#//Term/getFacet/klass"/>
-        <genTypeParameters ecoreTypeParameter="il-core.ecore#//Term/getFacet/F"/>
-      </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="il-core.ecore#//TermContainer">
       <genTypeParameters ecoreTypeParameter="il-core.ecore#//TermContainer/T"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference il-core.ecore#//TermContainer/terms"/>
+      <genOperations ecoreOperation="il-core.ecore#//TermContainer/getTerms"/>
     </genClasses>
     <genClasses ecoreClass="il-core.ecore#//Verb">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Verb/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Verb/text"/>
     </genClasses>
     <genClasses image="false" ecoreClass="il-core.ecore#//UnaryTerm"/>
+    <genClasses image="false" ecoreClass="il-core.ecore#//Nameable">
+      <genOperations ecoreOperation="il-core.ecore#//Nameable/getName"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

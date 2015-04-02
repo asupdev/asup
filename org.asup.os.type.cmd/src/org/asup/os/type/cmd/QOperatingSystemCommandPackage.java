@@ -238,13 +238,13 @@ public interface QOperatingSystemCommandPackage extends EPackage {
 	int COMMAND__STATUS = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Type Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND__TYPE = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 6;
+	int COMMAND__TYPE_NAME = QOperatingSystemTypePackage.TYPED_OBJECT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Command</em>' class.
@@ -311,13 +311,13 @@ public interface QOperatingSystemCommandPackage extends EPackage {
 	int COMMAND_CONTAINER__VENDOR = QOperatingSystemTypePackage.TYPED_CONTAINER__VENDOR;
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * The feature id for the '<em><b>Type Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMAND_CONTAINER__TYPE = QOperatingSystemTypePackage.TYPED_CONTAINER_FEATURE_COUNT + 0;
+	int COMMAND_CONTAINER__TYPE_NAME = QOperatingSystemTypePackage.TYPED_CONTAINER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Command Container</em>' class.
@@ -666,15 +666,15 @@ public interface QOperatingSystemCommandPackage extends EPackage {
 	EAttribute getCommand_Status();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.os.type.cmd.QCommand#getType <em>Type</em>}'.
+	 * Returns the meta object for the attribute '{@link org.asup.os.type.cmd.QCommand#getTypeName <em>Type Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see org.asup.os.type.cmd.QCommand#getType()
+	 * @return the meta object for the attribute '<em>Type Name</em>'.
+	 * @see org.asup.os.type.cmd.QCommand#getTypeName()
 	 * @see #getCommand()
 	 * @generated
 	 */
-	EAttribute getCommand_Type();
+	EAttribute getCommand_TypeName();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.os.type.cmd.QCommandContainer <em>Command Container</em>}'.
@@ -687,15 +687,15 @@ public interface QOperatingSystemCommandPackage extends EPackage {
 	EClass getCommandContainer();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.os.type.cmd.QCommandContainer#getType <em>Type</em>}'.
+	 * Returns the meta object for the attribute '{@link org.asup.os.type.cmd.QCommandContainer#getTypeName <em>Type Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see org.asup.os.type.cmd.QCommandContainer#getType()
+	 * @return the meta object for the attribute '<em>Type Name</em>'.
+	 * @see org.asup.os.type.cmd.QCommandContainer#getTypeName()
 	 * @see #getCommandContainer()
 	 * @generated
 	 */
-	EAttribute getCommandContainer_Type();
+	EAttribute getCommandContainer_TypeName();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.os.type.cmd.QCommandManager <em>Command Manager</em>}'.
@@ -969,12 +969,12 @@ public interface QOperatingSystemCommandPackage extends EPackage {
 		EAttribute COMMAND__STATUS = eINSTANCE.getCommand_Status();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Type Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COMMAND__TYPE = eINSTANCE.getCommand_Type();
+		EAttribute COMMAND__TYPE_NAME = eINSTANCE.getCommand_TypeName();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.os.type.cmd.impl.CommandContainerImpl <em>Command Container</em>}' class.
@@ -987,12 +987,12 @@ public interface QOperatingSystemCommandPackage extends EPackage {
 		EClass COMMAND_CONTAINER = eINSTANCE.getCommandContainer();
 
 		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Type Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COMMAND_CONTAINER__TYPE = eINSTANCE.getCommandContainer_Type();
+		EAttribute COMMAND_CONTAINER__TYPE_NAME = eINSTANCE.getCommandContainer_TypeName();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.os.type.cmd.impl.CommandManagerImpl <em>Command Manager</em>}' class.
