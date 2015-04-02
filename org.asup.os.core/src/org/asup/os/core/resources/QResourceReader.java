@@ -7,7 +7,7 @@
  */
 package org.asup.os.core.resources;
 
-import org.asup.il.expr.QLogicalExpression;
+import org.asup.il.expr.QPredicateExpression;
 import org.asup.os.core.QLockable;
 import org.asup.os.omac.QObjectIterator;
 import org.asup.os.omac.QObjectNameable;
@@ -78,7 +78,7 @@ public interface QResourceReader<T extends QObjectNameable> extends QResource<T>
 	 * @model
 	 * @generated
 	 */
-	QObjectIterator<T> findByExpression(QLogicalExpression filter);
+	QObjectIterator<T> findByExpression(QPredicateExpression filter);
 
 	/**
 	 * <!-- begin-user-doc -->

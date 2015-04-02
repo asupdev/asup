@@ -22,7 +22,7 @@ import javax.inject.Inject;
 import org.asup.fw.core.QContextID;
 import org.asup.il.expr.QExpressionParser;
 import org.asup.il.expr.QExpressionParserRegistry;
-import org.asup.il.expr.QLogicalExpression;
+import org.asup.il.expr.QPredicateExpression;
 import org.asup.os.core.OperatingSystemException;
 import org.asup.os.core.QSystemManager;
 import org.asup.os.core.Scope;
@@ -97,7 +97,7 @@ public class E4JobManagerImpl extends JobManagerImpl {
 
 		QJob jobCaller = lookup(contextID);
 
-		QLogicalExpression filter = (QLogicalExpression) expressionParser.parsePredicate("jobName *EQ '"+name+"' *AND jobNumber *EQ " + number + " *AND jobUser *EQ '"+user+"'");
+		QPredicateExpression filter = expressionParser.parsePredicate("jobName *EQ '"+name+"' *AND jobNumber *EQ " + number + " *AND jobUser *EQ '"+user+"'");
 		
 		QJob jobTarget = null;
 

@@ -632,7 +632,7 @@ public class OperatingSystemResourcesPackageImpl extends EPackageImpl implements
 		initEOperation(op, g1);
 
 		op = addEOperation(resourceReaderEClass, null, "findByExpression", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, theIntegratedLanguageExpressionPackage.getLogicalExpression(), "filter", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theIntegratedLanguageExpressionPackage.getPredicateExpression(), "filter", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(theOperatingSystemOmacPackage.getObjectIterator());
 		g2 = createEGenericType(resourceReaderEClass_T);
 		g1.getETypeArguments().add(g2);

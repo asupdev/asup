@@ -541,7 +541,7 @@
         <eGenericType eClassifier="ecore:EClass ../../org.asup.os.omac/model/os-omac.ecore#//ObjectIterator">
           <eTypeArguments eTypeParameter="#//resources/ResourceReader/T"/>
         </eGenericType>
-        <eParameters name="filter" eType="ecore:EClass ../../org.asup.il.expr/model/il-expr.ecore#//LogicalExpression"/>
+        <eParameters name="filter" eType="ecore:EClass ../../org.asup.il.expr/model/il-expr.ecore#//PredicateExpression"/>
       </eOperations>
       <eOperations name="lookup">
         <eGenericType eTypeParameter="#//resources/ResourceReader/T"/>

@@ -9,6 +9,7 @@ package org.asup.os.core.resources.impl;
 
 import org.asup.il.expr.LogicalOperator;
 import org.asup.il.expr.QLogicalExpression;
+import org.asup.il.expr.QPredicateExpression;
 import org.asup.il.expr.QRelationalExpression;
 import org.asup.il.expr.QTermExpression;
 import org.asup.il.expr.impl.ExpressionVisitorImpl;
@@ -110,12 +111,11 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
-	public QObjectIterator<T> findByExpression(QLogicalExpression filter) {
-
+	public QObjectIterator<T> findByExpression(QPredicateExpression filter) {
 		return new ObjectIterator(find(null), filter);
 	}
 
@@ -216,11 +216,11 @@ public abstract class ResourceReaderImpl<T extends QObjectNameable> extends Reso
 	private class ObjectIterator implements QObjectIterator<T> {
 
 		private QObjectIterator<T> iterator;
-		private QLogicalExpression filter;
+		private QPredicateExpression filter;
 
 		private T nextObject;
 
-		public ObjectIterator(QObjectIterator<T> delegate, QLogicalExpression filter) {
+		public ObjectIterator(QObjectIterator<T> delegate, QPredicateExpression filter) {
 			this.iterator = delegate;
 			this.filter = filter;
 
