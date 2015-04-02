@@ -7,6 +7,8 @@
  */
 package org.asup.il.core;
 
+import java.io.Serializable;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -16,7 +18,7 @@ package org.asup.il.core;
  *
  * @see org.asup.il.core.QIntegratedLanguageCorePackage#getFacet()
  * @model abstract="true"
- * @generated
+ * @generated NOT
  */
-public interface QFacet extends QNode {
+public interface QFacet extends QNameable, Serializable {
 } // QFacet

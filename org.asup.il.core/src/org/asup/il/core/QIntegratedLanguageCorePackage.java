@@ -90,7 +90,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getTermContainer()
 	 * @generated
 	 */
-	int TERM_CONTAINER = 21;
+	int TERM_CONTAINER = 22;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.impl.DictionaryImpl <em>Dictionary</em>}' class.
@@ -110,7 +110,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getTerm()
 	 * @generated
 	 */
-	int TERM = 20;
+	int TERM = 21;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.impl.AtomicTermImpl <em>Atomic Term</em>}' class.
@@ -256,13 +256,142 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	int ATOMIC_TERM_FEATURE_COUNT = TERM_FEATURE_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.asup.il.core.impl.ConversionImpl <em>Conversion</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.impl.ConversionImpl
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getConversion()
+	 * @generated
+	 */
+	int CONVERSION = 3;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.core.impl.DerivedImpl <em>Derived</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.impl.DerivedImpl
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getDerived()
+	 * @generated
+	 */
+	int DERIVED = 4;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.core.QFrame <em>Frame</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.QFrame
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getFrame()
+	 * @generated
+	 */
+	int FRAME = 9;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.core.QFrameManager <em>Frame Manager</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.QFrameManager
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getFrameManager()
+	 * @generated
+	 */
+	int FRAME_MANAGER = 10;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.core.impl.RangeImpl <em>Range</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.impl.RangeImpl
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getRange()
+	 * @generated
+	 */
+	int RANGE = 15;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.core.impl.RemapImpl <em>Remap</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.impl.RemapImpl
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getRemap()
+	 * @generated
+	 */
+	int REMAP = 16;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.core.impl.SpecialImpl <em>Special</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.impl.SpecialImpl
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getSpecial()
+	 * @generated
+	 */
+	int SPECIAL = 18;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.core.impl.SpecialElementImpl <em>Special Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.impl.SpecialElementImpl
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getSpecialElement()
+	 * @generated
+	 */
+	int SPECIAL_ELEMENT = 19;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.core.impl.SubjectImpl <em>Subject</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.impl.SubjectImpl
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getSubject()
+	 * @generated
+	 */
+	int SUBJECT = 20;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.core.impl.VerbImpl <em>Verb</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.impl.VerbImpl
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getVerb()
+	 * @generated
+	 */
+	int VERB = 23;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.core.impl.UnaryTermImpl <em>Unary Term</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.impl.UnaryTermImpl
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getUnaryTerm()
+	 * @generated
+	 */
+	int UNARY_TERM = 24;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.core.QNameable <em>Nameable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.QNameable
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getNameable()
+	 * @generated
+	 */
+	int NAMEABLE = 25;
+
+	/**
+	 * The number of structural features of the '<em>Nameable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMEABLE_FEATURE_COUNT = 0;
+
+	/**
 	 * The number of structural features of the '<em>Facet</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FACET_FEATURE_COUNT = NODE_FEATURE_COUNT + 0;
+	int FACET_FEATURE_COUNT = NAMEABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Max</b></em>' attribute.
@@ -310,16 +439,6 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	int COMPOUND_TERM_FEATURE_COUNT = TERM_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.asup.il.core.impl.ConversionImpl <em>Conversion</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.il.core.impl.ConversionImpl
-	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getConversion()
-	 * @generated
-	 */
-	int CONVERSION = 3;
-
-	/**
 	 * The feature id for the '<em><b>Status</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -336,16 +455,6 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @ordered
 	 */
 	int CONVERSION_FEATURE_COUNT = FACET_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link org.asup.il.core.impl.DerivedImpl <em>Derived</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.il.core.impl.DerivedImpl
-	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getDerived()
-	 * @generated
-	 */
-	int DERIVED = 4;
 
 	/**
 	 * The number of structural features of the '<em>Derived</em>' class.
@@ -465,113 +574,13 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	int FORMAT_FEATURE_COUNT = FACET_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link org.asup.il.core.QFrame <em>Frame</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.il.core.QFrame
-	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getFrame()
-	 * @generated
-	 */
-	int FRAME = 9;
-
-	/**
-	 * The meta object id for the '{@link org.asup.il.core.QFrameManager <em>Frame Manager</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.il.core.QFrameManager
-	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getFrameManager()
-	 * @generated
-	 */
-	int FRAME_MANAGER = 10;
-
-	/**
-	 * The meta object id for the '{@link org.asup.il.core.impl.RangeImpl <em>Range</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.il.core.impl.RangeImpl
-	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getRange()
-	 * @generated
-	 */
-	int RANGE = 15;
-
-	/**
-	 * The meta object id for the '{@link org.asup.il.core.impl.RemapImpl <em>Remap</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.il.core.impl.RemapImpl
-	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getRemap()
-	 * @generated
-	 */
-	int REMAP = 16;
-
-	/**
-	 * The meta object id for the '{@link org.asup.il.core.impl.SpecialImpl <em>Special</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.il.core.impl.SpecialImpl
-	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getSpecial()
-	 * @generated
-	 */
-	int SPECIAL = 17;
-
-	/**
-	 * The meta object id for the '{@link org.asup.il.core.impl.SpecialElementImpl <em>Special Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.il.core.impl.SpecialElementImpl
-	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getSpecialElement()
-	 * @generated
-	 */
-	int SPECIAL_ELEMENT = 18;
-
-	/**
-	 * The meta object id for the '{@link org.asup.il.core.impl.SubjectImpl <em>Subject</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.il.core.impl.SubjectImpl
-	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getSubject()
-	 * @generated
-	 */
-	int SUBJECT = 19;
-
-	/**
-	 * The meta object id for the '{@link org.asup.il.core.impl.VerbImpl <em>Verb</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.il.core.impl.VerbImpl
-	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getVerb()
-	 * @generated
-	 */
-	int VERB = 22;
-
-	/**
-	 * The meta object id for the '{@link org.asup.il.core.impl.UnaryTermImpl <em>Unary Term</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.il.core.impl.UnaryTermImpl
-	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getUnaryTerm()
-	 * @generated
-	 */
-	int UNARY_TERM = 23;
-
-	/**
-	 * The meta object id for the '{@link org.asup.il.core.QNameable <em>Nameable</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.il.core.QNameable
-	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getNameable()
-	 * @generated
-	 */
-	int NAMEABLE = 24;
-
-	/**
-	 * The number of structural features of the '<em>Nameable</em>' class.
+	 * The feature id for the '<em><b>Slots</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAMEABLE_FEATURE_COUNT = 0;
+	int FRAME__SLOTS = NAMEABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Frame</em>' class.
@@ -580,7 +589,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FRAME_FEATURE_COUNT = NAMEABLE_FEATURE_COUNT + 0;
+	int FRAME_FEATURE_COUNT = NAMEABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Config</b></em>' containment reference.
@@ -698,6 +707,34 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @ordered
 	 */
 	int REMAP_FEATURE_COUNT = FACET_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link org.asup.il.core.QSlot <em>Slot</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.asup.il.core.QSlot
+	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getSlot()
+	 * @generated
+	 */
+	int SLOT = 17;
+
+	/**
+	 * The feature id for the '<em><b>Cardinality</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOT__CARDINALITY = NAMEABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Slot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SLOT_FEATURE_COUNT = NAMEABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Class Delegate</b></em>' attribute.
@@ -878,7 +915,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getConversionStatus()
 	 * @generated
 	 */
-	int CONVERSION_STATUS = 25;
+	int CONVERSION_STATUS = 26;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.FormatType <em>Format Type</em>}' enum.
@@ -888,7 +925,7 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getFormatType()
 	 * @generated
 	 */
-	int FORMAT_TYPE = 26;
+	int FORMAT_TYPE = 27;
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.il.core.QAtomicTerm <em>Atomic Term</em>}'.
@@ -1101,6 +1138,17 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	EClass getFrame();
 
 	/**
+	 * Returns the meta object for the reference list '{@link org.asup.il.core.QFrame#getSlots <em>Slots</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Slots</em>'.
+	 * @see org.asup.il.core.QFrame#getSlots()
+	 * @see #getFrame()
+	 * @generated
+	 */
+	EReference getFrame_Slots();
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.il.core.QFrameManager <em>Frame Manager</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1246,6 +1294,27 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getRemap_Index();
+
+	/**
+	 * Returns the meta object for class '{@link org.asup.il.core.QSlot <em>Slot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Slot</em>'.
+	 * @see org.asup.il.core.QSlot
+	 * @generated
+	 */
+	EClass getSlot();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.asup.il.core.QSlot#getCardinality <em>Cardinality</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Cardinality</em>'.
+	 * @see org.asup.il.core.QSlot#getCardinality()
+	 * @see #getSlot()
+	 * @generated
+	 */
+	EReference getSlot_Cardinality();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.asup.il.core.QRange#getMax <em>Max</em>}'.
@@ -1671,6 +1740,14 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 		EClass FRAME = eINSTANCE.getFrame();
 
 		/**
+		 * The meta object literal for the '<em><b>Slots</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FRAME__SLOTS = eINSTANCE.getFrame_Slots();
+
+		/**
 		 * The meta object literal for the '{@link org.asup.il.core.QFrameManager <em>Frame Manager</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1795,6 +1872,24 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute REMAP__INDEX = eINSTANCE.getRemap_Index();
+
+		/**
+		 * The meta object literal for the '{@link org.asup.il.core.QSlot <em>Slot</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.asup.il.core.QSlot
+		 * @see org.asup.il.core.impl.IntegratedLanguageCorePackageImpl#getSlot()
+		 * @generated
+		 */
+		EClass SLOT = eINSTANCE.getSlot();
+
+		/**
+		 * The meta object literal for the '<em><b>Cardinality</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SLOT__CARDINALITY = eINSTANCE.getSlot_Cardinality();
 
 		/**
 		 * The meta object literal for the '<em><b>Max</b></em>' attribute feature.

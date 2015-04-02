@@ -31,6 +31,7 @@ import org.asup.il.core.QNode;
 import org.asup.il.core.QOverlay;
 import org.asup.il.core.QRange;
 import org.asup.il.core.QRemap;
+import org.asup.il.core.QSlot;
 import org.asup.il.core.QSpecial;
 import org.asup.il.core.QSpecialElement;
 import org.asup.il.core.QSubject;
@@ -173,6 +174,13 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	private EClass remapEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass slotEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -493,6 +501,15 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getFrame_Slots() {
+		return (EReference)frameEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getFrameManager() {
 		return frameManagerEClass;
 	}
@@ -612,6 +629,24 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 */
 	public EAttribute getRemap_Index() {
 		return (EAttribute)remapEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSlot() {
+		return slotEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSlot_Cardinality() {
+		return (EReference)slotEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -861,6 +896,7 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		createEAttribute(formatEClass, FORMAT__TYPE);
 
 		frameEClass = createEClass(FRAME);
+		createEReference(frameEClass, FRAME__SLOTS);
 
 		frameManagerEClass = createEClass(FRAME_MANAGER);
 
@@ -882,6 +918,9 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		remapEClass = createEClass(REMAP);
 		createEAttribute(remapEClass, REMAP__NAME);
 		createEAttribute(remapEClass, REMAP__INDEX);
+
+		slotEClass = createEClass(SLOT);
+		createEReference(slotEClass, SLOT__CARDINALITY);
 
 		specialEClass = createEClass(SPECIAL);
 		createEAttribute(specialEClass, SPECIAL__CLASS_DELEGATE);
@@ -962,7 +1001,7 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		g1.getETypeArguments().add(g2);
 		dictionaryEClass.getEGenericSuperTypes().add(g1);
 		domainEClass.getESuperTypes().add(this.getFacet());
-		facetEClass.getESuperTypes().add(this.getNode());
+		facetEClass.getESuperTypes().add(this.getNameable());
 		formatEClass.getESuperTypes().add(this.getFacet());
 		frameEClass.getESuperTypes().add(this.getNameable());
 		frameManagerEClass.getESuperTypes().add(theFrameworkCorePackage.getService());
@@ -972,6 +1011,7 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		overlayEClass.getESuperTypes().add(this.getFacet());
 		rangeEClass.getESuperTypes().add(this.getFacet());
 		remapEClass.getESuperTypes().add(this.getFacet());
+		slotEClass.getESuperTypes().add(this.getNameable());
 		specialEClass.getESuperTypes().add(this.getFacet());
 		specialElementEClass.getESuperTypes().add(this.getNamedNode());
 		subjectEClass.getESuperTypes().add(this.getTerm());
@@ -1014,6 +1054,7 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		initEAttribute(getFormat_Type(), this.getFormatType(), "type", null, 1, 1, QFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(frameEClass, QFrame.class, "Frame", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFrame_Slots(), this.getSlot(), null, "slots", null, 0, -1, QFrame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(frameManagerEClass, QFrameManager.class, "FrameManager", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1053,6 +1094,9 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		initEClass(remapEClass, QRemap.class, "Remap", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRemap_Name(), ecorePackage.getEString(), "name", null, 1, 1, QRemap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRemap_Index(), ecorePackage.getEString(), "index", null, 1, 1, QRemap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(slotEClass, QSlot.class, "Slot", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSlot_Cardinality(), this.getCardinality(), null, "cardinality", null, 1, 1, QSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(specialEClass, QSpecial.class, "Special", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSpecial_ClassDelegate(), ecorePackage.getEString(), "classDelegate", null, 0, 1, QSpecial.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

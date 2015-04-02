@@ -37,7 +37,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Facet" abstract="true" eSuperTypes="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Facet" abstract="true" eSuperTypes="#//Nameable"/>
   <eClassifiers xsi:type="ecore:EClass" name="Format" eSuperTypes="#//Facet">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//FormatType"/>
@@ -52,7 +52,10 @@
     <eLiterals name="SimpleName" value="20" literal="SNAME"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Frame" abstract="true" interface="true"
-      eSuperTypes="#//Nameable"/>
+      eSuperTypes="#//Nameable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="slots" upperBound="-1"
+        eType="#//Slot"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FrameManager" abstract="true" interface="true"
       eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
     <eOperations name="getFrame" lowerBound="1" eType="#//Frame">
@@ -92,6 +95,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="Remap" eSuperTypes="#//Facet">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Slot" abstract="true" interface="true"
+      eSuperTypes="#//Nameable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cardinality" lowerBound="1"
+        eType="#//Cardinality"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Special" eSuperTypes="#//Facet">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="classDelegate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
