@@ -583,6 +583,8 @@ public class OperatingSystemCommandPackageImpl extends EPackageImpl implements Q
 		op = addEOperation(commandEClass, this.getCommandParameter(), "getParameters", 1, -1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getCommandParameterOrder(), "order", 1, 1, IS_UNIQUE, IS_ORDERED);
 
+		addEOperation(commandEClass, ecorePackage.getEBoolean(), "isSupported", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(commandContainerEClass, QCommandContainer.class, "CommandContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCommandContainer_TypeName(), ecorePackage.getEString(), "typeName", null, 0, 1, QCommandContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -630,6 +632,8 @@ public class OperatingSystemCommandPackageImpl extends EPackageImpl implements Q
 		addEOperation(commandParameterEClass, ecorePackage.getEBoolean(), "isMany", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(commandParameterEClass, ecorePackage.getEBoolean(), "isRequired", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(commandParameterEClass, ecorePackage.getEBoolean(), "isSupported", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(commandSourceEClass, QCommandSource.class, "CommandSource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCommandSource_Type(), ecorePackage.getEString(), "type", "ASUP", 0, 1, QCommandSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
