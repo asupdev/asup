@@ -12,8 +12,7 @@
       xsi:type="os-type-cmd:Command"
       name="CHGJOBD"
       text="Change Job Description"
-      program="QWDCCHG"
-      status="POS">
+      program="QWDCCHG">
     <parameters
         allowVariable="true"
         name="JOBD"
@@ -977,9 +976,8 @@
       xsi:type="os-type-cmd:Command"
       name="CRTJOBD"
       text="Create Job Description"
-      program="QWDCCRG"
-      status="TODO"
-      classCMD="true">
+      classCMD="true"
+      program="QWDCCRG">
     <parameters
         allowVariable="true"
         name="JOBD"
@@ -1857,8 +1855,7 @@
       xsi:type="os-type-cmd:Command"
       name="DLTJOBD"
       text="Delete Job Description"
-      program="QLIDLOBJ"
-      status="TODO">
+      program="QLIDLOBJ">
     <parameters
         allowVariable="true"
         name="JOBD"
@@ -1936,8 +1933,7 @@
       xsi:type="os-type-cmd:Command"
       name="DSPJOBD"
       text="Display Job Description"
-      program="QWDCDSG"
-      status="POS">
+      program="QWDCDSG">
     <parameters
         allowVariable="true"
         name="JOBD"
@@ -2014,10 +2010,11 @@
   </contents>
   <contents
       xsi:type="os-type-cmd:Command"
+      library=""
       name="PRTJOBDAUT"
       text="Print JOBD Authority"
       program="QSECJBD1"
-      status="POS">
+      status="UNS">
     <parameters
         allowVariable="true"
         name="LIB"
@@ -2092,9 +2089,8 @@
       name="WRKJOBD"
       text="Work with Job Descriptions"
       allowBatch="false"
-      program="QMNWRKXX"
-      status="POS"
-      classCMD="true">
+      classCMD="true"
+      program="QMNWRKXX">
     <parameters
         allowVariable="true"
         name="JOBD"
