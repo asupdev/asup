@@ -447,12 +447,13 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public boolean isSupported() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		boolean result = false;		
+		if (status == CommandStatus.TODO || status == CommandStatus.SUPPORTED) result = true;
+		 return result;
+
 	}
 
 	/**
