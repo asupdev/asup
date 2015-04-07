@@ -115,9 +115,9 @@ public class JobSubmitter {
 
 		private QJob qJob;
 		private String commandString;
-		private Object caller;
+		private QCallableProgram caller;
 
-		protected SubmittedCommand(QJob qJob, String commandString, Object caller) {
+		protected SubmittedCommand(QJob qJob, String commandString, QCallableProgram caller) {
 			this.qJob = qJob;
 			this.commandString = commandString;
 			this.caller = caller;
@@ -134,7 +134,7 @@ public class JobSubmitter {
 					
 					variables = new HashMap<String, Object>();
 					
-					for(Field field: caller.getClass().getFields()) {
+					for(Field field: caller.getRawProgram().getClass().getFields()) {
 	
 	
 						Type type = field.getGenericType();
@@ -149,7 +149,7 @@ public class JobSubmitter {
 						if(QData.class.isAssignableFrom(fieldKlass)) {
 							Object variable;
 							try {
-								variable = field.get(caller);
+								variable = field.get(caller.getRawProgram());
 								variables.put(field.getName(), variable);
 							} catch (IllegalArgumentException | IllegalAccessException e) {
 								// TODO Auto-generated catch block

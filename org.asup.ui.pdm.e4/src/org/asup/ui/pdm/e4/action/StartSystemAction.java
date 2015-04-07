@@ -11,40 +11,25 @@
  */
 package org.asup.ui.pdm.e4.action;
 
-import java.util.Collections;
-import java.util.Map;
+import java.util.*;
 
-import org.asup.fw.core.QApplication;
-import org.asup.fw.core.QApplicationManager;
-import org.asup.fw.core.QFrameworkCorePackage;
+import org.asup.fw.core.*;
 import org.asup.ui.pdm.e4.Activator;
-import org.asup.ui.pdm.e4.console.ConsoleSystem;
-import org.asup.ui.pdm.e4.console.ConsoleSystemHelper;
+import org.asup.ui.pdm.e4.console.*;
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
+import org.eclipse.core.runtime.*;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.*;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.TreeSelection;
-import org.eclipse.ui.IObjectActionDelegate;
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.console.IConsoleConstants;
-import org.eclipse.ui.console.IConsoleView;
-import org.eclipse.ui.console.IOConsoleOutputStream;
-import org.osgi.framework.BundleContext;
-import org.osgi.framework.FrameworkUtil;
-import org.osgi.framework.ServiceReference;
+import org.eclipse.jface.viewers.*;
+import org.eclipse.ui.*;
+import org.eclipse.ui.console.*;
+import org.osgi.framework.*;
 
 public class StartSystemAction implements IObjectActionDelegate {
 	
@@ -114,29 +99,32 @@ public class StartSystemAction implements IObjectActionDelegate {
 
 		
 		Job job = new Job("System Starter") {
-			
 		      @Override
 		      protected IStatus run(IProgressMonitor monitor) {
-
 			    try {
-			    	
 			    	BundleContext bundleContext = FrameworkUtil.getBundle(QApplication.class).getBundleContext();
 			    	ServiceReference<QApplicationManager> applicationManagerReference = bundleContext.getServiceReference(QApplicationManager.class);
 			    	
+			    	if (applicationManagerReference == null) {
+			    		throw new NullPointerException("applicationManager is null. Maybe you need to define asup-co1 machine");
+			    	}
+			    	
 			    	QApplicationManager applicationManager = bundleContext.getService(applicationManagerReference);			    	
-
+	
 					Activator.getDefault().setApplication(applicationManager.start(application, stream));
 					
 			        return Status.OK_STATUS;
-				} catch (Exception e) {
-			        MessageDialog.openError(window.getShell(), "System error", e.getMessage());
-			        return Status.CANCEL_STATUS;
+				} catch (final Exception e) {
+					System.err.println();
+					System.err.println("**********");
+					e.printStackTrace();
+					System.err.println("**********");
+			        return new Status(IStatus.CANCEL, "unknown", 1,  e.getMessage(), null);
 				}
 		      }
-		    };
-		    
-		    job.setUser(true);
-		    job.schedule();
+		};
+	    job.setUser(true);
+	    job.schedule();
 	}
 	
 	@Override
