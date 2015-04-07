@@ -447,6 +447,18 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean isSupported() {
+		boolean result = false;		
+		if (status == CommandStatus.TODO || status == CommandStatus.SUPPORTED) result = true;
+		 return result;
+
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

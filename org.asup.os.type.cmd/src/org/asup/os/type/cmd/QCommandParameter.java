@@ -150,6 +150,14 @@ public interface QCommandParameter extends QObject {
 	boolean isRequired();
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model kind="operation"
+	 * @generated
+	 */
+	boolean isSupported();
+
+	/**
 	 * Returns the value of the '<em><b>Status</b></em>' attribute.
 	 * The default value is <code>"SUP"</code>.
 	 * The literals are from the enumeration {@link org.asup.os.type.cmd.CommandStatus}.
