@@ -7,6 +7,7 @@
  */
 package org.asup.os.core.jobs;
 
+import java.util.Date;
 import org.asup.os.omac.QObject;
 
 
@@ -20,6 +21,7 @@ import org.asup.os.omac.QObject;
  * <ul>
  *   <li>{@link org.asup.os.core.jobs.QJobLogEntry#getGravity <em>Gravity</em>}</li>
  *   <li>{@link org.asup.os.core.jobs.QJobLogEntry#getMessage <em>Message</em>}</li>
+ *   <li>{@link org.asup.os.core.jobs.QJobLogEntry#getCreationDate <em>Creation Date</em>}</li>
  * </ul>
  * </p>
  *
@@ -80,5 +82,31 @@ public interface QJobLogEntry extends QObject {
 	 * @generated
 	 */
 	void setMessage(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Creation Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Creation Date</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Creation Date</em>' attribute.
+	 * @see #setCreationDate(Date)
+	 * @see org.asup.os.core.jobs.QOperatingSystemJobsPackage#getJobLogEntry_CreationDate()
+	 * @model
+	 * @generated
+	 */
+	Date getCreationDate();
+
+	/**
+	 * Sets the value of the '{@link org.asup.os.core.jobs.QJobLogEntry#getCreationDate <em>Creation Date</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Creation Date</em>' attribute.
+	 * @see #getCreationDate()
+	 * @generated
+	 */
+	void setCreationDate(Date value);
 
 } // QJobLogEntry

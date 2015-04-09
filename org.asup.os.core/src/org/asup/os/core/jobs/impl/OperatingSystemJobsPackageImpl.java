@@ -348,6 +348,15 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getJobLogEntry_CreationDate() {
+		return (EAttribute)jobLogEntryEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getJobLogManager() {
 		return jobLogManagerEClass;
 	}
@@ -436,6 +445,7 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 		jobLogEntryEClass = createEClass(JOB_LOG_ENTRY);
 		createEAttribute(jobLogEntryEClass, JOB_LOG_ENTRY__GRAVITY);
 		createEAttribute(jobLogEntryEClass, JOB_LOG_ENTRY__MESSAGE);
+		createEAttribute(jobLogEntryEClass, JOB_LOG_ENTRY__CREATION_DATE);
 
 		jobLogManagerEClass = createEClass(JOB_LOG_MANAGER);
 
@@ -511,6 +521,7 @@ public class OperatingSystemJobsPackageImpl extends EPackageImpl implements QOpe
 		initEClass(jobLogEntryEClass, QJobLogEntry.class, "JobLogEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getJobLogEntry_Gravity(), ecorePackage.getEInt(), "gravity", null, 1, 1, QJobLogEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getJobLogEntry_Message(), ecorePackage.getEString(), "message", null, 1, 1, QJobLogEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getJobLogEntry_CreationDate(), ecorePackage.getEDate(), "creationDate", null, 0, 1, QJobLogEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(jobLogManagerEClass, QJobLogManager.class, "JobLogManager", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

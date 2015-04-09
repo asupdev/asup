@@ -7,6 +7,7 @@
  */
 package org.asup.os.core.jobs.impl;
 
+import java.util.Date;
 import org.asup.os.core.jobs.QJobLogEntry;
 import org.asup.os.core.jobs.QOperatingSystemJobsPackage;
 import org.asup.os.omac.impl.ObjectImpl;
@@ -23,6 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link org.asup.os.core.jobs.impl.JobLogEntryImpl#getGravity <em>Gravity</em>}</li>
  *   <li>{@link org.asup.os.core.jobs.impl.JobLogEntryImpl#getMessage <em>Message</em>}</li>
+ *   <li>{@link org.asup.os.core.jobs.impl.JobLogEntryImpl#getCreationDate <em>Creation Date</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,6 +75,26 @@ public class JobLogEntryImpl extends ObjectImpl implements QJobLogEntry {
 	 * @ordered
 	 */
 	protected String message = MESSAGE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCreationDate() <em>Creation Date</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCreationDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date CREATION_DATE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getCreationDate() <em>Creation Date</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCreationDate()
+	 * @generated
+	 * @ordered
+	 */
+	protected Date creationDate = CREATION_DATE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,6 +162,27 @@ public class JobLogEntryImpl extends ObjectImpl implements QJobLogEntry {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCreationDate(Date newCreationDate) {
+		Date oldCreationDate = creationDate;
+		creationDate = newCreationDate;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QOperatingSystemJobsPackage.JOB_LOG_ENTRY__CREATION_DATE, oldCreationDate, creationDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -147,6 +190,8 @@ public class JobLogEntryImpl extends ObjectImpl implements QJobLogEntry {
 				return getGravity();
 			case QOperatingSystemJobsPackage.JOB_LOG_ENTRY__MESSAGE:
 				return getMessage();
+			case QOperatingSystemJobsPackage.JOB_LOG_ENTRY__CREATION_DATE:
+				return getCreationDate();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -164,6 +209,9 @@ public class JobLogEntryImpl extends ObjectImpl implements QJobLogEntry {
 				return;
 			case QOperatingSystemJobsPackage.JOB_LOG_ENTRY__MESSAGE:
 				setMessage((String)newValue);
+				return;
+			case QOperatingSystemJobsPackage.JOB_LOG_ENTRY__CREATION_DATE:
+				setCreationDate((Date)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -183,6 +231,9 @@ public class JobLogEntryImpl extends ObjectImpl implements QJobLogEntry {
 			case QOperatingSystemJobsPackage.JOB_LOG_ENTRY__MESSAGE:
 				setMessage(MESSAGE_EDEFAULT);
 				return;
+			case QOperatingSystemJobsPackage.JOB_LOG_ENTRY__CREATION_DATE:
+				setCreationDate(CREATION_DATE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -199,6 +250,8 @@ public class JobLogEntryImpl extends ObjectImpl implements QJobLogEntry {
 				return gravity != GRAVITY_EDEFAULT;
 			case QOperatingSystemJobsPackage.JOB_LOG_ENTRY__MESSAGE:
 				return MESSAGE_EDEFAULT == null ? message != null : !MESSAGE_EDEFAULT.equals(message);
+			case QOperatingSystemJobsPackage.JOB_LOG_ENTRY__CREATION_DATE:
+				return CREATION_DATE_EDEFAULT == null ? creationDate != null : !CREATION_DATE_EDEFAULT.equals(creationDate);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -217,6 +270,8 @@ public class JobLogEntryImpl extends ObjectImpl implements QJobLogEntry {
 		result.append(gravity);
 		result.append(", message: ");
 		result.append(message);
+		result.append(", creationDate: ");
+		result.append(creationDate);
 		result.append(')');
 		return result.toString();
 	}

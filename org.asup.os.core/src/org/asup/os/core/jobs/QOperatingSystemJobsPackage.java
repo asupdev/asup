@@ -247,13 +247,22 @@ public interface QOperatingSystemJobsPackage extends EPackage {
 	int JOB_LOG_ENTRY__MESSAGE = QOperatingSystemOmacPackage.OBJECT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Creation Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JOB_LOG_ENTRY__CREATION_DATE = QOperatingSystemOmacPackage.OBJECT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Job Log Entry</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int JOB_LOG_ENTRY_FEATURE_COUNT = QOperatingSystemOmacPackage.OBJECT_FEATURE_COUNT + 2;
+	int JOB_LOG_ENTRY_FEATURE_COUNT = QOperatingSystemOmacPackage.OBJECT_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link org.asup.os.core.jobs.impl.JobLogManagerImpl <em>Job Log Manager</em>}' class.
@@ -547,6 +556,17 @@ public interface QOperatingSystemJobsPackage extends EPackage {
 	EAttribute getJobLogEntry_Message();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.asup.os.core.jobs.QJobLogEntry#getCreationDate <em>Creation Date</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Creation Date</em>'.
+	 * @see org.asup.os.core.jobs.QJobLogEntry#getCreationDate()
+	 * @see #getJobLogEntry()
+	 * @generated
+	 */
+	EAttribute getJobLogEntry_CreationDate();
+
+	/**
 	 * Returns the meta object for class '{@link org.asup.os.core.jobs.QJobLogManager <em>Job Log Manager</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -767,6 +787,14 @@ public interface QOperatingSystemJobsPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute JOB_LOG_ENTRY__MESSAGE = eINSTANCE.getJobLogEntry_Message();
+
+		/**
+		 * The meta object literal for the '<em><b>Creation Date</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute JOB_LOG_ENTRY__CREATION_DATE = eINSTANCE.getJobLogEntry_CreationDate();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.os.core.jobs.impl.JobLogManagerImpl <em>Job Log Manager</em>}' class.

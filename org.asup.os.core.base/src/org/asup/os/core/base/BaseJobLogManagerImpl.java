@@ -15,6 +15,7 @@ import javax.inject.Inject;
 
 import org.asup.fw.core.QContextID;
 import org.asup.os.core.OperatingSystemException;
+import org.asup.os.core.QOperatingSystemCoreHelper;
 import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.jobs.QJobLog;
 import org.asup.os.core.jobs.QJobLogEntry;
@@ -62,7 +63,8 @@ public class BaseJobLogManagerImpl extends JobLogManagerImpl {
 		QJobLogEntry entry = QOperatingSystemJobsFactory.eINSTANCE.createJobLogEntry();
 		entry.setGravity(gravity);
 		entry.setMessage(message);
-
+		entry.setCreationDate(QOperatingSystemCoreHelper.now());
+		
 		// add
 		jobLog.getEntries().add(entry);
 		
