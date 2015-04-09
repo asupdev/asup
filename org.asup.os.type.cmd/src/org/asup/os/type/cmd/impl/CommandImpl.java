@@ -451,7 +451,7 @@ public class CommandImpl extends TypedObjectImpl implements QCommand {
 	 */
 	public boolean isSupported() {
 		boolean result = false;		
-		if (status == CommandStatus.TODO || status == CommandStatus.SUPPORTED) result = true;
+		if (getStatus() == CommandStatus.TODO || getStatus() == CommandStatus.SUPPORTED) result = true;
 		 return result;
 
 	}
