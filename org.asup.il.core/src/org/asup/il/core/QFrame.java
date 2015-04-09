@@ -15,12 +15,6 @@ import java.util.List;
  * A representation of the model object '<em><b>Frame</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * <ul>
- *   <li>{@link org.asup.il.core.QFrame#getSlots <em>Slots</em>}</li>
- * </ul>
- * </p>
  *
  * @see org.asup.il.core.QIntegratedLanguageCorePackage#getFrame()
  * @model interface="true" abstract="true"
@@ -29,17 +23,21 @@ import java.util.List;
 public interface QFrame extends QNameable {
 
 	/**
-	 * Returns the value of the '<em><b>Slots</b></em>' reference list.
-	 * The list contents are of type {@link org.asup.il.core.QSlot}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	QFrame ako();
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Slots</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Slots</em>' reference list.
-	 * @see org.asup.il.core.QIntegratedLanguageCorePackage#getFrame_Slots()
-	 * @model
+	 * @model kind="operation"
 	 * @generated
 	 */
 	List<QSlot> getSlots();

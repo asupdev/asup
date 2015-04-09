@@ -53,8 +53,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Frame" abstract="true" interface="true"
       eSuperTypes="#//Nameable">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="slots" upperBound="-1"
-        eType="#//Slot"/>
+    <eOperations name="ako" eType="#//Frame"/>
+    <eOperations name="getSlots" upperBound="-1" eType="#//Slot"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FrameManager" abstract="true" interface="true"
       eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Service">
@@ -98,9 +98,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Slot" abstract="true" interface="true"
       eSuperTypes="#//Nameable">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="cardinality" lowerBound="1"
-        eType="#//Cardinality"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="getCardinality" eType="#//Cardinality"/>
+    <eOperations name="getDefaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Special" eSuperTypes="#//Facet">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="classDelegate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

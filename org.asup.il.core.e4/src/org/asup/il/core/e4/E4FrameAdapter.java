@@ -38,5 +38,12 @@ public class E4FrameAdapter implements QFrame {
 		}
 		
 		return this.slots;
+	}
+
+	@Override
+	public QFrame ako() {
+		
+		EClass eAko = this.eClass.getESuperTypes().get(0);
+		return new E4FrameAdapter(eAko);
 	}	
 }

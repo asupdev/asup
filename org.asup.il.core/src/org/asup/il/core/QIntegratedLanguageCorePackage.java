@@ -475,22 +475,13 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	int FRAME = 9;
 
 	/**
-	 * The feature id for the '<em><b>Slots</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FRAME__SLOTS = NAMEABLE_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Frame</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FRAME_FEATURE_COUNT = NAMEABLE_FEATURE_COUNT + 1;
+	int FRAME_FEATURE_COUNT = NAMEABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.QFrameManager <em>Frame Manager</em>}' class.
@@ -670,31 +661,13 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	int SLOT = 17;
 
 	/**
-	 * The feature id for the '<em><b>Cardinality</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLOT__CARDINALITY = NAMEABLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Default Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SLOT__DEFAULT_VALUE = NAMEABLE_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Slot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SLOT_FEATURE_COUNT = NAMEABLE_FEATURE_COUNT + 2;
+	int SLOT_FEATURE_COUNT = NAMEABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.core.impl.SpecialImpl <em>Special</em>}' class.
@@ -1160,17 +1133,6 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	EClass getFrame();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.asup.il.core.QFrame#getSlots <em>Slots</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Slots</em>'.
-	 * @see org.asup.il.core.QFrame#getSlots()
-	 * @see #getFrame()
-	 * @generated
-	 */
-	EReference getFrame_Slots();
-
-	/**
 	 * Returns the meta object for class '{@link org.asup.il.core.QFrameManager <em>Frame Manager</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1326,28 +1288,6 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getSlot();
-
-	/**
-	 * Returns the meta object for the reference '{@link org.asup.il.core.QSlot#getCardinality <em>Cardinality</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Cardinality</em>'.
-	 * @see org.asup.il.core.QSlot#getCardinality()
-	 * @see #getSlot()
-	 * @generated
-	 */
-	EReference getSlot_Cardinality();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.asup.il.core.QSlot#getDefaultValue <em>Default Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Default Value</em>'.
-	 * @see org.asup.il.core.QSlot#getDefaultValue()
-	 * @see #getSlot()
-	 * @generated
-	 */
-	EAttribute getSlot_DefaultValue();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.il.core.QSpecial <em>Special</em>}'.
@@ -1770,14 +1710,6 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 		EClass FRAME = eINSTANCE.getFrame();
 
 		/**
-		 * The meta object literal for the '<em><b>Slots</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FRAME__SLOTS = eINSTANCE.getFrame_Slots();
-
-		/**
 		 * The meta object literal for the '{@link org.asup.il.core.QFrameManager <em>Frame Manager</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1912,22 +1844,6 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 		 * @generated
 		 */
 		EClass SLOT = eINSTANCE.getSlot();
-
-		/**
-		 * The meta object literal for the '<em><b>Cardinality</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SLOT__CARDINALITY = eINSTANCE.getSlot_Cardinality();
-
-		/**
-		 * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SLOT__DEFAULT_VALUE = eINSTANCE.getSlot_DefaultValue();
 
 		/**
 		 * The meta object literal for the '{@link org.asup.il.core.impl.SpecialImpl <em>Special</em>}' class.

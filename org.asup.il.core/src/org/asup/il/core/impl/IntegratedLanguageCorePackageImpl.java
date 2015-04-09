@@ -514,15 +514,6 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFrame_Slots() {
-		return (EReference)frameEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getFrameManager() {
 		return frameManagerEClass;
 	}
@@ -651,24 +642,6 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 */
 	public EClass getSlot() {
 		return slotEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSlot_Cardinality() {
-		return (EReference)slotEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSlot_DefaultValue() {
-		return (EAttribute)slotEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -909,7 +882,6 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		createEAttribute(formatEClass, FORMAT__TYPE);
 
 		frameEClass = createEClass(FRAME);
-		createEReference(frameEClass, FRAME__SLOTS);
 
 		frameManagerEClass = createEClass(FRAME_MANAGER);
 
@@ -933,8 +905,6 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		createEAttribute(remapEClass, REMAP__INDEX);
 
 		slotEClass = createEClass(SLOT);
-		createEReference(slotEClass, SLOT__CARDINALITY);
-		createEAttribute(slotEClass, SLOT__DEFAULT_VALUE);
 
 		specialEClass = createEClass(SPECIAL);
 		createEAttribute(specialEClass, SPECIAL__CLASS_DELEGATE);
@@ -1068,7 +1038,10 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		initEAttribute(getFormat_Type(), this.getFormatType(), "type", null, 1, 1, QFormat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(frameEClass, QFrame.class, "Frame", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFrame_Slots(), this.getSlot(), null, "slots", null, 0, -1, QFrame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(frameEClass, this.getFrame(), "ako", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(frameEClass, this.getSlot(), "getSlots", 0, -1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(frameManagerEClass, QFrameManager.class, "FrameManager", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1110,8 +1083,10 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		initEAttribute(getRemap_Index(), ecorePackage.getEString(), "index", null, 1, 1, QRemap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(slotEClass, QSlot.class, "Slot", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSlot_Cardinality(), this.getCardinality(), null, "cardinality", null, 1, 1, QSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSlot_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 0, 1, QSlot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(slotEClass, this.getCardinality(), "getCardinality", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(slotEClass, ecorePackage.getEJavaObject(), "getDefaultValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(specialEClass, QSpecial.class, "Special", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSpecial_ClassDelegate(), ecorePackage.getEString(), "classDelegate", null, 0, 1, QSpecial.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
