@@ -118,8 +118,8 @@ public class BaseCallableInjector {
 	private <C> C injectData(Class<C> klass, QDataFactory dataFactory, QJob job, QActivationGroup activationGroup, Map<String, Object> sharedModules) throws IllegalArgumentException,
 			IllegalAccessException, InstantiationException {
 
-		if (klass.getAnnotation(Program.class) != null)
-			System.out.println(klass);
+//		if (klass.getAnnotation(Program.class) != null)
+//			System.out.println(klass);
 
 		C callable = klass.newInstance();
 		QContext jobContext = job.getContext();
@@ -135,15 +135,22 @@ public class BaseCallableInjector {
 					Object £mub = £mubField.get(callable);
 					Object £mu_£pds_1 = £mub.getClass().getField("£mu_£pds_1").get(£mub);
 
+					// program name
 					Object £pdsnp = £mu_£pds_1.getClass().getField("£pdsnp").get(£mu_£pds_1);
-					// if (£pdsnp.toString().trim().isEmpty()) {
 					String programName = callable.getClass().getSimpleName();
 					Program program = callable.getClass().getAnnotation(Program.class);
 					if (program != null)
 						programName = program.name();
-
 					£pdsnp.getClass().getMethod("eval", String.class).invoke(£pdsnp, new Object[] { programName });
 
+					// user name
+					Object £pdsnu = £mu_£pds_1.getClass().getField("£pdsnu").get(£mu_£pds_1);
+					£pdsnu.getClass().getMethod("eval", String.class).invoke(£pdsnu, new Object[] { job.getJobUser() });
+					
+					// job number
+					Object £pdsjz = £mu_£pds_1.getClass().getField("£pdsjz").get(£mu_£pds_1);
+					£pdsjz.getClass().getMethod("eval", Integer.TYPE).invoke(£pdsjz, new Object[] { job.getJobNumber() });
+					
 				} catch (NoSuchFieldException | InvocationTargetException | NoSuchMethodException e) {
 					e.printStackTrace();
 				} finally {
@@ -187,7 +194,7 @@ public class BaseCallableInjector {
 
 			field.setAccessible(true);
 
-			System.out.println("\t\t"+field);
+//			System.out.println("\t\t"+field);
 
 			Type type = field.getGenericType();
 
@@ -282,7 +289,7 @@ public class BaseCallableInjector {
 				} else {
 					object = sharedModules.get(fieldKlass.getSimpleName());
 					if (object == null) {
-						System.out.println("\t" + fieldKlass);
+//						System.out.println("\t" + fieldKlass);
 						object = injectData(fieldKlass, dataFactory, job, activationGroup, sharedModules);
 						sharedModules.put(fieldKlass.getSimpleName(), object);
 					}

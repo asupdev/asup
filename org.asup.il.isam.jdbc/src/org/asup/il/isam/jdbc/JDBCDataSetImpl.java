@@ -247,7 +247,7 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 
 		String querySelect = jdbcAccessHelper.buildSelect(this.currentTable, index, opSet, keySet, opRead, keyRead);
 
-		System.out.println(querySelect);
+//		System.out.println(querySelect);
 		
 		this.resultSet = this.statement.executeQuery(querySelect);
 		this.dataReader.set(this.resultSet);

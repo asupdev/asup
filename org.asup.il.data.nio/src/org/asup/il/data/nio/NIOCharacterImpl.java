@@ -132,6 +132,10 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 		} catch (UnsupportedEncodingException e) {
 			return new String(asBytes());
 		}
+		catch (Exception e) {
+			// TODO
+			return "";
+		}
 	}
 
 	@Override

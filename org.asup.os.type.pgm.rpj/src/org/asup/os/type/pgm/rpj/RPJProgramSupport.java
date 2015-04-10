@@ -11,6 +11,9 @@
  */
 package org.asup.os.type.pgm.rpj;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import javax.inject.Inject;
 
 import org.asup.fw.core.QContextID;
@@ -445,12 +448,29 @@ public class RPJProgramSupport {
 		return array;
 	}
 
+	
+	// TODO remove return value
 	public QNumeric qTime(QDatetime datetime) {
+		
+		// TODO
+		
 		return null;
 	}
 
 	public void qTime(QNumeric datetime) {
-		// TODO
+
+	    Calendar CALENDAR = Calendar.getInstance();
+		if(datetime.getLength() == 14) {
+			datetime.eval(Long.parseLong(new SimpleDateFormat("HHmmssddMMyyyy").format(CALENDAR.getTime())));			
+		}
+		else if(datetime.getLength() == 12) {
+			datetime.eval(Long.parseLong(new SimpleDateFormat("HHmmssddMMyy").format(CALENDAR.getTime())));
+		}
+		else if(datetime.getLength() == 6) {
+			datetime.eval(Long.parseLong(new SimpleDateFormat("HHmmss").format(CALENDAR.getTime())));
+		}
+		else
+			System.err.println("Unknown length: "+datetime.getLength());
 	}
 
 	public QString qTrim(String source) {

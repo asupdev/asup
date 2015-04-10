@@ -81,7 +81,8 @@ public class NIODecimalImpl extends NIONumericImpl implements QDecimal {
 				result = ((Double)zoned.toDouble(asBytes())).longValue();
 			
 		} catch (Exception e) {
-			System.err.println("Unexpected condition vv6666eqw5rqvcrqv: " + e);
+			// TODO
+//			System.err.println("Unexpected condition vv6666eqw5rqvcrqv: " + e);
 		}
 
 		return result;
@@ -112,9 +113,15 @@ public class NIODecimalImpl extends NIONumericImpl implements QDecimal {
 		
 		AS400ZonedDecimal zoned = getDecimal(getPrecision(), getScale());
 
-		byte[] bytes = zoned.toBytes(number.doubleValue());
-
-		NIOBufferHelper.movel(getBuffer(), getPosition(), getLength(), bytes, true, INIT);
+		try {
+			byte[] bytes = zoned.toBytes(number.doubleValue());
+	
+			NIOBufferHelper.movel(getBuffer(), getPosition(), getLength(), bytes, true, INIT);
+		}
+		catch(Exception e) {
+			// TODO
+//			System.err.println("Unexpected condition ndf0gdfeqw5rqvcrqv: " + e);
+		}
 	}
 
 	@Override
@@ -124,7 +131,8 @@ public class NIODecimalImpl extends NIONumericImpl implements QDecimal {
 		try {
 			d1 = asDouble();
 		} catch (NumberFormatException e) {
-			System.err.println("Unexpected condition ahf989af9h9hh9af: " + e);
+			// TODO
+//			System.err.println("Unexpected condition ahf989af9h9hh9af: " + e);
 		}
 		double d2 = value.doubleValue();
 

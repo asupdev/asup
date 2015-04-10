@@ -303,7 +303,13 @@ public abstract class NIOBufferedDataImpl extends NIODataImpl implements QBuffer
 
 	@Override
 	public String toString() {
-		return new String(asBytes());
+		try {
+			return new String(asBytes());
+		}
+		catch(Exception e) {
+			// TODO
+			return "";
+		}
 	}
 
 	@Override

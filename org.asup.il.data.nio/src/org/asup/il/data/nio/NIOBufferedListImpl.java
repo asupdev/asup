@@ -147,8 +147,13 @@ public abstract class NIOBufferedListImpl<D extends QBufferedData> extends NIOBu
 	}
 
 	public String toString() {
-		
-		return super.toString();
+		try {
+			return super.toString();
+		}
+		catch(Exception e) {
+			// TODO
+			return "";
+		}
 	}
 
 	@Override

@@ -29,7 +29,7 @@ public class ASMProgramLoader extends ServiceImpl implements WeavingHook {
 
 	private void completeClass(WovenClass wovenClass) {
 
-		System.out.println("Woven: "+wovenClass);
+//		System.out.println("Woven: "+wovenClass);
 
 		ClassReader cr = new ClassReader(wovenClass.getBytes());
 

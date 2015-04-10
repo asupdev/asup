@@ -56,6 +56,11 @@ public class BaseDataQueueManagerImpl extends DataQueueManagerImpl {
 	@Override
 	public String readDataQueue(QContextID ContextID, String library, String name, long aTimeout, String key, DataQueueSearchType searchType) throws OperatingSystemException {
 		try {
+			
+			// TODO
+			if(aTimeout < 0)
+				aTimeout = 30000;
+			
 			return dataQueueManager.readFromQueue(library, name, aTimeout);
 		} catch (BaseFifoQueueException vExc) {
 			throw new OperatingSystemException("Queue read error. Queue: " + name + " Lib: " + library, vExc);

@@ -381,7 +381,13 @@ public abstract class NIONumericImpl extends NIOBufferedDataImpl implements QNum
 
 	@Override
 	public String toString() {
-		return readNumber().toString();		
+		try {
+			return readNumber().toString();
+		}
+		catch(Exception e) {
+			// TODO
+			return "";
+		}
 	}
 
 	public abstract void writeNumber(Number number);

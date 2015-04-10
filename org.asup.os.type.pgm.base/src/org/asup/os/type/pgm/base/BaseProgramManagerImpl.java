@@ -217,7 +217,7 @@ public class BaseProgramManagerImpl extends ProgramManagerImpl {
 			
 			// call
 			try {
-	//			printOpenStack(job, programStack, callableProgram);
+				printOpenStack(job, programStack, callableProgram);
 				
 				// open 
 				if(!callableProgram.isOpen())
@@ -251,7 +251,7 @@ public class BaseProgramManagerImpl extends ProgramManagerImpl {
 				throw new OperatingSystemRuntimeProgramException(e.getMessage(), e);
 			}		
 			finally {
-	//			printCloseStack(job, programStack, callableProgram);
+				printCloseStack(job, programStack, callableProgram);
 	
 				// TODO release parameters
 				
