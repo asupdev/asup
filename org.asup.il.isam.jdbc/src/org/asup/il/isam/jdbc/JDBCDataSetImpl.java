@@ -430,18 +430,21 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 	@Override
 	public void update(QIndicator error) {
 
-
 		this.error = false;
 		this.equal = false;
 
 		try {
 
+			/*
 			this.resultSet.moveToCurrentRow();
 			this.record.accept(this.dataWriter);
 			this.resultSet.updateRow();
 
 			this.resultSet.moveToCurrentRow();
-
+*/
+			this.statement.executeUpdate(jdbcAccessHelper.buildUpdate(this.currentTable, this.record, this.rrn));
+			
+			
 			this.found = true;
 			this.endOfData = false;
 
@@ -466,11 +469,13 @@ public abstract class JDBCDataSetImpl<R extends QRecord> implements QDataSet<R> 
 
 		try {
 
-			this.resultSet.moveToInsertRow();
+/*			this.resultSet.moveToInsertRow();
 			this.record.accept(this.dataWriter);
 			this.resultSet.insertRow();
 
-			this.resultSet.moveToCurrentRow();
+			this.resultSet.moveToCurrentRow();*/
+			
+			this.statement.executeUpdate(jdbcAccessHelper.buildWrite(this.currentTable, this.record, this.rrn));
 
 			this.found = true;
 			this.endOfData = false;
