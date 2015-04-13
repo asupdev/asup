@@ -172,12 +172,12 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 
 	@Override
 	public void cat(QString factor1, QString factor2) {
-		eval(factor1.trimR()+factor2.toString());
+		eval(factor1.toString()+factor2.toString());
 	}
 
 	@Override
 	public void cat(QString factor1, String factor2) {
-		eval(factor1.toString()+factor2);
+		eval(factor1.trimR()+factor2);
 	}
 
 	@Override
