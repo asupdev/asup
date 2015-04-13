@@ -3,7 +3,6 @@ package org.asup.os.type.pgm.base.api;
 import javax.inject.Inject;
 
 import org.asup.fw.core.annotation.ToDo;
-import org.asup.fw.util.QListUtil;
 import org.asup.il.data.BinaryType;
 import org.asup.il.data.QBinary;
 import org.asup.il.data.QCharacter;
@@ -15,7 +14,6 @@ import org.asup.il.data.annotation.Entry;
 import org.asup.il.data.annotation.Program;
 import org.asup.il.data.annotation.Special;
 import org.asup.os.core.jobs.QJob;
-import org.asup.os.core.jobs.QJobLogManager;
 
 @Program(name = "QMHRCVMS")
 public @ToDo class MessageReceiver {

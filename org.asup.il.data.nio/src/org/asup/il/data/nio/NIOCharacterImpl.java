@@ -172,12 +172,12 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 
 	@Override
 	public void cat(QString factor1, QString factor2) {
-		eval(factor1.trimR()+factor2.toString());
+		eval(factor1.toString()+factor2.toString());
 	}
 
 	@Override
 	public void cat(QString factor1, String factor2) {
-		eval(factor1.toString()+factor2);
+		eval(factor1.trimR()+factor2);
 	}
 
 	@Override
@@ -223,22 +223,41 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 
 	@Override
 	public void cat(String factor1, QString factor2, QNumeric space) {
-		// TODO Auto-generated method stub
+		
+		if(space.asInteger() == 0)
+			eval(trimR(factor1)+factor2.toString());
+		else
+			eval(factor1+factor2.toString());
+
 	}
 
 	@Override
 	public void cat(QString factor1, QString factor2, int space) {
-		// TODO Auto-generated method stub
+		
+		if(space == 0)
+			eval(factor1.trimR()+factor2.toString());
+		else
+			eval(factor1.toString()+factor2.toString());
 	}
 
 	@Override
 	public void cat(QString factor1, QString factor2, QNumeric space) {
-		// TODO Auto-generated method stub
+		
+		if(space.asInteger() == 0)
+			eval(factor1.trimR()+factor2.toString());
+		else
+			eval(factor1.toString()+factor2.toString());
+
 	}
 
 	@Override
 	public void cat(QString factor1, String factor2, int space) {
-		// TODO Auto-generated method stub
+		
+		if(space == 0)
+			eval(factor1.trimR()+factor2);
+		else
+			eval(factor1.toString()+factor2.toString());
+
 	}
 
 	@Override
