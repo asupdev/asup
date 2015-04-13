@@ -126,7 +126,7 @@ public class BaseConnectionImpl implements QConnection, Connection {
 		
 		Statement sqlStatement = null;
 		if(updatable) 
-			sqlStatement = getRawConnection().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			sqlStatement = getRawConnection().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE);
 		else
 			sqlStatement = getRawConnection().createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
 		
