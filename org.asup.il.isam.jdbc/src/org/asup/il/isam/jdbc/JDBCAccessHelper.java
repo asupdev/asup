@@ -3,13 +3,17 @@ package org.asup.il.isam.jdbc;
 import java.util.Arrays;
 import java.util.List;
 
+import org.asup.il.data.QBufferedData;
+import org.asup.il.data.QDecimal;
 import org.asup.il.data.QString;
 import org.asup.il.isam.OperationDirection;
 import org.asup.il.isam.OperationRead;
 import org.asup.il.isam.OperationSet;
 import org.asup.il.isam.QIndex;
 import org.asup.il.isam.QIndexColumn;
+import org.asup.il.isam.QRecord;
 import org.eclipse.datatools.modelbase.sql.schema.helper.SQLObjectNameHelper;
+import org.eclipse.datatools.modelbase.sql.tables.Column;
 import org.eclipse.datatools.modelbase.sql.tables.Table;
 
 public class JDBCAccessHelper {
@@ -85,6 +89,103 @@ public class JDBCAccessHelper {
 		return sbOrderBy.toString();
 	}
 
+	@SuppressWarnings("unchecked")
+	public String buildUpdate(Table table, QRecord record, int recordNumber) {
+		
+		StringBuffer sbUpdate = new StringBuffer();
+		
+		sbUpdate.append("UPDATE");
+		sbUpdate.append(" "+getSQLObjectNameHelper().getQualifiedNameInSQLFormat(table));
+		sbUpdate.append(" SET ");
+		
+		int position = 1;
+		for(Column column: (List<Column>)table.getColumns()) {
+			
+			String columnName = column.getName().replaceAll("ç", "§").toUpperCase();
+			if(columnName.equalsIgnoreCase("QASRRN"))
+				continue;
+			
+			if(position>1)
+				sbUpdate.append(", ");
+			
+			sbUpdate.append("\""+columnName+"\""+"=");
+
+			QBufferedData element = record.getElement(position);
+			if(element instanceof QString) {
+				sbUpdate.append("'"+element.toString()+"'");
+			}
+			else if(element instanceof QDecimal) {
+				QDecimal decimal = (QDecimal) element;
+				if(decimal.getScale()>0)
+					sbUpdate.append(decimal.asDouble());
+				else
+					sbUpdate.append(decimal.asLong());
+			}
+			else 
+				System.err.println("Unexpected condition: dsjhflsdjhfsdfo9s98");
+			
+			position++;
+		}
+		
+		sbUpdate.append(" WHERE QASRRN="+recordNumber);
+		
+		return sbUpdate.toString();		
+	}
+	
+	@SuppressWarnings("unchecked")
+	public String buildWrite(Table table, QRecord record, int recordNumber) {
+		
+		StringBuffer sbWrite = new StringBuffer();
+		
+		sbWrite.append("INSERT INTO");
+		sbWrite.append(" "+getSQLObjectNameHelper().getQualifiedNameInSQLFormat(table));
+		sbWrite.append(" (");
+		
+		int position = 1;
+		for(Column column: (List<Column>)table.getColumns()) {
+			
+			String columnName = column.getName().replaceAll("ç", "§").toUpperCase();
+			if(columnName.equalsIgnoreCase("QASRRN"))
+				continue;
+			
+			if(position>1)
+				sbWrite.append(", ");
+			
+			sbWrite.append("\""+columnName+"\"");
+			
+			position++;
+		}
+		sbWrite.append(")");
+		
+		sbWrite.append(" VALUES (");
+		
+		position = 1;
+		for(QBufferedData element: record.getElements()) {
+			
+			if(position>1)
+				sbWrite.append(" , ");
+			
+			if(element instanceof QString) {
+				sbWrite.append("'"+element.toString().replaceAll("\'", "\''")+"'");
+			}
+			else if(element instanceof QDecimal) {
+				QDecimal decimal = (QDecimal) element;
+				if(decimal.getScale()>0)
+					sbWrite.append(decimal.asDouble());
+				else
+					sbWrite.append(decimal.asLong());
+			}
+			else 
+				System.err.println("Unexpected condition: dsjhf345034jsdfhiosd");
+			
+			position++;
+		}
+		
+		sbWrite.append(")");
+		
+		return sbWrite.toString();		
+	}
+	
 	private void buildWhereSet(OperationSet opSet, Object[] keySet, OperationRead opRead, Object[] keyRead, StringBuffer sbWhere, QIndex index) {
 
 		StringBuffer sbFields = new StringBuffer();
