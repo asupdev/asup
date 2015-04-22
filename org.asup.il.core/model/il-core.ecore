@@ -10,6 +10,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="min" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompoundTerm" abstract="true" eSuperTypes="#//Term"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Conversion" eSuperTypes="#//Facet">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" lowerBound="1"
         eType="#//ConversionStatus"/>
@@ -63,6 +64,9 @@
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MultipleTerm" abstract="true" eSuperTypes="#//Term"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Nameable" abstract="true" interface="true">
+    <eOperations name="getName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NamedNode" abstract="true" eSuperTypes="#//Node #//Nameable">
     <eOperations name="getFacet">
       <eGenericType eTypeParameter="#//NamedNode/getFacet/F"/>
@@ -96,6 +100,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Rule" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Slot" abstract="true" interface="true"
       eSuperTypes="#//Nameable">
     <eOperations name="getCardinality" eType="#//Cardinality"/>
@@ -128,12 +133,10 @@
       <eGenericType eTypeParameter="#//TermContainer/T"/>
     </eOperations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Trigger" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnaryTerm" abstract="true" eSuperTypes="#//Term"/>
   <eClassifiers xsi:type="ecore:EClass" name="Verb" eSuperTypes="#//Term">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UnaryTerm" abstract="true" eSuperTypes="#//Term"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Nameable" abstract="true" interface="true">
-    <eOperations name="getName" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>
