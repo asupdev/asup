@@ -10,6 +10,11 @@ import org.asup.os.core.jobs.QJob;
 import org.asup.os.core.resources.QResourceFactory;
 import org.asup.os.core.resources.QResourceReader;
 import org.asup.os.splf.QSpoolFile;
+import org.asup.os.splf.QSpoolFileWriter;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.FrameworkUtil;
+import org.osgi.framework.InvalidSyntaxException;
+import org.osgi.framework.ServiceReference;
 
 public @Program(name = "QMUSPLFP") class SpoolFilePrinter {
 
@@ -24,7 +29,20 @@ public @Program(name = "QMUSPLFP") class SpoolFilePrinter {
 	public @Entry void main(@DataDef(length = 255) QCharacter spoolID) {
 
 		QResourceReader<QSpoolFile> spoolFileReader = resourceFactory.getResourceReader(job, QSpoolFile.class, job.getSystem().getSystemLibrary());
-		QSpoolFile spoolFile = spoolFileReader.lookup(spoolID.trimR());
+		QSpoolFile spoolFile = spoolFileReader.lookup(spoolID.trimR());		
+		
+		BundleContext bundleContext = FrameworkUtil.getBundle(QJob.class).getBundleContext();
+		
+		try {
+			for(ServiceReference<QSpoolFileWriter> sfw: bundleContext.getServiceReferences(QSpoolFileWriter.class, null)) {
+				QSpoolFileWriter sw = bundleContext.getService(sfw);
+				System.out.println(sw);
+			}
+		} catch (InvalidSyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		System.out.println(spoolFile);
 	}
 }

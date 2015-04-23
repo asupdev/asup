@@ -18,6 +18,7 @@ import org.asup.il.core.QAnnotationTest;
 import org.asup.il.core.QAtomicTerm;
 import org.asup.il.core.QCardinality;
 import org.asup.il.core.QCompoundTerm;
+import org.asup.il.core.QConstraint;
 import org.asup.il.core.QConversion;
 import org.asup.il.core.QDerived;
 import org.asup.il.core.QDictionary;
@@ -35,12 +36,14 @@ import org.asup.il.core.QNode;
 import org.asup.il.core.QOverlay;
 import org.asup.il.core.QRange;
 import org.asup.il.core.QRemap;
+import org.asup.il.core.QRule;
 import org.asup.il.core.QSlot;
 import org.asup.il.core.QSpecial;
 import org.asup.il.core.QSpecialElement;
 import org.asup.il.core.QSubject;
 import org.asup.il.core.QTerm;
 import org.asup.il.core.QTermContainer;
+import org.asup.il.core.QTrigger;
 import org.asup.il.core.QUnaryTerm;
 import org.asup.il.core.QVerb;
 
@@ -96,6 +99,13 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	private EClass compoundTermEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass constraintEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -200,6 +210,13 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass ruleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass slotEClass = null;
 
 	/**
@@ -236,6 +253,13 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * @generated
 	 */
 	private EClass termContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass triggerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -415,6 +439,15 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 */
 	public EClass getCompoundTerm() {
 		return compoundTermEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConstraint() {
+		return constraintEClass;
 	}
 
 	/**
@@ -692,6 +725,15 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getRule() {
+		return ruleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSlot() {
 		return slotEClass;
 	}
@@ -818,6 +860,15 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getTrigger() {
+		return triggerEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getVerb() {
 		return verbEClass;
 	}
@@ -918,6 +969,8 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 
 		compoundTermEClass = createEClass(COMPOUND_TERM);
 
+		constraintEClass = createEClass(CONSTRAINT);
+
 		conversionEClass = createEClass(CONVERSION);
 		createEAttribute(conversionEClass, CONVERSION__STATUS);
 
@@ -945,6 +998,8 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 
 		multipleTermEClass = createEClass(MULTIPLE_TERM);
 
+		nameableEClass = createEClass(NAMEABLE);
+
 		namedNodeEClass = createEClass(NAMED_NODE);
 
 		nodeEClass = createEClass(NODE);
@@ -961,6 +1016,8 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		remapEClass = createEClass(REMAP);
 		createEAttribute(remapEClass, REMAP__NAME);
 		createEAttribute(remapEClass, REMAP__INDEX);
+
+		ruleEClass = createEClass(RULE);
 
 		slotEClass = createEClass(SLOT);
 
@@ -982,13 +1039,13 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 
 		termContainerEClass = createEClass(TERM_CONTAINER);
 
-		verbEClass = createEClass(VERB);
-		createEAttribute(verbEClass, VERB__NAME);
-		createEAttribute(verbEClass, VERB__TEXT);
+		triggerEClass = createEClass(TRIGGER);
 
 		unaryTermEClass = createEClass(UNARY_TERM);
 
-		nameableEClass = createEClass(NAMEABLE);
+		verbEClass = createEClass(VERB);
+		createEAttribute(verbEClass, VERB__NAME);
+		createEAttribute(verbEClass, VERB__TEXT);
 
 		// Create enums
 		conversionStatusEEnum = createEEnum(CONVERSION_STATUS);
@@ -1060,8 +1117,8 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		specialElementEClass.getESuperTypes().add(this.getNamedNode());
 		subjectEClass.getESuperTypes().add(this.getTerm());
 		termEClass.getESuperTypes().add(this.getNamedNode());
-		verbEClass.getESuperTypes().add(this.getTerm());
 		unaryTermEClass.getESuperTypes().add(this.getTerm());
+		verbEClass.getESuperTypes().add(this.getTerm());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(annotationEClass, QAnnotation.class, "Annotation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1081,6 +1138,8 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		addEOperation(cardinalityEClass, ecorePackage.getEBoolean(), "isMultiple", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(compoundTermEClass, QCompoundTerm.class, "CompoundTerm", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(constraintEClass, QConstraint.class, "Constraint", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(conversionEClass, QConversion.class, "Conversion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getConversion_Status(), this.getConversionStatus(), "status", null, 1, 1, QConversion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1116,6 +1175,10 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 
 		initEClass(multipleTermEClass, QMultipleTerm.class, "MultipleTerm", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(nameableEClass, QNameable.class, "Nameable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		addEOperation(nameableEClass, ecorePackage.getEString(), "getName", 1, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(namedNodeEClass, QNamedNode.class, "NamedNode", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(nodeEClass, QNode.class, "Node", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1147,6 +1210,8 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		initEClass(remapEClass, QRemap.class, "Remap", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRemap_Name(), ecorePackage.getEString(), "name", null, 1, 1, QRemap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRemap_Index(), ecorePackage.getEString(), "index", null, 1, 1, QRemap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(ruleEClass, QRule.class, "Rule", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(slotEClass, QSlot.class, "Slot", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1180,15 +1245,13 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		g1 = createEGenericType(termContainerEClass_T);
 		initEOperation(op, g1);
 
-		initEClass(verbEClass, QVerb.class, "Verb", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getVerb_Name(), ecorePackage.getEString(), "name", null, 0, 1, QVerb.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getVerb_Text(), ecorePackage.getEString(), "text", null, 0, 1, QVerb.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(triggerEClass, QTrigger.class, "Trigger", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(unaryTermEClass, QUnaryTerm.class, "UnaryTerm", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(nameableEClass, QNameable.class, "Nameable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		addEOperation(nameableEClass, ecorePackage.getEString(), "getName", 1, 1, IS_UNIQUE, IS_ORDERED);
+		initEClass(verbEClass, QVerb.class, "Verb", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getVerb_Name(), ecorePackage.getEString(), "name", null, 0, 1, QVerb.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVerb_Text(), ecorePackage.getEString(), "text", null, 0, 1, QVerb.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(conversionStatusEEnum, ConversionStatus.class, "ConversionStatus");
