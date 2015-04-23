@@ -71,6 +71,7 @@ public class IntegratedLanguageCoreFactoryImpl extends EFactoryImpl implements Q
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case QIntegratedLanguageCorePackage.ANNOTATION_TEST: return (EObject)createAnnotationTest();
 			case QIntegratedLanguageCorePackage.CARDINALITY: return (EObject)createCardinality();
 			case QIntegratedLanguageCorePackage.CONVERSION: return (EObject)createConversion();
 			case QIntegratedLanguageCorePackage.DERIVED: return (EObject)createDerived();
@@ -120,6 +121,16 @@ public class IntegratedLanguageCoreFactoryImpl extends EFactoryImpl implements Q
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QAnnotationTest createAnnotationTest() {
+		AnnotationTestImpl annotationTest = new AnnotationTestImpl();
+		return annotationTest;
 	}
 
 	/**

@@ -7,6 +7,8 @@
  */
 package org.asup.il.flow;
 
+import org.asup.il.core.QAnnotation;
+
 
 /**
  * <!-- begin-user-doc -->

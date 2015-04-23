@@ -27,6 +27,15 @@ public interface QIntegratedLanguageCoreFactory extends EFactory {
 	QIntegratedLanguageCoreFactory eINSTANCE = org.asup.il.core.impl.IntegratedLanguageCoreFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Annotation Test</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Annotation Test</em>'.
+	 * @generated
+	 */
+	QAnnotationTest createAnnotationTest();
+
+	/**
 	 * Returns a new object of class '<em>Cardinality</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

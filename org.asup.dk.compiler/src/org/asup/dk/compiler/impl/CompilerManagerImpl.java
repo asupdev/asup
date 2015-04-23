@@ -172,4 +172,15 @@ public abstract class CompilerManagerImpl extends ServiceImpl implements QCompil
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void writeUnitTest(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
 } //CompilerManagerImpl

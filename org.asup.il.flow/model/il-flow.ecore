@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="flow" nsURI="http://www.asup.org/il/flow" nsPrefix="il-flow">
-  <eClassifiers xsi:type="ecore:EClass" name="Annotation" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AnnotationCommand" eSuperTypes="#//Annotation">
+  <eClassifiers xsi:type="ecore:EClass" name="AnnotationCommand" eSuperTypes="../../org.asup.il.core/model/il-core.ecore#//Annotation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="command" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -202,7 +201,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SetupSection" eSuperTypes="#//UnitSection">
     <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" upperBound="-1"
-        eType="#//Annotation" containment="true"/>
+        eType="ecore:EClass ../../org.asup.il.core/model/il-core.ecore#//Annotation"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="application" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="encoding" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="expressionType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

@@ -13,6 +13,8 @@ import org.asup.fw.java.QFrameworkJavaPackage;
 
 import org.asup.il.core.ConversionStatus;
 import org.asup.il.core.FormatType;
+import org.asup.il.core.QAnnotation;
+import org.asup.il.core.QAnnotationTest;
 import org.asup.il.core.QAtomicTerm;
 import org.asup.il.core.QCardinality;
 import org.asup.il.core.QCompoundTerm;
@@ -60,6 +62,20 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @generated
  */
 public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements QIntegratedLanguageCorePackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass annotationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass annotationTestEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -325,6 +341,42 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getAnnotation() {
+		return annotationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getAnnotationTest() {
+		return annotationTestEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAnnotationTest_Expr() {
+		return (EAttribute)annotationTestEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getAnnotationTest_Message() {
+		return (EAttribute)annotationTestEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getAtomicTerm() {
 		return atomicTermEClass;
 	}
@@ -541,8 +593,8 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNamedNode_Facets() {
-		return (EReference)namedNodeEClass.getEStructuralFeatures().get(0);
+	public EClass getNode() {
+		return nodeEClass;
 	}
 
 	/**
@@ -550,8 +602,8 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getNode() {
-		return nodeEClass;
+	public EReference getNode_Facets() {
+		return (EReference)nodeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -852,6 +904,12 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		isCreated = true;
 
 		// Create classes and their features
+		annotationEClass = createEClass(ANNOTATION);
+
+		annotationTestEClass = createEClass(ANNOTATION_TEST);
+		createEAttribute(annotationTestEClass, ANNOTATION_TEST__EXPR);
+		createEAttribute(annotationTestEClass, ANNOTATION_TEST__MESSAGE);
+
 		atomicTermEClass = createEClass(ATOMIC_TERM);
 
 		cardinalityEClass = createEClass(CARDINALITY);
@@ -888,9 +946,9 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		multipleTermEClass = createEClass(MULTIPLE_TERM);
 
 		namedNodeEClass = createEClass(NAMED_NODE);
-		createEReference(namedNodeEClass, NAMED_NODE__FACETS);
 
 		nodeEClass = createEClass(NODE);
+		createEReference(nodeEClass, NODE__FACETS);
 
 		overlayEClass = createEClass(OVERLAY);
 		createEAttribute(overlayEClass, OVERLAY__NAME);
@@ -975,6 +1033,8 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		termContainerEClass_T.getEBounds().add(g1);
 
 		// Add supertypes to classes
+		annotationEClass.getESuperTypes().add(this.getFacet());
+		annotationTestEClass.getESuperTypes().add(this.getAnnotation());
 		atomicTermEClass.getESuperTypes().add(this.getTerm());
 		cardinalityEClass.getESuperTypes().add(this.getFacet());
 		compoundTermEClass.getESuperTypes().add(this.getTerm());
@@ -1004,6 +1064,12 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		unaryTermEClass.getESuperTypes().add(this.getTerm());
 
 		// Initialize classes and features; add operations and parameters
+		initEClass(annotationEClass, QAnnotation.class, "Annotation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(annotationTestEClass, QAnnotationTest.class, "AnnotationTest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getAnnotationTest_Expr(), ecorePackage.getEString(), "expr", null, 0, 1, QAnnotationTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnnotationTest_Message(), ecorePackage.getEString(), "message", null, 0, 1, QAnnotationTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(atomicTermEClass, QAtomicTerm.class, "AtomicTerm", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(cardinalityEClass, QCardinality.class, "Cardinality", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1051,9 +1117,15 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		initEClass(multipleTermEClass, QMultipleTerm.class, "MultipleTerm", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(namedNodeEClass, QNamedNode.class, "NamedNode", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNamedNode_Facets(), this.getFacet(), null, "facets", null, 0, -1, QNamedNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = addEOperation(namedNodeEClass, null, "getFacet", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEClass(nodeEClass, QNode.class, "Node", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNode_Facets(), this.getFacet(), null, "facets", null, 0, -1, QNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		addEOperation(nodeEClass, this.getNode(), "getParent", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		addEOperation(nodeEClass, ecorePackage.getEBoolean(), "isChild", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(nodeEClass, null, "getFacet", 0, 1, IS_UNIQUE, IS_ORDERED);
 		ETypeParameter t1 = addETypeParameter(op, "F");
 		g1 = createEGenericType(this.getFacet());
 		t1.getEBounds().add(g1);
@@ -1063,12 +1135,6 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		addEParameter(op, g1, "klass", 1, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(t1);
 		initEOperation(op, g1);
-
-		initEClass(nodeEClass, QNode.class, "Node", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		addEOperation(nodeEClass, this.getNode(), "getParent", 1, 1, IS_UNIQUE, IS_ORDERED);
-
-		addEOperation(nodeEClass, ecorePackage.getEBoolean(), "isChild", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(overlayEClass, QOverlay.class, "Overlay", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getOverlay_Name(), ecorePackage.getEString(), "name", null, 0, 1, QOverlay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

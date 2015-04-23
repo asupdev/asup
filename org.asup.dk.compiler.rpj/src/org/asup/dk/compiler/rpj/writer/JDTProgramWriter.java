@@ -133,6 +133,95 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 			}
 		}
 	}
+	
+	public void writeUnitTest(QProgram unitTest) throws IOException {
+		System.out.println(unitTest);
+
+		refactCallableUnit(unitTest);
+
+		// unit info
+		RPJCallableUnitInfo callableUnitInfo = RPJCallableUnitAnalyzer.analyzeCallableUnit(unitTest);
+
+		// modules
+		List<String> modules = new ArrayList<>();
+		if (unitTest.getSetupSection() != null) {
+			for (String module : unitTest.getSetupSection().getModules())
+				loadModules(modules, module);
+
+			for (String module : modules) {
+
+				QModule flowModule = getCompilationUnit().getModule(module, true);
+				if (flowModule == null)
+					throw new IOException("Invalid module: " + module);
+
+				QCompilerLinker compilerLinker = flowModule.getFacet(QCompilerLinker.class);
+				if (compilerLinker != null)
+					writeImport(compilerLinker.getLinkedClass());
+				else
+					writeImport(module);
+			}
+		}
+
+		// Program annotation
+		writeProgramAnnotation(unitTest);
+
+		writeSupportFields(callableUnitInfo);
+
+		writeSupportUnitTestFields(callableUnitInfo);
+
+		writeModuleFields(modules, false);
+
+		if (unitTest.getDataSection() != null)
+			writeDataFields(unitTest.getDataSection());
+
+		if (unitTest.getFileSection() != null) {
+			writeDataSets(unitTest.getFileSection().getDataSets());
+			writeKeyLists(unitTest.getFileSection().getKeyLists());
+			writeCursors(unitTest.getFileSection().getCursors());
+			writeStatements(unitTest.getFileSection().getStatements());
+			writeDisplays(unitTest.getFileSection().getDisplays());
+			writePrinters(unitTest.getFileSection().getPrinters());
+
+		}
+
+		writeInit();
+
+		writeEntry(unitTest, modules);
+
+		// labels
+		writeLabels(callableUnitInfo.getLabels().keySet());
+
+		// main
+		if (unitTest.getMain() != null) {
+			QRoutine routine = QIntegratedLanguageFlowFactory.eINSTANCE.createRoutine();
+			routine.setName("main");
+			routine.setMain(unitTest.getMain());
+			writeRoutine(routine);
+		}
+
+		// functions
+		if (unitTest.getFlowSection() != null) {
+
+			// routines
+			for (QRoutine routine : unitTest.getFlowSection().getRoutines()) {
+				System.out.println("\t" + routine);
+				writeRoutine(routine);
+			}
+
+			// prototype
+			for (QPrototype<?> prototype : unitTest.getFlowSection().getPrototypes()) {
+				writePrototype(prototype);
+			}
+		}
+
+		if (unitTest.getDataSection() != null) {
+			for (QDataTerm<?> dataTerm : unitTest.getDataSection().getDatas()) {
+				writeInnerTerm(dataTerm);
+			}
+		}
+		
+	}
+
 
 	public void writeEntry(QProgram program, List<String> modules) throws IOException {
 

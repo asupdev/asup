@@ -7,6 +7,7 @@
  */
 package org.asup.il.flow.impl;
 
+import org.asup.il.core.impl.AnnotationImpl;
 import org.asup.il.flow.QAnnotationCommand;
 import org.asup.il.flow.QIntegratedLanguageFlowPackage;
 
@@ -28,6 +29,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class AnnotationCommandImpl extends AnnotationImpl implements QAnnotationCommand {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * The default value of the '{@link #getCommand() <em>Command</em>}' attribute.
 	 * <!-- begin-user-doc -->

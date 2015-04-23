@@ -10,7 +10,7 @@ package org.asup.il.flow.impl;
 import java.util.Collection;
 import java.util.List;
 
-import org.asup.il.flow.QAnnotation;
+import org.asup.il.core.QAnnotation;
 import org.asup.il.flow.QIntegratedLanguageFlowPackage;
 import org.asup.il.flow.QSetupSection;
 import org.eclipse.emf.common.notify.Notification;

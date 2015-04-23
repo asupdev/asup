@@ -8,6 +8,7 @@
 package org.asup.il.flow;
 
 import java.util.List;
+import org.asup.il.core.QAnnotation;
 
 
 /**
@@ -34,7 +35,7 @@ import java.util.List;
 public interface QSetupSection extends QUnitSection {
 	/**
 	 * Returns the value of the '<em><b>Annotations</b></em>' containment reference list.
-	 * The list contents are of type {@link org.asup.il.flow.QAnnotation}.
+	 * The list contents are of type {@link org.asup.il.core.QAnnotation}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Annotations</em>' containment reference list isn't clear,

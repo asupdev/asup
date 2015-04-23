@@ -63,25 +63,6 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	QIntegratedLanguageFlowPackage eINSTANCE = org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link org.asup.il.flow.impl.AnnotationImpl <em>Annotation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.asup.il.flow.impl.AnnotationImpl
-	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getAnnotation()
-	 * @generated
-	 */
-	int ANNOTATION = 0;
-
-	/**
-	 * The number of structural features of the '<em>Annotation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ANNOTATION_FEATURE_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.asup.il.flow.impl.AnnotationCommandImpl <em>Annotation Command</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -89,7 +70,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getAnnotationCommand()
 	 * @generated
 	 */
-	int ANNOTATION_COMMAND = 1;
+	int ANNOTATION_COMMAND = 0;
 
 	/**
 	 * The feature id for the '<em><b>Command</b></em>' attribute.
@@ -98,7 +79,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_COMMAND__COMMAND = ANNOTATION_FEATURE_COUNT + 0;
+	int ANNOTATION_COMMAND__COMMAND = QIntegratedLanguageCorePackage.ANNOTATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Annotation Command</em>' class.
@@ -107,7 +88,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_COMMAND_FEATURE_COUNT = ANNOTATION_FEATURE_COUNT + 1;
+	int ANNOTATION_COMMAND_FEATURE_COUNT = QIntegratedLanguageCorePackage.ANNOTATION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.flow.impl.StatementImpl <em>Statement</em>}' class.
@@ -117,7 +98,16 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getStatement()
 	 * @generated
 	 */
-	int STATEMENT = 35;
+	int STATEMENT = 34;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATEMENT__FACETS = QIntegratedLanguageCorePackage.NODE__FACETS;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.flow.impl.BlockImpl <em>Block</em>}' class.
@@ -127,7 +117,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getBlock()
 	 * @generated
 	 */
-	int BLOCK = 2;
+	int BLOCK = 1;
 
 	/**
 	 * The number of structural features of the '<em>Statement</em>' class.
@@ -137,6 +127,15 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int STATEMENT_FEATURE_COUNT = QIntegratedLanguageCorePackage.NODE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOCK__FACETS = STATEMENT__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Statements</b></em>' containment reference list.
@@ -164,7 +163,16 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getBreak()
 	 * @generated
 	 */
-	int BREAK = 3;
+	int BREAK = 2;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BREAK__FACETS = STATEMENT__FACETS;
 
 	/**
 	 * The number of structural features of the '<em>Break</em>' class.
@@ -183,7 +191,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getUnit()
 	 * @generated
 	 */
-	int UNIT = 37;
+	int UNIT = 36;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.flow.impl.CallableUnitImpl <em>Callable Unit</em>}' class.
@@ -193,7 +201,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getCallableUnit()
 	 * @generated
 	 */
-	int CALLABLE_UNIT = 5;
+	int CALLABLE_UNIT = 4;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.flow.impl.CommandExecImpl <em>Command Exec</em>}' class.
@@ -203,7 +211,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getCommandExec()
 	 * @generated
 	 */
-	int COMMAND_EXEC = 6;
+	int COMMAND_EXEC = 5;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.flow.impl.ContinueImpl <em>Continue</em>}' class.
@@ -213,7 +221,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getContinue()
 	 * @generated
 	 */
-	int CONTINUE = 7;
+	int CONTINUE = 6;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.flow.impl.IterationImpl <em>Iteration</em>}' class.
@@ -223,7 +231,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getIteration()
 	 * @generated
 	 */
-	int ITERATION = 17;
+	int ITERATION = 16;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.flow.impl.EvalImpl <em>Eval</em>}' class.
@@ -233,7 +241,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getEval()
 	 * @generated
 	 */
-	int EVAL = 11;
+	int EVAL = 10;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.flow.impl.IfImpl <em>If</em>}' class.
@@ -243,7 +251,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getIf()
 	 * @generated
 	 */
-	int IF = 15;
+	int IF = 14;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.flow.impl.InvokeImpl <em>Invoke</em>}' class.
@@ -253,7 +261,16 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getInvoke()
 	 * @generated
 	 */
-	int INVOKE = 16;
+	int INVOKE = 15;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INVOKE__FACETS = STATEMENT__FACETS;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.flow.impl.JumpImpl <em>Jump</em>}' class.
@@ -263,7 +280,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getJump()
 	 * @generated
 	 */
-	int JUMP = 18;
+	int JUMP = 17;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.flow.impl.LabelImpl <em>Label</em>}' class.
@@ -273,7 +290,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getLabel()
 	 * @generated
 	 */
-	int LABEL = 19;
+	int LABEL = 18;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.flow.impl.MonitorImpl <em>Monitor</em>}' class.
@@ -283,7 +300,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getMonitor()
 	 * @generated
 	 */
-	int MONITOR = 22;
+	int MONITOR = 21;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.flow.impl.ProgramImpl <em>Program</em>}' class.
@@ -293,7 +310,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getProgram()
 	 * @generated
 	 */
-	int PROGRAM = 27;
+	int PROGRAM = 26;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.flow.impl.ReturnImpl <em>Return</em>}' class.
@@ -303,7 +320,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getReturn()
 	 * @generated
 	 */
-	int RETURN = 30;
+	int RETURN = 29;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.flow.impl.WhileImpl <em>While</em>}' class.
@@ -313,7 +330,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getWhile()
 	 * @generated
 	 */
-	int WHILE = 40;
+	int WHILE = 39;
 
 	/**
 	 * The meta object id for the '{@link org.asup.il.flow.impl.ForImpl <em>For</em>}' class.
@@ -323,7 +340,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getFor()
 	 * @generated
 	 */
-	int FOR = 14;
+	int FOR = 13;
 
 	/**
 	 * The number of structural features of the '<em>Invoke</em>' class.
@@ -342,7 +359,16 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getCall()
 	 * @generated
 	 */
-	int CALL = 4;
+	int CALL = 3;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALL__FACETS = INVOKE__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Program</b></em>' attribute.
@@ -480,6 +506,15 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	int CALLABLE_UNIT_FEATURE_COUNT = UNIT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMAND_EXEC__FACETS = INVOKE__FACETS;
+
+	/**
 	 * The feature id for the '<em><b>Statement</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -498,6 +533,15 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	int COMMAND_EXEC_FEATURE_COUNT = INVOKE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTINUE__FACETS = STATEMENT__FACETS;
+
+	/**
 	 * The number of structural features of the '<em>Continue</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -514,7 +558,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getUnitSection()
 	 * @generated
 	 */
-	int UNIT_SECTION = 38;
+	int UNIT_SECTION = 37;
 
 	/**
 	 * The number of structural features of the '<em>Unit Section</em>' class.
@@ -533,7 +577,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getDataSection()
 	 * @generated
 	 */
-	int DATA_SECTION = 8;
+	int DATA_SECTION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Datas</b></em>' containment reference list.
@@ -561,7 +605,16 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getEntry()
 	 * @generated
 	 */
-	int ENTRY = 9;
+	int ENTRY = 8;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTRY__FACETS = QIntegratedLanguageCorePackage.NODE__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
@@ -589,7 +642,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getEntryParameter()
 	 * @generated
 	 */
-	int ENTRY_PARAMETER = 10;
+	int ENTRY_PARAMETER = 9;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -637,6 +690,15 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	int ENTRY_PARAMETER_FEATURE_COUNT = QIntegratedLanguageCorePackage.NAMED_NODE_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVAL__FACETS = INVOKE__FACETS;
+
+	/**
 	 * The feature id for the '<em><b>Assignment</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -662,7 +724,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getFileSection()
 	 * @generated
 	 */
-	int FILE_SECTION = 12;
+	int FILE_SECTION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Data Sets</b></em>' containment reference list.
@@ -735,7 +797,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getFlowSection()
 	 * @generated
 	 */
-	int FLOW_SECTION = 13;
+	int FLOW_SECTION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Lists</b></em>' containment reference list.
@@ -783,6 +845,15 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	int FLOW_SECTION_FEATURE_COUNT = UNIT_SECTION_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITERATION__FACETS = STATEMENT__FACETS;
+
+	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -808,6 +879,15 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int ITERATION_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FOR__FACETS = ITERATION__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -855,6 +935,15 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	int FOR_FEATURE_COUNT = ITERATION_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF__FACETS = STATEMENT__FACETS;
+
+	/**
 	 * The feature id for the '<em><b>Then</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -891,6 +980,15 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	int IF_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int JUMP__FACETS = STATEMENT__FACETS;
+
+	/**
 	 * The feature id for the '<em><b>Label</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -907,6 +1005,15 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int JUMP_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LABEL__FACETS = STATEMENT__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -934,7 +1041,16 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getMethodExec()
 	 * @generated
 	 */
-	int METHOD_EXEC = 20;
+	int METHOD_EXEC = 19;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int METHOD_EXEC__FACETS = INVOKE__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Object</b></em>' attribute.
@@ -980,7 +1096,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getModule()
 	 * @generated
 	 */
-	int MODULE = 21;
+	int MODULE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -1055,6 +1171,15 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	int MODULE_FEATURE_COUNT = CALLABLE_UNIT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MONITOR__FACETS = STATEMENT__FACETS;
+
+	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1089,7 +1214,16 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getOnError()
 	 * @generated
 	 */
-	int ON_ERROR = 23;
+	int ON_ERROR = 22;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ON_ERROR__FACETS = QIntegratedLanguageCorePackage.NODE__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -1126,7 +1260,16 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getParameterList()
 	 * @generated
 	 */
-	int PARAMETER_LIST = 24;
+	int PARAMETER_LIST = 23;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_LIST__FACETS = QIntegratedLanguageCorePackage.NODE__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1163,7 +1306,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getProcedure()
 	 * @generated
 	 */
-	int PROCEDURE = 25;
+	int PROCEDURE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -1263,7 +1406,16 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getProcedureExec()
 	 * @generated
 	 */
-	int PROCEDURE_EXEC = 26;
+	int PROCEDURE_EXEC = 25;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCEDURE_EXEC__FACETS = INVOKE__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Procedure</b></em>' attribute.
@@ -1390,7 +1542,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getPrototype()
 	 * @generated
 	 */
-	int PROTOTYPE = 28;
+	int PROTOTYPE = 27;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -1436,7 +1588,16 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getReset()
 	 * @generated
 	 */
-	int RESET = 29;
+	int RESET = 28;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESET__FACETS = INVOKE__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Object</b></em>' attribute.
@@ -1455,6 +1616,15 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESET_FEATURE_COUNT = INVOKE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RETURN__FACETS = STATEMENT__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1482,7 +1652,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getRoutine()
 	 * @generated
 	 */
-	int ROUTINE = 31;
+	int ROUTINE = 30;
 
 	/**
 	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
@@ -1528,7 +1698,16 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getRoutineExec()
 	 * @generated
 	 */
-	int ROUTINE_EXEC = 32;
+	int ROUTINE_EXEC = 31;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROUTINE_EXEC__FACETS = INVOKE__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Routine</b></em>' attribute.
@@ -1556,7 +1735,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getSetupSection()
 	 * @generated
 	 */
-	int SETUP_SECTION = 33;
+	int SETUP_SECTION = 32;
 
 	/**
 	 * The feature id for the '<em><b>Annotations</b></em>' containment reference list.
@@ -1629,7 +1808,16 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getSQLExec()
 	 * @generated
 	 */
-	int SQL_EXEC = 34;
+	int SQL_EXEC = 33;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SQL_EXEC__FACETS = INVOKE__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Statement</b></em>' attribute.
@@ -1657,7 +1845,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getStatementVisitor()
 	 * @generated
 	 */
-	int STATEMENT_VISITOR = 36;
+	int STATEMENT_VISITOR = 35;
 
 	/**
 	 * The number of structural features of the '<em>Statement Visitor</em>' class.
@@ -1676,7 +1864,16 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getUntil()
 	 * @generated
 	 */
-	int UNTIL = 39;
+	int UNTIL = 38;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNTIL__FACETS = ITERATION__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -1704,6 +1901,15 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @ordered
 	 */
 	int UNTIL_FEATURE_COUNT = ITERATION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WHILE__FACETS = ITERATION__FACETS;
 
 	/**
 	 * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -1741,7 +1947,7 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getEvalOperator()
 	 * @generated
 	 */
-	int EVAL_OPERATOR = 41;
+	int EVAL_OPERATOR = 40;
 
 
 	/**
@@ -1752,18 +1958,8 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getPassingType()
 	 * @generated
 	 */
-	int PASSING_TYPE = 42;
+	int PASSING_TYPE = 41;
 
-
-	/**
-	 * Returns the meta object for class '{@link org.asup.il.flow.QAnnotation <em>Annotation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Annotation</em>'.
-	 * @see org.asup.il.flow.QAnnotation
-	 * @generated
-	 */
-	EClass getAnnotation();
 
 	/**
 	 * Returns the meta object for class '{@link org.asup.il.flow.QAnnotationCommand <em>Annotation Command</em>}'.
@@ -2900,16 +3096,6 @@ public interface QIntegratedLanguageFlowPackage extends EPackage {
 	 * @generated
 	 */
 	interface Literals {
-		/**
-		 * The meta object literal for the '{@link org.asup.il.flow.impl.AnnotationImpl <em>Annotation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see org.asup.il.flow.impl.AnnotationImpl
-		 * @see org.asup.il.flow.impl.IntegratedLanguageFlowPackageImpl#getAnnotation()
-		 * @generated
-		 */
-		EClass ANNOTATION = eINSTANCE.getAnnotation();
-
 		/**
 		 * The meta object literal for the '{@link org.asup.il.flow.impl.AnnotationCommandImpl <em>Annotation Command</em>}' class.
 		 * <!-- begin-user-doc -->

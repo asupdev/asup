@@ -394,6 +394,17 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 	}
 
 	@Override
+	public void writeUnitTest(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException {
+
+		QProgram program = (QProgram) compilationUnit.getRoot();
+
+		JDTProgramWriter programWriter = new JDTProgramWriter(null, compilationUnit, setup, compilationUnit.getRoot().getName());
+		programWriter.writeUnitTest(program);
+
+		programWriter.writeOutputStream(output);
+	}
+	
+	@Override
 	public void writeStub(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException {
 
 		QProgram program = (QProgram) compilationUnit.getRoot();

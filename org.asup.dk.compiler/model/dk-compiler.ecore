@@ -149,6 +149,11 @@
       <eParameters name="setup" eType="#//CompilationSetup"/>
       <eParameters name="output" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaOutputStream"/>
     </eOperations>
+    <eOperations name="writeUnitTest" eExceptions="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaIOException">
+      <eParameters name="compilationUnit" lowerBound="1" eType="#//CompilationUnit"/>
+      <eParameters name="setup" eType="#//CompilationSetup"/>
+      <eParameters name="output" lowerBound="1" eType="ecore:EDataType ../../org.asup.fw.java/model/fw-java.ecore#//JavaOutputStream"/>
+    </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UnitConverter" abstract="true" eSuperTypes="../../org.asup.fw.core/model/fw-core.ecore#//Plugin ../../org.asup.fw.core/model/fw-core.ecore#//Service">
     <eOperations name="convertModule" lowerBound="1" eType="ecore:EClass ../../org.asup.il.flow/model/il-flow.ecore#//Module"

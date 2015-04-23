@@ -563,6 +563,12 @@ public class DevelopmentKitCompilerPackageImpl extends EPackageImpl implements Q
 		addEParameter(op, theFrameworkJavaPackage.getJavaOutputStream(), "output", 1, 1, IS_UNIQUE, IS_ORDERED);
 		addEException(op, theFrameworkJavaPackage.getJavaIOException());
 
+		op = addEOperation(compilerManagerEClass, null, "writeUnitTest", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCompilationUnit(), "compilationUnit", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, this.getCompilationSetup(), "setup", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, theFrameworkJavaPackage.getJavaOutputStream(), "output", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEException(op, theFrameworkJavaPackage.getJavaIOException());
+
 		initEClass(unitConverterEClass, QUnitConverter.class, "UnitConverter", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		op = addEOperation(unitConverterEClass, theIntegratedLanguageFlowPackage.getModule(), "convertModule", 1, 1, IS_UNIQUE, IS_ORDERED);
