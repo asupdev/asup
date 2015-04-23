@@ -7,6 +7,7 @@
  */
 package org.asup.il.core;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -23,9 +24,9 @@ import java.util.List;
  *
  * @see org.asup.il.core.QIntegratedLanguageCorePackage#getNode()
  * @model abstract="true"
- * @generated
+ * @generated NOT
  */
-public interface QNode {
+public interface QNode extends Serializable {
 	/**
 	 * Returns the value of the '<em><b>Facets</b></em>' containment reference list.
 	 * The list contents are of type {@link org.asup.il.core.QFacet}.

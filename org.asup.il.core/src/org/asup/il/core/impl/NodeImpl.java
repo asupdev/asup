@@ -37,6 +37,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public abstract class NodeImpl extends MinimalEObjectImpl.Container implements QNode {
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
 	 * The cached value of the '{@link #getFacets() <em>Facets</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -27,6 +27,11 @@
       <genEnumLiterals ecoreEnumLiteral="il-core.ecore#//FormatType/RegularExpression"/>
       <genEnumLiterals ecoreEnumLiteral="il-core.ecore#//FormatType/SimpleName"/>
     </genEnums>
+    <genClasses image="false" ecoreClass="il-core.ecore#//Annotation"/>
+    <genClasses ecoreClass="il-core.ecore#//AnnotationTest">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//AnnotationTest/expr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//AnnotationTest/message"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="il-core.ecore#//AtomicTerm"/>
     <genClasses ecoreClass="il-core.ecore#//Cardinality">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Cardinality/max"/>
@@ -35,6 +40,7 @@
       <genOperations ecoreOperation="il-core.ecore#//Cardinality/isMultiple"/>
     </genClasses>
     <genClasses image="false" ecoreClass="il-core.ecore#//CompoundTerm"/>
+    <genClasses image="false" ecoreClass="il-core.ecore#//Constraint"/>
     <genClasses ecoreClass="il-core.ecore#//Conversion">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Conversion/status"/>
     </genClasses>
@@ -55,23 +61,28 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Format/expression"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Format/type"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="il-core.ecore#//Frame"/>
+    <genClasses image="false" ecoreClass="il-core.ecore#//Frame">
+      <genOperations ecoreOperation="il-core.ecore#//Frame/ako"/>
+      <genOperations ecoreOperation="il-core.ecore#//Frame/getSlots"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="il-core.ecore#//FrameManager">
       <genOperations ecoreOperation="il-core.ecore#//FrameManager/getFrame">
         <genParameters ecoreParameter="il-core.ecore#//FrameManager/getFrame/object"/>
       </genOperations>
     </genClasses>
     <genClasses image="false" ecoreClass="il-core.ecore#//MultipleTerm"/>
-    <genClasses image="false" ecoreClass="il-core.ecore#//NamedNode">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference il-core.ecore#//NamedNode/facets"/>
-      <genOperations ecoreOperation="il-core.ecore#//NamedNode/getFacet">
-        <genParameters ecoreParameter="il-core.ecore#//NamedNode/getFacet/klass"/>
-        <genTypeParameters ecoreTypeParameter="il-core.ecore#//NamedNode/getFacet/F"/>
-      </genOperations>
+    <genClasses image="false" ecoreClass="il-core.ecore#//Nameable">
+      <genOperations ecoreOperation="il-core.ecore#//Nameable/getName"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="il-core.ecore#//NamedNode"/>
     <genClasses image="false" ecoreClass="il-core.ecore#//Node">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference il-core.ecore#//Node/facets"/>
       <genOperations ecoreOperation="il-core.ecore#//Node/getParent"/>
       <genOperations ecoreOperation="il-core.ecore#//Node/isChild"/>
+      <genOperations ecoreOperation="il-core.ecore#//Node/getFacet">
+        <genParameters ecoreParameter="il-core.ecore#//Node/getFacet/klass"/>
+        <genTypeParameters ecoreTypeParameter="il-core.ecore#//Node/getFacet/F"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="il-core.ecore#//Overlay">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Overlay/name"/>
@@ -84,6 +95,11 @@
     <genClasses ecoreClass="il-core.ecore#//Remap">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Remap/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Remap/index"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="il-core.ecore#//Rule"/>
+    <genClasses image="false" ecoreClass="il-core.ecore#//Slot">
+      <genOperations ecoreOperation="il-core.ecore#//Slot/getCardinality"/>
+      <genOperations ecoreOperation="il-core.ecore#//Slot/getDefaultValue"/>
     </genClasses>
     <genClasses ecoreClass="il-core.ecore#//Special">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Special/classDelegate"/>
@@ -107,13 +123,11 @@
       <genTypeParameters ecoreTypeParameter="il-core.ecore#//TermContainer/T"/>
       <genOperations ecoreOperation="il-core.ecore#//TermContainer/getTerms"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="il-core.ecore#//Trigger"/>
+    <genClasses image="false" ecoreClass="il-core.ecore#//UnaryTerm"/>
     <genClasses ecoreClass="il-core.ecore#//Verb">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Verb/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute il-core.ecore#//Verb/text"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="il-core.ecore#//UnaryTerm"/>
-    <genClasses image="false" ecoreClass="il-core.ecore#//Nameable">
-      <genOperations ecoreOperation="il-core.ecore#//Nameable/getName"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
