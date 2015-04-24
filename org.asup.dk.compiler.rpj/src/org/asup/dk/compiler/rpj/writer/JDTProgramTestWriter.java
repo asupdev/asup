@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.dk.compiler.QCompilerLinker;
@@ -24,9 +26,16 @@ import org.asup.dk.compiler.rpj.RPJCallableUnitInfo;
 import org.asup.fw.core.annotation.Supported;
 import org.asup.fw.core.annotation.ToDo;
 import org.asup.fw.core.annotation.Unsupported;
+import org.asup.fw.test.QTestAsserter;
+import org.asup.fw.test.QTestManager;
+import org.asup.il.core.QAnnotationTest;
 import org.asup.il.core.QConversion;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.annotation.Program;
+import org.asup.il.expr.QExpressionParser;
+import org.asup.il.expr.QPredicateExpression;
+import org.asup.il.flow.QBlock;
+import org.asup.il.flow.QDataSection;
 import org.asup.il.flow.QIntegratedLanguageFlowFactory;
 import org.asup.il.flow.QModule;
 import org.asup.il.flow.QParameterList;
@@ -34,12 +43,21 @@ import org.asup.il.flow.QProgram;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 import org.asup.os.core.OperatingSystemRuntimeException;
+import org.eclipse.jdt.core.dom.Block;
+import org.eclipse.jdt.core.dom.ExpressionStatement;
+import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MarkerAnnotation;
 import org.eclipse.jdt.core.dom.MemberValuePair;
+import org.eclipse.jdt.core.dom.MethodDeclaration;
+import org.eclipse.jdt.core.dom.MethodInvocation;
+import org.eclipse.jdt.core.dom.Modifier.ModifierKeyword;
 import org.eclipse.jdt.core.dom.NormalAnnotation;
 import org.eclipse.jdt.core.dom.StringLiteral;
+import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
 public class JDTProgramTestWriter extends JDTCallableUnitWriter {
+
+	private QExpressionParser expressionParser;
 
 	public JDTProgramTestWriter(JDTNamedNodeWriter root, QCompilationUnit compilationUnit, QCompilationSetup compilationSetup, String name) {
 		super(root, compilationUnit, compilationSetup, name);
@@ -50,6 +68,7 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 	
 	public void writeProgramTest(QProgram programTest) throws IOException {
 		System.out.println(programTest);
+		expressionParser = getCompilationUnit().getContext().get(QExpressionParser.class);
 
 		refactCallableUnit(programTest);
 
@@ -98,7 +117,7 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 
 		}
 
-		writeInit();
+//		writeInit();
 
 		writeEntry(programTest, modules);
 
@@ -110,7 +129,7 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 			QRoutine routine = QIntegratedLanguageFlowFactory.eINSTANCE.createRoutine();
 			routine.setName("main");
 			routine.setMain(programTest.getMain());
-			writeRoutine(routine);
+			writeRoutine(routine, programTest.getDataSection());
 		}
 
 		// functions
@@ -119,7 +138,7 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 			// routines
 			for (QRoutine routine : programTest.getFlowSection().getRoutines()) {
 				System.out.println("\t" + routine);
-				writeRoutine(routine);
+				writeRoutine(routine, null);
 			}
 
 			// prototype
@@ -164,6 +183,81 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 		}
 	}
 
+	// TODO probabilmente questo non è il punto corretto
+	@SuppressWarnings("unchecked")
+	public void writeSupportProgramTestFields(RPJCallableUnitInfo callableUnitInfo) {
+		
+		writeImport(QTestManager.class);
+		
+		VariableDeclarationFragment variable = getAST().newVariableDeclarationFragment();
+		FieldDeclaration field = getAST().newFieldDeclaration(variable);
+		
+		writeAnnotation(field, Inject.class);
+
+		field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
+		field.setType(getAST().newSimpleType(getAST().newName(QTestAsserter.class.getSimpleName())));
+		variable.setName(getAST().newSimpleName("testAsserter"));
+		getTarget().bodyDeclarations().add(field);
+		
+	}
+	
+	
+	// TODO probabilmente questo non è il punto corretto
+	@SuppressWarnings("unchecked")
+	public void writeRoutine(QRoutine routine, QDataSection dataSection) {
+
+		if (routine.getName().startsWith("*ENTRY") || routine.getName().startsWith("*EXIT"))
+			return;
+
+		
+		
+		MethodDeclaration methodDeclaration = getAST().newMethodDeclaration();
+		getTarget().bodyDeclarations().add(methodDeclaration);
+
+		methodDeclaration.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(routine.getName())));
+		methodDeclaration.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
+
+		// writeSuppressWarning(methodDeclaration);
+
+		Block block = getAST().newBlock();
+		methodDeclaration.setBody(block);
+
+		if (routine.getMain() == null)
+			return;
+
+		// write java AST
+		JDTStatementWriter statementWriter = getCompilationUnit().getContext().make(JDTStatementWriter.class);
+		statementWriter.setAST(getAST());
+
+		statementWriter.getBlocks().push(block);
+		
+		// TODO è corretto qui???
+		if(routine.getName().equals("main") && dataSection!=null){
+			for(QDataTerm<?> dataTerm : dataSection.getDatas()){
+				if(dataTerm.getFacet(QAnnotationTest.class)!=null){
+					QAnnotationTest qAnnotationTest = dataTerm.getFacet(QAnnotationTest.class);
+					writeAssertion(qAnnotationTest, block);
+				}
+			}
+		}
+		
+		if (routine.getMain() instanceof QBlock) {
+			QBlock qBlock = (QBlock) routine.getMain();
+			for (org.asup.il.flow.QStatement qStatement : qBlock.getStatements()){
+				qStatement.accept(statementWriter);
+				if(qStatement.getFacet(QAnnotationTest.class)!=null){
+					QAnnotationTest qAnnotationTest = qStatement.getFacet(QAnnotationTest.class);
+					writeAssertion(qAnnotationTest, block);
+				}
+			}
+			
+		} else
+			routine.getMain().accept(statementWriter);
+
+		statementWriter.getBlocks().pop();
+
+	}
+	
 	@SuppressWarnings("unchecked")
 	public void writeProgramAnnotation(QProgram program) {
 		QConversion conversion = program.getFacet(QConversion.class);
@@ -202,6 +296,32 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 		programAnnotation.values().add(memberValuePair);
 
 		getTarget().modifiers().add(0, programAnnotation);
+	}
+	
+	
+	// TODO non credo sia qui il punto giusto
+	@SuppressWarnings("unchecked")
+	private void writeAssertion(QAnnotationTest qAnnotationTest, Block target) {
+
+		@SuppressWarnings("unused")
+		QPredicateExpression expression = expressionParser.parsePredicate(qAnnotationTest.getExpression());
+
+		MethodInvocation methodInvocation = getAST().newMethodInvocation();
+		methodInvocation.setExpression(getAST().newSimpleName("testAsserter"));
+
+		// TODO Inserire switch in base operatore espressione
+		methodInvocation.setName(getAST().newSimpleName("assertEquals"));
+		
+		StringLiteral literal = getAST().newStringLiteral();
+		literal.setLiteralValue(qAnnotationTest.getMessage());
+		methodInvocation.arguments().add(literal);
+		
+		// TODO Inserire i valori di confronto in base all'espressione
+		methodInvocation.arguments().add(getAST().newNullLiteral());
+		methodInvocation.arguments().add(getAST().newNullLiteral());
+		
+		ExpressionStatement assertStatement = getAST().newExpressionStatement(methodInvocation);
+		target.statements().add(assertStatement);
 	}
 
 	private void loadModules(Collection<String> modules, String module) {

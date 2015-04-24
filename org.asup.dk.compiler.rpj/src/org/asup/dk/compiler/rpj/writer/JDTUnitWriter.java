@@ -17,7 +17,6 @@ import org.asup.dk.compiler.QCompilationSetup;
 import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.dk.compiler.rpj.RPJCallableUnitInfo;
 import org.asup.dk.compiler.rpj.RPJExpressionNormalizer;
-import org.asup.fw.test.QTestManager;
 import org.asup.il.data.QData;
 import org.asup.il.flow.QUnit;
 import org.asup.os.type.pgm.rpj.RPJCommandSupport;
@@ -128,25 +127,6 @@ public abstract class JDTUnitWriter extends JDTNamedNodeWriter {
 			getTarget().bodyDeclarations().add(field);
 		}
 	}
-	
-	
-	@SuppressWarnings("unchecked")
-	public void writeSupportProgramTestFields(RPJCallableUnitInfo callableUnitInfo) {
-		
-		writeImport(QTestManager.class);
-		
-		VariableDeclarationFragment variable = getAST().newVariableDeclarationFragment();
-		FieldDeclaration field = getAST().newFieldDeclaration(variable);
-		
-		writeAnnotation(field, Inject.class);
-
-		field.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
-		field.setType(getAST().newSimpleType(getAST().newName(QTestManager.class.getSimpleName())));
-		variable.setName(getAST().newSimpleName("testManager"));
-		getTarget().bodyDeclarations().add(field);
-		
-	}
-
 
 	public void refactUnit(QUnit unit) {
 
