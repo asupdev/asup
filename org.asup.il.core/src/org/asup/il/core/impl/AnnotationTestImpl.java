@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.asup.il.core.impl.AnnotationTestImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link org.asup.il.core.impl.AnnotationTestImpl#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.asup.il.core.impl.AnnotationTestImpl#getMessage <em>Message</em>}</li>
  * </ul>
  * </p>
@@ -32,29 +32,29 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class AnnotationTestImpl extends AnnotationImpl implements QAnnotationTest {
 	/**
+	 * The default value of the '{@link #getExpression() <em>Expression</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EXPRESSION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getExpression() <em>Expression</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getExpression()
+	 * @generated
+	 * @ordered
+	 */
+	protected String expression = EXPRESSION_EDEFAULT;
+
+	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * The default value of the '{@link #getExpr() <em>Expr</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExpr()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String EXPR_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getExpr() <em>Expr</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getExpr()
-	 * @generated
-	 * @ordered
-	 */
-	protected String expr = EXPR_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getMessage() <em>Message</em>}' attribute.
@@ -100,8 +100,8 @@ public class AnnotationTestImpl extends AnnotationImpl implements QAnnotationTes
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getExpr() {
-		return expr;
+	public String getExpression() {
+		return expression;
 	}
 
 	/**
@@ -109,11 +109,11 @@ public class AnnotationTestImpl extends AnnotationImpl implements QAnnotationTes
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setExpr(String newExpr) {
-		String oldExpr = expr;
-		expr = newExpr;
+	public void setExpression(String newExpression) {
+		String oldExpression = expression;
+		expression = newExpression;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QIntegratedLanguageCorePackage.ANNOTATION_TEST__EXPR, oldExpr, expr));
+			eNotify(new ENotificationImpl(this, Notification.SET, QIntegratedLanguageCorePackage.ANNOTATION_TEST__EXPRESSION, oldExpression, expression));
 	}
 
 	/**
@@ -145,8 +145,8 @@ public class AnnotationTestImpl extends AnnotationImpl implements QAnnotationTes
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QIntegratedLanguageCorePackage.ANNOTATION_TEST__EXPR:
-				return getExpr();
+			case QIntegratedLanguageCorePackage.ANNOTATION_TEST__EXPRESSION:
+				return getExpression();
 			case QIntegratedLanguageCorePackage.ANNOTATION_TEST__MESSAGE:
 				return getMessage();
 		}
@@ -161,8 +161,8 @@ public class AnnotationTestImpl extends AnnotationImpl implements QAnnotationTes
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QIntegratedLanguageCorePackage.ANNOTATION_TEST__EXPR:
-				setExpr((String)newValue);
+			case QIntegratedLanguageCorePackage.ANNOTATION_TEST__EXPRESSION:
+				setExpression((String)newValue);
 				return;
 			case QIntegratedLanguageCorePackage.ANNOTATION_TEST__MESSAGE:
 				setMessage((String)newValue);
@@ -179,8 +179,8 @@ public class AnnotationTestImpl extends AnnotationImpl implements QAnnotationTes
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QIntegratedLanguageCorePackage.ANNOTATION_TEST__EXPR:
-				setExpr(EXPR_EDEFAULT);
+			case QIntegratedLanguageCorePackage.ANNOTATION_TEST__EXPRESSION:
+				setExpression(EXPRESSION_EDEFAULT);
 				return;
 			case QIntegratedLanguageCorePackage.ANNOTATION_TEST__MESSAGE:
 				setMessage(MESSAGE_EDEFAULT);
@@ -197,8 +197,8 @@ public class AnnotationTestImpl extends AnnotationImpl implements QAnnotationTes
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QIntegratedLanguageCorePackage.ANNOTATION_TEST__EXPR:
-				return EXPR_EDEFAULT == null ? expr != null : !EXPR_EDEFAULT.equals(expr);
+			case QIntegratedLanguageCorePackage.ANNOTATION_TEST__EXPRESSION:
+				return EXPRESSION_EDEFAULT == null ? expression != null : !EXPRESSION_EDEFAULT.equals(expression);
 			case QIntegratedLanguageCorePackage.ANNOTATION_TEST__MESSAGE:
 				return MESSAGE_EDEFAULT == null ? message != null : !MESSAGE_EDEFAULT.equals(message);
 		}
@@ -215,8 +215,8 @@ public class AnnotationTestImpl extends AnnotationImpl implements QAnnotationTes
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (expr: ");
-		result.append(expr);
+		result.append(" (expression: ");
+		result.append(expression);
 		result.append(", message: ");
 		result.append(message);
 		result.append(')');

@@ -39,28 +39,27 @@ import org.eclipse.jdt.core.dom.MemberValuePair;
 import org.eclipse.jdt.core.dom.NormalAnnotation;
 import org.eclipse.jdt.core.dom.StringLiteral;
 
-public class JDTProgramWriter extends JDTCallableUnitWriter {
+public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 
-	public JDTProgramWriter(JDTNamedNodeWriter root, QCompilationUnit compilationUnit, QCompilationSetup compilationSetup, String name) {
+	public JDTProgramTestWriter(JDTNamedNodeWriter root, QCompilationUnit compilationUnit, QCompilationSetup compilationSetup, String name) {
 		super(root, compilationUnit, compilationSetup, name);
 
 		writeImport(Program.class);
 		writeImport(OperatingSystemRuntimeException.class);
 	}
+	
+	public void writeProgramTest(QProgram programTest) throws IOException {
+		System.out.println(programTest);
 
-	public void writeProgram(QProgram program) throws IOException {
-
-		System.out.println(program);
-
-		refactCallableUnit(program);
+		refactCallableUnit(programTest);
 
 		// unit info
-		RPJCallableUnitInfo callableUnitInfo = RPJCallableUnitAnalyzer.analyzeCallableUnit(program);
+		RPJCallableUnitInfo callableUnitInfo = RPJCallableUnitAnalyzer.analyzeCallableUnit(programTest);
 
 		// modules
 		List<String> modules = new ArrayList<>();
-		if (program.getSetupSection() != null) {
-			for (String module : program.getSetupSection().getModules())
+		if (programTest.getSetupSection() != null) {
+			for (String module : programTest.getSetupSection().getModules())
 				loadModules(modules, module);
 
 			for (String module : modules) {
@@ -78,61 +77,65 @@ public class JDTProgramWriter extends JDTCallableUnitWriter {
 		}
 
 		// Program annotation
-		writeProgramAnnotation(program);
+		writeProgramAnnotation(programTest);
 
 		writeSupportFields(callableUnitInfo);
 
+		writeSupportProgramTestFields(callableUnitInfo);
+
 		writeModuleFields(modules, false);
 
-		if (program.getDataSection() != null)
-			writeDataFields(program.getDataSection());
+		if (programTest.getDataSection() != null)
+			writeDataFields(programTest.getDataSection());
 
-		if (program.getFileSection() != null) {
-			writeDataSets(program.getFileSection().getDataSets());
-			writeKeyLists(program.getFileSection().getKeyLists());
-			writeCursors(program.getFileSection().getCursors());
-			writeStatements(program.getFileSection().getStatements());
-			writeDisplays(program.getFileSection().getDisplays());
-			writePrinters(program.getFileSection().getPrinters());
+		if (programTest.getFileSection() != null) {
+			writeDataSets(programTest.getFileSection().getDataSets());
+			writeKeyLists(programTest.getFileSection().getKeyLists());
+			writeCursors(programTest.getFileSection().getCursors());
+			writeStatements(programTest.getFileSection().getStatements());
+			writeDisplays(programTest.getFileSection().getDisplays());
+			writePrinters(programTest.getFileSection().getPrinters());
 
 		}
 
 		writeInit();
 
-		writeEntry(program, modules);
+		writeEntry(programTest, modules);
 
 		// labels
 		writeLabels(callableUnitInfo.getLabels().keySet());
 
 		// main
-		if (program.getMain() != null) {
+		if (programTest.getMain() != null) {
 			QRoutine routine = QIntegratedLanguageFlowFactory.eINSTANCE.createRoutine();
 			routine.setName("main");
-			routine.setMain(program.getMain());
+			routine.setMain(programTest.getMain());
 			writeRoutine(routine);
 		}
 
 		// functions
-		if (program.getFlowSection() != null) {
+		if (programTest.getFlowSection() != null) {
 
 			// routines
-			for (QRoutine routine : program.getFlowSection().getRoutines()) {
+			for (QRoutine routine : programTest.getFlowSection().getRoutines()) {
 				System.out.println("\t" + routine);
 				writeRoutine(routine);
 			}
 
 			// prototype
-			for (QPrototype<?> prototype : program.getFlowSection().getPrototypes()) {
+			for (QPrototype<?> prototype : programTest.getFlowSection().getPrototypes()) {
 				writePrototype(prototype);
 			}
 		}
 
-		if (program.getDataSection() != null) {
-			for (QDataTerm<?> dataTerm : program.getDataSection().getDatas()) {
+		if (programTest.getDataSection() != null) {
+			for (QDataTerm<?> dataTerm : programTest.getDataSection().getDatas()) {
 				writeInnerTerm(dataTerm);
 			}
 		}
+		
 	}
+
 
 	public void writeEntry(QProgram program, List<String> modules) throws IOException {
 

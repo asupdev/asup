@@ -113,7 +113,7 @@ public interface QCompilerManager extends QService {
 	 * @model exceptions="org.asup.fw.java.JavaIOException" compilationUnitRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream" outputRequired="true"
 	 * @generated
 	 */
-	void writeStub(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException;
+	void writeProgramTest(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,6 +121,6 @@ public interface QCompilerManager extends QService {
 	 * @model exceptions="org.asup.fw.java.JavaIOException" compilationUnitRequired="true" outputDataType="org.asup.fw.java.JavaOutputStream" outputRequired="true"
 	 * @generated
 	 */
-	void writeUnitTest(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException;
+	void writeStub(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException;
 
 } // QCompilerManager

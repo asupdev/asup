@@ -383,7 +383,7 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAnnotationTest_Expr() {
+	public EAttribute getAnnotationTest_Expression() {
 		return (EAttribute)annotationTestEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -958,7 +958,7 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		annotationEClass = createEClass(ANNOTATION);
 
 		annotationTestEClass = createEClass(ANNOTATION_TEST);
-		createEAttribute(annotationTestEClass, ANNOTATION_TEST__EXPR);
+		createEAttribute(annotationTestEClass, ANNOTATION_TEST__EXPRESSION);
 		createEAttribute(annotationTestEClass, ANNOTATION_TEST__MESSAGE);
 
 		atomicTermEClass = createEClass(ATOMIC_TERM);
@@ -1124,7 +1124,7 @@ public class IntegratedLanguageCorePackageImpl extends EPackageImpl implements Q
 		initEClass(annotationEClass, QAnnotation.class, "Annotation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(annotationTestEClass, QAnnotationTest.class, "AnnotationTest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAnnotationTest_Expr(), ecorePackage.getEString(), "expr", null, 0, 1, QAnnotationTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAnnotationTest_Expression(), ecorePackage.getEString(), "expression", null, 0, 1, QAnnotationTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnnotationTest_Message(), ecorePackage.getEString(), "message", null, 0, 1, QAnnotationTest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(atomicTermEClass, QAtomicTerm.class, "AtomicTerm", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

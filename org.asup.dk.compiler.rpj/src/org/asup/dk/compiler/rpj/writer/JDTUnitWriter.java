@@ -131,7 +131,7 @@ public abstract class JDTUnitWriter extends JDTNamedNodeWriter {
 	
 	
 	@SuppressWarnings("unchecked")
-	public void writeSupportUnitTestFields(RPJCallableUnitInfo callableUnitInfo) {
+	public void writeSupportProgramTestFields(RPJCallableUnitInfo callableUnitInfo) {
 		
 		writeImport(QTestManager.class);
 		

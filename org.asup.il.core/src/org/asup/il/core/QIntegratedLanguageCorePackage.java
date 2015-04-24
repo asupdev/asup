@@ -131,13 +131,13 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	int ANNOTATION_TEST = 1;
 
 	/**
-	 * The feature id for the '<em><b>Expr</b></em>' attribute.
+	 * The feature id for the '<em><b>Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ANNOTATION_TEST__EXPR = ANNOTATION_FEATURE_COUNT + 0;
+	int ANNOTATION_TEST__EXPRESSION = ANNOTATION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Message</b></em>' attribute.
@@ -1054,15 +1054,15 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 	EClass getAnnotationTest();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.asup.il.core.QAnnotationTest#getExpr <em>Expr</em>}'.
+	 * Returns the meta object for the attribute '{@link org.asup.il.core.QAnnotationTest#getExpression <em>Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Expr</em>'.
-	 * @see org.asup.il.core.QAnnotationTest#getExpr()
+	 * @return the meta object for the attribute '<em>Expression</em>'.
+	 * @see org.asup.il.core.QAnnotationTest#getExpression()
 	 * @see #getAnnotationTest()
 	 * @generated
 	 */
-	EAttribute getAnnotationTest_Expr();
+	EAttribute getAnnotationTest_Expression();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.asup.il.core.QAnnotationTest#getMessage <em>Message</em>}'.
@@ -1736,12 +1736,12 @@ public interface QIntegratedLanguageCorePackage extends EPackage {
 		EClass ANNOTATION_TEST = eINSTANCE.getAnnotationTest();
 
 		/**
-		 * The meta object literal for the '<em><b>Expr</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Expression</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ANNOTATION_TEST__EXPR = eINSTANCE.getAnnotationTest_Expr();
+		EAttribute ANNOTATION_TEST__EXPRESSION = eINSTANCE.getAnnotationTest_Expression();
 
 		/**
 		 * The meta object literal for the '<em><b>Message</b></em>' attribute feature.

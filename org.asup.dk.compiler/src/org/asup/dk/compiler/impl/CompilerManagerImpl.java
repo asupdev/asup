@@ -166,7 +166,7 @@ public abstract class CompilerManagerImpl extends ServiceImpl implements QCompil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void writeStub(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException {
+	public void writeProgramTest(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -177,7 +177,7 @@ public abstract class CompilerManagerImpl extends ServiceImpl implements QCompil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void writeUnitTest(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException {
+	public void writeStub(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

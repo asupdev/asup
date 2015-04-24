@@ -16,7 +16,7 @@ package org.asup.il.core;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.asup.il.core.QAnnotationTest#getExpr <em>Expr</em>}</li>
+ *   <li>{@link org.asup.il.core.QAnnotationTest#getExpression <em>Expression</em>}</li>
  *   <li>{@link org.asup.il.core.QAnnotationTest#getMessage <em>Message</em>}</li>
  * </ul>
  * </p>
@@ -27,30 +27,30 @@ package org.asup.il.core;
  */
 public interface QAnnotationTest extends QAnnotation {
 	/**
-	 * Returns the value of the '<em><b>Expr</b></em>' attribute.
+	 * Returns the value of the '<em><b>Expression</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Expr</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Expression</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Expr</em>' attribute.
-	 * @see #setExpr(String)
-	 * @see org.asup.il.core.QIntegratedLanguageCorePackage#getAnnotationTest_Expr()
+	 * @return the value of the '<em>Expression</em>' attribute.
+	 * @see #setExpression(String)
+	 * @see org.asup.il.core.QIntegratedLanguageCorePackage#getAnnotationTest_Expression()
 	 * @model
 	 * @generated
 	 */
-	String getExpr();
+	String getExpression();
 
 	/**
-	 * Sets the value of the '{@link org.asup.il.core.QAnnotationTest#getExpr <em>Expr</em>}' attribute.
+	 * Sets the value of the '{@link org.asup.il.core.QAnnotationTest#getExpression <em>Expression</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Expr</em>' attribute.
-	 * @see #getExpr()
+	 * @param value the new value of the '<em>Expression</em>' attribute.
+	 * @see #getExpression()
 	 * @generated
 	 */
-	void setExpr(String value);
+	void setExpression(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Message</b></em>' attribute.

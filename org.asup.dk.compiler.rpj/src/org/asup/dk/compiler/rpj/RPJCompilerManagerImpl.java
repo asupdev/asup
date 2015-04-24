@@ -31,6 +31,7 @@ import org.asup.dk.compiler.rpj.writer.JDTDatabaseFileWriter;
 import org.asup.dk.compiler.rpj.writer.JDTDisplayFileWriter;
 import org.asup.dk.compiler.rpj.writer.JDTModuleWriter;
 import org.asup.dk.compiler.rpj.writer.JDTPrinterFileWriter;
+import org.asup.dk.compiler.rpj.writer.JDTProgramTestWriter;
 import org.asup.dk.compiler.rpj.writer.JDTProgramWriter;
 import org.asup.dk.compiler.rpj.writer.JDTStubWriter;
 import org.asup.dk.source.QSourceEntry;
@@ -394,14 +395,14 @@ public class RPJCompilerManagerImpl extends CompilerManagerImpl {
 	}
 
 	@Override
-	public void writeUnitTest(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException {
+	public void writeProgramTest(QCompilationUnit compilationUnit, QCompilationSetup setup, OutputStream output) throws IOException {
 
 		QProgram program = (QProgram) compilationUnit.getRoot();
 
-		JDTProgramWriter programWriter = new JDTProgramWriter(null, compilationUnit, setup, compilationUnit.getRoot().getName());
-		programWriter.writeUnitTest(program);
+		JDTProgramTestWriter programTestWriter = new JDTProgramTestWriter(null, compilationUnit, setup, compilationUnit.getRoot().getName());
+		programTestWriter.writeProgramTest(program);
 
-		programWriter.writeOutputStream(output);
+		programTestWriter.writeOutputStream(output);
 	}
 	
 	@Override
