@@ -32,8 +32,11 @@ import org.asup.il.core.QAnnotationTest;
 import org.asup.il.core.QConversion;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.annotation.Program;
+import org.asup.il.expr.IntegratedLanguageExpressionRuntimeException;
+import org.asup.il.expr.QExpression;
 import org.asup.il.expr.QExpressionParser;
 import org.asup.il.expr.QPredicateExpression;
+import org.asup.il.expr.QRelationalExpression;
 import org.asup.il.flow.QBlock;
 import org.asup.il.flow.QDataSection;
 import org.asup.il.flow.QIntegratedLanguageFlowFactory;
@@ -43,7 +46,11 @@ import org.asup.il.flow.QProgram;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 import org.asup.os.core.OperatingSystemRuntimeException;
+import org.eclipse.jdt.core.dom.AST;
+import org.eclipse.jdt.core.dom.ASTNode;
+import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.jdt.core.dom.Block;
+import org.eclipse.jdt.core.dom.Expression;
 import org.eclipse.jdt.core.dom.ExpressionStatement;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MarkerAnnotation;
@@ -232,7 +239,7 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 		statementWriter.getBlocks().push(block);
 		
 		// TODO è corretto qui???
-		if(routine.getName().equals("main") && dataSection!=null){
+		if(dataSection!=null){
 			for(QDataTerm<?> dataTerm : dataSection.getDatas()){
 				if(dataTerm.getFacet(QAnnotationTest.class)!=null){
 					QAnnotationTest qAnnotationTest = dataTerm.getFacet(QAnnotationTest.class);
@@ -303,25 +310,66 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 	@SuppressWarnings("unchecked")
 	private void writeAssertion(QAnnotationTest qAnnotationTest, Block target) {
 
-		@SuppressWarnings("unused")
 		QPredicateExpression expression = expressionParser.parsePredicate(qAnnotationTest.getExpression());
-
+		QRelationalExpression relationalExpression = null;
+		if (expression instanceof QRelationalExpression) {
+			relationalExpression = (QRelationalExpression) expression;
+		} else 
+			return;
+		
+		
 		MethodInvocation methodInvocation = getAST().newMethodInvocation();
 		methodInvocation.setExpression(getAST().newSimpleName("testAsserter"));
 
-		// TODO Inserire switch in base operatore espressione
-		methodInvocation.setName(getAST().newSimpleName("assertEquals"));
+		switch (relationalExpression.getOperator()) {
+		case EQUAL:
+			methodInvocation.setName(getAST().newSimpleName("assertEquals"));
+			break;
+		case GREATER_THAN:
+			break;
+		case GREATER_THAN_EQUAL:
+			break;
+		case LESS_THAN:
+			break;
+		case LESS_THAN_EQUAL:
+			break;
+		case NOT_EQUAL:
+			break;
+	}
 		
 		StringLiteral literal = getAST().newStringLiteral();
 		literal.setLiteralValue(qAnnotationTest.getMessage());
 		methodInvocation.arguments().add(literal);
-		
-		// TODO Inserire i valori di confronto in base all'espressione
-		methodInvocation.arguments().add(getAST().newNullLiteral());
-		methodInvocation.arguments().add(getAST().newNullLiteral());
+	
+		Expression jdtExpression = buildExpression(getAST(), relationalExpression.getLeftOperand(), null);
+		methodInvocation.arguments().add(jdtExpression);
+
+		jdtExpression = buildExpression(getAST(), relationalExpression.getRightOperand(), null);
+		methodInvocation.arguments().add(jdtExpression);
 		
 		ExpressionStatement assertStatement = getAST().newExpressionStatement(methodInvocation);
 		target.statements().add(assertStatement);
+	}
+
+		// TODO bisognerebbe farne una classe
+	private Expression buildExpression(AST ast, QExpression expression, Class<?> target) {
+
+		ASTParser parser = ASTParser.newParser(AST.JLS8);
+		parser.setKind(ASTParser.K_EXPRESSION);
+
+		JDTExpressionStringBuilder builder = getCompilationUnit().getContext().make(JDTExpressionStringBuilder.class);
+		builder.setTarget(target);
+		expression.accept(builder);
+		String value = builder.getResult();
+
+		parser.setSource(value.toCharArray());
+		ASTNode node = parser.createAST(null);
+		if (node.getLength() == 0)
+			throw new IntegratedLanguageExpressionRuntimeException("Invalid java conversion: " + value);
+
+		Expression jdtExpression = (Expression) node;
+
+		return (Expression) ASTNode.copySubtree(ast, jdtExpression);
 	}
 
 	private void loadModules(Collection<String> modules, String module) {
