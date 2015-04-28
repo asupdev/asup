@@ -64,7 +64,7 @@ public class BaseCallableInjector {
 
 	private QDataWriter dataWriter = QIntegratedLanguageDataFactory.eINSTANCE.createDataWriter();
 
-	public <C> C makeCallable(QJob job, QActivationGroup activationGroup, Class<C> klass) {
+	public <C> C makeCallable(QContext context, QActivationGroup activationGroup, Class<C> klass) {
 
 		QDataFactory dataFactory = dataManager.createFactory(job);
 
@@ -73,7 +73,7 @@ public class BaseCallableInjector {
 		try {
 			Map<String, Object> sharedModules = new HashMap<>();
 			try {
-				callable = injectData(klass, dataFactory, job, activationGroup, sharedModules);
+				callable = injectData(klass, dataFactory, context, activationGroup, sharedModules);
 			} catch (IllegalArgumentException | SecurityException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -115,16 +115,15 @@ public class BaseCallableInjector {
 		return entry;
 	}
 
-	private <C> C injectData(Class<C> klass, QDataFactory dataFactory, QJob job, QActivationGroup activationGroup, Map<String, Object> sharedModules) throws IllegalArgumentException,
+	private <C> C injectData(Class<C> klass, QDataFactory dataFactory, QContext context, QActivationGroup activationGroup, Map<String, Object> sharedModules) throws IllegalArgumentException,
 			IllegalAccessException, InstantiationException {
 
 //		if (klass.getAnnotation(Program.class) != null)
 //			System.out.println(klass);
 
 		C callable = klass.newInstance();
-		QContext jobContext = job.getContext();
 
-		injectFieldsData(klass, callable, dataFactory, jobContext, activationGroup, sharedModules);
+		injectFieldsData(klass, callable, dataFactory, context, activationGroup, sharedModules);
 
 		try {
 			Field £mubField = callable.getClass().getDeclaredField("£mub");
@@ -166,17 +165,17 @@ public class BaseCallableInjector {
 		if (callable.getClass().getAnnotation(Program.class) == null)
 			return callable;
 
-		jobContext.invoke(callable, PostConstruct.class);
+		context.invoke(callable, PostConstruct.class);
 
 		return callable;
 	}
 
 	@SuppressWarnings("unchecked")
-	private void injectFieldsData(Class<?> klass, Object callable, QDataFactory dataFactory, QContext jobContext, QActivationGroup activationGroup, Map<String, Object> sharedModules)
+	private void injectFieldsData(Class<?> klass, Object callable, QDataFactory dataFactory, QContext context, QActivationGroup activationGroup, Map<String, Object> sharedModules)
 			throws IllegalArgumentException, IllegalAccessException, InstantiationException {
 
 		if(klass.getSuperclass().getAnnotation(Program.class) != null)
-			injectFieldsData(klass.getSuperclass(), callable, dataFactory, jobContext, activationGroup, sharedModules);
+			injectFieldsData(klass.getSuperclass(), callable, dataFactory, context, activationGroup, sharedModules);
 			
 
 		for (Field field : klass.getDeclaredFields()) {
@@ -281,16 +280,20 @@ public class BaseCallableInjector {
 				Object object = null;
 
 				if (QService.class.isAssignableFrom(fieldKlass)) {
-					object = jobContext.get(fieldKlass);
+					object = context.get(fieldKlass);
 				} else if (QJob.class.isAssignableFrom(fieldKlass)) {
 					object = job;
 				} else if (QContextID.class.isAssignableFrom(fieldKlass)) {
 					object = job;
-				} else {
+				} 
+				else {
 					object = sharedModules.get(fieldKlass.getSimpleName());
 					if (object == null) {
+						object = context.get(fieldKlass);
+					}
+					if (object == null) {
 //						System.out.println("\t" + fieldKlass);
-						object = injectData(fieldKlass, dataFactory, job, activationGroup, sharedModules);
+						object = injectData(fieldKlass, dataFactory, context, activationGroup, sharedModules);
 						sharedModules.put(fieldKlass.getSimpleName(), object);
 					}
 				}

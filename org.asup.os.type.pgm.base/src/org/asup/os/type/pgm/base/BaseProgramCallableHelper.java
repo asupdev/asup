@@ -32,10 +32,10 @@ public class BaseProgramCallableHelper {
 		BaseCallableInjector callableInjector = activationGroup.getFrameworkContext().make(BaseCallableInjector.class);
 		
 		if(QCallableProgram.class.isAssignableFrom(klass)) {
-			callableProgram = (QCallableProgram) callableInjector.makeCallable(job, activationGroup, klass);
+			callableProgram = (QCallableProgram) callableInjector.makeCallable(job.getContext(), activationGroup, klass);
 		}
 		else {
-			Object delegate = callableInjector.makeCallable(job, activationGroup, klass);
+			Object delegate = callableInjector.makeCallable(job.getContext(), activationGroup, klass);
 			BaseCallableProgramDelegator delegator = new BaseCallableProgramDelegator(delegate);
 
 			// search @Entry

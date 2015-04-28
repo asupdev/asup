@@ -35,7 +35,7 @@ public class BaseUnitTestRunner extends UnitTestRunnerImpl {
 
 		QTestAsserter testAsserter = new BaseTestAsserterImpl(testResult, getTestListeners());
 	    context.set(QTestAsserter.class, testAsserter);
-
+	    
 		Object testCase = context.make(testClass);
 
 		long start = System.currentTimeMillis();
