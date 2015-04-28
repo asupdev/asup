@@ -7,7 +7,7 @@
  *
  * 
  * Contributors: 
- *   Mattia Rocchi				- Initial API and implementation 
+ *   Giuliano Giancristofaro		- Initial API and implementation 
  */
 package org.asup.dk.compiler.rpj.writer;
 
@@ -28,6 +28,8 @@ import org.asup.fw.core.annotation.ToDo;
 import org.asup.fw.core.annotation.Unsupported;
 import org.asup.fw.test.QTestAsserter;
 import org.asup.fw.test.QTestManager;
+import org.asup.fw.test.annotation.Test;
+import org.asup.fw.test.annotation.TestStarted;
 import org.asup.il.core.QAnnotationTest;
 import org.asup.il.core.QConversion;
 import org.asup.il.data.QDataTerm;
@@ -215,12 +217,10 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 
 		if (routine.getName().startsWith("*ENTRY") || routine.getName().startsWith("*EXIT"))
 			return;
-
-		
 		
 		MethodDeclaration methodDeclaration = getAST().newMethodDeclaration();
 		getTarget().bodyDeclarations().add(methodDeclaration);
-
+		
 		methodDeclaration.setName(getAST().newSimpleName(getCompilationUnit().normalizeTermName(routine.getName())));
 		methodDeclaration.modifiers().add(getAST().newModifier(ModifierKeyword.PUBLIC_KEYWORD));
 
@@ -238,8 +238,14 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 
 		statementWriter.getBlocks().push(block);
 		
-		// TODO è corretto qui???
+		// TODO Sviluppo annotazioni specifiche D. E' corretto qui???
 		if(dataSection!=null){
+
+			MarkerAnnotation entryAnnotation = getAST().newMarkerAnnotation();
+			entryAnnotation.setTypeName(getAST().newSimpleName(TestStarted.class.getSimpleName()));
+			writeImport(TestStarted.class);
+			methodDeclaration.modifiers().add(entryAnnotation);
+			
 			for(QDataTerm<?> dataTerm : dataSection.getDatas()){
 				if(dataTerm.getFacet(QAnnotationTest.class)!=null){
 					QAnnotationTest qAnnotationTest = dataTerm.getFacet(QAnnotationTest.class);
@@ -303,6 +309,26 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 		programAnnotation.values().add(memberValuePair);
 
 		getTarget().modifiers().add(0, programAnnotation);
+		
+		// @Test(category = "", object = "")
+		programAnnotation = getAST().newNormalAnnotation();
+		programAnnotation.setTypeName(getAST().newSimpleName(Test.class.getSimpleName()));
+
+		MemberValuePair categoryValuePair = getAST().newMemberValuePair();
+		categoryValuePair.setName(getAST().newSimpleName("category"));
+		stringLiteral = getAST().newStringLiteral();
+		stringLiteral.setLiteralValue("ILDATA");
+		categoryValuePair.setValue(stringLiteral);
+		programAnnotation.values().add(categoryValuePair);
+
+		MemberValuePair objectValuePair = getAST().newMemberValuePair();
+		objectValuePair.setName(getAST().newSimpleName("object"));
+		stringLiteral = getAST().newStringLiteral();
+		stringLiteral.setLiteralValue(program.getName());
+		objectValuePair.setValue(stringLiteral);
+		programAnnotation.values().add(objectValuePair);
+		
+		getTarget().modifiers().add(1, programAnnotation);
 	}
 	
 	
