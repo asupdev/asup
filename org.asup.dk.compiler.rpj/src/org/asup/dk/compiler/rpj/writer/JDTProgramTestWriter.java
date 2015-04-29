@@ -47,6 +47,8 @@ import org.asup.il.flow.QParameterList;
 import org.asup.il.flow.QProgram;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
+import org.asup.il.flow.impl.EvalImpl;
+import org.asup.il.flow.impl.MethodExecImpl;
 import org.asup.os.core.OperatingSystemRuntimeException;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTNode;
@@ -192,7 +194,6 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 		}
 	}
 
-	// TODO probabilmente questo non è il punto corretto
 	@SuppressWarnings("unchecked")
 	public void writeSupportProgramTestFields(RPJCallableUnitInfo callableUnitInfo) {
 		
@@ -211,7 +212,7 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 	}
 	
 	
-	// TODO probabilmente questo non è il punto corretto
+	// TODO override
 	@SuppressWarnings("unchecked")
 	public void writeRoutine(QRoutine routine, QDataSection dataSection) {
 
@@ -249,7 +250,7 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 			for(QDataTerm<?> dataTerm : dataSection.getDatas()){
 				if(dataTerm.getFacet(QAnnotationTest.class)!=null){
 					QAnnotationTest qAnnotationTest = dataTerm.getFacet(QAnnotationTest.class);
-					writeAssertion(qAnnotationTest, block);
+					writeAssertion(qAnnotationTest, block, "");
 				}
 			}
 		}
@@ -260,7 +261,15 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 				qStatement.accept(statementWriter);
 				if(qStatement.getFacet(QAnnotationTest.class)!=null){
 					QAnnotationTest qAnnotationTest = qStatement.getFacet(QAnnotationTest.class);
-					writeAssertion(qAnnotationTest, block);
+					// TODO
+					if(qStatement instanceof MethodExecImpl){
+						MethodExecImpl methodExecImpl = (MethodExecImpl)qStatement;
+						writeAssertion(qAnnotationTest, block, methodExecImpl.getMethod());
+					} else if(qStatement instanceof EvalImpl){
+						writeAssertion(qAnnotationTest, block, "eval");
+					} else{
+						System.out.println("Unexpected condition: jhcbsugfuywtr7625r45hg");
+					}
 				}
 			}
 			
@@ -331,10 +340,8 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 		getTarget().modifiers().add(1, programAnnotation);
 	}
 	
-	
-	// TODO non credo sia qui il punto giusto
 	@SuppressWarnings("unchecked")
-	private void writeAssertion(QAnnotationTest qAnnotationTest, Block target) {
+	private void writeAssertion(QAnnotationTest qAnnotationTest, Block target, String method) {
 
 		QPredicateExpression expression = expressionParser.parsePredicate(qAnnotationTest.getExpression());
 		QRelationalExpression relationalExpression = null;
@@ -363,15 +370,24 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 			break;
 	}
 		
+		Expression leftExpression = buildExpression(getAST(), relationalExpression.getLeftOperand(), null);
+		Expression rightExpression = buildExpression(getAST(), relationalExpression.getRightOperand(), null);
+		
+		// message 
 		StringLiteral literal = getAST().newStringLiteral();
-		literal.setLiteralValue(qAnnotationTest.getMessage());
-		methodInvocation.arguments().add(literal);
-	
-		Expression jdtExpression = buildExpression(getAST(), relationalExpression.getLeftOperand(), null);
-		methodInvocation.arguments().add(jdtExpression);
+		if(qAnnotationTest.getMessage().isEmpty()){
+			if(method.isEmpty()){
+				literal.setLiteralValue("Init " + leftExpression);
+			}else{
+				literal.setLiteralValue("Check '" + method +"' " + leftExpression);
+			}
+		}else{
+			literal.setLiteralValue(qAnnotationTest.getMessage());
+		}
 
-		jdtExpression = buildExpression(getAST(), relationalExpression.getRightOperand(), null);
-		methodInvocation.arguments().add(jdtExpression);
+		methodInvocation.arguments().add(literal);
+		methodInvocation.arguments().add(leftExpression);
+		methodInvocation.arguments().add(rightExpression);
 		
 		ExpressionStatement assertStatement = getAST().newExpressionStatement(methodInvocation);
 		target.statements().add(assertStatement);
