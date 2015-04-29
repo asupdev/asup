@@ -11,7 +11,6 @@ Require-Bundle: org.asup.fw.util,
  org.asup.db.syntax,
  org.eclipse.datatools.enablement.msft.sqlserver;bundle-version="1.0.3",
  org.eclipse.datatools.enablement.msft.sqlserver.dbdefinition;bundle-version="1.0.1",
- org.eclipse.datatools.enablement.ibm.db2.luw;bundle-version="1.0.3",
- org.eclipse.datatools.enablement.ibm.db2.luw.dbdefinition;bundle-version="1.0.7"
+ org.eclipse.datatools.enablement.ibm.db2.luw;bundle-version="1.0.3"
 Export-Package: org.asup.db.core.test
 Import-Package: org.eclipse.emf.ecore.xmi.impl
