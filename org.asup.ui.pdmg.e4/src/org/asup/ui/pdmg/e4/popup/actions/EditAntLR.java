@@ -50,7 +50,7 @@ public class EditAntLR implements IObjectActionDelegate {
 			String jarPath = FileLocator.toFileURL(url).getPath();
 			
 			// In Windows, jarPath starts with /
-			if (Platform.getOS() != Platform.OS_LINUX) {
+			if (Platform.getOS().equals(Platform.OS_LINUX) == false) {
 				jarPath = jarPath.substring(1);
 			}
 			

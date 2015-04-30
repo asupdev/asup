@@ -59,6 +59,14 @@ public class CompileLPG implements IObjectActionDelegate {
 	public void run(IAction action) {
 		
 		writeMessage("Compile: " + iLPGSourceFile.getLocationURI().toString());
+				
+		if (Platform.getOS().equals(Platform.OS_WIN32) == false) {
+			writeMessage("Compile action aborted: LPG grammar could be compiled only on Windows system");
+			MessageDialog.openInformation(shell,
+  					"LPG Parser",
+  					"LPG grammar could be compiled only on Windows system");			
+			return;
+		}
 		
 		try {
 			Bundle bundle = Platform.getBundle("org.asup.ui.pdmg.e4");
