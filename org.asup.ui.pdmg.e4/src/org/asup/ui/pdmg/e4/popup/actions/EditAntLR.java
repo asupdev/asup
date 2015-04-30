@@ -47,27 +47,45 @@ public class EditAntLR implements IObjectActionDelegate {
 
 		try {
 			URL url = FileLocator.find(bundle, new Path("antlr_includes/antlrworks-1.5.2-complete.jar"), Collections.EMPTY_MAP);	
-			String jarPath = FileLocator.toFileURL(url).getPath().substring(1);
-			File dir = new File(iAntLRSourceFile.getLocationURI()).getParentFile();
+			String jarPath = FileLocator.toFileURL(url).getPath();
 			
-			String arg0 = "java";			
-			String arg1 = "-jar";
-	        String arg2 = jarPath;
-	        String arg3 = "-f";
-	        String arg4 = new File(iAntLRSourceFile.getLocationURI()).getAbsolutePath();
-	        String arg5 = "-o";
-	        String arg6 = createTempDir().getAbsolutePath();
-					
-			String[] command = {arg0, arg1, arg2, arg3, arg4, arg5, arg6};	
-			
-			String cmdString = "";
-			for (int i = 0; i < command.length; i++) {
-				cmdString += command[i] + " ";
+			// In Windows, jarPath starts with /
+			if (Platform.getOS() != Platform.OS_LINUX) {
+				jarPath = jarPath.substring(1);
 			}
 			
-			writeMessage("Run cmd: " + cmdString);
+			boolean jarFound = false;
 			
-			Runtime.getRuntime().exec(command, null, dir);			
+			File jarFile = new File(jarPath);
+			if (jarFile.exists()) {
+				jarFound = true;
+			} 
+			
+			if (jarFound) { 
+			
+				File dir = new File(iAntLRSourceFile.getLocationURI()).getParentFile();
+				
+				String arg0 = "java";			
+				String arg1 = "-jar";
+		        String arg2 = jarPath;
+		        String arg3 = "-f";
+		        String arg4 = new File(iAntLRSourceFile.getLocationURI()).getAbsolutePath();
+		        String arg5 = "-o";
+		        String arg6 = createTempDir().getAbsolutePath();
+						
+				String[] command = {arg0, arg1, arg2, arg3, arg4, arg5, arg6};	
+				
+				String cmdString = "";
+				for (int i = 0; i < command.length; i++) {
+					cmdString += command[i] + " ";
+				}
+				
+				writeMessage("Run cmd: " + cmdString);
+				
+				Runtime.getRuntime().exec(command, null, dir);
+			} else {
+				writeMessage("Fatal error: cannot found AntLRWorks executable: " + jarPath);
+			}
 			
 		} catch(IOException e) {
 			//TODO: manage error
