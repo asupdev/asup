@@ -261,7 +261,9 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 				qStatement.accept(statementWriter);
 				if(qStatement.getFacet(QAnnotationTest.class)!=null){
 					QAnnotationTest qAnnotationTest = qStatement.getFacet(QAnnotationTest.class);
+					writeAssertion(qAnnotationTest, block, qStatement.toString());
 					// TODO
+/*
 					if(qStatement instanceof MethodExecImpl){
 						MethodExecImpl methodExecImpl = (MethodExecImpl)qStatement;
 						writeAssertion(qAnnotationTest, block, methodExecImpl.getMethod());
@@ -270,6 +272,7 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 					} else{
 						System.out.println("Unexpected condition: jhcbsugfuywtr7625r45hg");
 					}
+*/					
 				}
 			}
 			
@@ -341,7 +344,7 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 	}
 	
 	@SuppressWarnings("unchecked")
-	private void writeAssertion(QAnnotationTest qAnnotationTest, Block target, String method) {
+	private void writeAssertion(QAnnotationTest qAnnotationTest, Block target, String message) {
 
 		QPredicateExpression expression = expressionParser.parsePredicate(qAnnotationTest.getExpression());
 		QRelationalExpression relationalExpression = null;
@@ -376,10 +379,10 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 		// message 
 		StringLiteral literal = getAST().newStringLiteral();
 		if(qAnnotationTest.getMessage().isEmpty()){
-			if(method.isEmpty()){
+			if(message.isEmpty()){
 				literal.setLiteralValue("Init " + leftExpression);
 			}else{
-				literal.setLiteralValue("Check '" + method +"' " + leftExpression);
+				literal.setLiteralValue(message);
 			}
 		}else{
 			literal.setLiteralValue(qAnnotationTest.getMessage());
