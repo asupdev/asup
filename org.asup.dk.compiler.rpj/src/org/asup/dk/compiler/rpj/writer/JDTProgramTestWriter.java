@@ -41,6 +41,7 @@ import org.asup.il.expr.QPredicateExpression;
 import org.asup.il.expr.QRelationalExpression;
 import org.asup.il.flow.QBlock;
 import org.asup.il.flow.QDataSection;
+import org.asup.il.flow.QIf;
 import org.asup.il.flow.QIntegratedLanguageFlowFactory;
 import org.asup.il.flow.QModule;
 import org.asup.il.flow.QParameterList;
@@ -259,18 +260,22 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 				qStatement.accept(statementWriter);
 				if(qStatement.getFacet(QAnnotationTest.class)!=null){
 					QAnnotationTest qAnnotationTest = qStatement.getFacet(QAnnotationTest.class);
-					writeAssertion(qAnnotationTest, block, qStatement.toString());
-					// TODO
-/*
-					if(qStatement instanceof MethodExecImpl){
-						MethodExecImpl methodExecImpl = (MethodExecImpl)qStatement;
-						writeAssertion(qAnnotationTest, block, methodExecImpl.getMethod());
-					} else if(qStatement instanceof EvalImpl){
-						writeAssertion(qAnnotationTest, block, "eval");
-					} else{
-						System.out.println("Unexpected condition: jhcbsugfuywtr7625r45hg");
+
+					if(qStatement instanceof QIf){
+						// TODO presuppongo che sia un IF semplice 
+						QIf qIf = (QIf) qStatement;
+						org.asup.il.flow.QStatement statement = null;
+						if(qIf.getThen()!=null) {
+							statement = qIf.getThen();
+							writeAssertion(qAnnotationTest, block, statement.toString());
+						}			
+						if(qIf.getElse()!=null) {
+							statement = qIf.getThen();
+							writeAssertion(qAnnotationTest, block, statement.toString());
+						}			
+					}else{
+						writeAssertion(qAnnotationTest, block, qStatement.toString());
 					}
-*/					
 				}
 			}
 			
@@ -375,12 +380,14 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 		Expression rightExpression = buildExpression(getAST(), relationalExpression.getRightOperand(), null);
 		
 		// message 
+		
 		StringLiteral literal = getAST().newStringLiteral();
 		if(qAnnotationTest.getMessage().isEmpty()){
 			if(message.isEmpty()){
 				literal.setLiteralValue("Init " + leftExpression);
 			}else{
-				literal.setLiteralValue(message);
+				// normalize
+				literal.setLiteralValue(normalizeMessage(message));
 			}
 		}else{
 			literal.setLiteralValue(qAnnotationTest.getMessage());
@@ -424,4 +431,15 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 		for (String moduleName : qModule.getSetupSection().getModules())
 			loadModules(modules, moduleName);
 	}
+
+	private String normalizeMessage(String message) {
+		String newMessage = "";
+		int pos =message.indexOf("("); 
+		if(pos == -1){
+			return message;
+		}
+		newMessage = message.substring(pos);
+		return newMessage;
+	}
+
 }
