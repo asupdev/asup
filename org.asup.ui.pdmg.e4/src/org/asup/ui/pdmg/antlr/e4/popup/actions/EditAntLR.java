@@ -1,4 +1,4 @@
-package org.asup.ui.pdmg.e4.popup.actions;
+package org.asup.ui.pdmg.antlr.e4.popup.actions;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,7 +43,7 @@ public class EditAntLR implements IObjectActionDelegate {
 	 */
 	public void run(IAction action) {
 				
-		Bundle bundle = Platform.getBundle("org.asup.ui.pdmg.e4");
+		Bundle bundle = Platform.getBundle("org.asup.ui.pdmg.antlr.e4");
 
 		try {
 			URL url = FileLocator.find(bundle, new Path("antlr_includes/antlrworks-1.5.2-complete.jar"), Collections.EMPTY_MAP);	

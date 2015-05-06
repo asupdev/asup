@@ -17,10 +17,6 @@
       [Enter License Description here.]
    </license>
 
-   <includes
-         id="org.asup.ft.database"
-         version="0.0.0"/>
-
    <plugin
          id="org.asup.il.core"
          download-size="0"

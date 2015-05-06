@@ -1,4 +1,4 @@
-package org.asup.ui.pdmg.e4.popup.actions;
+package org.asup.ui.pdmg.lpg.e4.popup.actions;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -69,7 +69,7 @@ public class CompileLPG implements IObjectActionDelegate {
 		}
 		
 		try {
-			Bundle bundle = Platform.getBundle("org.asup.ui.pdmg.e4");
+			Bundle bundle = Platform.getBundle("org.asup.ui.pdmg.lpg.e4");
 
 			URL url = FileLocator.find(bundle, new Path("lpg_includes/lpg.exe"), Collections.EMPTY_MAP);	
 			String executable = FileLocator.toFileURL(url).getPath().substring(1);
