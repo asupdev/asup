@@ -34,14 +34,9 @@ import org.asup.il.core.QAnnotationTest;
 import org.asup.il.core.QConversion;
 import org.asup.il.data.QDataTerm;
 import org.asup.il.data.annotation.Program;
-import org.asup.il.expr.IntegratedLanguageExpressionRuntimeException;
-import org.asup.il.expr.QExpression;
 import org.asup.il.expr.QExpressionParser;
-import org.asup.il.expr.QPredicateExpression;
-import org.asup.il.expr.QRelationalExpression;
 import org.asup.il.flow.QBlock;
 import org.asup.il.flow.QDataSection;
-import org.asup.il.flow.QIf;
 import org.asup.il.flow.QIntegratedLanguageFlowFactory;
 import org.asup.il.flow.QModule;
 import org.asup.il.flow.QParameterList;
@@ -49,17 +44,11 @@ import org.asup.il.flow.QProgram;
 import org.asup.il.flow.QPrototype;
 import org.asup.il.flow.QRoutine;
 import org.asup.os.core.OperatingSystemRuntimeException;
-import org.eclipse.jdt.core.dom.AST;
-import org.eclipse.jdt.core.dom.ASTNode;
-import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.jdt.core.dom.Block;
-import org.eclipse.jdt.core.dom.Expression;
-import org.eclipse.jdt.core.dom.ExpressionStatement;
 import org.eclipse.jdt.core.dom.FieldDeclaration;
 import org.eclipse.jdt.core.dom.MarkerAnnotation;
 import org.eclipse.jdt.core.dom.MemberValuePair;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
-import org.eclipse.jdt.core.dom.MethodInvocation;
 import org.eclipse.jdt.core.dom.Modifier.ModifierKeyword;
 import org.eclipse.jdt.core.dom.NormalAnnotation;
 import org.eclipse.jdt.core.dom.StringLiteral;
@@ -67,18 +56,18 @@ import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 
 public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 
-	private QExpressionParser expressionParser;
+	private JDTAssertionTestWriter assertionTestWriter;
 
 	public JDTProgramTestWriter(JDTNamedNodeWriter root, QCompilationUnit compilationUnit, QCompilationSetup compilationSetup, String name) {
 		super(root, compilationUnit, compilationSetup, name);
 
 		writeImport(Program.class);
 		writeImport(OperatingSystemRuntimeException.class);
+		this.assertionTestWriter = new JDTAssertionTestWriter(getAST(), getCompilationUnit(),getCompilationUnit().getContext().get(QExpressionParser.class));
 	}
 	
 	public void writeProgramTest(QProgram programTest) throws IOException {
 		System.out.println(programTest);
-		expressionParser = getCompilationUnit().getContext().get(QExpressionParser.class);
 
 		refactCallableUnit(programTest);
 
@@ -210,8 +199,6 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 		
 	}
 	
-	
-	// TODO override
 	@SuppressWarnings("unchecked")
 	public void writeRoutine(QRoutine routine, QDataSection dataSection) {
 
@@ -233,10 +220,10 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 			return;
 
 		// write java AST
-		JDTStatementWriter statementWriter = getCompilationUnit().getContext().make(JDTStatementWriter.class);
-		statementWriter.setAST(getAST());
+		JDTStatementTestWriter statementTestWriter = getCompilationUnit().getContext().make(JDTStatementTestWriter.class);
+		statementTestWriter.setAST(getAST());
 
-		statementWriter.getBlocks().push(block);
+		statementTestWriter.getBlocks().push(block);
 		
 		// TODO Sviluppo annotazioni specifiche D. E' corretto qui???
 		if(dataSection!=null){
@@ -249,7 +236,7 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 			for(QDataTerm<?> dataTerm : dataSection.getDatas()){
 				if(dataTerm.getFacet(QAnnotationTest.class)!=null){
 					QAnnotationTest qAnnotationTest = dataTerm.getFacet(QAnnotationTest.class);
-					writeAssertion(qAnnotationTest, block, "");
+					assertionTestWriter.writeAssertion(qAnnotationTest, block, "");
 				}
 			}
 		}
@@ -257,32 +244,17 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 		if (routine.getMain() instanceof QBlock) {
 			QBlock qBlock = (QBlock) routine.getMain();
 			for (org.asup.il.flow.QStatement qStatement : qBlock.getStatements()){
-				qStatement.accept(statementWriter);
+				qStatement.accept(statementTestWriter);
 				if(qStatement.getFacet(QAnnotationTest.class)!=null){
 					QAnnotationTest qAnnotationTest = qStatement.getFacet(QAnnotationTest.class);
-
-					if(qStatement instanceof QIf){
-						// TODO presuppongo che sia un IF semplice 
-						QIf qIf = (QIf) qStatement;
-						org.asup.il.flow.QStatement statement = null;
-						if(qIf.getThen()!=null) {
-							statement = qIf.getThen();
-							writeAssertion(qAnnotationTest, block, statement.toString());
-						}			
-						if(qIf.getElse()!=null) {
-							statement = qIf.getThen();
-							writeAssertion(qAnnotationTest, block, statement.toString());
-						}			
-					}else{
-						writeAssertion(qAnnotationTest, block, qStatement.toString());
-					}
+					assertionTestWriter.writeAssertion(qAnnotationTest, block, qStatement.toString());
 				}
 			}
 			
 		} else
-			routine.getMain().accept(statementWriter);
+			routine.getMain().accept(statementTestWriter);
 
-		statementWriter.getBlocks().pop();
+		statementTestWriter.getBlocks().pop();
 
 	}
 	
@@ -346,81 +318,7 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 		getTarget().modifiers().add(1, programAnnotation);
 	}
 	
-	@SuppressWarnings("unchecked")
-	private void writeAssertion(QAnnotationTest qAnnotationTest, Block target, String message) {
 
-		QPredicateExpression expression = expressionParser.parsePredicate(qAnnotationTest.getExpression());
-		QRelationalExpression relationalExpression = null;
-		if (expression instanceof QRelationalExpression) {
-			relationalExpression = (QRelationalExpression) expression;
-		} else 
-			return;
-		
-		
-		MethodInvocation methodInvocation = getAST().newMethodInvocation();
-		methodInvocation.setExpression(getAST().newSimpleName("testAsserter"));
-
-		switch (relationalExpression.getOperator()) {
-		case EQUAL:
-			methodInvocation.setName(getAST().newSimpleName("assertEquals"));
-			break;
-		case GREATER_THAN:
-			break;
-		case GREATER_THAN_EQUAL:
-			break;
-		case LESS_THAN:
-			break;
-		case LESS_THAN_EQUAL:
-			break;
-		case NOT_EQUAL:
-			break;
-	}
-		
-		Expression leftExpression = buildExpression(getAST(), relationalExpression.getLeftOperand(), null);
-		Expression rightExpression = buildExpression(getAST(), relationalExpression.getRightOperand(), null);
-		
-		// message 
-		
-		StringLiteral literal = getAST().newStringLiteral();
-		if(qAnnotationTest.getMessage().isEmpty()){
-			if(message.isEmpty()){
-				literal.setLiteralValue("Init " + leftExpression);
-			}else{
-				// normalize
-				literal.setLiteralValue(normalizeMessage(message));
-			}
-		}else{
-			literal.setLiteralValue(qAnnotationTest.getMessage());
-		}
-
-		methodInvocation.arguments().add(literal);
-		methodInvocation.arguments().add(leftExpression);
-		methodInvocation.arguments().add(rightExpression);
-		
-		ExpressionStatement assertStatement = getAST().newExpressionStatement(methodInvocation);
-		target.statements().add(assertStatement);
-	}
-
-		// TODO bisognerebbe farne una classe
-	private Expression buildExpression(AST ast, QExpression expression, Class<?> target) {
-
-		ASTParser parser = ASTParser.newParser(AST.JLS8);
-		parser.setKind(ASTParser.K_EXPRESSION);
-
-		JDTExpressionStringBuilder builder = getCompilationUnit().getContext().make(JDTExpressionStringBuilder.class);
-		builder.setTarget(target);
-		expression.accept(builder);
-		String value = builder.getResult();
-
-		parser.setSource(value.toCharArray());
-		ASTNode node = parser.createAST(null);
-		if (node.getLength() == 0)
-			throw new IntegratedLanguageExpressionRuntimeException("Invalid java conversion: " + value);
-
-		Expression jdtExpression = (Expression) node;
-
-		return (Expression) ASTNode.copySubtree(ast, jdtExpression);
-	}
 
 	private void loadModules(Collection<String> modules, String module) {
 
@@ -432,14 +330,5 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 			loadModules(modules, moduleName);
 	}
 
-	private String normalizeMessage(String message) {
-		String newMessage = "";
-		int pos =message.indexOf("("); 
-		if(pos == -1){
-			return message;
-		}
-		newMessage = message.substring(pos);
-		return newMessage;
-	}
 
 }
