@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+      <extension
+         point="org.eclipse.ui.popupMenus">      
+      <objectContribution
+            id="org.eclipse.ui.articles.action.contribution.popup.object"
+            nameFilter="*.lpg"
+            objectClass="org.eclipse.core.resources.IFile">
+         <menu
+               icon="icons/asup_24.png"
+               id="org.asup.ui.pdmg.lpg.e4.menu1"
+               label="LPG Parser"
+               path="additions">
+            <separator
+                  name="compiler">
+            </separator>
+         </menu>
+         <action
+               class="org.asup.ui.pdmg.lpg.e4.popup.actions.CompileLPG"
+               enablesFor="1"
+               id="org.asup.ui.pdmg.lpg.e4.compileLPG"
+               label="Compile LPG grammar"
+               menubarPath="org.asup.ui.pdmg.lpg.e4.menu1/compiler">
+         </action>
+      </objectContribution>
+   </extension>
+
+
+</plugin>

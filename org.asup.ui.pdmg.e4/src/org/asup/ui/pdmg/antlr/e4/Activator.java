@@ -1,4 +1,4 @@
-package org.asup.ui.pdmg.e4;
+package org.asup.ui.pdmg.antlr.e4;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -10,7 +10,7 @@ import org.osgi.framework.BundleContext;
 public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "com.smeup.asup.parsers.tool"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "org.asup.ui.pdmg.antlr.e4"; //$NON-NLS-1$
 
 	// The shared instance
 	private static Activator plugin;
