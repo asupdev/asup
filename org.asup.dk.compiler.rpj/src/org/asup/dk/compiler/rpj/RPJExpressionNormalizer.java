@@ -32,6 +32,7 @@ import org.asup.il.expr.QExpressionParser;
 import org.asup.il.expr.QPredicateExpression;
 import org.asup.il.expr.QRelationalExpression;
 import org.asup.il.expr.QTermExpression;
+import org.asup.il.expr.RelationalOperator;
 import org.asup.il.flow.QEval;
 import org.asup.il.flow.QFor;
 import org.asup.il.flow.QIf;
@@ -271,6 +272,37 @@ public class RPJExpressionNormalizer extends StatementVisitorImpl {
 				expressionStringBuilder.visit(relationalExpression);
 				return expressionStringBuilder.getResult();
 			}
+			// STRING founded on left -> reverse operands and operator
+			if(atomicTermExpression.getType().equals(AtomicType.STRING)){
+				relationalExpression.setLeftOperand(rightExpression);
+				relationalExpression.setRightOperand(leftExpression);
+				// operator
+				switch(relationalExpression.getOperator()){
+				case EQUAL:
+					break;
+				case GREATER_THAN:
+					relationalExpression.setOperator(RelationalOperator.LESS_THAN);
+					break;
+				case GREATER_THAN_EQUAL:
+					relationalExpression.setOperator(RelationalOperator.LESS_THAN_EQUAL);
+					break;
+				case LESS_THAN:
+					relationalExpression.setOperator(RelationalOperator.GREATER_THAN);
+					break;
+				case LESS_THAN_EQUAL:
+					relationalExpression.setOperator(RelationalOperator.GREATER_THAN_EQUAL);
+					break;
+				case NOT_EQUAL:
+					break;
+				}
+				RPJExpressionStringBuilder expressionStringBuilder = new RPJExpressionStringBuilder();
+				expressionStringBuilder.visit(relationalExpression);
+				return expressionStringBuilder.getResult();
+			}
+
+		
+		
+		
 		}
 
 		return null;
