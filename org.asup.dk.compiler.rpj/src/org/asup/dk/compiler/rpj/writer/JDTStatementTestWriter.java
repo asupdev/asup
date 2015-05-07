@@ -17,17 +17,11 @@ import javax.inject.Inject;
 
 import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.il.core.QAnnotationTest;
-import org.asup.il.expr.IntegratedLanguageExpressionRuntimeException;
-import org.asup.il.expr.QExpression;
 import org.asup.il.expr.QExpressionParser;
-import org.asup.il.expr.QPredicateExpression;
-import org.asup.il.flow.QIf;
+import org.asup.il.flow.QEval;
+import org.asup.il.flow.QMethodExec;
 import org.eclipse.jdt.core.dom.AST;
-import org.eclipse.jdt.core.dom.ASTNode;
-import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.jdt.core.dom.Block;
-import org.eclipse.jdt.core.dom.Expression;
-import org.eclipse.jdt.core.dom.IfStatement;
 
 public class JDTStatementTestWriter extends JDTStatementWriter {
 
@@ -49,94 +43,33 @@ public class JDTStatementTestWriter extends JDTStatementWriter {
 		return blocks;
 	}
 
-	@SuppressWarnings({ "unchecked"})
-	public boolean visit(QIf statement) {
-
+	public boolean visit(QEval statement) {
+		super.visit(statement);
 		Block block = blocks.peek();
-
-		IfStatement ifSt = ast.newIfStatement();
-		QPredicateExpression condition = expressionParser.parsePredicate(statement.getCondition());
-
-		Expression expression = null;
-
-		if (CompilationContextHelper.isPrimitive(compilationUnit, condition))
-			expression = buildExpression(ast, condition, Boolean.class);
-		else {
-			expression = buildExpression(ast, condition, Boolean.class);
+		
+		// Annotation
+		if(statement.getFacet(QAnnotationTest.class)!=null){
+			JDTAssertionTestWriter assertionTestWriter = new JDTAssertionTestWriter(ast, compilationUnit, expressionParser);
+			QAnnotationTest qAnnotationTest = statement.getFacet(QAnnotationTest.class);
+			assertionTestWriter.writeAssertion(qAnnotationTest, block, statement.toString());
+			// TODO remove facet annotation
+//			statement.getFacets().remove(qAnnotationTest);
 		}
-		// expression = buildExpression(ast, condition, null);
-
-		ifSt.setExpression(expression);
-
-		block.statements().add(ifSt);
-
-		// then
-		if (statement.getThen() != null) {
-			Block thenBlock = null;
-			if (ifSt.getThenStatement() instanceof Block)
-				thenBlock = (Block) ifSt.getThenStatement();
-			else {
-				thenBlock = ast.newBlock();
-				ifSt.setThenStatement(thenBlock);
-			}
-
-			blocks.push(thenBlock);
-			statement.getThen().accept(this);
-			// Annotation
-			if(statement.getThen().getFacet(QAnnotationTest.class)!=null){
-				JDTAssertionTestWriter assertionTestWriter = new JDTAssertionTestWriter(ast, compilationUnit, expressionParser);
-				QAnnotationTest qAnnotationTest = statement.getThen().getFacet(QAnnotationTest.class);
-				assertionTestWriter.writeAssertion(qAnnotationTest, thenBlock, statement.getThen().toString());
-			}
-			
-			blocks.pop();
-		}
-
-		// else
-		if (statement.getElse() != null) {
-			Block elseBlock = null;
-			if (ifSt.getElseStatement() instanceof Block)
-				elseBlock = (Block) ifSt.getElseStatement();
-			else {
-				elseBlock = ast.newBlock();
-				ifSt.setElseStatement(elseBlock);
-			}
-
-			// walk else
-			blocks.push(elseBlock);
-			statement.getElse().accept(this);
-			// Annotation
-			if(statement.getElse().getFacet(QAnnotationTest.class)!=null){
-				JDTAssertionTestWriter assertionTestWriter = new JDTAssertionTestWriter(ast, compilationUnit, expressionParser);
-				QAnnotationTest qAnnotationTest = statement.getElse().getFacet(QAnnotationTest.class);
-				assertionTestWriter.writeAssertion(qAnnotationTest, elseBlock, statement.getThen().toString());
-			}
-			blocks.pop();
-		}
-
-		// interrupt navigation
 		return false;
 	}
 
-	private Expression buildExpression(AST ast, QExpression expression, Class<?> target) {
+	public boolean visit(QMethodExec statement) {
+		super.visit(statement);
+		Block block = blocks.peek();
+		// Annotation
+		if(statement.getFacet(QAnnotationTest.class)!=null){
+			JDTAssertionTestWriter assertionTestWriter = new JDTAssertionTestWriter(ast, compilationUnit, expressionParser);
+			QAnnotationTest qAnnotationTest = statement.getFacet(QAnnotationTest.class);
+			assertionTestWriter.writeAssertion(qAnnotationTest, block, statement.toString());
+			// TODO remove facet annotation
+//			statement.getFacets().remove(qAnnotationTest);
+		}
 
-		ASTParser parser = ASTParser.newParser(AST.JLS8);
-		parser.setKind(ASTParser.K_EXPRESSION);
-
-		JDTExpressionStringBuilder builder = compilationUnit.getContext().make(JDTExpressionStringBuilder.class);
-		builder.setTarget(target);
-		expression.accept(builder);
-		String value = builder.getResult();
-
-		parser.setSource(value.toCharArray());
-		ASTNode node = parser.createAST(null);
-		if (node.getLength() == 0)
-			throw new IntegratedLanguageExpressionRuntimeException("Invalid java conversion: " + value);
-
-		Expression jdtExpression = (Expression) node;
-
-		return (Expression) ASTNode.copySubtree(ast, jdtExpression);
+		return false;
 	}
-	
-
 }

@@ -245,10 +245,11 @@ public class JDTProgramTestWriter extends JDTCallableUnitWriter {
 			QBlock qBlock = (QBlock) routine.getMain();
 			for (org.asup.il.flow.QStatement qStatement : qBlock.getStatements()){
 				qStatement.accept(statementTestWriter);
-				if(qStatement.getFacet(QAnnotationTest.class)!=null){
-					QAnnotationTest qAnnotationTest = qStatement.getFacet(QAnnotationTest.class);
-					assertionTestWriter.writeAssertion(qAnnotationTest, block, qStatement.toString());
-				}
+				// TODO probabilmente non necessario in questo punto, è stato spostato in JDTStatementTestWriter
+//				if(qStatement.getFacet(QAnnotationTest.class)!=null){
+//					QAnnotationTest qAnnotationTest = qStatement.getFacet(QAnnotationTest.class);
+//					assertionTestWriter.writeAssertion(qAnnotationTest, block, qStatement.toString());
+//				}
 			}
 			
 		} else
