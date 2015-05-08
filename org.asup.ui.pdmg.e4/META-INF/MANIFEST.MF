@@ -4,7 +4,7 @@ Bundle-Name: As.UP UI AntLR ParserTools Eclipse
 Bundle-SymbolicName: org.asup.ui.pdmg.antlr.e4;singleton:=true
 Bundle-Version: 0.5.4.qualifier
 Bundle-Activator: org.asup.ui.pdmg.antlr.e4.Activator
-Bundle-Vendor: www.smeup.com
+Bundle-Vendor: smeup.com
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,

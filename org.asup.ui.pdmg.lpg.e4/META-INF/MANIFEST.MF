@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: org.asup.ui.pdmg.lpg.e4;singleton:=true
 Bundle-Version: 0.5.4.qualifier
-Bundle-Vendor: www.smeup.com
+Bundle-Vendor: smeup.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-Name: As.UP UI LPG ParserTools Eclipse
 Require-Bundle: org.eclipse.ui,

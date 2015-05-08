@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IFile"
+            id="org.asup.ui.pdme.e4.contribution1">
+         <menu
+               icon="icons/asup_24.png"
+               id="org.asup.ui.pdme.e4.menu1"
+               label="As.UP EMF modeling tools"
+               path="additions">
+            <separator
+                  name="generator">
+            </separator>
+         </menu>
+         <action
+               label="Create genmodel file"
+               class="org.asup.ui.pdme.e4.popup.actions.GenModelGeneratorAction"
+               menubarPath="org.asup.ui.pdme.e4.menu1/generator"
+               enablesFor="1"
+               id="org.asup.ui.pdme.e4.genaction">
+         </action>
+      </objectContribution>
+   </extension>
+
+</plugin>

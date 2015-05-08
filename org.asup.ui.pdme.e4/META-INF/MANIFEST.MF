@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: As.UP
+Bundle-SymbolicName: org.asup.ui.pdme.e4;singleton:=true
+Bundle-Version: 0.5.4.qualifier
+Bundle-Activator: org.asup.ui.pdme.e4.Activator
+Bundle-Vendor: smeup.com
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
