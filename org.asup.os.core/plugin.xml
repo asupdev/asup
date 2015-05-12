@@ -83,16 +83,4 @@
          </property>
       </product>
    </extension>
-   <extension
-         id="p2_test"
-         point="org.eclipse.core.runtime.products">
-      <product
-            application="org.asup.fw.core.e4.application"
-            name="P2Tester">
-         <property
-               name="appName"
-               value="P2Tester">
-         </property>
-      </product>
-   </extension>
 </plugin>
