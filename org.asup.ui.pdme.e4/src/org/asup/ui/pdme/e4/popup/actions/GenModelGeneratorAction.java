@@ -4,7 +4,8 @@ import java.io.IOException;
 import java.util.Collections;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.core.runtime.Path;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.codegen.ecore.genmodel.GenJDKLevel;
 import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
 import org.eclipse.emf.codegen.ecore.genmodel.GenModelFactory;
@@ -29,6 +30,7 @@ public class GenModelGeneratorAction implements IObjectActionDelegate {
 
 	private Shell shell;
 	private IFile ecoreFile;
+	private IProject project;
 	
 	private Resource resource;
 	
@@ -50,13 +52,16 @@ public class GenModelGeneratorAction implements IObjectActionDelegate {
 	 * @see IActionDelegate#run(IAction)
 	 */
 	public void run(IAction action) {
+
+		IPath ecoreLocation = ecoreFile.getLocation();
+
+		String ecorePath = ecoreFile.getFullPath().toString();		
 		
-		//TODO: settare i valori giusti per questi paths
-		
-		String ecoreLocation = new String();
-		String genModelLocation = new String();
-		
-		GenModel genModel = createGenModel(resource, ecoreLocation);
+		String genModelName = ecorePath.substring(0, ecorePath.lastIndexOf("."));
+		genModelName = genModelName.substring(genModelName.lastIndexOf("/")+1);
+		String genModelLocation = ecorePath.substring(0, ecorePath.lastIndexOf(".")) + ".genmodel";
+
+		GenModel genModel = createGenModel(resource, ecoreLocation, genModelName);
 		writeGenModel(genModel, genModelLocation);
 		
 		
@@ -74,10 +79,11 @@ public class GenModelGeneratorAction implements IObjectActionDelegate {
 		
 		if(selection instanceof TreeSelection) {
 			TreeSelection treeSelection = (TreeSelection) selection;
-			
+
 			Object object = treeSelection.getFirstElement();
 			if(object instanceof IFile) {
-				this.ecoreFile = (IFile)object;					
+				this.ecoreFile = (IFile)object;		
+				this.project = ecoreFile.getProject();
 				try {	
 					this.resource = loadEcore(ecoreFile);
 				} catch (Exception e) {
@@ -87,6 +93,7 @@ public class GenModelGeneratorAction implements IObjectActionDelegate {
 		}
 		
 		action.setEnabled(true);
+		
 	}
 		
 
@@ -100,35 +107,49 @@ public class GenModelGeneratorAction implements IObjectActionDelegate {
 		return resource;
 	}
 	
-	private GenModel createGenModel(Resource resource, String ecoreLocation) {
+	private GenModel createGenModel(Resource resource, IPath ecoreLocation, String genModelName) {
 		
-			//TODO: da dove cavolo viene la Constants?
-		
-			// Get root package
-			EPackage rootPackage = (EPackage)resource.getContents().get(0);
-		
-			// Create genModel
-	        GenModel genModel = GenModelFactory.eINSTANCE.createGenModel();
-	        genModel.setComplianceLevel(GenJDKLevel.JDK70_LITERAL);
-	        //genModel.setModelDirectory(Constants.GEN_MODEL_MODEL_DIR.getValue());
-	        genModel.getForeignModel().add(new Path(ecoreLocation).lastSegment());
-	        //genModel.setModelName(Constants.GEN_MODEL_MODEL_NAME.getValue());
-	        //genModel.setRootExtendsInterface(Constants.GEN_MODEL_EXTENDS_INTERFACE.getValue());
-	        
-	        genModel.initialize(Collections.singleton(rootPackage));
+		// Get root package
+		EPackage rootPackage = (EPackage)resource.getContents().get(0);
+	
+		// Create genModel and initialize with referred ecore model
+        GenModel genModel = GenModelFactory.eINSTANCE.createGenModel();
+        genModel.getForeignModel().add(ecoreLocation.lastSegment());       
+        genModel.initialize(Collections.singleton(rootPackage));
 
-	        //GenPackage genPackage = (GenPackage)genModel.getGenPackages().get(0);
-	        //genPackage.setPrefix(Constants.GEN_MODEL_PACKAGE_PREFIX.getValue());
-	        
-	        //TODO: modificare il GenModel secondo le necessità di As.UP
-	        
-	        return genModel;
+        // Set properties for GenModel	                
+        genModel.setComplianceLevel(GenJDKLevel.JDK70_LITERAL);
+        genModel.setCopyrightText("");
+        genModel.setLanguage("EN");
+        genModel.setModelName(genModelName + " genmodel");
+        genModel.setModelDirectory(project.getName() + "/src");
+        genModel.setModelPluginID(project.getName());
+        genModel.setRootExtendsInterface("");
+        genModel.setSuppressEMFTypes(true);
+        genModel.setImportOrganizing(true);
+        
+        // Set properties for generated package
+        GenPackage genPackage = (GenPackage)genModel.getGenPackages().get(0);
+        genPackage.setPrefix(genModelName);
+        genPackage.setBasePackage(project.getName().substring(0, project.getName().lastIndexOf('.')));
+        
+        genPackage.getEcorePackage().setName("");		//TODO
+        genPackage.getEcorePackage().setNsPrefix(""); 	//TODO
+        genPackage.getEcorePackage().setNsURI("");   	//TODO
+        
+        
+        
+        
+        return genModel;
 
 	 }
 	
+	
+	
+		
 	 private void writeGenModel(GenModel genModel, final String genModelLocation) {
 		 try {
-	            URI genModelURI = URI.createFileURI(genModelLocation);
+	            org.eclipse.emf.common.util.URI genModelURI = URI.createFileURI(genModelLocation);
 	            final XMIResourceImpl genModelResource = new XMIResourceImpl(genModelURI);
 	            //genModelResource.getDefaultSaveOptions().put(XMLResource.OPTION_ENCODING, Constants.GEN_MODEL_XML_ENCODING.getValue());
 	            genModelResource.getContents().add(genModel);

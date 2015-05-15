@@ -1,17 +1,16 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: As.UP
+Bundle-Name: As.UP EMF Tools
 Bundle-SymbolicName: org.asup.ui.pdme.e4;singleton:=true
 Bundle-Version: 0.5.4.qualifier
 Bundle-Activator: org.asup.ui.pdme.e4.Activator
-Bundle-Vendor: smeup.com
+Bundle-Vendor: www.smeup.com
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipse.emf.ecore,
  org.eclipse.emf.codegen,
  org.eclipse.emf.codegen.ecore,
- org.eclipse.emf.ecore.xmi,
- org.asup.fw.core
+ org.eclipse.emf.ecore.xmi
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
