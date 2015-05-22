@@ -15,10 +15,13 @@ package org.asup.dk.compiler.rpj.writer;
 import org.asup.dk.compiler.QCompilationUnit;
 import org.asup.il.core.QAnnotationTest;
 import org.asup.il.expr.IntegratedLanguageExpressionRuntimeException;
+import org.asup.il.expr.QAtomicTermExpression;
 import org.asup.il.expr.QExpression;
 import org.asup.il.expr.QExpressionParser;
 import org.asup.il.expr.QPredicateExpression;
 import org.asup.il.expr.QRelationalExpression;
+import org.asup.il.expr.RelationalOperator;
+import org.asup.il.expr.impl.AtomicTermExpressionImpl;
 import org.eclipse.jdt.core.dom.AST;
 import org.eclipse.jdt.core.dom.ASTNode;
 import org.eclipse.jdt.core.dom.ASTParser;
@@ -41,7 +44,6 @@ public class JDTAssertionTestWriter {
 		this.compilationUnit = compilationUnit;
 	}
 
-	@SuppressWarnings("unchecked")
 	public void writeAssertion(QAnnotationTest qAnnotationTest, Block target, String message) {
 
 		QPredicateExpression expression = expressionParser.parsePredicate(qAnnotationTest.getExpression());
@@ -50,12 +52,57 @@ public class JDTAssertionTestWriter {
 			relationalExpression = (QRelationalExpression) expression;
 		} else 
 			return;
+
+		Expression leftExpression = buildExpression(ast, relationalExpression.getLeftOperand(), null);
+		Expression rightExpression = buildExpression(ast, relationalExpression.getRightOperand(), null);
+
+		String messageNormalized = "";
+		if(qAnnotationTest.getMessage().isEmpty()){
+			if(message.isEmpty()){
+				messageNormalized = "Init " + leftExpression;
+			}else{
+				messageNormalized = normalizeMessage(message);
+			}
+		}else{
+			messageNormalized = qAnnotationTest.getMessage();
+		}
 		
 		
+		QAtomicTermExpression atomicLeftExpr = null;
+		if(relationalExpression.getLeftOperand() instanceof AtomicTermExpressionImpl){
+			atomicLeftExpr = (AtomicTermExpressionImpl) relationalExpression.getLeftOperand();
+			if(compilationUnit.getDataTerm(atomicLeftExpr.getValue(), true) != null)
+				writeAssertionTrue(target, messageNormalized,buildExpression(ast, expressionParser.parseExpression(qAnnotationTest.getExpression()), null));
+			else
+				writeAssertionEquals(target, messageNormalized, leftExpression, rightExpression, relationalExpression.getOperator());
+		}else{
+			writeAssertionEquals(target, messageNormalized, leftExpression, rightExpression, relationalExpression.getOperator());
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	private void writeAssertionTrue(Block target, String message, Expression expression){
+		MethodInvocation methodInvocation = ast.newMethodInvocation();
+		methodInvocation.setExpression(ast.newSimpleName("testAsserter"));
+		methodInvocation.setName(ast.newSimpleName("assertTrue"));
+		
+		StringLiteral literal = ast.newStringLiteral();
+		literal.setLiteralValue(message);
+
+		methodInvocation.arguments().add(literal);
+		methodInvocation.arguments().add(expression);
+		
+		ExpressionStatement assertStatement = ast.newExpressionStatement(methodInvocation);
+		target.statements().add(assertStatement);
+}
+	
+	@SuppressWarnings("unchecked")
+	private void writeAssertionEquals(Block target, String message, Expression leftExpression, Expression rightExpression, RelationalOperator operator){
+
 		MethodInvocation methodInvocation = ast.newMethodInvocation();
 		methodInvocation.setExpression(ast.newSimpleName("testAsserter"));
 
-		switch (relationalExpression.getOperator()) {
+		switch (operator) {
 		case EQUAL:
 			methodInvocation.setName(ast.newSimpleName("assertEquals"));
 			break;
@@ -71,22 +118,8 @@ public class JDTAssertionTestWriter {
 			break;
 	}
 		
-		Expression leftExpression = buildExpression(ast, relationalExpression.getLeftOperand(), null);
-		Expression rightExpression = buildExpression(ast, relationalExpression.getRightOperand(), null);
-		
-		// message 
-		
 		StringLiteral literal = ast.newStringLiteral();
-		if(qAnnotationTest.getMessage().isEmpty()){
-			if(message.isEmpty()){
-				literal.setLiteralValue("Init " + leftExpression);
-			}else{
-				// normalize
-				literal.setLiteralValue(normalizeMessage(message));
-			}
-		}else{
-			literal.setLiteralValue(qAnnotationTest.getMessage());
-		}
+		literal.setLiteralValue(message);
 
 		methodInvocation.arguments().add(literal);
 		methodInvocation.arguments().add(leftExpression);
@@ -95,6 +128,7 @@ public class JDTAssertionTestWriter {
 		ExpressionStatement assertStatement = ast.newExpressionStatement(methodInvocation);
 		target.statements().add(assertStatement);
 	}
+	
 
 		// TODO bisognerebbe farne una classe
 	private Expression buildExpression(AST ast, QExpression expression, Class<?> target) {
