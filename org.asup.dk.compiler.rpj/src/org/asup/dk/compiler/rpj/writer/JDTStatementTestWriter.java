@@ -7,7 +7,7 @@
  *
  * 
  * Contributors: 
- *   Mattia Rocchi - Initial API and implementation 
+ *   Giuliano Giancristofaro - Initial API and implementation 
  */
 package org.asup.dk.compiler.rpj.writer;
 

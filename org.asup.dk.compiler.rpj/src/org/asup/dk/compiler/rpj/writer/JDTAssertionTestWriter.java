@@ -7,8 +7,7 @@
  *
  * 
  * Contributors: 
- *   Mattia Rocchi 			 - Initial API and implementation 
- *   Giuliano Giancristofaro - Implementation
+ *   Giuliano Giancristofaro - Initial API and implementation 
  */
 package org.asup.dk.compiler.rpj.writer;
 
@@ -150,7 +149,7 @@ public class JDTAssertionTestWriter {
 	
 		return (Expression) ASTNode.copySubtree(ast, jdtExpression);
 	}
-
+		// TODO verificare l'esistenza di altri metodi di normalizzazione
 	private String normalizeMessage(String message) {
 		String newMessage = "";
 		int pos =message.indexOf("("); 
