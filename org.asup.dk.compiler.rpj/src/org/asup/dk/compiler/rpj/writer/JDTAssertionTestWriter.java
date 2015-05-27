@@ -56,7 +56,7 @@ public class JDTAssertionTestWriter {
 		Expression rightExpression = buildExpression(ast, relationalExpression.getRightOperand(), null);
 
 		String messageNormalized = "";
-		if(qAnnotationTest.getMessage().isEmpty()){
+		if(qAnnotationTest.getMessage() == null){
 			if(message.isEmpty()){
 				messageNormalized = "Init " + leftExpression;
 			}else{
