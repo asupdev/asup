@@ -758,7 +758,6 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 
 		// Initialize simple dependencies
 		QIntegratedLanguageCorePackage.eINSTANCE.eClass();
-		QFrameworkCorePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theIntegratedLanguageDataPackage.createPackageContents();
@@ -3966,6 +3965,13 @@ public class IntegratedLanguageDataPackageImpl extends EPackageImpl implements Q
 		addEParameter(op, this.getHexadecimal(), "value", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(stringEClass, null, "out", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(stringEClass, this.getString(), "subst", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "start", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(stringEClass, this.getString(), "subst", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "start", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "length", 1, 1, IS_UNIQUE, IS_ORDERED);
 
 		addEOperation(stringEClass, ecorePackage.getEString(), "trim", 1, 1, IS_UNIQUE, IS_ORDERED);
 

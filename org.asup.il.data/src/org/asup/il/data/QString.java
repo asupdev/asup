@@ -337,6 +337,22 @@ public interface QString extends QBufferedData {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @model startRequired="true"
+	 * @generated
+	 */
+	QString subst(int start);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model startRequired="true" lengthRequired="true"
+	 * @generated
+	 */
+	QString subst(int start, int length);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @model required="true"
 	 * @generated
 	 */
