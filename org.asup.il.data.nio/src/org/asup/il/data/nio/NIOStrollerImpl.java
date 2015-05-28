@@ -435,4 +435,14 @@ public class NIOStrollerImpl<D extends QDataStruct> extends NIOScrollerImpl<D> i
 	public boolean le(QHexadecimal value) {
 		return current().le(value);
 	}
+
+	@Override
+	public QString subst(int start) {
+		return current().subst(start);
+	}
+
+	@Override
+	public QString subst(int start, int length) {
+		return current().subst(start, length);
+	}
 }

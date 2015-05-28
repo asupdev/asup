@@ -559,4 +559,14 @@ public abstract class QDataStructWrapper implements QDataStruct, QBufferedDataDe
 	public void move(QDecimal value, boolean clear) {
 		delegate.move(value, clear);
 	}
+
+	@Override
+	public QString subst(int start) {
+		return delegate.subst(start);
+	}
+
+	@Override
+	public QString subst(int start, int length) {
+		return delegate.subst(start, length);
+	}
 }

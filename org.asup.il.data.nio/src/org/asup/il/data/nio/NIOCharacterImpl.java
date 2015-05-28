@@ -489,4 +489,16 @@ public class NIOCharacterImpl extends NIOBufferedDataImpl implements QCharacter 
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public QString subst(int start) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public QString subst(int start, int length) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
