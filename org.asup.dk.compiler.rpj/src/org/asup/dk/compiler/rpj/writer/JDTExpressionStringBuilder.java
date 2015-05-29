@@ -11,6 +11,7 @@
  */
 package org.asup.dk.compiler.rpj.writer;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -317,8 +318,68 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 		else if (namedNode instanceof QPrototype) {
 			QPrototype<?> prototype = (QPrototype<?>) namedNode;
 
-			StringBuffer value = new StringBuffer();
+			// TODO bisognerebbe capire se il metodo è valido, 
+			// se si, si procede con la normalizzazione altrimenti si va avanti come prima.
+			String method = compilationUnit.normalizeTermName(namedNode.getName()); 
+			
+			List<String> params = new ArrayList<String>();
+			if (prototype.getEntry() != null) {
+				Iterator<QEntryParameter<?>> entryParameters = prototype.getEntry().getParameters().iterator();
 
+				// parameters
+				JDTExpressionStringBuilder parameterBuilder = compilationUnit.getContext().make(JDTExpressionStringBuilder.class);
+				boolean first = true;
+				for (QExpression element : expression.getElements()) {
+					if (!entryParameters.hasNext())
+						throw new IntegratedLanguageExpressionRuntimeException("Invalid procedure invocation: " + namedNode.getName());
+					
+					QEntryParameter<?> entryParameter = entryParameters.next();
+					QTerm parameterDelegate = entryParameter.getDelegate();
+
+					parameterBuilder.clear();
+					if (parameterDelegate instanceof QDataTerm) {
+						QDataTerm<?> dataTerm = (QDataTerm<?>) parameterDelegate;
+						if (dataTerm.isConstant())
+							parameterBuilder.setTarget(dataTerm.getDefinition().getJavaClass());
+						else
+							parameterBuilder.setTarget(dataTerm.getDefinition().getDataClass());
+					} else if (parameterDelegate instanceof QFileTerm) {
+						parameterBuilder.setTarget(QFileTerm.class);
+					}
+					element.accept(parameterBuilder);
+					params.add(parameterBuilder.getResult());
+					first = false;
+				}
+
+			} else {
+				if (!expression.getElements().isEmpty())
+					throw new IntegratedLanguageExpressionRuntimeException("Invalid parameters number binding  procedure: " + namedNode.getName());
+			}
+
+			StringBuffer value = new StringBuffer();
+			value.append(params.get(0));
+			value.append(".");
+			value.append(method);
+			value.append("(");
+			boolean first = true;
+			int i = 0;
+			for(String parm : params){
+				// salto il promo parametro
+				if(i==0){
+					i++;
+					continue;
+				}
+				
+				if (!first)
+					value.append(", ");
+				value.append(parm);
+				first = false;
+			}
+			value.append(")");
+
+			writeValue(prototype.getDelegate().getDefinition().getDataClass(), this.target, value.toString());
+			
+/*		
 			value.append(compilationUnit.getQualifiedName(namedNode));
 			value.append("(");
 
@@ -372,6 +433,8 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 			value.append(")");
 
 			writeValue(prototype.getDelegate().getDefinition().getDataClass(), this.target, value.toString());
+*/
+		
 		} else if (namedNode instanceof QUnaryAtomicDataTerm<?>) {
 
 			QUnaryAtomicDataTerm<?> unaryAtomicDataTerm = (QUnaryAtomicDataTerm<?>) namedNode;
