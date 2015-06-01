@@ -733,9 +733,11 @@ public class RPJCompilationUnitImpl extends CompilationUnitImpl {
 				nameBuffer.append('ç');
 			} else if (c == '&') {
 				// nameBuffer.append('');
+			} else if (c == '#') {
+				// nameBuffer.append('');
 			} else if (c == '%') {
-//				nameBuffer.append('q');
-//				firstToUpper = true;
+				nameBuffer.append('q');
+				firstToUpper = true;
 			} else if (c == '*') {
 				nameBuffer.append('q');
 				allToUpper = true;
