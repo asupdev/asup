@@ -316,15 +316,10 @@ public class JDTExpressionStringBuilder extends ExpressionVisitorImpl {
 		// prototype
 		else if (namedNode instanceof QPrototype) {
 
-			// TODO provo a fare una forzatura qui e su qRPJ.xmi
-			QNamedNode namedNodeWork = compilationUnit.getNamedNode(expression.getValue().replace("%", "#"), true);
-			if(namedNodeWork!=null) {
-				namedNode = namedNodeWork;
 				writeAssignment((QPrototype<?>) namedNode, expression, compilationUnit.normalizeTermName(namedNode.getName()));
-			}else
-				writePrototype((QPrototype<?>) namedNode, expression, compilationUnit.normalizeTermName(namedNode.getName()));
-			
-		
+				
+			//	vecchia scrittura qRPJ
+			//	writePrototype((QPrototype<?>) namedNode, expression, compilationUnit.normalizeTermName(namedNode.getName()));
 		} else if (namedNode instanceof QUnaryAtomicDataTerm<?>) {
 
 			QUnaryAtomicDataTerm<?> unaryAtomicDataTerm = (QUnaryAtomicDataTerm<?>) namedNode;

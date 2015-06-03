@@ -1846,7 +1846,7 @@
     <prototypes>
       <delegate
           xsi:type="il-data:UnaryAtomicDataTerm"
-          name="%scan">
+          name="%scan_old">
         <definition
             xsi:type="il-data:NumericDef"/>
       </delegate>
@@ -1880,6 +1880,56 @@
               default="">
             <definition
                 xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              constant="true"
+              name="length"
+              default="">
+            <definition
+                xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+      </entry>
+    </prototypes>
+    <prototypes>
+      <delegate
+          xsi:type="il-data:UnaryAtomicDataTerm"
+          name="%scan">
+        <definition
+            xsi:type="il-data:NumericDef"/>
+      </delegate>
+      <entry>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="argument"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:StringDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              constant="true"
+              name="start"
+              default="">
+            <definition
+                xsi:type="il-data:NumericDef"/>
+          </delegate>
+        </parameters>
+        <parameters>
+          <delegate
+              xsi:type="il-data:UnaryAtomicDataTerm"
+              name="source"
+              default=""
+              mandatory="true">
+            <definition
+                xsi:type="il-data:StringDef"/>
           </delegate>
         </parameters>
         <parameters>
@@ -2337,97 +2387,6 @@
               default="">
             <definition
                 xsi:type="il-data:StringDef"/>
-          </delegate>
-        </parameters>
-      </entry>
-    </prototypes>
-    <prototypes>
-      <delegate
-          xsi:type="il-data:UnaryAtomicDataTerm"
-          name="#scan">
-        <definition
-            xsi:type="il-data:NumericDef"/>
-      </delegate>
-      <entry>
-        <parameters>
-          <delegate
-              xsi:type="il-data:UnaryAtomicDataTerm"
-              name="argument"
-              default=""
-              mandatory="true">
-            <definition
-                xsi:type="il-data:StringDef"/>
-          </delegate>
-        </parameters>
-        <parameters>
-          <delegate
-              xsi:type="il-data:UnaryAtomicDataTerm"
-              name="source"
-              default=""
-              mandatory="true">
-            <definition
-                xsi:type="il-data:StringDef"/>
-          </delegate>
-        </parameters>
-        <parameters>
-          <delegate
-              xsi:type="il-data:UnaryAtomicDataTerm"
-              constant="true"
-              name="start"
-              default="">
-            <definition
-                xsi:type="il-data:NumericDef"/>
-          </delegate>
-        </parameters>
-        <parameters>
-          <delegate
-              xsi:type="il-data:UnaryAtomicDataTerm"
-              constant="true"
-              name="length"
-              default="">
-            <definition
-                xsi:type="il-data:NumericDef"/>
-          </delegate>
-        </parameters>
-      </entry>
-    </prototypes>
-    <prototypes>
-      <delegate
-          xsi:type="il-data:UnaryAtomicDataTerm"
-          name="#subst">
-        <definition
-            xsi:type="il-data:StringDef"/>
-      </delegate>
-      <entry>
-        <parameters>
-          <delegate
-              xsi:type="il-data:UnaryAtomicDataTerm"
-              name="string"
-              default=""
-              mandatory="true">
-            <definition
-                xsi:type="il-data:StringDef"/>
-          </delegate>
-        </parameters>
-        <parameters>
-          <delegate
-              xsi:type="il-data:UnaryAtomicDataTerm"
-              constant="true"
-              name="start"
-              default=""
-              mandatory="true">
-            <definition
-                xsi:type="il-data:NumericDef"/>
-          </delegate>
-        </parameters>
-        <parameters>
-          <delegate
-              xsi:type="il-data:UnaryAtomicDataTerm"
-              constant="true"
-              name="length"
-              default="">
-            <definition
-                xsi:type="il-data:NumericDef"/>
           </delegate>
         </parameters>
       </entry>
