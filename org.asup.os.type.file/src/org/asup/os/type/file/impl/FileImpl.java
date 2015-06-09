@@ -235,12 +235,12 @@ public abstract class FileImpl extends TypedObjectImpl implements QFile {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == QNode.class) {
 			switch (derivedFeatureID) {
+				case QOperatingSystemFilePackage.FILE__FACETS: return QIntegratedLanguageCorePackage.NODE__FACETS;
 				default: return -1;
 			}
 		}
 		if (baseClass == QNamedNode.class) {
 			switch (derivedFeatureID) {
-				case QOperatingSystemFilePackage.FILE__FACETS: return QIntegratedLanguageCorePackage.NAMED_NODE__FACETS;
 				default: return -1;
 			}
 		}
@@ -256,12 +256,12 @@ public abstract class FileImpl extends TypedObjectImpl implements QFile {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == QNode.class) {
 			switch (baseFeatureID) {
+				case QIntegratedLanguageCorePackage.NODE__FACETS: return QOperatingSystemFilePackage.FILE__FACETS;
 				default: return -1;
 			}
 		}
 		if (baseClass == QNamedNode.class) {
 			switch (baseFeatureID) {
-				case QIntegratedLanguageCorePackage.NAMED_NODE__FACETS: return QOperatingSystemFilePackage.FILE__FACETS;
 				default: return -1;
 			}
 		}
